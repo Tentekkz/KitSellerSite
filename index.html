@@ -1679,6 +1679,256 @@ nav{height:92px!important}
   .fqin{padding:0 1.15rem 1.15rem!important}
 }
 
+
+/* === final clean pass === */
+.brand-logo{
+  height:58px!important;
+  width:auto!important;
+  max-width:240px!important;
+}
+nav .nlogo{
+  min-width:220px!important;
+}
+nav{
+  height:88px!important;
+}
+.hero{
+  padding-top:148px!important;
+}
+.stats-bar .sbi:nth-child(3) .sbn,
+.stats-bar .stat:nth-child(3) .stat-num{
+  font-size:0!important;
+}
+.stats-bar .sbi:nth-child(3) .sbn::before,
+.stats-bar .stat:nth-child(3) .stat-num::before{
+  content:"17 страниц";
+  font-size:clamp(1.7rem,3vw,3rem)!important;
+}
+.stats-bar .sbi:nth-child(3) .sbl,
+.stats-bar .stat:nth-child(3) .stat-label{
+  font-size:0!important;
+}
+.stats-bar .sbi:nth-child(3) .sbl::before,
+.stats-bar .stat:nth-child(3) .stat-label::before{
+  content:"В Excel-отчёте";
+  font-size:1rem!important;
+  color:#667085!important;
+}
+.calcsec,#calc{display:none!important}
+.pcard.hot .pctx,
+.price-card.popular .pnote{
+  font-size:0!important;
+}
+.pcard.hot .pctx::before,
+.price-card.popular .pnote::before{
+  content:"14 дней бесплатно, потом 990 ₸ / месяц";
+  font-size:1.05rem!important;
+  line-height:1.6!important;
+  color:#667085!important;
+}
+.fq,.faq-item{
+  background:#fff!important;
+  border:1px solid rgba(7,17,31,.10)!important;
+  border-radius:20px!important;
+  box-shadow:0 14px 42px rgba(7,17,31,.055)!important;
+}
+.fqq,.faq-q{
+  background:#fff!important;
+  color:#07111f!important;
+  font-weight:900!important;
+  letter-spacing:-.025em!important;
+}
+@media(max-width:760px){
+  .brand-logo{height:44px!important;max-width:180px!important}
+  nav .nlogo{min-width:160px!important}
+  nav{height:76px!important}
+  .hero{padding-top:108px!important}
+}
+
+
+/* ======================================================
+   KitSeller 10/10 conversion polish
+   ====================================================== */
+:root{
+  --ten-ink:#06111f;
+  --ten-muted:#667085;
+  --ten-soft:#98a2b3;
+  --ten-line:#e7edf3;
+  --ten-teal:#0ea5a4;
+  --ten-teal2:#14b8a6;
+}
+body{
+  background:
+    radial-gradient(900px 560px at 18% -8%, rgba(14,165,164,.18), transparent 62%),
+    radial-gradient(720px 460px at 92% 2%, rgba(20,184,166,.10), transparent 66%),
+    linear-gradient(180deg,#fff 0%,#f8fafc 40%,#fff 100%)!important;
+}
+
+/* Bigger confident logo */
+.brand-logo{height:60px!important;max-width:250px!important;width:auto!important}
+nav .nlogo{min-width:230px!important}
+nav{height:90px!important}
+
+/* Hero: cleaner hierarchy */
+.hero{
+  padding-top:152px!important;
+  padding-bottom:94px!important;
+}
+.hero-mega,.hero-sub-row,.stripe-hero-visual,.hero-ticker,.ks-offer-strip{
+  width:min(1240px,100%)!important;
+}
+.mega-line{
+  font-size:clamp(4.6rem,10.8vw,11.6rem)!important;
+  line-height:.88!important;
+  letter-spacing:-.088em!important;
+  font-weight:950!important;
+}
+.mega-line .outline{
+  color:var(--ten-ink)!important;
+  opacity:.16!important;
+  -webkit-text-stroke:0!important;
+}
+.mega-line .red,.mega-line .ghost{
+  color:transparent!important;
+  background:linear-gradient(90deg,var(--ten-teal),var(--ten-teal2))!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+}
+.hero-desc{
+  max-width:720px!important;
+  font-size:clamp(1.05rem,1.45vw,1.28rem)!important;
+  line-height:1.72!important;
+  color:var(--ten-muted)!important;
+}
+.hero-desc strong{color:var(--ten-ink)!important}
+.hero-pills{display:none!important}
+.ks-offer-strip{
+  margin:2rem auto 0!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:.75rem!important;
+  color:#475467!important;
+  font-weight:850!important;
+  letter-spacing:-.015em!important;
+}
+.ks-offer-strip span{
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(6,17,31,.09);
+  box-shadow:0 12px 34px rgba(6,17,31,.055);
+  border-radius:999px;
+  padding:.72rem 1rem;
+}
+.ks-offer-strip i{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--ten-teal);
+  opacity:.75;
+}
+
+/* Hero product visual: dominant but not messy */
+.stripe-hero-visual{
+  margin-top:4.1rem!important;
+  grid-template-columns:minmax(0,1.62fr) minmax(260px,.48fr)!important;
+  gap:1.35rem!important;
+}
+.stripe-main-window{
+  transform:scale(1.035)!important;
+  transform-origin:center top!important;
+  box-shadow:0 48px 128px rgba(6,17,31,.16)!important;
+}
+.stripe-upload-card h3{font-size:2.1rem!important}
+.stripe-kpi-row{grid-template-columns:repeat(4,1fr)!important}
+
+/* Make all important cards feel premium */
+.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.price-card,.faq-item,.rv-card,.demo-card,.calc-card,.cbox,.pcard,.phone,.fq{
+  background:
+    radial-gradient(360px 180px at 15% 0%,rgba(14,165,164,.06),transparent 70%),
+    linear-gradient(180deg,#fff,#fbfdff)!important;
+  border:1px solid rgba(6,17,31,.09)!important;
+  box-shadow:0 22px 68px rgba(6,17,31,.075)!important;
+}
+.flagship-card:hover,.extra-card:hover,.fcard:hover,.fwcard:hover,.ba-col:hover,.price-card:hover,.faq-item:hover,.fq:hover{
+  transform:translateY(-7px)!important;
+  border-color:rgba(14,165,164,.34)!important;
+  box-shadow:0 40px 108px rgba(6,17,31,.12)!important;
+}
+
+/* Price: simple and clear */
+.pcard.hot .pctx,
+.price-card.popular .pnote{
+  font-size:0!important;
+}
+.pcard.hot .pctx::before,
+.price-card.popular .pnote::before{
+  content:"14 дней бесплатно, потом 990 ₸ / месяц";
+  font-size:1.05rem!important;
+  line-height:1.6!important;
+  color:#667085!important;
+}
+.pcard.hot .pamount::after,
+.price-card.popular .pamount::after{
+  content:"";
+  display:none!important;
+}
+
+/* FAQ clean */
+.faqwrap{
+  width:min(980px,100%)!important;
+  margin:2.5rem auto 0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:.85rem!important;
+}
+.fq{
+  border-radius:20px!important;
+  overflow:hidden!important;
+}
+.fqq{
+  padding:1.25rem 1.45rem!important;
+  color:var(--ten-ink)!important;
+  font-weight:900!important;
+  letter-spacing:-.025em!important;
+}
+.fqin{
+  padding:0 1.45rem 1.35rem!important;
+  color:#667085!important;
+  line-height:1.65!important;
+}
+
+/* final CTA */
+.ctabox::after{
+  content:"14 дней бесплатно • потом 990 ₸ / месяц • 17 страниц Excel"!important;
+}
+
+/* no calculator */
+.calcsec,#calc{display:none!important}
+
+/* mobile */
+@media(max-width:980px){
+  .stripe-hero-visual{grid-template-columns:1fr!important}
+  .stripe-main-window{transform:none!important}
+}
+@media(max-width:760px){
+  .brand-logo{height:44px!important;max-width:180px!important}
+  nav .nlogo{min-width:160px!important}
+  nav{height:76px!important}
+  .hero{padding-top:108px!important}
+  .mega-line{
+    font-size:clamp(3.2rem,18vw,5.7rem)!important;
+    letter-spacing:-.075em!important;
+  }
+  .ks-offer-strip{
+    gap:.55rem!important;
+  }
+  .ks-offer-strip span{
+    width:100%;
+    text-align:center;
+  }
+  .ks-offer-strip i{display:none}
+  .stripe-kpi-row{grid-template-columns:1fr 1fr!important}
+}
+
 </style>
 </head>
 <body>
@@ -1729,15 +1979,14 @@ nav{height:92px!important}
 
   <div class="hero-sub-row">
     <div>
-      <p class="hero-desc" data-i18n="hero_desc">
-        <strong>Накладные, сборочный лист и глубокая Excel-аналитика</strong> в одном Telegram-боте.<br><br>
+      <p class="hero-desc" data-i18n="hero_desc">Загрузи ZIP → получи готовый PDF и Excel-отчёт на 17 страниц. Без ручной возни, ошибок и лишнего Excel.</strong> в одном Telegram-боте.<br><br>
         Собирайте заказы быстрее, снижайте хаос на упаковке и получайте понятные отчёты по бизнесу без ручной рутины.
       </p>
       <!-- Hero product pills -->
       <div class="hero-pills" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem">
-        <div class="hero-pill"><span>📦</span> <span data-i18n="pill1">Накладные ZIP → PDF за 10 сек</span></div>
-        <div class="hero-pill"><span>📊</span> <span data-i18n="pill2">Excel-аналитика из Kaspi Pay</span></div>
-        <div class="hero-pill"><span>🗂</span> <span data-i18n="pill3">Разбивка по товарам</span></div>
+        <div class="hero-pill"><span>📦</span> L дней бесплатно</span></div>
+        <div class="hero-pill"><span>📊</span> <span data-i18n="pill2">Потом 990 ₸ / месяц</span></div>
+        <div class="hero-pill"><span>🗂</span> O страниц Excel</span></div>
       </div>
     </div>
     <div class="hero-cta-wrap">
@@ -1748,7 +1997,16 @@ nav{height:92px!important}
       <a href="https://t.me/sellerkit_bot" class="btn-o magnetic"><span data-i18n="hero_btn2">Открыть бота →</span></a>
     </div>
   </div>
-<div class="hero-ticker">
+
+  <div class="ks-offer-strip">
+    <span>14 дней бесплатно</span>
+    <i></i>
+    <span>потом 990 ₸ / месяц</span>
+    <i></i>
+    <span>17 страниц Excel</span>
+  </div>
+
+  <div class="hero-ticker">
     <div class="htinner" id="htinner"></div>
   </div>
 </section>
@@ -1778,8 +2036,8 @@ nav{height:92px!important}
         <div class="fl-num">01</div>
         <span class="fl-icon">📦</span>
         <div class="fl-tag t-r" data-i18n="fl1_tag">// Накладные и сборка</div>
-        <div class="fl-title" data-i18n="fl1_title">Накладные за 10 секунд.<br>Начни на упаковке.</div>
-        <p class="fl-desc" data-i18n="fl1_desc">Отправляешь ZIP из Kaspi Магазина — получаешь готовые PDF. Один клик разбивает накладные по товарам и создаёт сборочный лист. Упаковщик берёт только свою пачку. Никакой путаницы.</p>
+        <div class="fl-title" data-i18n="fl1_title">Накладные за 10 секунд</div>
+        <p class="fl-desc" data-i18n="fl1_desc">ZIP → готовый PDF для печати. Без ручной сортировки и лишних действий.</p>
         <ul class="fl-list">
           <li data-i18n="fl1_li1">ZIP из Kaspi → готовые PDF за 10 секунд</li>
           <li data-i18n="fl1_li2">Разбивка по товарам — отдельный PDF на каждый</li>
@@ -1789,7 +2047,7 @@ nav{height:92px!important}
         </ul>
         <div class="fl-result">
           <span style="color:var(--grey2)">// пример</span><br>
-          <span style="color:var(--r)">input</span>: <span style="color:var(--green)">накладные.zip</span> · 47 штук<br>
+          <span style="color:var(--r)">input</span>: <span style="color:var(--green)">orders.zip</span> · 47 штук<br>
           <span style="color:var(--r)">output</span>: <span style="color:var(--snow)">10 PDF + сборочный.xlsx</span><br>
           <span style="color:var(--r)">time</span>: <span style="color:var(--snow)">12 сек</span> <span style="color:var(--green)">✓</span> <span style="color:var(--grey2)">раньше: 40 мин</span>
         </div>
@@ -1805,8 +2063,8 @@ nav{height:92px!important}
         <div class="fl-num">02</div>
         <span class="fl-icon">📊</span>
         <div class="fl-tag t-g" data-i18n="fl2_tag">// Excel-аналитика</div>
-        <div class="fl-title" data-i18n="fl2_title">Понятные цифры<br>по бизнесу за 30 сек.</div>
-        <p class="fl-desc" data-i18n="fl2_desc">Два файла из Kaspi Pay → готовый детальный отчёт на 17 страницах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.</p>
+        <div class="fl-title" data-i18n="fl2_title">Excel-отчёт на 17 страниц</div>
+        <p class="fl-desc" data-i18n="fl2_desc">Выручка, расходы, маржа, товары и итоговые цифры — всё собрано в одном понятном файле.</p>
         <ul class="fl-list">
           <li data-i18n="fl2_li1">2 Excel из Kaspi Pay → 17 страниц отчёта</li>
           <li data-i18n="fl2_li2">Топ товаров, выручка, расходы, маржа</li>
@@ -1837,7 +2095,7 @@ nav{height:92px!important}
     <div class="sr" style="text-align:center;margin-bottom:0">
       <div class="stag" style="justify-content:center" data-i18n="ba_tag">До / После</div>
       <h2 class="h2" data-i18n="ba_h2">Что меняется<br><span class="acc">с первого дня</span></h2>
-      <p class="sub" style="max-width:480px;margin:1rem auto 0" data-i18n="ba_sub">Реальный сценарий: 30+ заказов в день, накладные вручную, цифры бизнеса непонятны.</p>
+      <p class="sub" style="max-width:480px;margin:1rem auto 0" data-i18n="ba_sub">Меньше ручной работы. Больше порядка в заказах и цифрах.</p>
     </div>
 
     <!-- WAYBILLS BEFORE/AFTER -->
@@ -1908,16 +2166,16 @@ nav{height:92px!important}
           <div class="fc-tag" data-i18n="fc1_tag">Ключевой инструмент</div>
           <span class="fc-icon">📦</span>
           <div class="fc-title" data-i18n="fc1_title">Накладные за 10 секунд</div>
-          <p class="fc-desc" data-i18n="fc1_desc">Скидываешь ZIP из Kaspi Магазина — получаешь готовый PDF. Термопринтер, A4, 4 или 9 на листе. Сортировка по товару, по дедлайну или отдельные файлы на каждый товар.<br><br>147 накладных. 9.3 секунды. Раньше уходило 40 минут.</p>
+          <p class="fc-desc" data-i18n="fc1_desc">Скидываешь ZIP из Kaspi Магазина — получаешь готовый PDF. Термопринтер, A4, 4 или 9 на листе. Сортировка по товару, по дедлайну или отдельные файлы на каждый товар.<br><br>147 PDF. 9.3 секунды. Раньше уходило 40 минут.</p>
         </div>
         <div style="background:var(--void);border:1px solid var(--edge);border-radius:12px;padding:1.5rem;font-family:var(--fm);font-size:.75rem;line-height:1.9;color:var(--grey)">
           <span style="color:var(--grey2)">// входящие данные</span><br>
-          <span style="color:var(--r)">input</span>: <span style="color:var(--green)">накладные.zip</span><br>
+          <span style="color:var(--r)">input</span>: <span style="color:var(--green)">orders.zip</span><br>
           <span style="color:var(--r)">format</span>: <span style="color:var(--green)">"9_на_лист"</span><br>
           <span style="color:var(--r)">sort</span>: <span style="color:var(--green)">"по_дедлайну"</span><br><br>
           <span style="color:var(--grey2)">// результат</span><br>
           <span style="color:var(--r)">output</span>: <span style="color:var(--green)">готово.pdf</span><br>
-          <span style="color:var(--r)">count</span>: <span style="color:#fff">147 накладных</span><br>
+          <span style="color:var(--r)">count</span>: <span style="color:#fff">147 PDF</span><br>
           <span style="color:var(--r)">time</span>: <span style="color:#fff">9.3 сек</span> ✓
         </div>
       </div>
@@ -1999,7 +2257,7 @@ nav{height:92px!important}
         <div class="stag" data-i18n="fw_tag">Для кого</div>
         <h2 class="h2" data-i18n="fw_h2">Это для тебя,<br><span class="dim">если узнаёшь</span><br><span class="acc">себя здесь</span></h2>
       </div>
-      <p class="sub" data-i18n="fw_sub">Если хоть один пункт про тебя — бот сэкономит минимум час в день и даст понятные цифры по бизнесу.</p>
+      <p class="sub" data-i18n="fw_sub">Если заказов становится больше, ручная работа начинает съедать время и деньги.</p>
     </div>
     <div class="fwinner">
       <div class="fwlist sr">
@@ -2029,32 +2287,6 @@ nav{height:92px!important}
 </section>
 
 <!-- ══ CALC ══ -->
-<section class="calcsec" id="calc">
-  <div class="secin">
-    <div class="sr">
-      <div class="stag" data-i18n="calc_tag">Экономия времени</div>
-      <h2 class="h2" data-i18n="calc_h2">Посчитай сколько<br><span class="acc">стоит рутина</span><br><span class="dim">каждый день</span></h2>
-    </div>
-    <div class="cbox sr">
-      <div class="chead">
-        <div class="cdots"><div class="cdot" style="background:#ff5f57"></div><div class="cdot" style="background:#febc2e"></div><div class="cdot" style="background:#28c840"></div></div>
-        <span class="cht">savings_calculator.ts</span>
-      </div>
-      <div class="cbody">
-        <div class="crow"><span class="clbl" data-i18n="calc_s1">Заказов в день</span><div class="cslw"><input type="range" min="5" max="200" value="30" id="s1" oninput="rc()"></div><div class="cval" id="v1">30</div></div>
-        <div class="crow"><span class="clbl" data-i18n="calc_s2">Минут на накладную</span><div class="cslw"><input type="range" min="0.5" max="5" value="2" step="0.5" id="s2" oninput="rc()"></div><div class="cval" id="v2">2</div></div>
-        <div class="crow"><span class="clbl" data-i18n="calc_s3">Рабочих дней в месяц</span><div class="cslw"><input type="range" min="10" max="30" value="26" id="s3" oninput="rc()"></div><div class="cval" id="v3">26</div></div>
-        <div class="cresults">
-          <div class="cs"><div class="csn o" id="rh">26.0</div><div class="csl2" data-i18n="calc_r1">Часов тратишь</div></div>
-          <div class="cs"><div class="csn g" id="rs">24.7</div><div class="csl2" data-i18n="calc_r2">Часов экономишь</div></div>
-          <div class="cs"><div class="csn g" id="rc2">162 ₸</div><div class="csl2" data-i18n="calc_r3">Цена часа экономии</div></div>
-        </div>
-        <p class="cmeta" data-i18n="calc_meta">* 95% экономии времени · подписка 990 ₸/мес · данные приблизительные</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══ DEMO ══ -->
 <section class="demosec" id="demo">
   <div class="secin">
@@ -2355,7 +2587,7 @@ nav{height:92px!important}
 
 <footer>
   <div><div class="flogo"><img src="kitseller-logo.png" alt="KitSeller" class="footer-logo"></div><p class="fcopy" data-i18n="footer_copy">© 2026 Path of Peaks · Казахстан</p></div>
-  <ul class="flinks"><li><a href="https://t.me/sellerkit_bot" data-i18n="footer_bot">Бот</a></li><li><a href="https://t.me/sellerkit_bot" data-i18n="footer_support">Поддержка</a></li><li><a href="#faq">FAQ</a></li><li><a href="#pricing" data-i18n="nav_pricing">Тарифы</a></li><li><a href="/offer.html">Оферта</a></li><li><a href="/privacy.html">Конфиденциальность</a></li></ul>
+  <ul class="flinks"><li><a href="https://t.me/sellerkit_bot" data-i18n="footer_bot">Бот</a></li><li><a href="https://t.me/sellerkit_bot" data-i18n="footer_support">Поддержка</a></li><li><a href="#faq">FAQ</a></li><li><a href="#pricing" data-i18n="nav_pricing">Тарифы</a></li><li><a href="offer.html">Оферта</a></li><li><a href="privacy.html">Конфиденциальность</a></li></ul>
 </footer>
 
 <script>
@@ -2491,17 +2723,7 @@ function cmob(){document.getElementById('mob').classList.remove('o')}
 // ticker is initialised by setLang() on load
 
 /* ════ CALC ════ */
-function rc(){
-  const o=+document.getElementById('s1').value;
-  const t=+document.getElementById('s2').value;
-  const d=+document.getElementById('s3').value;
-  document.getElementById('v1').textContent=o;
-  document.getElementById('v2').textContent=t;
-  document.getElementById('v3').textContent=d;
-  ['s1','s2','s3'].forEach(id=>{
-    const el=document.getElementById(id);
-    el.style.setProperty('--v',((el.value-el.min)/(el.max-el.min)*100).toFixed(1)+'%');
-  });
+);
   const h=(o*t*d/60).toFixed(1);
   const s=(o*t*d*.95/60).toFixed(1);
   document.getElementById('rh').textContent=h;
@@ -2652,15 +2874,15 @@ const LANG={
     nav_pricing:'Тарифы', nav_cta:'Попробовать →', mob_open:'Открыть бота →',
     badge_free:'ПОПРОБУЙ<br>БЕСПЛАТНО',
     hero_line1:'Работай', hero_line2:'умнее',
-    hero_desc:'<strong>Накладные, сборочный лист и глубокая Excel-аналитика</strong> в одном Telegram-боте.<br><br>Собирайте заказы быстрее, снижайте хаос на упаковке и получайте понятные отчёты по бизнесу без ручной рутины.',
-    pill1:'Накладные ZIP → PDF за 10 сек', pill2:'Excel-аналитика из Kaspi Pay', pill3:'Разбивка по товарам',
+    hero_desc:'Загрузи ZIP → получи готовый PDF и Excel-отчёт на 17 страниц. Без ручной возни, ошибок и лишнего Excel.',
+    L дней бесплатно', pill2:'Потом 990 ₸ / месяц', O страниц Excel',
     hero_btn:'Попробовать бесплатно', hero_btn2:'Открыть бота →',
     stat1_lbl:'Обработка накладных', stat2_lbl:'В месяц', stat3_lbl:'В Excel-отчёте', stat4_lbl:'Накладных и отчётов',
     feat_tag:'Как это работает',
     feat_h2:'Загрузил файл —<br><span class="dim">получил</span><br><span class="acc">результат</span>',
     feat_sub:'Никаких регистраций, API ключей и сторонних сервисов. Просто отправь файл в Telegram — бот сделает всё остальное.',
     fc1_tag:'Ключевой инструмент', fc1_title:'Накладные за 10 секунд',
-    fc1_desc:'Скидываешь ZIP из Kaspi Магазина — получаешь готовый PDF. Термопринтер, A4, 4 или 9 на листе. Сортировка по товару, по дедлайну или отдельные файлы на каждый товар.<br><br>147 накладных. 9.3 секунды. Раньше уходило 40 минут.',
+    fc1_desc:'Скидываешь ZIP из Kaspi Магазина — получаешь готовый PDF. Термопринтер, A4, 4 или 9 на листе. Сортировка по товару, по дедлайну или отдельные файлы на каждый товар.<br><br>147 PDF. 9.3 секунды. Раньше уходило 40 минут.',
     fc2_tag:'Аналитика', fc2_title:'Полный отчёт из двух Excel',
     fc2_desc:'Два файла из Kaspi Pay (.xlsx) → детальный отчёт с выручкой, расходами, топ‑товарами и разбивкой по дням. 17 страниц за 30 секунд. Все данные остаются у тебя.',
     fc3_tag:'Калькулятор', fc3_title:'Точная маржа с первой попытки',
@@ -2682,12 +2904,12 @@ const LANG={
     fws1:'Столько тратят продавцы на ручную обработку накладных в день при 30+ заказах. Каждый день.',
     fws2:'В месяц. Меньше стакана кофе в день. 14 дней бесплатно, потом 990 ₸ в месяц.<br><span class="dim">результата</span><br><span class="acc">для бизнеса</span>',
     fl_sub:'Не просто «набор функций», а два инструмента которые решают конкретные проблемы каждого дня. Отправил файл — получил результат.',
-    fl1_tag:'// Накладные и сборка', fl1_title:'Накладные за 10 секунд.<br>Начни на упаковке.',
+    fl1_tag:'// Накладные и сборка', fl1_title:'Накладные за 10 секунд',
     fl1_desc:'Отправляешь ZIP из Kaspi Магазина — получаешь готовые PDF. Один клик разбивает накладные по товарам и создаёт сборочный лист. Упаковщик берёт только свою пачку. Никакой путаницы.',
     fl1_li1:'ZIP из Kaspi → готовые PDF за 10 секунд', fl1_li2:'Разбивка по товарам — отдельный PDF на каждый',
     fl1_li3:'Сборочный лист Excel с количеством', fl1_li4:'Меньше путаницы на сборке', fl1_li5:'Быстрее работа упаковщика',
     fl1_cta:'Сделать накладные за 10 секунд →',
-    fl2_tag:'// Excel-аналитика', fl2_title:'Понятные цифры<br>по бизнесу за 30 сек.',
+    fl2_tag:'// Excel-аналитика', fl2_title:'Excel-отчёт на 17 страниц',
     fl2_desc:'Два файла из Kaspi Pay → готовый детальный отчёт на 17 страницах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.',
     fl2_li1:'2 Excel из Kaspi Pay → 17 страниц отчёта', fl2_li2:'Топ товаров, выручка, расходы, маржа',
     fl2_li3:'Динамика по дням, часам и дням недели', fl2_li4:'Умные выводы: лучший день, высокий возврат',
@@ -2784,9 +3006,9 @@ const LANG={
     nav_pricing:'Тарифтер', nav_cta:'Тегін көру →', mob_open:'Ботты ашу →',
     badge_free:'ТЕГІН<br>БАЙҚАП КӨР',
     hero_line1:'Kaspi', hero_line2:'Tools',
-    hero_desc:'Бір Telegram-бот сағаттар бойғы қолмен жұмысты алмастырады.<br><strong>Жүкқұжаттар, аналитика, калькулятор</strong> — секундтар ішінде.<br>Тауарлар бойынша бөлу, жинақ тізімі, 17 страниц Excel парағы.<br>API керек емес. Файлды жібер — нәтижені ал.',
+    hero_desc:'Загрузи ZIP → получи готовый PDF и Excel-отчёт на 17 страниц. Без ручной возни, ошибок и лишнего Excel.',
     hero_btn:'Тегін бастау', hero_btn2:'Қарау ↓',
-    stat1_lbl:'Жүкқұжат өңдеу', stat2_lbl:'Айына', stat3_lbl:'Excel есебінде', stat4_lbl:'Жүкқұжат және есептер',
+    stat1_lbl:'Жүкқұжат өңдеу', stat2_lbl:'Айына', stat3_lbl:'В Excel-отчёте', stat4_lbl:'Жүкқұжат және есептер',
     feat_tag:'Құралдар',
     feat_h2:'Алты құрал<br><span class="dim">уақытты шынымен</span><br><span class="acc">үнемдейді</span>',
     feat_sub:'Әр құрал нақты мәселені шешеді. Артық сөз жоқ — тікелей Telegram арқылы жұмыс істейді, тіркеусіз және үшінші тарап қызметтерінсіз.',
@@ -2865,7 +3087,7 @@ const LANG={
     // Pricing lists
     p1_li1:'1 рет — Жүкқұжаттар', p1_li2:'1 рет — Аналитика', p1_li3:'5 рет — Калькулятор',
     p1_li4:'Валюта бағамдары — шексіз', p1_li5:'QR-кодтар — шексіз', p1_li6:'Тіркеусіз, картасыз',
-    p2_per:'/ай', p2_ctx:'= <span class="hl">күніне 99 ₸</span>. Күніне 20 тапсырыста алғашқы екі жұмыс күнінде ақталады. Онлайн төлем — қол жеткізу лезде ашылады.',
+    p2_per:'/ай', p2_ctx:'14 дней бесплатно, потом 990 ₸ / месяц. Күніне 20 тапсырыста алғашқы екі жұмыс күнінде ақталады. Онлайн төлем — қол жеткізу лезде ашылады.',
     p2_li1:'Жүкқұжаттар — шексіз', p2_li2:'Аналитика — шексіз', p2_li3:'Калькулятор — шексіз',
     p2_li4:'Бағамдар + хабарландырулар', p2_li5:'QR-кодтар — шексіз', p2_li6:'Telegram арқылы қолдау',
     p2_li7:'Жаңа мүмкіндіктер қосымша ақысыз', p2_li8:'Кез келген уақытта тоқтатуға болады',
@@ -2977,7 +3199,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
       <li>Там же нажмите Выписка — скачайте за тот же период</li>
     </ol>
     <h2>Что входит в отчёт — 17 страниц Excel</h2>
-    <p>Бот @sellerkit_bot обрабатывает оба файла и создаёт Excel с 10 листами: Сводка (P&L), Топ товаров, По дням, По часам, Дни недели, Ценовые сегменты, Бренды, Возвраты, Способы оплаты, Все операции. Первый отчёт бесплатно на @sellerkit_bot.</p>
+    <p>Бот @sellerkit_bot обрабатывает оба файла и создаёт Excel с 17 страницами: Сводка (P&L), Топ товаров, По дням, По часам, Дни недели, Ценовые сегменты, Бренды, Возвраты, Способы оплаты, Все операции. Первый отчёт бесплатно на @sellerkit_bot.</p>
     <h2>Аналитика Kaspi Pay — умные выводы</h2>
     <p>После анализа бот показывает: лучший день за период, товары с высоким процентом возвратов, лучший день недели, пиковые часы покупок. Можно сравнить два периода между собой.</p>
   </article>
