@@ -1,13 +1,223 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Оферта — KitSeller</title><link rel="icon" href="kitseller-icon.png"><style>
-:root{--ink:#07111f;--muted:#667085;--line:#e7edf3;--teal:#0ea5a4}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Публичная оферта — KitSeller</title>
+  <link rel="icon" href="kitseller-icon.png">
+  <style>
+:root{
+  --ink:#07111f;
+  --muted:#667085;
+  --soft:#98a2b3;
+  --line:#e7edf3;
+  --teal:#0ea5a4;
+  --teal-dark:#0f766e;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(800px 420px at 15% -8%,rgba(14,165,164,.14),transparent 60%),linear-gradient(180deg,#fff,#f8fafc)}
-.wrap{width:min(960px,calc(100% - 36px));margin:0 auto;padding:42px 0 80px}
-.nav{height:86px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(255,255,255,.78);backdrop-filter:blur(20px);position:sticky;top:0;z-index:5;padding:0 42px}
-.logo{height:52px;width:auto}.back{background:#07111f;color:white;text-decoration:none;border-radius:16px;padding:14px 20px;font-weight:900;box-shadow:0 18px 44px rgba(7,17,31,.16)}
-.card{background:rgba(255,255,255,.88);border:1px solid rgba(7,17,31,.09);border-radius:28px;box-shadow:0 26px 86px rgba(7,17,31,.09);padding:clamp(24px,4vw,52px);margin-top:42px}
-.badge{display:inline-flex;color:#0f766e;background:rgba(14,165,164,.09);border:1px solid rgba(14,165,164,.20);border-radius:999px;padding:8px 14px;font-weight:950;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
-h1{font-size:clamp(38px,7vw,76px);line-height:.95;letter-spacing:-.07em;margin:22px 0;color:#07111f}h2{font-size:28px;letter-spacing:-.04em;margin:34px 0 12px}
-p,li{color:var(--muted);font-size:18px;line-height:1.75}ul{padding-left:22px}strong{color:#07111f}.footer{color:#98a2b3;font-size:14px;margin-top:28px}
-@media(max-width:760px){.nav{padding:0 18px;height:76px}.logo{height:40px}.back{padding:11px 14px}.wrap{padding-top:24px}.card{border-radius:22px}}
-</style></head><body><div class="nav"><img src="kitseller-logo.png" class="logo" alt="KitSeller"><a class="back" href="index.html">На главную</a></div><main class="wrap"><section class="card"><span class="badge">Публичная оферта</span><h1>Условия использования KitSeller</h1><p>Этот документ описывает основные условия использования Telegram-бота <strong>KitSeller</strong>.</p><h2>1. Что предоставляет сервис</h2><p>KitSeller помогает продавцам обрабатывать файлы, формировать накладные, сборочные материалы и Excel-отчёты.</p><h2>2. Тариф</h2><p>При старте доступно <strong>14 дней бесплатно</strong>. После пробного периода стоимость составляет <strong>990 ₸ / месяц</strong>.</p><h2>3. Ответственность пользователя</h2><p>Пользователь самостоятельно отвечает за корректность загружаемых файлов и использование полученных результатов.</p><h2>4. Контакт</h2><p>Telegram-бот: <strong>@kitseller_bot</strong>.</p><p class="footer">KitSeller • @kitseller_bot</p></section></main></body></html>
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(900px 520px at 16% -8%,rgba(14,165,164,.14),transparent 62%),
+    radial-gradient(720px 440px at 88% 0%,rgba(20,184,166,.08),transparent 64%),
+    linear-gradient(180deg,#fff 0%,#f8fafc 45%,#fff 100%);
+}
+.nav{
+  height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:0 clamp(18px,4vw,72px);
+  border-bottom:1px solid rgba(7,17,31,.08);
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(22px) saturate(170%);
+  -webkit-backdrop-filter:blur(22px) saturate(170%);
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 10px 36px rgba(7,17,31,.045);
+}
+.logo{
+  height:52px;
+  width:auto;
+  max-width:220px;
+  object-fit:contain;
+}
+.back{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  background:#07111f;
+  text-decoration:none;
+  border-radius:16px;
+  padding:14px 20px;
+  font-weight:900;
+  box-shadow:0 18px 44px rgba(7,17,31,.16);
+  transition:.22s ease;
+}
+.back:hover{
+  transform:translateY(-2px);
+  background:var(--teal);
+  box-shadow:0 22px 54px rgba(14,165,164,.25);
+}
+.wrap{
+  width:min(1040px,calc(100% - 36px));
+  margin:0 auto;
+  padding:52px 0 90px;
+}
+.card{
+  background:rgba(255,255,255,.9);
+  border:1px solid rgba(7,17,31,.09);
+  border-radius:32px;
+  box-shadow:0 30px 96px rgba(7,17,31,.09);
+  padding:clamp(24px,4.5vw,64px);
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  color:var(--teal-dark);
+  background:rgba(14,165,164,.09);
+  border:1px solid rgba(14,165,164,.20);
+  border-radius:999px;
+  padding:8px 14px;
+  font-size:13px;
+  font-weight:950;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+h1{
+  font-size:clamp(32px,5.8vw,64px);
+  line-height:.98;
+  letter-spacing:-.06em;
+  margin:18px 0 22px;
+  color:var(--ink);
+}
+h2{
+  font-size:clamp(24px,3vw,34px);
+  line-height:1.08;
+  letter-spacing:-.045em;
+  margin:42px 0 14px;
+  color:var(--ink);
+  padding-top:10px;
+  border-top:1px solid rgba(7,17,31,.08);
+}
+p{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.78;
+}
+p.clause,p.num{
+  color:#465266;
+}
+strong{color:var(--ink)}
+.footer-note{
+  margin-top:36px;
+  padding-top:22px;
+  border-top:1px solid rgba(7,17,31,.08);
+  color:var(--soft);
+  font-size:14px;
+}
+@media(max-width:760px){
+  .nav{height:76px;padding:0 18px}
+  .logo{height:40px;max-width:165px}
+  .back{padding:11px 14px;border-radius:14px;font-size:14px}
+  .wrap{padding:28px 0 70px}
+  .card{border-radius:24px}
+  p{font-size:16px;line-height:1.72}
+}
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" aria-label="KitSeller"><img src="kitseller-logo.png" class="logo" alt="KitSeller"></a>
+    <a class="back" href="index.html">На главную</a>
+  </nav>
+  <main class="wrap">
+    <article class="card">
+      <div class="badge">Публичная оферта</div>
+      <p>Политика проведения платежей. Оплата банковской картой онлайн</p>
+<p>Наш Telegram-бот подключен к интернет-эквайрингу, и Вы можете оплатить подписку банковской картой Visa или Mastercard прямо в Telegram-боте. После подтверждения выбранного тарифа откроется защищенное окно с платежной страницей платёжного сервиса Robokassa (robokassa.kz), где Вам необходимо ввести данные Вашей банковской карты. Мы используем протокол 3D Secure для подтверждения оплаты.</p>
+<p>В поля на платежной странице требуется ввести номер карты, адрес электронной почты, срок действия карты, трёхзначный код безопасности (CVV2 для VISA или CVC2 для MasterCard).</p>
+<p>CVV2/CVC2 — это трёхзначный код безопасности, находящийся на оборотной стороне карты.</p>
+<p>Случаи отказа в совершении платежа:</p>
+<p>правильно ли были введены реквизиты карты и срок её действия;</p>
+<p>достаточно ли средств на вашей карте;</p>
+<p>открыта ли возможность проведения оплат в интернете;</p>
+<p>не превышен ли ежедневный лимит на платежи в интернете.</p>
+<p>По вопросам непрошедшей оплаты обратитесь в службу поддержки банка-эмитента или в поддержку KaspiTools: @peaks_kz</p>
+<h2>Гарантии безопасности</h2>
+<p>Платёжный сервис Robokassa защищает и обрабатывает данные Вашей банковской карты по стандарту безопасности PCI DSS. Передача информации в платежный шлюз происходит с применением технологии шифрования SSL. Robokassa не передает данные Вашей карты третьим лицам. Для дополнительной аутентификации используется протокол 3D Secure.</p>
+<p>По вопросам платежей: support@robokassa.kz</p>
+<h2>Безопасность онлайн-платежей</h2>
+<p>Предоставляемая Вами персональная информация является конфиденциальной. Данные Вашей банковской карты передаются только в зашифрованном виде и не сохраняются на нашем сервере. Безопасность обработки платежей гарантирует Robokassa в соответствии с требованиями VISA International и MasterCard Worldwide.</p>
+<h1>ДОГОВОР ПУБЛИЧНОЙ ОФЕРТЫ</h1>
+<p>на предоставление услуг Telegram-бота KaspiTools</p>
+<p>Текст настоящего Договора является публичной офертой на использование онлайн-сервиса «@kitseller_bot» (далее — Telegram-бот), доступ к которому предоставляет ИП Path of Peaks (далее — Администратор).</p>
+<p>Оплата услуг, представленных в Telegram-боте Администратора, физическим лицом (далее — Пользователь) является акцептом данной публичной оферты, что равносильно заключению договора на условиях, изложенных в нём.</p>
+<h2>1. Основные положения</h2>
+<p class='clause'>1.1. Пользователь и Администратор заключили настоящий Договор на получение услуг Администратора в соответствии с действующим законодательством Республики Казахстан.</p>
+<p class='clause'>1.2. Термины, используемые в тексте Договора:</p>
+<p>«Оферта» — публичное предложение на использование онлайн-сервиса;</p>
+<p>«Акцепт» — безоговорочное принятие Пользователем условий Договора в полном объёме;</p>
+<p>«Администратор» — ИП Path of Peaks, сервис-провайдер и собственник Telegram-бота;</p>
+<p>«Пользователь» — физическое лицо, которое принимает условия Договора и пользуется услугами Telegram-бота;</p>
+<p>«Услуги» — автоматизация работы продавцов на маркетплейсе Kaspi.kz: обработка накладных, аналитика продаж, калькулятор юнит-экономики, курсы валют, QR-коды;</p>
+<p>«Telegram-бот» — бот, доступный по адресу @kitseller_bot.</p>
+<h2>2. Предмет оферты</h2>
+<p class='clause'>2.1. Администратор предоставляет услуги по автоматизации работы продавцов на маркетплейсе Kaspi.kz посредством Telegram-бота @kitseller_bot.</p>
+<p class='clause'>2.2. Администратор обязуется оказывать техническое обслуживание и поддержку Telegram-бота.</p>
+<p class='clause'>2.3. Действующая редакция Договора находится в Telegram-боте в публичном доступе по команде /offer, а также на сайте kitseller.kz</p>
+<h2>3. Использование сервиса</h2>
+<p class='clause'>3.1. Для получения услуг Пользователь производит оплату выбранного тарифа. Регистрация осуществляется автоматически при первом обращении к Telegram-боту.</p>
+<p class='clause'>3.2. Оплата Пользователем означает безоговорочное и полное согласие с условиями Договора. День оплаты считается днём заключения Договора на срок 31 (тридцать один) календарный день.</p>
+<h2>4. Конфиденциальность и защита данных</h2>
+<p class='clause'>4.1. При использовании Telegram-бота Администратор обрабатывает следующие данные: Telegram ID и имя пользователя — для идентификации; дата и статус подписки — для управления доступом; статистика использования инструментов — для улучшения сервиса.</p>
+<p class='clause'>4.2. Загружаемые файлы (ZIP, XLSX) обрабатываются только в оперативной памяти сервера и удаляются сразу после обработки. На сервере не сохраняются.</p>
+<p class='clause'>4.3. Администратор обязуется не разглашать полученную от Пользователя информацию третьим лицам, за исключением случаев, предусмотренных законодательством Республики Казахстан.</p>
+<h2>5. Права и обязанности сторон</h2>
+<p class='clause'>5.1. Администратор обязуется:</p>
+<p>оказывать техническую поддержку и обеспечивать работу сервиса не менее 95% времени в месяц;</p>
+<p>не разглашать персональные данные Пользователя;</p>
+<p>уведомить об изменении условий предоставления Услуг за 3 дня через Telegram-бот.</p>
+<p class='clause'>5.2. Пользователь обязуется:</p>
+<p>не передавать доступ к своему аккаунту третьим лицам;</p>
+<p>использовать сервис в законных целях;</p>
+<p>не предпринимать действий, нарушающих работу Telegram-бота.</p>
+<h2>6. Порядок оплаты</h2>
+<p class='clause'>6.1. Стоимость подписки: 990 (девятьсот девяносто) тенге в месяц (31 день).</p>
+<p class='clause'>6.2. Оплата производится банковскими картами через платёжный сервис Robokassa. Доступ открывается автоматически в течение 5 секунд после подтверждения оплаты.</p>
+<p class='clause'>6.3. Услуги предоставляются при условии 100% предоплаты.</p>
+<p class='clause'>6.4. Администратор автоматически контролирует срок истечения предоставления Услуг и уведомляет Пользователя за 7 и 3 дня до окончания.</p>
+<h2>7. Ответственность сторон и разрешение споров</h2>
+<p class='clause'>7.1. За неисполнение или ненадлежащее исполнение обязательств Стороны несут ответственность в соответствии с действующим законодательством Республики Казахстан.</p>
+<p class='clause'>7.2. Администратор не несёт ответственности за решения, принятые Пользователем на основании данных отчётов, сформированных Telegram-ботом.</p>
+<p class='clause'>7.3. Все споры разрешаются путём мирных переговоров. В случае недостижения согласия — в судебном порядке по месту регистрации Администратора.</p>
+<h2>8. Срок действия договора и его расторжение</h2>
+<p class='clause'>8.1. Договор вступает в силу с момента акцепта (оплаты) и действует в течение оплаченного периода (31 день).</p>
+<p class='clause'>8.2. Пользователь вправе отказаться от услуг в течение 3 (трёх) календарных дней с даты оплаты при условии, что Услуги не были использованы. Для возврата необходимо направить заявление на @peaks_kz.</p>
+<p class='clause'>8.3. Возврат денежных средств производится в течение 14 (четырнадцати) рабочих дней после подтверждения Администратором.</p>
+<p class='clause'>8.4. Администратор вправе заблокировать доступ при нарушении Пользователем условий Договора без возврата средств.</p>
+<h2>9. Прочие условия</h2>
+<p class='clause'>9.1. Администратор вправе в одностороннем порядке изменить условия Договора, уведомив Пользователей через Telegram-бот за 3 дня.</p>
+<p class='clause'>9.2. Стороны освобождаются от ответственности за неисполнение условий Договора в случае форс-мажорных обстоятельств (стихийные бедствия, военные действия, решения государственных органов).</p>
+<p class='clause'>9.3. Во всём, что не предусмотрено настоящим Договором, Стороны руководствуются действующим законодательством Республики Казахстан.</p>
+<h2>Реквизиты Администратора</h2>
+<p>ИП Path of Peaks</p>
+<h1>ИИН: 950313300415</h1>
+<p>Адрес: 040400 РК, Алматинская обл., г. Есик, 1 мкр., д. 6</p>
+<p>Телефон: +7 776 608 8813</p>
+<p>Email: ergazin013@gmail.com</p>
+<p>Telegram: @peaks_kz</p>
+<p>Сайт: kitseller.kz</p>
+      <p class="footer-note">KitSeller • @kitseller_bot</p>
+    </article>
+  </main>
+</body>
+</html>

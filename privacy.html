@@ -1,13 +1,201 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Политика конфиденциальности — KitSeller</title><link rel="icon" href="kitseller-icon.png"><style>
-:root{--ink:#07111f;--muted:#667085;--line:#e7edf3;--teal:#0ea5a4}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Политика конфиденциальности — KitSeller</title>
+  <link rel="icon" href="kitseller-icon.png">
+  <style>
+:root{
+  --ink:#07111f;
+  --muted:#667085;
+  --soft:#98a2b3;
+  --line:#e7edf3;
+  --teal:#0ea5a4;
+  --teal-dark:#0f766e;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(800px 420px at 15% -8%,rgba(14,165,164,.14),transparent 60%),linear-gradient(180deg,#fff,#f8fafc)}
-.wrap{width:min(960px,calc(100% - 36px));margin:0 auto;padding:42px 0 80px}
-.nav{height:86px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(255,255,255,.78);backdrop-filter:blur(20px);position:sticky;top:0;z-index:5;padding:0 42px}
-.logo{height:52px;width:auto}.back{background:#07111f;color:white;text-decoration:none;border-radius:16px;padding:14px 20px;font-weight:900;box-shadow:0 18px 44px rgba(7,17,31,.16)}
-.card{background:rgba(255,255,255,.88);border:1px solid rgba(7,17,31,.09);border-radius:28px;box-shadow:0 26px 86px rgba(7,17,31,.09);padding:clamp(24px,4vw,52px);margin-top:42px}
-.badge{display:inline-flex;color:#0f766e;background:rgba(14,165,164,.09);border:1px solid rgba(14,165,164,.20);border-radius:999px;padding:8px 14px;font-weight:950;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
-h1{font-size:clamp(38px,7vw,76px);line-height:.95;letter-spacing:-.07em;margin:22px 0;color:#07111f}h2{font-size:28px;letter-spacing:-.04em;margin:34px 0 12px}
-p,li{color:var(--muted);font-size:18px;line-height:1.75}ul{padding-left:22px}strong{color:#07111f}.footer{color:#98a2b3;font-size:14px;margin-top:28px}
-@media(max-width:760px){.nav{padding:0 18px;height:76px}.logo{height:40px}.back{padding:11px 14px}.wrap{padding-top:24px}.card{border-radius:22px}}
-</style></head><body><div class="nav"><img src="kitseller-logo.png" class="logo" alt="KitSeller"><a class="back" href="index.html">На главную</a></div><main class="wrap"><section class="card"><span class="badge">Конфиденциальность</span><h1>Политика конфиденциальности</h1><p>KitSeller использует данные только для работы сервиса и обработки файлов, которые пользователь отправляет в бот.</p><h2>1. Какие данные используются</h2><p>Сервис может обрабатывать файлы, которые пользователь самостоятельно загружает в Telegram-бот.</p><h2>2. Для чего нужны данные</h2><p>Данные используются для формирования накладных, сборочных материалов и Excel-отчётов.</p><h2>3. Передача третьим лицам</h2><p>Мы не продаём и не передаём пользовательские файлы третьим лицам для рекламы или маркетинга.</p><h2>4. Контакт</h2><p>По вопросам сервиса: <strong>@kitseller_bot</strong>.</p><p class="footer">KitSeller • 14 дней бесплатно, потом 990 ₸ / месяц</p></section></main></body></html>
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(900px 520px at 16% -8%,rgba(14,165,164,.14),transparent 62%),
+    radial-gradient(720px 440px at 88% 0%,rgba(20,184,166,.08),transparent 64%),
+    linear-gradient(180deg,#fff 0%,#f8fafc 45%,#fff 100%);
+}
+.nav{
+  height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:0 clamp(18px,4vw,72px);
+  border-bottom:1px solid rgba(7,17,31,.08);
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(22px) saturate(170%);
+  -webkit-backdrop-filter:blur(22px) saturate(170%);
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 10px 36px rgba(7,17,31,.045);
+}
+.logo{
+  height:52px;
+  width:auto;
+  max-width:220px;
+  object-fit:contain;
+}
+.back{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  background:#07111f;
+  text-decoration:none;
+  border-radius:16px;
+  padding:14px 20px;
+  font-weight:900;
+  box-shadow:0 18px 44px rgba(7,17,31,.16);
+  transition:.22s ease;
+}
+.back:hover{
+  transform:translateY(-2px);
+  background:var(--teal);
+  box-shadow:0 22px 54px rgba(14,165,164,.25);
+}
+.wrap{
+  width:min(1040px,calc(100% - 36px));
+  margin:0 auto;
+  padding:52px 0 90px;
+}
+.card{
+  background:rgba(255,255,255,.9);
+  border:1px solid rgba(7,17,31,.09);
+  border-radius:32px;
+  box-shadow:0 30px 96px rgba(7,17,31,.09);
+  padding:clamp(24px,4.5vw,64px);
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  color:var(--teal-dark);
+  background:rgba(14,165,164,.09);
+  border:1px solid rgba(14,165,164,.20);
+  border-radius:999px;
+  padding:8px 14px;
+  font-size:13px;
+  font-weight:950;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+h1{
+  font-size:clamp(32px,5.8vw,64px);
+  line-height:.98;
+  letter-spacing:-.06em;
+  margin:18px 0 22px;
+  color:var(--ink);
+}
+h2{
+  font-size:clamp(24px,3vw,34px);
+  line-height:1.08;
+  letter-spacing:-.045em;
+  margin:42px 0 14px;
+  color:var(--ink);
+  padding-top:10px;
+  border-top:1px solid rgba(7,17,31,.08);
+}
+p{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.78;
+}
+p.clause,p.num{
+  color:#465266;
+}
+strong{color:var(--ink)}
+.footer-note{
+  margin-top:36px;
+  padding-top:22px;
+  border-top:1px solid rgba(7,17,31,.08);
+  color:var(--soft);
+  font-size:14px;
+}
+@media(max-width:760px){
+  .nav{height:76px;padding:0 18px}
+  .logo{height:40px;max-width:165px}
+  .back{padding:11px 14px;border-radius:14px;font-size:14px}
+  .wrap{padding:28px 0 70px}
+  .card{border-radius:24px}
+  p{font-size:16px;line-height:1.72}
+}
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" aria-label="KitSeller"><img src="kitseller-logo.png" class="logo" alt="KitSeller"></a>
+    <a class="back" href="index.html">На главную</a>
+  </nav>
+  <main class="wrap">
+    <article class="card">
+      <div class="badge">Конфиденциальность</div>
+      <h1>ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</h1>
+<h1>И ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
+<p>Telegram-бота KaspiTools (@kaspitoolsbot)</p>
+<p>Настоящая Политика конфиденциальности и обработки персональных данных регулирует порядок обработки и использования персональных и иных данных Telegram-бота @kitseller_bot (далее — Оператор). Действующая редакция настоящей Политики постоянно доступна в Telegram-боте по команде /privacy, а также на сайте kitseller.kz</p>
+<p>Передавая Оператору персональные данные посредством Telegram-бота, Пользователь подтверждает своё согласие на использование указанных данных на условиях, изложенных в настоящей Политике.</p>
+<p>Если Пользователь не согласен с условиями настоящей Политики, он обязан прекратить использование Telegram-бота. Безусловным акцептом настоящей Политики является начало использования Telegram-бота.</p>
+<h1>1. ТЕРМИНЫ</h1>
+<p class='clause'>1.1. Telegram-бот — бот, расположенный в сети Интернет по адресу @kitseller_bot. Все исключительные права на Telegram-бот принадлежат Оператору в полном объёме.</p>
+<p class='clause'>1.2. Оператор — ИП Path of Peaks, собственник Telegram-бота @kitseller_bot.</p>
+<p class='clause'>1.3. Пользователь — лицо, использующее Telegram-бот.</p>
+<p class='clause'>1.4. Законодательство — действующее законодательство Республики Казахстан.</p>
+<p class='clause'>1.5. Персональные данные — данные Пользователя, которые Пользователь предоставляет самостоятельно при использовании функционала Telegram-бота.</p>
+<p class='clause'>1.6. Услуги — автоматизация работы продавцов на маркетплейсе Kaspi.kz: обработка накладных, аналитика продаж, калькулятор юнит-экономики, курсы валют, QR-коды.</p>
+<h1>2. СБОР И ОБРАБОТКА ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
+<p class='clause'>2.1. Оператор собирает и хранит только те данные, которые необходимы для оказания Услуг и взаимодействия с Пользователем.</p>
+<p class='clause'>2.2. Персональные данные используются в следующих целях:</p>
+<p>оказание Услуг Пользователю;</p>
+<p>идентификация Пользователя;</p>
+<p>взаимодействие с Пользователем (уведомления о подписке);</p>
+<p>проведение статистических исследований для улучшения сервиса.</p>
+<p class='clause'>2.3. Оператор обрабатывает следующие данные:</p>
+<p>Telegram ID и имя пользователя — для идентификации;</p>
+<p>дата и статус подписки — для управления доступом;</p>
+<p>статистика использования инструментов (без личных данных) — для улучшения качества.</p>
+<p class='clause'>2.4. Загружаемые Пользователем файлы (ZIP-архивы накладных, Excel-файлы из Kaspi Pay) обрабатываются исключительно в оперативной памяти сервера и удаляются сразу после обработки. Данные файлы не сохраняются на серверах Оператора.</p>
+<p class='clause'>2.5. Пользователю запрещается передавать через Telegram-бот персональные данные третьих лиц без их согласия.</p>
+<h1>3. ПОРЯДОК ОБРАБОТКИ ДАННЫХ</h1>
+<p class='clause'>3.1. Оператор обязуется использовать персональные данные в соответствии с Законом «О персональных данных и их защите» Республики Казахстан.</p>
+<p class='clause'>3.2. В отношении персональных данных Пользователя сохраняется их конфиденциальность, кроме случаев, когда данные являются общедоступными.</p>
+<p class='clause'>3.4. Оператор вправе передавать персональные данные без согласия Пользователя только:</p>
+<p>государственным органам по их мотивированному запросу в соответствии с законодательством;</p>
+<p>в иных случаях, прямо предусмотренных действующим законодательством РК.</p>
+<p class='clause'>3.5. Данные не передаются третьим лицам в коммерческих целях и не используются для рекламных рассылок без согласия Пользователя.</p>
+<h1>4. ЗАЩИТА ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
+<p class='clause'>4.1. Оператор принимает необходимые организационные и технические меры для защиты персональных данных от неправомерного доступа, уничтожения, изменения, блокирования и иных неправомерных действий.</p>
+<p class='clause'>4.2. Доступ к персональным данным имеет только Оператор. Данные хранятся на защищённых серверах.</p>
+<h1>5. ПРАВА ПОЛЬЗОВАТЕЛЯ</h1>
+<p class='clause'>5.1. Пользователь вправе запросить удаление всех своих данных из системы, направив обращение на @peaks_kz или по email Оператора. Данные будут удалены в течение 7 рабочих дней.</p>
+<p class='clause'>5.2. Пользователь вправе запросить информацию о составе хранимых данных.</p>
+<h1>6. ИНЫЕ ПОЛОЖЕНИЯ</h1>
+<p class='clause'>6.1. К настоящей Политике и отношениям между Пользователем и Оператором применяется право Республики Казахстан.</p>
+<p class='clause'>6.2. Все споры разрешаются в соответствии с законодательством по месту регистрации Оператора. Обязательный досудебный порядок: претензия в письменном виде, срок ответа — 30 рабочих дней.</p>
+<p class='clause'>6.3. Оператор вправе в любой момент изменить настоящую Политику в одностороннем порядке. Изменения вступают в силу с момента их публикации в Telegram-боте. Продолжение использования бота означает согласие с изменениями.</p>
+<p class='clause'>6.4. Если отдельные положения Политики будут признаны недействительными, это не влияет на действительность остальных положений.</p>
+<h2>Реквизиты Оператора</h2>
+<p>ИП Path of Peaks</p>
+<h1>ИИН: 950313300415</h1>
+<p>Адрес: 040400 РК, Алматинская обл., г. Есик, 1 мкр., д. 6</p>
+<p>Email: ergazin013@gmail.com</p>
+<p>Телефон: +7 776 608 8813</p>
+<p>Telegram: @peaks_kz</p>
+<p>Сайт: kitseller.kz</p>
+      <p class="footer-note">KitSeller • @kitseller_bot</p>
+    </article>
+  </main>
+</body>
+</html>
