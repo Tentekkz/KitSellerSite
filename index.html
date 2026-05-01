@@ -1530,6 +1530,155 @@ section[class*="calc"]{
   }
 }
 
+
+/* === Code review fixes: logo, stats, pricing, FAQ === */
+.brand-logo{
+  height:64px!important;
+  width:auto!important;
+  max-width:260px!important;
+  object-fit:contain!important;
+  display:block!important;
+}
+nav .nlogo{
+  min-width:230px!important;
+  display:flex!important;
+  align-items:center!important;
+}
+.footer-logo{
+  height:54px!important;
+  width:auto!important;
+  max-width:250px!important;
+}
+nav{height:92px!important}
+.hero{padding-top:158px!important}
+
+/* fixed top stat: 17 pages */
+.stats-bar .sbi:nth-child(3) .sbn{
+  font-size:0!important;
+}
+.stats-bar .sbi:nth-child(3) .sbn::before{
+  content:"17 страниц";
+  font-size:clamp(1.7rem,3vw,3rem)!important;
+}
+.stats-bar .sbi:nth-child(3) .sbl{
+  font-size:0!important;
+}
+.stats-bar .sbi:nth-child(3) .sbl::before{
+  content:"В Excel-отчёте";
+  font-size:1rem!important;
+  color:#667085!important;
+}
+
+/* hide economy calculator section */
+.calcsec,#calc{
+  display:none!important;
+}
+
+/* pricing clean-up */
+.pctx .hl{
+  color:#0f766e!important;
+  background:rgba(14,165,164,.08)!important;
+  border-radius:8px!important;
+  padding:.1rem .35rem!important;
+}
+.pcard.hot .pctx{
+  font-size:1.05rem!important;
+  line-height:1.6!important;
+  color:#667085!important;
+}
+.pcard.hot .pctx::before{
+  content:"14 дней бесплатно, потом 990 ₸ / месяц";
+}
+.pcard.hot .pctx{
+  font-size:0!important;
+}
+.pcard.hot .pctx::before{
+  font-size:1.05rem!important;
+}
+.pcard.hot .pamount::after{
+  content:"";
+  display:none!important;
+}
+
+/* FAQ actual markup redesign */
+.faqwrap{
+  width:min(980px,100%)!important;
+  margin:2.5rem auto 0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:.85rem!important;
+}
+.fq{
+  width:100%!important;
+  border:1px solid rgba(7,17,31,.10)!important;
+  border-radius:20px!important;
+  background:#fff!important;
+  box-shadow:0 14px 42px rgba(7,17,31,.055)!important;
+  overflow:hidden!important;
+}
+.fqq{
+  width:100%!important;
+  min-height:64px!important;
+  padding:1.25rem 1.45rem!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:1rem!important;
+  background:#fff!important;
+  border:0!important;
+  color:#07111f!important;
+  font-size:1.05rem!important;
+  line-height:1.25!important;
+  font-weight:900!important;
+  letter-spacing:-.025em!important;
+  text-align:left!important;
+}
+.fqico{
+  width:34px!important;
+  height:34px!important;
+  flex:0 0 34px!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:999px!important;
+  background:rgba(14,165,164,.09)!important;
+  color:#0f766e!important;
+  font-weight:950!important;
+}
+.fqa{
+  background:#fff!important;
+}
+.fqin{
+  padding:0 1.45rem 1.35rem!important;
+  color:#667085!important;
+  line-height:1.65!important;
+  font-size:.98rem!important;
+}
+.fq:hover{
+  border-color:rgba(14,165,164,.30)!important;
+  box-shadow:0 22px 62px rgba(7,17,31,.085)!important;
+}
+
+/* cleaner headings that looked too broken */
+.h2,.fc-title,.fwtitle,.ctah{
+  line-height:1.02!important;
+  text-wrap:balance!important;
+}
+.sec-head .sub,.sub{
+  line-height:1.7!important;
+  color:#667085!important;
+}
+
+/* mobile */
+@media(max-width:760px){
+  .brand-logo{height:46px!important;max-width:180px!important}
+  nav .nlogo{min-width:160px!important}
+  nav{height:78px!important}
+  .hero{padding-top:112px!important}
+  .faqwrap{gap:.7rem!important}
+  .fqq{font-size:.98rem!important;padding:1.05rem 1.15rem!important}
+  .fqin{padding:0 1.15rem 1.15rem!important}
+}
+
 </style>
 </head>
 <body>
@@ -1608,7 +1757,7 @@ section[class*="calc"]{
 <div class="stats-bar">
   <div class="sbi"><div class="sbn" data-count="10" data-suf=" сек">10 сек</div><div class="sbl" data-i18n="stat1_lbl">Обработка накладных</div></div>
   <div class="sbi"><div class="sbn" data-count="990" data-suf=" ₸">990 ₸</div><div class="sbl" data-i18n="stat2_lbl">В месяц</div></div>
-  <div class="sbi"><div class="sbn" data-count="10" data-suf=" листов">17 страниц</div><div class="sbl" data-i18n="stat3_lbl">В Excel-отчёте</div></div>
+  <div class="sbi"><div class="sbn" data-count="17" data-suf=" страниц">17 страниц</div><div class="sbl" data-i18n="stat3_lbl">В Excel-отчёте</div></div>
   <div class="sbi"><div class="sbn">∞</div><div class="sbl" data-i18n="stat4_lbl">Накладных и отчётов</div></div>
 </div>
 
@@ -1657,7 +1806,7 @@ section[class*="calc"]{
         <span class="fl-icon">📊</span>
         <div class="fl-tag t-g" data-i18n="fl2_tag">// Excel-аналитика</div>
         <div class="fl-title" data-i18n="fl2_title">Понятные цифры<br>по бизнесу за 30 сек.</div>
-        <p class="fl-desc" data-i18n="fl2_desc">Два файла из Kaspi Pay → готовый детальный отчёт на 10 листах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.</p>
+        <p class="fl-desc" data-i18n="fl2_desc">Два файла из Kaspi Pay → готовый детальный отчёт на 17 страницах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.</p>
         <ul class="fl-list">
           <li data-i18n="fl2_li1">2 Excel из Kaspi Pay → 17 страниц отчёта</li>
           <li data-i18n="fl2_li2">Топ товаров, выручка, расходы, маржа</li>
@@ -1947,8 +2096,8 @@ section[class*="calc"]{
         <div class="pline"></div>
         <div class="ptier" data-i18n="p2_tier">Полный доступ</div>
         <div class="pamount"><span class="pcur">₸</span>990 <span class="pper" data-i18n="p2_per">/мес</span></div>
-        <p class="pctx" data-i18n="p2_ctx">= <span class="hl">99 ₸ в день</span>. 14 дней бесплатно, потом 990 ₸ в месяц.</p>
-        <ul class="plist"><li class="y" data-i18n="p2_li1">Накладные — безлимитно</li><li class="y" data-i18n="p2_li2">Аналитика — безлимитно</li><li class="y" data-i18n="p2_li3">Калькулятор — безлимитно</li><li class="y" data-i18n="p2_li4">Курсы + уведомления</li><li class="y" data-i18n="p2_li5">Новые функции без доплаты</li><li class="y" data-i18n="p2_li6">Поддержка в Telegram</li><li class="y" data-i18n="p2_li7">Новые функции без доплаты</li><li class="y" data-i18n="p2_li8">Возврат в течение 3 дней</li></ul>
+        <p class="pctx" data-i18n="p2_ctx">14 дней бесплатно, потом 990 ₸ / месяц.</p>
+        <ul class="plist"><li class="y" data-i18n="p2_li1">Накладные — безлимитно</li><li class="y" data-i18n="p2_li2">Аналитика — безлимитно</li><li class="y" data-i18n="p2_li3">Excel-отчёт — 17 страниц</li><li class="y" data-i18n="p2_li4">14 дней бесплатно при старте</li><li class="y" data-i18n="p2_li5">Поддержка в Telegram</li><li class="y" data-i18n="p2_li6">Новые функции без доплаты</li><li class="y" data-i18n="p2_li8">Возврат в течение 3 дней</li></ul>
         <a href="https://t.me/sellerkit_bot" class="pbtn fill magnetic"><span data-i18n="p2_btn">Оплатить и начать →</span></a>
       </div>
     </div>
@@ -2539,7 +2688,7 @@ const LANG={
     fl1_li3:'Сборочный лист Excel с количеством', fl1_li4:'Меньше путаницы на сборке', fl1_li5:'Быстрее работа упаковщика',
     fl1_cta:'Сделать накладные за 10 секунд →',
     fl2_tag:'// Excel-аналитика', fl2_title:'Понятные цифры<br>по бизнесу за 30 сек.',
-    fl2_desc:'Два файла из Kaspi Pay → готовый детальный отчёт на 10 листах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.',
+    fl2_desc:'Два файла из Kaspi Pay → готовый детальный отчёт на 17 страницах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.',
     fl2_li1:'2 Excel из Kaspi Pay → 17 страниц отчёта', fl2_li2:'Топ товаров, выручка, расходы, маржа',
     fl2_li3:'Динамика по дням, часам и дням недели', fl2_li4:'Умные выводы: лучший день, высокий возврат',
     fl2_li5:'Сравнение двух периодов между собой', fl2_cta:'Получить отчёт из Kaspi Pay →',
@@ -2618,7 +2767,7 @@ const LANG={
     // Pricing lists
     p1_li1:'Накладные — без ограничений', p1_li2:'Аналитика — без ограничений', p1_li3:'Excel-отчёт — 17 страниц',
     p1_li4:'Поддержка в Telegram', p1_li5:'Новые функции без доплаты', p1_li6:'Без карты на старте',
-    p2_per:'/мес', p2_ctx:'= <span class="hl">99 ₸ в день</span>. 14 дней бесплатно, потом 990 ₸ в месяц.<span style="color:var(--snow)">138 200 ₸ (22 заказа)</span>',
+    p2_per:'/мес', p2_ctx:'14 дней бесплатно, потом 990 ₸ / месяц.<span style="color:var(--snow)">138 200 ₸ (22 заказа)</span>',
     ins2:'Высокий возврат 40%+: <span style="color:var(--snow)">Рюкзак City Brown</span>',
     ins3:'Лучший день недели — <span style="color:var(--snow)">Суббота (66 100 ₸ ср.)</span>',
     ins4:'Пик покупок — <span style="color:var(--snow)">14:00–18:00 (41% выручки)</span>',
@@ -2637,7 +2786,7 @@ const LANG={
     hero_line1:'Kaspi', hero_line2:'Tools',
     hero_desc:'Бір Telegram-бот сағаттар бойғы қолмен жұмысты алмастырады.<br><strong>Жүкқұжаттар, аналитика, калькулятор</strong> — секундтар ішінде.<br>Тауарлар бойынша бөлу, жинақ тізімі, 17 страниц Excel парағы.<br>API керек емес. Файлды жібер — нәтижені ал.',
     hero_btn:'Тегін бастау', hero_btn2:'Қарау ↓',
-    stat1_lbl:'Жүкқұжат өңдеу', stat2_lbl:'Айына', stat3_lbl:'Әр есепте', stat4_lbl:'Жүкқұжат және есептер',
+    stat1_lbl:'Жүкқұжат өңдеу', stat2_lbl:'Айына', stat3_lbl:'Excel есебінде', stat4_lbl:'Жүкқұжат және есептер',
     feat_tag:'Құралдар',
     feat_h2:'Алты құрал<br><span class="dim">уақытты шынымен</span><br><span class="acc">үнемдейді</span>',
     feat_sub:'Әр құрал нақты мәселені шешеді. Артық сөз жоқ — тікелей Telegram арқылы жұмыс істейді, тіркеусіз және үшінші тарап қызметтерінсіз.',
