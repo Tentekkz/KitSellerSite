@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KitSeller — накладные Kaspi за 10 секунд | Аналитика Kaspi Pay в Excel</title>
+<meta name="description" content="Telegram-бот для Kaspi продавцов: накладные ZIP→PDF за 10 секунд, разбивка по товарам, аналитика Kaspi Pay — 10 листов Excel за 30 секунд. Попробовать бесплатно.">
+<meta name="keywords" content="накладные Kaspi, распечатать накладные Kaspi, аналитика Kaspi Pay, калькулятор маржи Kaspi, жүкқұжаттар Kaspi, юнит-экономика Kaspi, инструменты Kaspi продавец">
+<meta name="robots" content="index, follow">
+<meta name="author" content="KitSeller">
+<link rel="canonical" href="https://kaspitools.kz/">
+<meta property="og:title" content="KitSeller — накладные и аналитика для Kaspi продавцов">
+<meta property="og:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — 10 листов Excel за 30 секунд. Калькулятор маржи. Без API. Попробовать бесплатно.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kaspitools.kz/">
+<meta property="og:image" content="https://kaspitools.kz/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_KZ">
+<meta property="og:locale:alternate" content="kk_KZ">
+<meta property="og:site_name" content="KitSeller">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KitSeller — накладные и аналитика для Kaspi продавцов">
+<meta name="twitter:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — 10 листов Excel за 30 секунд.">
+<meta name="twitter:image" content="https://kaspitools.kz/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "KitSeller",
+  "description": "Telegram-бот для автоматизации работы Kaspi продавцов. Накладные ZIP→PDF за 10 секунд, аналитика Kaspi Pay в Excel, калькулятор маржи.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Telegram",
+  "inLanguage": ["ru", "kk"],
+  "offers": {"@type": "Offer", "price": "2990", "priceCurrency": "KZT"},
+  "url": "https://kaspitools.kz",
+  "sameAs": ["https://t.me/kaspitoolsbot"],
+  "provider": {"@type": "Organization", "name": "Path of Peaks", "address": {"@type": "PostalAddress", "addressCountry": "KZ"}},
+  "featureList": ["Накладные ZIP→PDF за 10 секунд","Разбивка накладных по товарам","Сборочный лист Excel","Аналитика Kaspi Pay — 10 листов Excel","Калькулятор маржи с учётом комиссии и ИПН","Курсы НБ РК с уведомлениями","QR-коды для Kaspi магазина"]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230a0a0a'/><text y='23' x='5' font-size='20' font-family='sans-serif' font-weight='900' fill='%23ff3d00'>K</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;700;900&family=Nunito:wght@800;900&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════ */
+:root {
+  --void:   #060608;
+  --s1:     #0c0c10;
+  --s2:     #111118;
+  --edge:   rgba(255,255,255,.06);
+  --edge2:  rgba(255,255,255,.12);
+  --r:      #ff3d00;   /* radical red-orange */
+  --r2:     #ff6530;
+  --snow:   #f5f4f0;
+  --grey:   #7a7a8a;
+  --grey2:  #3a3a4a;
+  --green:  #00e87a;
+  --fh: 'Unbounded', sans-serif;
+  --fb: 'Instrument Sans', sans-serif;
+  --fm: 'JetBrains Mono', monospace;
+  --e: cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--fb);background:var(--void);color:var(--snow);overflow-x:hidden;cursor:none;line-height:1.6}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--r);color:#fff}
+
+/* ── KZ FONT OVERRIDE ── */
+body.lang-kz .mega-line,
+body.lang-kz .h2,
+body.lang-kz .ctah,
+body.lang-kz .fc-title,
+body.lang-kz .fwtitle,
+body.lang-kz .fws-n,
+body.lang-kz .pamount,
+body.lang-kz .sbn {
+  font-family: 'Nunito', sans-serif !important;
+  letter-spacing: -.02em;
+}
+body.lang-kz .mega-line { line-height: .9; }
+body.lang-kz .stag { font-family: var(--fm) !important; }
+
+/* ── HERO PILLS ── */
+.hero-pill{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.05);border:1px solid var(--edge2);border-radius:100px;padding:.35rem .9rem;font-size:.72rem;color:var(--grey);transition:all .2s}
+.hero-pill:hover{border-color:rgba(255,61,0,.3);color:var(--snow)}
+
+/* ══ FLAGSHIP PRODUCTS ══ */
+.flagship-sec{background:var(--void);padding:clamp(80px,10vw,130px) clamp(1.5rem,4vw,3rem);position:relative;z-index:1}
+.flagship-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:4rem}
+.flagship-card{
+  border-radius:20px;padding:3rem;position:relative;overflow:hidden;
+  border:1px solid var(--edge);background:var(--s1);
+  transition:border-color .3s,box-shadow .3s,transform .3s var(--e);
+  cursor:none;
+}
+.flagship-card:hover{transform:translateY(-6px);box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.flagship-card.fc-waybills{border-color:rgba(255,61,0,.15);background:linear-gradient(145deg,rgba(255,61,0,.05),var(--s1))}
+.flagship-card.fc-analytics{border-color:rgba(0,232,122,.1);background:linear-gradient(145deg,rgba(0,232,122,.03),var(--s1))}
+.flagship-card.fc-waybills:hover{border-color:rgba(255,61,0,.35);box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 60px rgba(255,61,0,.05)}
+.flagship-card.fc-analytics:hover{border-color:rgba(0,232,122,.2);box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 60px rgba(0,232,122,.03)}
+.fl-num{font-family:var(--fh);font-size:6rem;font-weight:900;line-height:1;letter-spacing:-.06em;color:rgba(255,255,255,.03);position:absolute;top:1.5rem;right:2rem}
+.fl-icon{font-size:2.8rem;margin-bottom:1.2rem;display:block;filter:drop-shadow(0 6px 16px rgba(255,61,0,.2))}
+.fl-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;padding:.25rem .75rem;border-radius:4px;margin-bottom:1rem}
+.fl-tag.t-r{color:var(--r);background:rgba(255,61,0,.1);border:1px solid rgba(255,61,0,.2)}
+.fl-tag.t-g{color:var(--green);background:rgba(0,232,122,.08);border:1px solid rgba(0,232,122,.15)}
+.fl-title{font-family:var(--fh);font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem}
+.fl-desc{font-size:.88rem;color:var(--grey);line-height:1.8;margin-bottom:2rem}
+.fl-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:2.2rem}
+.fl-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.83rem;color:var(--grey)}
+.fl-list li::before{content:'→';color:var(--r);flex-shrink:0;font-weight:700;margin-top:.05rem}
+.fc-analytics .fl-list li::before{color:var(--green)}
+.fl-result{background:var(--void);border:1px solid var(--edge);border-radius:12px;padding:1.25rem 1.5rem;font-family:var(--fm);font-size:.72rem;line-height:2;color:var(--grey);margin-top:auto}
+
+/* ══ BEFORE/AFTER ══ */
+.ba-sec{background:var(--s1);padding:clamp(80px,10vw,130px) clamp(1.5rem,4vw,3rem)}
+.ba-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:stretch;margin-top:4rem;max-width:900px;margin-left:auto;margin-right:auto}
+.ba-col{background:var(--s2);border:1px solid var(--edge);border-radius:20px;padding:2.5rem;display:flex;flex-direction:column;gap:1.25rem}
+.ba-col.before{border-color:rgba(255,255,255,.08)}
+.ba-col.after{border-color:rgba(0,232,122,.15);background:linear-gradient(145deg,rgba(0,232,122,.03),var(--s2))}
+.ba-label{font-family:var(--fm);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.5rem}
+.ba-col.before .ba-label{color:var(--grey2)}
+.ba-col.after .ba-label{color:var(--green)}
+.ba-item{display:flex;align-items:flex-start;gap:.75rem;font-size:.83rem;line-height:1.5}
+.ba-col.before .ba-item{color:var(--grey)}
+.ba-col.before .ba-item::before{content:'✗';color:rgba(255,61,0,.5);flex-shrink:0;font-weight:700}
+.ba-col.after .ba-item{color:var(--snow)}
+.ba-col.after .ba-item::before{content:'✓';color:var(--green);flex-shrink:0;font-weight:700}
+.ba-divider{display:flex;align-items:center;justify-content:center}
+.ba-arrow{width:52px;height:52px;border-radius:50%;background:var(--r);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;box-shadow:0 0 30px rgba(255,61,0,.25)}
+
+/* ══ EXTRA TOOLS (secondary) ══ */
+.extra-sec{background:var(--void);padding:clamp(60px,8vw,100px) clamp(1.5rem,4vw,3rem)}
+.extra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+.extra-card{background:var(--s2);border:1px solid var(--edge);border-radius:14px;padding:1.75rem;transition:border-color .3s,transform .2s;cursor:none}
+.extra-card:hover{border-color:rgba(255,61,0,.2);transform:translateY(-3px)}
+.extra-icon{font-size:1.6rem;margin-bottom:.75rem;display:block}
+.extra-title{font-family:var(--fh);font-size:.9rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+.extra-desc{font-size:.78rem;color:var(--grey);line-height:1.65}
+
+@media(max-width:900px){
+  .flagship-grid{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr;grid-template-rows:auto auto auto}
+  .ba-divider{transform:rotate(90deg)}
+  .extra-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .extra-grid{grid-template-columns:1fr}
+}
+
+/* ── CUSTOM CURSOR ── */
+#cur{position:fixed;z-index:99999;pointer-events:none;top:0;left:0}
+#cd{position:absolute;width:8px;height:8px;background:var(--r);border-radius:50%;transform:translate(-50%,-50%);transition:width .35s var(--e),height .35s var(--e),border-radius .35s,background .35s}
+#cr{position:absolute;width:36px;height:36px;border:1px solid rgba(255,61,0,.4);border-radius:50%;transform:translate(-50%,-50%);transition:width .2s var(--e),height .2s var(--e),border-color .3s,border-radius .3s}
+body.hover #cd{width:56px;height:56px;background:rgba(255,61,0,.12);border-radius:50%}
+body.hover #cr{width:56px;height:56px;border-color:transparent}
+body.text #cd{width:2px;height:26px;border-radius:2px}
+body.text #cr{opacity:0}
+body.drag #cd{width:80px;height:80px;background:rgba(255,61,0,.08);border-radius:12px}
+
+/* ── CANVAS BACKGROUND ── */
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ── GRAIN ── */
+.grain{position:fixed;inset:-200%;width:400%;height:400%;opacity:.02;pointer-events:none;z-index:9997;animation:grain 5s steps(7) infinite;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes grain{0%{transform:translate(0,0)}14%{transform:translate(-4%,-8%)}28%{transform:translate(7%,3%)}42%{transform:translate(-3%,12%)}57%{transform:translate(10%,-4%)}71%{transform:translate(-6%,6%)}85%{transform:translate(4%,-10%)}100%{transform:translate(0,0)}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,4vw,3rem);border-bottom:1px solid transparent;transition:all .5s var(--e)}
+nav.s{background:rgba(6,6,8,.88);backdrop-filter:blur(28px) saturate(160%);border-color:var(--edge)}
+.nlogo{font-family:var(--fh);font-size:.95rem;font-weight:900;letter-spacing:-.03em;display:flex;align-items:center;gap:.5rem}
+.nmark{width:28px;height:28px;background:var(--r);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;color:#fff;transition:transform .3s var(--e)}
+.nmark:hover{transform:rotate(-10deg) scale(1.1)}
+.nlinks{display:flex;gap:2.5rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+.nlinks a{font-size:.75rem;font-weight:500;color:var(--grey);letter-spacing:.04em;text-transform:uppercase;transition:color .2s;position:relative}
+.nlinks a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--r);transform:scaleX(0);transition:transform .3s var(--e)}
+.nlinks a:hover{color:var(--snow)}
+.nlinks a:hover::after{transform:scaleX(1)}
+.ncta{display:inline-flex;align-items:center;gap:.45rem;background:var(--r);color:#fff;font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:.52rem 1.35rem;border-radius:6px;cursor:none;position:relative;overflow:hidden;transition:transform .2s,box-shadow .3s}
+.ncta::before{content:'';position:absolute;inset:0;background:var(--r2);opacity:0;transition:opacity .3s}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,61,0,.4)}
+.ncta:hover::before{opacity:1}
+.ncta span{position:relative;z-index:1}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:none;padding:5px}
+.burger span{display:block;width:20px;height:1px;background:var(--snow);border-radius:1px;transition:all .3s}
+.mob{display:none;position:fixed;top:62px;left:0;right:0;background:rgba(6,6,8,.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--edge);padding:2rem clamp(1.5rem,4vw,3rem);flex-direction:column;gap:1rem;z-index:490}
+.mob.o{display:flex}
+.mob a{font-size:.85rem;font-weight:500;color:var(--grey);padding:.6rem 0;border-bottom:1px solid var(--edge);transition:color .2s;text-transform:uppercase;letter-spacing:.04em}
+.mob a:hover{color:var(--snow)}
+/* ── LANG SWITCHER ── */
+.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.06);border:1px solid var(--edge2);border-radius:6px;padding:2px;margin-right:.75rem}
+.lang-btn{font-family:var(--fh);font-size:.62rem;font-weight:700;letter-spacing:.04em;padding:.3rem .6rem;border-radius:4px;border:none;background:transparent;color:var(--grey);cursor:pointer;transition:all .2s}
+.lang-btn.active{background:var(--r);color:#fff}
+.lang-btn:hover:not(.active){color:var(--snow)}
+
+/* ══ HERO ══════════════════════════════════════════ */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;z-index:1}
+
+/* Huge split text */
+.hero-mega{
+  position:relative;padding:0 clamp(1.5rem,4vw,3rem);padding-top:90px;
+  overflow:hidden;
+}
+.mega-line{
+  display:block;
+  font-family:var(--fh);
+  font-size:clamp(5rem,16vw,18rem);
+  font-weight:900;
+  line-height:.85;
+  letter-spacing:-.05em;
+  position:relative;
+  overflow:hidden;
+}
+.mega-line .inner{
+  display:block;
+  transform:translateY(110%);
+  animation:slide-up .9s var(--e) forwards;
+}
+.mega-line:nth-child(1) .inner{animation-delay:.1s}
+.mega-line:nth-child(2) .inner{animation-delay:.22s}
+.mega-line:nth-child(3) .inner{animation-delay:.34s}
+@keyframes slide-up{to{transform:translateY(0)}}
+
+.mega-line .outline{
+  -webkit-text-stroke:2px rgba(245,244,240,.25);
+  color:transparent;
+  transition:-webkit-text-stroke .3s;
+}
+.mega-line:hover .outline{-webkit-text-stroke-color:rgba(245,244,240,.55)}
+.mega-line .red{color:var(--r)}
+.mega-line .ghost{
+  -webkit-text-stroke:1px rgba(255,61,0,.35);
+  color:transparent;
+}
+
+/* Sub row */
+.hero-sub-row{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding:2rem clamp(1.5rem,4vw,3rem) 0;
+  gap:2rem;flex-wrap:wrap;
+  opacity:0;animation:fadein .8s .6s var(--e) forwards;
+}
+.hero-desc{max-width:440px;font-size:clamp(.88rem,1.3vw,1.05rem);color:var(--grey);line-height:1.75}
+.hero-desc strong{color:var(--snow);font-weight:500}
+.hero-cta-wrap{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+
+/* Scroll ticker in hero */
+.hero-ticker{
+  border-top:1px solid var(--edge);
+  overflow:hidden;margin-top:2.5rem;
+  opacity:0;animation:fadein .6s .85s var(--e) forwards;
+}
+.htinner{display:flex;animation:htick 18s linear infinite;white-space:nowrap}
+.hti{display:inline-flex;align-items:center;gap:1rem;padding:.75rem 2rem;font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--grey2);flex-shrink:0}
+.hti .sep{color:var(--r);font-size:.5rem}
+@keyframes htick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+
+/* Floating badge */
+.hero-badge{
+  position:absolute;top:120px;right:clamp(1.5rem,4vw,3rem);
+  width:120px;height:120px;border-radius:50%;
+  background:var(--r);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:var(--fh);font-size:.58rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:#fff;
+  animation:spin-badge 12s linear infinite, fadein .8s .4s var(--e) both;
+  cursor:none;
+  text-align:center;line-height:1.4;
+  transition:transform .3s var(--e);
+}
+.hero-badge:hover{transform:scale(1.08)}
+.hero-badge-text{animation:spin-badge 12s linear infinite reverse;font-size:.62rem;font-weight:800}
+@keyframes spin-badge{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.hero-badge-inner{position:absolute;animation:spin-badge 12s linear infinite reverse;display:flex;flex-direction:column;align-items:center}
+
+/* Btns */
+.btn-r{display:inline-flex;align-items:center;gap:.5rem;background:var(--r);color:#fff;font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.04em;padding:.88rem 2.2rem;border-radius:8px;cursor:none;position:relative;overflow:hidden;transition:transform .2s,box-shadow .3s}
+.btn-r::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--r2),var(--r));opacity:0;transition:opacity .3s}
+.btn-r:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(255,61,0,.4)}
+.btn-r:hover::before{opacity:1}
+.btn-r span{position:relative;z-index:1}
+.btn-o{display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:1px solid var(--edge2);color:var(--grey);font-family:var(--fh);font-size:.7rem;font-weight:600;padding:.85rem 2rem;border-radius:8px;cursor:none;transition:all .2s}
+.btn-o:hover{border-color:var(--snow);color:var(--snow)}
+
+/* ══ STATS BAR ══ */
+.stats-bar{background:var(--r);padding:1.5rem clamp(1.5rem,4vw,3rem);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;position:relative;z-index:2}
+.sbi{padding:1rem 1.5rem;text-align:center;position:relative}
+.sbi::after{content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:rgba(255,255,255,.2)}
+.sbi:last-child::after{display:none}
+.sbn{font-family:var(--fh);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:#fff;line-height:1;letter-spacing:-.04em}
+.sbl{font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:.3rem}
+
+/* ══ FEATURE CARDS — 3D TILT ══ */
+.featsec{background:var(--s1);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.secin{max-width:1300px;margin:0 auto}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
+.stag{font-family:var(--fm);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--r);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.stag::before{content:'//';color:var(--grey2)}
+.h2{font-family:var(--fh);font-size:clamp(2rem,5.5vw,4.5rem);font-weight:900;line-height:1;letter-spacing:-.04em}
+.h2 .dim{color:var(--grey2)}
+.h2 .acc{color:var(--r)}
+.sub{font-size:clamp(.88rem,1.2vw,1rem);color:var(--grey);line-height:1.75}
+
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.fcard{
+  background:var(--s2);border:1px solid var(--edge);
+  border-radius:16px;padding:2.5rem;
+  position:relative;overflow:hidden;
+  transition:border-color .3s,box-shadow .3s;
+  transform-style:preserve-3d;
+  cursor:none;
+}
+.fcard::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,61,0,.06),transparent 60%);
+  opacity:0;transition:opacity .4s;border-radius:16px;
+}
+.fcard:hover{border-color:rgba(255,61,0,.3);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,61,0,.1)}
+.fcard:hover::before{opacity:1}
+.fcard-glow{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,61,0,.15),transparent 70%);pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity .3s}
+.fcard:hover .fcard-glow{opacity:1}
+.fc-num{font-family:var(--fh);font-size:4.5rem;font-weight:900;color:rgba(255,255,255,.04);line-height:1;letter-spacing:-.06em;margin-bottom:-.5rem}
+.fc-icon{font-size:2rem;margin-bottom:1.25rem;display:block;filter:drop-shadow(0 4px 12px rgba(255,61,0,.25))}
+.fc-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--r);background:rgba(255,61,0,.08);border:1px solid rgba(255,61,0,.15);padding:.22rem .7rem;border-radius:4px;margin-bottom:.85rem}
+.fc-title{font-family:var(--fh);font-size:1.05rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.65rem;line-height:1.2}
+.fc-desc{font-size:.83rem;color:var(--grey);line-height:1.75}
+
+/* Featured card */
+.fcard.big{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+.fcard.big .fc-desc{font-size:.9rem}
+
+/* ══ FOR WHO — DARK SPLIT ══ */
+.fwsec{background:var(--void);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.fwinner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,8rem)}
+.fwlist{display:flex;flex-direction:column;gap:0}
+.fwitem{
+  padding:2rem 0;border-bottom:1px solid var(--edge);
+  display:grid;grid-template-columns:auto 1fr;gap:2rem;
+  align-items:start;position:relative;
+  transition:padding-left .35s var(--e);cursor:none;
+}
+.fwitem::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--r);transition:width .35s var(--e)}
+.fwitem:hover{padding-left:1.5rem}
+.fwitem:hover::before{width:2px}
+.fwn{font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--grey2);margin-top:.2rem}
+.fwtitle{font-family:var(--fh);font-size:1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem;transition:color .3s}
+.fwitem:hover .fwtitle{color:var(--r)}
+.fwdesc{font-size:.82rem;color:var(--grey);line-height:1.65}
+
+.fw-right{display:flex;flex-direction:column;gap:1.5rem;position:sticky;top:80px}
+.fw-stat{
+  background:var(--s2);border:1px solid var(--edge);border-radius:14px;
+  padding:2rem;position:relative;overflow:hidden;transition:border-color .3s;
+}
+.fw-stat:hover{border-color:rgba(255,61,0,.25)}
+.fws-n{font-family:var(--fh);font-size:3rem;font-weight:900;letter-spacing:-.05em;line-height:1;color:var(--r)}
+.fws-l{font-size:.78rem;color:var(--grey);margin-top:.4rem;line-height:1.5}
+
+/* ══ CALC ══ */
+.calcsec{background:var(--s1);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.cbox{max-width:800px;margin:4rem auto 0;background:var(--s2);border:1px solid var(--edge);border-radius:20px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.4)}
+.chead{background:var(--void);padding:1.25rem 2rem;display:flex;align-items:center;gap:.75rem;border-bottom:1px solid var(--edge)}
+.cht{font-family:var(--fm);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--grey)}
+.cdots{display:flex;gap:.4rem}
+.cdot{width:10px;height:10px;border-radius:50%}
+.cbody{padding:2rem}
+.crow{display:flex;align-items:center;gap:2rem;margin-bottom:2rem}
+.clbl{font-size:.8rem;color:var(--grey);min-width:190px}
+.cslw{flex:1}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:linear-gradient(to right,var(--r) var(--v,30%),var(--edge) var(--v,30%));outline:none;cursor:none;border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--snow);border:2px solid var(--r);box-shadow:0 0 0 3px rgba(255,61,0,.2),0 0 16px rgba(255,61,0,.3);cursor:none;transition:transform .2s,box-shadow .2s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);box-shadow:0 0 0 5px rgba(255,61,0,.1),0 0 24px rgba(255,61,0,.5)}
+.cval{font-family:var(--fh);font-size:1.5rem;font-weight:900;color:var(--snow);min-width:60px;text-align:right;letter-spacing:-.03em}
+.cresults{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--edge);border:1px solid var(--edge);border-radius:12px;overflow:hidden;margin-top:.5rem}
+.cs{background:var(--void);padding:1.75rem;text-align:center;transition:background .3s}
+.cs:hover{background:rgba(255,61,0,.04)}
+.csn{font-family:var(--fh);font-size:2.2rem;font-weight:900;line-height:1;letter-spacing:-.04em}
+.csn.o{color:var(--r)}
+.csn.g{color:var(--green)}
+.csl2{font-size:.64rem;color:var(--grey);margin-top:.4rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.cmeta{font-size:.65rem;color:var(--grey2);margin-top:1rem;font-family:var(--fm);text-align:center}
+
+/* ══ DEMO ══ */
+.demosec{background:var(--void);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.dlayout{display:grid;grid-template-columns:1fr 380px;gap:6rem;align-items:start;margin-top:4rem}
+.dtabs{display:flex;flex-direction:column;gap:.5rem}
+.dtab{display:flex;gap:1.25rem;padding:1.4rem 1.5rem;border:1px solid transparent;border-radius:12px;cursor:none;transition:all .25s var(--e);align-items:flex-start}
+.dtab:hover{background:var(--s2);border-color:var(--edge)}
+.dtab.a{background:rgba(255,61,0,.06);border-color:rgba(255,61,0,.25)}
+.dtab.a .dname{color:var(--snow)}
+.demoji{font-size:1.5rem;flex-shrink:0;margin-top:.1rem;transition:transform .3s var(--e)}
+.dtab:hover .demoji,.dtab.a .demoji{transform:scale(1.1)}
+.dname{font-size:.9rem;font-weight:700;color:var(--grey);margin-bottom:.25rem;transition:color .2s;letter-spacing:-.01em}
+.dhint{font-size:.75rem;color:var(--grey2)}
+.phone{background:var(--s2);border:1px solid var(--edge2);border-radius:20px;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03);position:sticky;top:82px}
+.pbar{background:var(--void);padding:.85rem 1.2rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--edge)}
+.pc{width:10px;height:10px;border-radius:50%}
+.pname{font-size:.72rem;color:var(--grey);margin-left:.35rem;font-weight:700;font-family:var(--fh);letter-spacing:.02em}
+.pst{font-size:.62rem;color:var(--green);margin-left:auto;font-family:var(--fm)}
+.pbody{padding:1.25rem;min-height:340px;display:flex;flex-direction:column;gap:.65rem;overflow:hidden}
+.pm{max-width:88%;padding:.68rem 1rem;font-size:.79rem;line-height:1.6;opacity:0;transform:translateY(8px);transition:opacity .3s var(--e),transform .3s var(--e)}
+.pm.s{opacity:1;transform:translateY(0)}
+.pm.bot{background:var(--s1);border:1px solid var(--edge);border-radius:3px 12px 12px 12px;align-self:flex-start;color:rgba(245,244,240,.9)}
+.pm.usr{background:rgba(255,61,0,.12);border:1px solid rgba(255,61,0,.2);border-radius:12px 3px 12px 12px;align-self:flex-end}
+.pm strong{color:rgba(255,100,48,.9)}
+.pr{display:flex;justify-content:space-between;font-size:.72rem;padding:.12rem 0;border-bottom:1px solid var(--edge);color:var(--grey2)}
+.pr:last-child{border:none}
+.pr span:last-child{color:var(--snow);font-weight:600}
+.pr.g span:last-child{color:var(--green)}
+.ptyp{display:flex;align-items:center;gap:4px;padding:.68rem 1rem;background:var(--s1);border:1px solid var(--edge);border-radius:3px 12px 12px 12px;width:fit-content;opacity:0;transition:opacity .2s}
+.ptyp.s{opacity:1}
+.ptyp span{width:5px;height:5px;border-radius:50%;background:var(--grey);animation:d 1.2s infinite}
+.ptyp span:nth-child(2){animation-delay:.2s}
+.ptyp span:nth-child(3){animation-delay:.4s}
+@keyframes d{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+
+/* ══ PRICING ══ */
+.pricesec{background:var(--s1);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:860px;margin:4rem auto 0}
+.pcard{background:var(--s2);border:1px solid var(--edge);border-radius:20px;padding:2.75rem;position:relative;overflow:hidden;transition:transform .4s var(--e),box-shadow .4s,border-color .4s}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.pcard.hot{border-color:rgba(255,61,0,.25);background:linear-gradient(145deg,rgba(255,61,0,.06),var(--s2))}
+.pcard.hot:hover{border-color:rgba(255,61,0,.5);box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 60px rgba(255,61,0,.07)}
+.pline{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 5%,var(--r) 50%,transparent 95%)}
+.ptier{font-family:var(--fm);font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey2);margin-bottom:2rem}
+.pamount{font-family:var(--fh);font-size:4.5rem;font-weight:900;letter-spacing:-.06em;line-height:1;margin-bottom:.5rem}
+.pcur{font-size:2rem;vertical-align:top;margin-top:.7rem;display:inline-block;color:var(--r)}
+.pper{font-family:var(--fb);font-size:.82rem;color:var(--grey2);font-weight:400;letter-spacing:0}
+.pctx{font-size:.78rem;color:var(--grey2);padding:.8rem 0;margin-bottom:2rem;border-bottom:1px solid var(--edge);line-height:1.6}
+.pctx .hl{color:var(--r);font-weight:700}
+.plist{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-bottom:2.5rem}
+.plist li{font-size:.83rem;display:flex;align-items:flex-start;gap:.6rem;color:var(--grey);line-height:1.4}
+.plist li::before{content:'—';color:var(--grey2);flex-shrink:0}
+.plist li.y{color:var(--snow)}
+.plist li.y::before{content:'✓';color:var(--green);font-weight:700}
+.pbtn{display:block;text-align:center;padding:.92rem;border-radius:10px;font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.04em;cursor:none;transition:all .25s;position:relative;overflow:hidden}
+.pbtn.ol{border:1px solid var(--edge2);color:var(--grey)}
+.pbtn.ol:hover{border-color:var(--snow);color:var(--snow)}
+.pbtn.fill{background:var(--r);color:#fff}
+.pbtn.fill::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--r2),var(--r));opacity:0;transition:opacity .3s}
+.pbtn.fill:hover::before{opacity:1}
+.pbtn.fill:hover{box-shadow:0 8px 30px rgba(255,61,0,.4)}
+.pbtn span{position:relative;z-index:1}
+
+/* ══ REVIEWS ══ */
+.rvsec{background:var(--void);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.rvgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:4rem}
+.rvcard{background:var(--s2);border:1px solid var(--edge);border-radius:16px;padding:2.25rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.rvcard::before{content:'"';position:absolute;top:-1rem;right:1.5rem;font-family:var(--fh);font-size:8rem;font-weight:900;color:rgba(255,61,0,.05);line-height:1;pointer-events:none}
+.rvcard:hover{border-color:rgba(255,61,0,.2);transform:translateY(-4px)}
+.rvstars{display:flex;gap:3px;margin-bottom:1rem}
+.rvstar{width:13px;height:13px;background:var(--r);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.rvtext{font-size:.88rem;color:var(--grey);line-height:1.8;margin-bottom:1.4rem;font-style:italic}
+.rvtext em{color:var(--snow);font-style:normal;font-weight:600}
+.rvauth{display:flex;align-items:center;gap:.75rem}
+.rvava{width:34px;height:34px;border-radius:50%;background:var(--s1);border:1px solid var(--edge);display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.rvname{font-size:.83rem;font-weight:700;letter-spacing:-.01em}
+.rvmeta{font-size:.7rem;color:var(--grey2)}
+
+/* ══ FAQ ══ */
+.faqsec{background:var(--s1);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.faqwrap{max-width:720px;margin:4rem auto 0}
+.fq{border-bottom:1px solid var(--edge)}
+.fqq{width:100%;background:none;border:none;color:var(--snow);font-family:var(--fh);font-size:.88rem;font-weight:700;text-align:left;padding:1.5rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:none;transition:color .2s;letter-spacing:-.01em}
+.fqq:hover{color:var(--r)}
+.fqico{width:24px;height:24px;border:1px solid var(--grey2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--grey2);flex-shrink:0;transition:all .3s}
+.fq.open .fqico{transform:rotate(135deg);border-color:var(--r);color:var(--r)}
+.fqa{max-height:0;overflow:hidden;transition:max-height .4s var(--e)}
+.fqin{padding:0 0 1.5rem;font-size:.86rem;color:var(--grey);line-height:1.8}
+
+/* ══ CTA FULL-BLEED ══ */
+.ctasec{
+  background:var(--void);
+  padding:clamp(80px,12vw,160px) clamp(1.5rem,4vw,3rem);
+  text-align:center;position:relative;overflow:hidden;
+}
+.cta-arc{
+  position:absolute;bottom:-50%;left:50%;transform:translateX(-50%);
+  width:200%;height:200%;
+  border-radius:50%;
+  background:radial-gradient(ellipse,rgba(255,61,0,.07) 0%,transparent 60%);
+  pointer-events:none;
+}
+.ctah{
+  font-family:var(--fh);
+  font-size:clamp(4rem,10vw,9rem);
+  font-weight:900;line-height:.92;
+  letter-spacing:-.05em;
+  margin-bottom:1.5rem;
+  position:relative;
+}
+.ctah .stroke{-webkit-text-stroke:2px rgba(245,244,240,.2);color:transparent}
+.ctah .fill{color:var(--snow)}
+.ctah .red{color:var(--r)}
+.ctap{color:var(--grey);font-size:1.05rem;margin-bottom:3rem;position:relative}
+.ctanote{font-family:var(--fm);font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey2);margin-top:1.5rem}
+
+/* ══ FOOTER ══ */
+footer{border-top:1px solid var(--edge);padding:2.5rem clamp(1.5rem,4vw,3rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;position:relative;z-index:1;background:var(--void)}
+.flogo{font-family:var(--fh);font-size:1rem;font-weight:900;letter-spacing:-.03em;display:flex;align-items:center;gap:.45rem}
+.fmk{width:24px;height:24px;background:var(--r);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:900;color:#fff}
+.fcopy{font-size:.7rem;color:var(--grey2);margin-top:.2rem}
+.flinks{display:flex;gap:2rem;list-style:none}
+.flinks a{font-size:.72rem;color:var(--grey2);transition:color .2s;letter-spacing:.06em;text-transform:uppercase}
+.flinks a:hover{color:var(--r)}
+
+/* ══ SCROLL REVEAL ══ */
+.sr{opacity:0;transform:translateY(36px);transition:opacity .8s var(--e),transform .8s var(--e)}
+.sr.in{opacity:1;transform:translateY(0)}
+.sr.d1{transition-delay:.1s}.sr.d2{transition-delay:.2s}.sr.d3{transition-delay:.3s}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1024px){
+  .fgrid{grid-template-columns:1fr 1fr}.fcard.big{grid-column:span 2}.fcard[style*="span 3"]{grid-column:span 2!important}
+  .dlayout{grid-template-columns:1fr}.phone{display:none}
+  .fwinner{grid-template-columns:1fr}
+  .rvgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nlinks{display:none}.burger{display:flex}
+  .fgrid{grid-template-columns:1fr}.fcard.big{grid-column:span 1;grid-template-columns:1fr}.fcard[style*="span 3"]{grid-column:span 1!important;grid-template-columns:1fr!important}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .sbi:nth-child(2)::after{display:none}
+  .sbi:nth-child(3){border-top:1px solid rgba(255,255,255,.2)}
+  .hero-badge{display:none}
+  .pgrid{grid-template-columns:1fr;max-width:420px}
+  .rvgrid{grid-template-columns:1fr}
+  .cresults{grid-template-columns:1fr}
+  .crow{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .clbl{min-width:unset}.cslw{width:100%}
+  footer{flex-direction:column;text-align:center}
+  .flinks{flex-wrap:wrap;justify-content:center}
+  .sec-head{grid-template-columns:1fr;gap:2rem}
+  .hero-sub-row{flex-direction:column;gap:1.5rem;align-items:flex-start}
+  #analytics .secin > .sr[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr!important}
+  #analytics .secin > .sr[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"><div id="cr"></div><div id="cd"></div></div>
+<div class="grain"></div>
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nlogo"><div class="nmark">KT</div>KitSeller</a>
+  <ul class="nlinks">
+    <li><a href="#products" data-i18n="nav_products">Продукты</a></li>
+    <li><a href="#forwho" data-i18n="nav_forwho">Для кого</a></li>
+    <li><a href="#features" data-i18n="nav_features">Как работает</a></li>
+    <li><a href="#pricing" data-i18n="nav_pricing">Тарифы</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:.5rem">
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('ru')">RU</button>
+      <button class="lang-btn" onclick="setLang('kz')">KZ</button>
+    </div>
+    <a href="https://t.me/kaspitoolsbot" class="ncta magnetic"><span data-i18n="nav_cta">Попробовать →</span></a>
+  </div>
+  <button class="burger" id="burger" onclick="tmob()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob" id="mob">
+  <a href="#products" onclick="cmob()" data-i18n="nav_products">Продукты</a>
+  <a href="#forwho" onclick="cmob()" data-i18n="nav_forwho">Для кого</a>
+  <a href="#features" onclick="cmob()" data-i18n="nav_features">Как работает</a>
+  <a href="#pricing" onclick="cmob()" data-i18n="nav_pricing">Тарифы</a>
+  <a href="#faq" onclick="cmob()">FAQ</a>
+  <a href="https://t.me/kaspitoolsbot" data-i18n="mob_open">Открыть бота →</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  </div>
+
+  <div class="hero-mega">
+    <span class="mega-line"><span class="inner" data-i18n="hero_line1">Работай</span></span>
+    <span class="mega-line"><span class="inner outline" id="scramble-target" data-i18n="hero_line2">умнее</span></span>
+  </div>
+
+  <div class="hero-sub-row">
+    <div>
+      <p class="hero-desc" data-i18n="hero_desc">
+        <strong>Накладные, сборочный лист и глубокая Excel-аналитика</strong> в одном Telegram-боте.<br><br>
+        Собирайте заказы быстрее, снижайте хаос на упаковке и получайте понятные отчёты по бизнесу без ручной рутины.
+      </p>
+      <!-- Hero product pills -->
+      <div class="hero-pills" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem">
+        <div class="hero-pill"><span>📦</span> <span data-i18n="pill1">Накладные ZIP → PDF за 10 сек</span></div>
+        <div class="hero-pill"><span>📊</span> <span data-i18n="pill2">Excel-аналитика из Kaspi Pay</span></div>
+        <div class="hero-pill"><span>🗂</span> <span data-i18n="pill3">Разбивка по товарам</span></div>
+      </div>
+    </div>
+    <div class="hero-cta-wrap">
+      <a href="https://t.me/kaspitoolsbot" class="btn-r magnetic">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
+        <span data-i18n="hero_btn">Попробовать бесплатно</span>
+      </a>
+      <a href="https://t.me/kaspitoolsbot" class="btn-o magnetic"><span data-i18n="hero_btn2">Открыть бота →</span></a>
+    </div>
+  </div>
+
+  <div class="hero-ticker">
+    <div class="htinner" id="htinner"></div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="sbi"><div class="sbn" data-count="10" data-suf=" сек">10 сек</div><div class="sbl" data-i18n="stat1_lbl">Обработка накладных</div></div>
+  <div class="sbi"><div class="sbn" data-count="2990" data-suf=" ₸">2 990 ₸</div><div class="sbl" data-i18n="stat2_lbl">В месяц</div></div>
+  <div class="sbi"><div class="sbn" data-count="10" data-suf=" листов">10 листов</div><div class="sbl" data-i18n="stat3_lbl">В каждом отчёте</div></div>
+  <div class="sbi"><div class="sbn">∞</div><div class="sbl" data-i18n="stat4_lbl">Накладных и отчётов</div></div>
+</div>
+
+<!-- ══ FLAGSHIP PRODUCTS ══ -->
+<section class="flagship-sec" id="products">
+  <div class="secin">
+    <div class="sec-head sr">
+      <div>
+        <div class="stag" data-i18n="fl_tag">Два флагманских продукта</div>
+        <h2 class="h2" data-i18n="fl_h2">Два сильных<br><span class="dim">результата</span><br><span class="acc">для бизнеса</span></h2>
+      </div>
+      <p class="sub" style="max-width:380px" data-i18n="fl_sub">Не просто «набор функций», а два инструмента которые решают конкретные проблемы каждого дня. Отправил файл — получил результат.</p>
+    </div>
+    <div class="flagship-grid">
+
+      <!-- FLAGSHIP 1: WAYBILLS -->
+      <div class="flagship-card fc-waybills sr">
+        <div class="fl-num">01</div>
+        <span class="fl-icon">📦</span>
+        <div class="fl-tag t-r" data-i18n="fl1_tag">// Накладные и сборка</div>
+        <div class="fl-title" data-i18n="fl1_title">Накладные за 10 секунд.<br>Порядок на упаковке.</div>
+        <p class="fl-desc" data-i18n="fl1_desc">Отправляешь ZIP из Kaspi Магазина — получаешь готовые PDF. Один клик разбивает накладные по товарам и создаёт сборочный лист. Упаковщик берёт только свою пачку. Никакой путаницы.</p>
+        <ul class="fl-list">
+          <li data-i18n="fl1_li1">ZIP из Kaspi → готовые PDF за 10 секунд</li>
+          <li data-i18n="fl1_li2">Разбивка по товарам — отдельный PDF на каждый</li>
+          <li data-i18n="fl1_li3">Сборочный лист Excel с количеством</li>
+          <li data-i18n="fl1_li4">Меньше путаницы на сборке</li>
+          <li data-i18n="fl1_li5">Быстрее работа упаковщика</li>
+        </ul>
+        <div class="fl-result">
+          <span style="color:var(--grey2)">// пример</span><br>
+          <span style="color:var(--r)">input</span>: <span style="color:var(--green)">накладные.zip</span> · 47 штук<br>
+          <span style="color:var(--r)">output</span>: <span style="color:var(--snow)">10 PDF + сборочный.xlsx</span><br>
+          <span style="color:var(--r)">time</span>: <span style="color:var(--snow)">12 сек</span> <span style="color:var(--green)">✓</span> <span style="color:var(--grey2)">раньше: 40 мин</span>
+        </div>
+        <div style="margin-top:1.5rem">
+          <a href="https://t.me/kaspitoolsbot" class="btn-r magnetic" style="font-size:.68rem;padding:.75rem 1.6rem">
+            <span data-i18n="fl1_cta">Сделать накладные за 10 секунд →</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- FLAGSHIP 2: ANALYTICS -->
+      <div class="flagship-card fc-analytics sr d1">
+        <div class="fl-num">02</div>
+        <span class="fl-icon">📊</span>
+        <div class="fl-tag t-g" data-i18n="fl2_tag">// Excel-аналитика</div>
+        <div class="fl-title" data-i18n="fl2_title">Понятные цифры<br>по бизнесу за 30 сек.</div>
+        <p class="fl-desc" data-i18n="fl2_desc">Два файла из Kaspi Pay → готовый детальный отчёт на 10 листах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.</p>
+        <ul class="fl-list">
+          <li data-i18n="fl2_li1">2 Excel из Kaspi Pay → 10 листов отчёта</li>
+          <li data-i18n="fl2_li2">Топ товаров, выручка, расходы, маржа</li>
+          <li data-i18n="fl2_li3">Динамика по дням, часам и дням недели</li>
+          <li data-i18n="fl2_li4">Умные выводы: лучший день, высокий возврат</li>
+          <li data-i18n="fl2_li5">Сравнение двух периодов между собой</li>
+        </ul>
+        <div class="fl-result">
+          <span style="color:var(--grey2)">// пример</span><br>
+          <span style="color:var(--green)">input</span>: <span style="color:var(--snow)">отчёт_продаж.xlsx + выписка.xlsx</span><br>
+          <span style="color:var(--green)">output</span>: <span style="color:var(--snow)">10 листов · 1 243 500 ₸ выручки</span><br>
+          <span style="color:var(--green)">time</span>: <span style="color:var(--snow)">30 сек</span> <span style="color:var(--green)">✓</span>
+        </div>
+        <div style="margin-top:1.5rem">
+          <a href="https://t.me/kaspitoolsbot" class="btn-r magnetic" style="background:var(--green);font-size:.68rem;padding:.75rem 1.6rem;box-shadow:none">
+            <span data-i18n="fl2_cta" style="color:#000">Получить отчёт из Kaspi Pay →</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ BEFORE / AFTER ══ -->
+<section class="ba-sec" id="results">
+  <div class="secin">
+    <div class="sr" style="text-align:center;margin-bottom:0">
+      <div class="stag" style="justify-content:center" data-i18n="ba_tag">До / После</div>
+      <h2 class="h2" data-i18n="ba_h2">Что меняется<br><span class="acc">с первого дня</span></h2>
+      <p class="sub" style="max-width:480px;margin:1rem auto 0" data-i18n="ba_sub">Реальный сценарий: 30+ заказов в день, накладные вручную, цифры бизнеса непонятны.</p>
+    </div>
+
+    <!-- WAYBILLS BEFORE/AFTER -->
+    <div style="margin-top:4rem">
+      <div class="stag sr" data-i18n="ba_w_label">// Накладные и сборка</div>
+      <div class="ba-grid sr">
+        <div class="ba-col before">
+          <div class="ba-label" data-i18n="ba_before">ДО</div>
+          <div class="ba-item" data-i18n="ba_w_b1">Открываешь каждую накладную вручную по одной</div>
+          <div class="ba-item" data-i18n="ba_w_b2">40 минут каждое утро только на печать</div>
+          <div class="ba-item" data-i18n="ba_w_b3">Упаковщик ищет нужную накладную в общей стопке</div>
+          <div class="ba-item" data-i18n="ba_w_b4">Ошибки при сборке, перепутанные товары</div>
+          <div class="ba-item" data-i18n="ba_w_b5">Не знаешь сколько каких товаров собирать</div>
+        </div>
+        <div class="ba-divider"><div class="ba-arrow">→</div></div>
+        <div class="ba-col after">
+          <div class="ba-label" data-i18n="ba_after">ПОСЛЕ</div>
+          <div class="ba-item" data-i18n="ba_w_a1">Скинул ZIP боту — через 12 секунд всё готово</div>
+          <div class="ba-item" data-i18n="ba_w_a2">Каждый товар — отдельный PDF с нужным форматом</div>
+          <div class="ba-item" data-i18n="ba_w_a3">Сборочный лист показывает точное количество</div>
+          <div class="ba-item" data-i18n="ba_w_a4">Ноль путаницы, ноль ошибок при сборке</div>
+          <div class="ba-item" data-i18n="ba_w_a5">Утро начинается с работы, а не с рутины</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS BEFORE/AFTER -->
+    <div style="margin-top:3rem">
+      <div class="stag sr" data-i18n="ba_a_label">// Excel-аналитика</div>
+      <div class="ba-grid sr">
+        <div class="ba-col before">
+          <div class="ba-label" data-i18n="ba_before">ДО</div>
+          <div class="ba-item" data-i18n="ba_a_b1">Не знаешь какой товар приносит реальную прибыль</div>
+          <div class="ba-item" data-i18n="ba_a_b2">Видишь только общую выручку в Kaspi Pay</div>
+          <div class="ba-item" data-i18n="ba_a_b3">Выставляешь цены на глаз — иногда продаёшь в минус</div>
+          <div class="ba-item" data-i18n="ba_a_b4">Часы в Excel чтобы собрать хоть какую-то картину</div>
+          <div class="ba-item" data-i18n="ba_a_b5">Решения принимаешь на ощущениях, не на данных</div>
+        </div>
+        <div class="ba-divider"><div class="ba-arrow" style="background:var(--green)">→</div></div>
+        <div class="ba-col after">
+          <div class="ba-label" data-i18n="ba_after">ПОСЛЕ</div>
+          <div class="ba-item" data-i18n="ba_a_a1">Топ товаров по выручке — сразу видно кто тянет</div>
+          <div class="ba-item" data-i18n="ba_a_a2">Понятная разбивка: выручка, расходы, чистая прибыль</div>
+          <div class="ba-item" data-i18n="ba_a_a3">Лучшие дни и часы — знаешь когда делать рекламу</div>
+          <div class="ba-item" data-i18n="ba_a_a4">Товары с высоким возвратом — видишь проблему сразу</div>
+          <div class="ba-item" data-i18n="ba_a_a5">30 секунд и у тебя полная картина месяца</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURES — HOW IT WORKS ══ -->
+<section class="featsec" id="features">
+  <div class="secin">
+    <div class="sec-head sr">
+      <div>
+        <div class="stag" data-i18n="feat_tag">Как это работает</div>
+        <h2 class="h2" data-i18n="feat_h2">Загрузил файл —<br><span class="dim">получил</span><br><span class="acc">результат</span></h2>
+      </div>
+      <p class="sub" style="max-width:360px" data-i18n="feat_sub">Никаких регистраций, API ключей и сторонних сервисов. Просто отправь файл в Telegram — бот сделает всё остальное.</p>
+    </div>
+    <div class="fgrid">
+      <div class="fcard big sr" id="tilt-main">
+        <div class="fcard-glow"></div>
+        <div>
+          <div class="fc-num">01</div>
+          <div class="fc-tag" data-i18n="fc1_tag">Ключевой инструмент</div>
+          <span class="fc-icon">📦</span>
+          <div class="fc-title" data-i18n="fc1_title">Накладные за 10 секунд</div>
+          <p class="fc-desc" data-i18n="fc1_desc">Скидываешь ZIP из Kaspi Магазина — получаешь готовый PDF. Термопринтер, A4, 4 или 9 на листе. Сортировка по товару, по дедлайну или отдельные файлы на каждый товар.<br><br>147 накладных. 9.3 секунды. Раньше уходило 40 минут.</p>
+        </div>
+        <div style="background:var(--void);border:1px solid var(--edge);border-radius:12px;padding:1.5rem;font-family:var(--fm);font-size:.75rem;line-height:1.9;color:var(--grey)">
+          <span style="color:var(--grey2)">// входящие данные</span><br>
+          <span style="color:var(--r)">input</span>: <span style="color:var(--green)">накладные.zip</span><br>
+          <span style="color:var(--r)">format</span>: <span style="color:var(--green)">"9_на_лист"</span><br>
+          <span style="color:var(--r)">sort</span>: <span style="color:var(--green)">"по_дедлайну"</span><br><br>
+          <span style="color:var(--grey2)">// результат</span><br>
+          <span style="color:var(--r)">output</span>: <span style="color:var(--green)">готово.pdf</span><br>
+          <span style="color:var(--r)">count</span>: <span style="color:#fff">147 накладных</span><br>
+          <span style="color:var(--r)">time</span>: <span style="color:#fff">9.3 сек</span> ✓
+        </div>
+      </div>
+      <div class="fcard sr d1" id="tilt-1">
+        <div class="fcard-glow"></div>
+        <div class="fc-num">02</div>
+        <div class="fc-tag" data-i18n="fc2_tag">Аналитика</div>
+        <span class="fc-icon">📊</span>
+        <div class="fc-title" data-i18n="fc2_title">Полный отчёт из двух Excel</div>
+        <p class="fc-desc" data-i18n="fc2_desc">Два файла из Kaspi Pay (.xlsx) → детальный отчёт с выручкой, расходами, топ‑товарами и разбивкой по дням. 10+ листов за 30 секунд. Все данные остаются у тебя.</p>
+      </div>
+      <div class="fcard sr d2" id="tilt-2">
+        <div class="fcard-glow"></div>
+        <div class="fc-num">03</div>
+        <div class="fc-tag" data-i18n="fc3_tag">Калькулятор</div>
+        <span class="fc-icon">🧮</span>
+        <div class="fc-title" data-i18n="fc3_title">Точная маржа с первой попытки</div>
+        <p class="fc-desc" data-i18n="fc3_desc">Введи цену и себестоимость — бот покажет чистую прибыль с учётом комиссии Kaspi, ИПН и доставки. Больше не угадываешь — знаешь точно.</p>
+      </div>
+      <!-- UNIQUE FEATURE — full width -->
+      <div class="fcard big sr" style="grid-column:span 3;background:linear-gradient(135deg,rgba(255,61,0,.07),var(--s2));border-color:rgba(255,61,0,.2)">
+        <div class="fcard-glow"></div>
+        <div>
+          <div class="fc-num">04</div>
+          <div class="fc-tag" style="background:rgba(255,61,0,.15);border-color:rgba(255,61,0,.3)" data-i18n="fc4_tag">✦ Уникальная функция — нигде больше нет</div>
+          <span class="fc-icon">🗂</span>
+          <div class="fc-title" data-i18n="fc4_title">Разбивка по товарам + Сборочный лист</div>
+          <p class="fc-desc">Один ZIP → отдельный PDF на каждый товар и Excel-сборочный лист с количеством. Упаковщик берёт только свою пачку — никакой путаницы. Имя файла сразу говорит что внутри: <em style="color:var(--snow);font-style:normal">Nike_Air_Max_белый_3шт_термо.pdf</em><br><br>Другие боты просто объединяют накладные в один файл. KitSeller единственный кто разбивает по товарам и даёт сборочную ведомость — как на складе маркетплейса.</p>
+        </div>
+        <div style="background:var(--void);border:1px solid var(--edge);border-radius:12px;padding:1.5rem;font-family:var(--fm);font-size:.72rem;line-height:1.9;color:var(--grey)">
+          <span style="color:var(--grey2)">// 13 накладных → по товарам</span><br>
+          <span style="color:var(--r)">✓</span> <span style="color:var(--green)">сборочный_лист_13шт.xlsx</span><br>
+          <span style="color:var(--r)">✓</span> Nike_Air_Max_белый_<span style="color:#fff">3шт</span>_термо.pdf<br>
+          <span style="color:var(--r)">✓</span> Adidas_Samba_черный_<span style="color:#fff">2шт</span>_термо.pdf<br>
+          <span style="color:var(--r)">✓</span> New_Balance_574_серый_<span style="color:#fff">1шт</span>_термо.pdf<br>
+          <span style="color:var(--grey2)">// + ещё 7 файлов...</span><br><br>
+          <span style="color:var(--grey2)">// Сборочный лист Excel</span><br>
+          <span style="color:var(--r)">товар</span>: Nike Air Max → <span style="color:#fff">3 шт</span><br>
+          <span style="color:var(--r)">товар</span>: Adidas Samba → <span style="color:#fff">2 шт</span><br>
+          <span style="color:var(--r)">итого</span>: <span style="color:var(--green)">10 товаров · 13 накладных</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXTRA TOOLS ══ -->
+<section class="extra-sec" id="extra-tools">
+  <div class="secin">
+    <div class="sr" style="text-align:center;margin-bottom:0">
+      <div class="stag" style="justify-content:center" data-i18n="extra_tag">Дополнительные инструменты</div>
+      <h2 class="h2" style="font-size:clamp(1.6rem,3vw,2.6rem)" data-i18n="extra_h2">Ещё три инструмента<br><span class="dim">в том же боте</span></h2>
+    </div>
+    <div class="extra-grid sr">
+      <div class="extra-card">
+        <span class="extra-icon">🧮</span>
+        <div class="extra-title" data-i18n="ex1_title">Калькулятор маржи</div>
+        <p class="extra-desc" data-i18n="ex1_desc">Введи цену и себестоимость — бот покажет чистую прибыль с учётом комиссии Kaspi 15%, ИПН и доставки. Больше не угадываешь — знаешь точно до того как поставил цену.</p>
+      </div>
+      <div class="extra-card">
+        <span class="extra-icon">💱</span>
+        <div class="extra-title" data-i18n="ex2_title">Курсы Нацбанка РК</div>
+        <p class="extra-desc" data-i18n="ex2_desc">CNY, USD, EUR, RUB к тенге — актуально каждый день. Конвертируй в пару нажатий. Подпишись на уведомления — бот напишет когда курс изменится. Полезно если закупаешь в Китае.</p>
+      </div>
+      <div class="extra-card">
+        <span class="extra-icon">📱</span>
+        <div class="extra-title" data-i18n="ex3_title">QR-коды за 5 секунд</div>
+        <p class="extra-desc" data-i18n="ex3_desc">Генерируй QR для своего Kaspi магазина, ссылки на товар или акции. Распечатай, поставь на точке — покупатели сканируют и попадают прямо к тебе.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOR WHO ══ -->
+<section class="featsec fwsec" id="forwho">
+  <div class="secin">
+    <div class="sec-head sr">
+      <div>
+        <div class="stag" data-i18n="fw_tag">Для кого</div>
+        <h2 class="h2" data-i18n="fw_h2">Это для тебя,<br><span class="dim">если узнаёшь</span><br><span class="acc">себя здесь</span></h2>
+      </div>
+      <p class="sub" data-i18n="fw_sub">Если хоть один пункт про тебя — бот сэкономит минимум час в день и даст понятные цифры по бизнесу.</p>
+    </div>
+    <div class="fwinner">
+      <div class="fwlist sr">
+        <div class="fwitem"><span class="fwn">01</span><div><div class="fwtitle" data-i18n="fw1_t">10+ заказов в день и каждое утро — накладные вручную</div><p class="fwdesc" data-i18n="fw1_d">По одной, заново каждый день. Это 20–40 минут чистого времени. Бот делает то же самое за 10 секунд.</p></div></div>
+        <div class="fwitem"><span class="fwn">02</span><div><div class="fwtitle" data-i18n="fw2_t">Хаос на упаковке — упаковщик путает товары</div><p class="fwdesc" data-i18n="fw2_d">Когда все накладные в одной стопке — перепутать легко. Разбивка по товарам и сборочный лист убирают путаницу полностью.</p></div></div>
+        <div class="fwitem"><span class="fwn">03</span><div><div class="fwtitle" data-i18n="fw3_t">Выручка есть — а что реально осталось непонятно</div><p class="fwdesc" data-i18n="fw3_d">Kaspi удерживает комиссии, реклама, ИПН. Аналитика разложит всё по полочкам: вот выручка, вот расходы, вот чистая прибыль.</p></div></div>
+        <div class="fwitem"><span class="fwn">04</span><div><div class="fwtitle" data-i18n="fw4_t">Хочешь понимать цифры бизнеса — без ручной работы</div><p class="fwdesc" data-i18n="fw4_d">Не тратить часы в Excel, а за 30 секунд получать: топ товаров, лучшие дни, пики продаж, товары с высоким возвратом.</p></div></div>
+        <div class="fwitem"><span class="fwn">05</span><div><div class="fwtitle" data-i18n="fw5_t">Устал от рутины — хочешь развивать бизнес</div><p class="fwdesc" data-i18n="fw5_d">Пока конкуренты тратят утро на накладные — ты уже знаешь какой товар приносит прибыль и куда направить усилия.</p></div></div>
+        <div class="fwitem"><span class="fwn">06</span><div><div class="fwtitle" data-i18n="fw6_t">Закупаешь в Китае и следишь за курсом CNY</div><p class="fwdesc" data-i18n="fw6_d">Каждый день проверяешь курс вручную. Подпишись на уведомления — бот напишет сам когда курс изменился.</p></div></div>
+      </div>
+      <div class="fw-right sr d1">
+        <div class="fw-stat">
+          <div class="fws-n" data-count="40" data-suf=" мин" data-i18n-suf="fws1_suf">40 мин</div>
+          <p class="fws-l" data-i18n="fws1">Столько тратят продавцы на ручную обработку накладных в день при 30+ заказах. Каждый день.</p>
+        </div>
+        <div class="fw-stat">
+          <div class="fws-n" data-count="2990" data-suf=" ₸">2 990 ₸</div>
+          <p class="fws-l" data-i18n="fws2">В месяц. Меньше стакана кофе в день. При 20 заказах окупается за первые два рабочих дня.</p>
+        </div>
+        <div class="fw-stat" style="background:rgba(255,61,0,.06);border-color:rgba(255,61,0,.2)">
+          <div class="fws-n" style="color:var(--green)" data-count="95" data-suf="%">95%</div>
+          <p class="fws-l" data-i18n="fws3">Времени на накладные экономит бот. Остаток — на то что реально важно.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CALC ══ -->
+<section class="calcsec" id="calc">
+  <div class="secin">
+    <div class="sr">
+      <div class="stag" data-i18n="calc_tag">Калькулятор экономии</div>
+      <h2 class="h2" data-i18n="calc_h2">Посчитай сколько<br><span class="acc">стоит рутина</span><br><span class="dim">в твоём случае</span></h2>
+    </div>
+    <div class="cbox sr">
+      <div class="chead">
+        <div class="cdots"><div class="cdot" style="background:#ff5f57"></div><div class="cdot" style="background:#febc2e"></div><div class="cdot" style="background:#28c840"></div></div>
+        <span class="cht">savings_calculator.ts</span>
+      </div>
+      <div class="cbody">
+        <div class="crow"><span class="clbl" data-i18n="calc_s1">Заказов в день</span><div class="cslw"><input type="range" min="5" max="200" value="30" id="s1" oninput="rc()"></div><div class="cval" id="v1">30</div></div>
+        <div class="crow"><span class="clbl" data-i18n="calc_s2">Минут на накладную</span><div class="cslw"><input type="range" min="0.5" max="5" value="2" step="0.5" id="s2" oninput="rc()"></div><div class="cval" id="v2">2</div></div>
+        <div class="crow"><span class="clbl" data-i18n="calc_s3">Рабочих дней в месяц</span><div class="cslw"><input type="range" min="10" max="30" value="26" id="s3" oninput="rc()"></div><div class="cval" id="v3">26</div></div>
+        <div class="cresults">
+          <div class="cs"><div class="csn o" id="rh">26.0</div><div class="csl2" data-i18n="calc_r1">Часов тратишь</div></div>
+          <div class="cs"><div class="csn g" id="rs">24.7</div><div class="csl2" data-i18n="calc_r2">Часов экономишь</div></div>
+          <div class="cs"><div class="csn g" id="rc2">162 ₸</div><div class="csl2" data-i18n="calc_r3">Цена часа экономии</div></div>
+        </div>
+        <p class="cmeta" data-i18n="calc_meta">* 95% экономии времени · подписка 2 990 ₸/мес · данные приблизительные</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DEMO ══ -->
+<section class="demosec" id="demo">
+  <div class="secin">
+    <div class="sr">
+      <div class="stag" data-i18n="demo_tag">Демо</div>
+      <h2 class="h2" data-i18n="demo_h2">Посмотри как<br>это выглядит<br><span class="acc">в чате</span></h2>
+    </div>
+    <div class="dlayout">
+      <div class="dtabs sr" id="dtabs">
+        <div class="dtab a" onclick="sw('analytics',this)"><span class="demoji">📊</span><div><div class="dname" data-i18n="demo_t1">Аналитика</div><div class="dhint" data-i18n="demo_h1">Два PDF → полный Excel отчёт</div></div></div>
+        <div class="dtab" onclick="sw('waybills',this)"><span class="demoji">📦</span><div><div class="dname" data-i18n="demo_t2">Накладные</div><div class="dhint" data-i18n="demo_h2_tab">ZIP → PDF + сборочный лист</div></div></div>
+        <div class="dtab" onclick="sw('calc',this)"><span class="demoji">🧮</span><div><div class="dname" data-i18n="demo_t3">Калькулятор</div><div class="dhint" data-i18n="demo_h3">Юнит-экономика за 3 шага</div></div></div>
+        <div class="dtab" onclick="sw('rates',this)"><span class="demoji">💱</span><div><div class="dname" data-i18n="demo_t4">Курсы валют</div><div class="dhint" data-i18n="demo_h4">Нацбанк + конвертация</div></div></div>
+      </div>
+      <div class="phone sr d1">
+        <div class="pbar"><div class="pc" style="background:#ff5f57"></div><div class="pc" style="background:#febc2e"></div><div class="pc" style="background:#28c840"></div><span class="pname">KitSeller</span><span class="pst">● онлайн</span></div>
+        <div class="pbody" id="dc"><div class="ptyp" id="dt"><span></span><span></span><span></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ══ -->
+<section class="pricesec" id="pricing">
+  <div class="secin">
+    <div class="sr" style="text-align:center">
+      <div class="stag" style="justify-content:center" data-i18n="price_tag">Тарифы</div>
+      <h2 class="h2" data-i18n="price_h2">Один тариф.<br><span class="dim">Без скрытых</span><br><span class="acc">условий.</span></h2>
+    </div>
+    <div class="pgrid">
+      <div class="pcard sr">
+        <div class="ptier" data-i18n="p1_tier">Демо-доступ</div>
+        <div class="pamount"><span class="pcur">₸</span>0</div>
+        <p class="pctx" data-i18n="p1_ctx">Попробуй без карты и без обязательств.</p>
+        <ul class="plist" id="p1list"><li class="y" data-i18n="p1_li1">1 раз — Накладные</li><li class="y" data-i18n="p1_li2">1 раз — Аналитика</li><li class="y" data-i18n="p1_li3">5 раз — Калькулятор</li><li class="y" data-i18n="p1_li4">Курсы валют — безлимитно</li><li class="y" data-i18n="p1_li5">QR-коды — безлимитно</li><li data-i18n="p1_li6">Без карты, без регистрации</li></ul>
+        <a href="https://t.me/kaspitoolsbot" class="pbtn ol magnetic"><span data-i18n="p1_btn">Начать бесплатно</span></a>
+      </div>
+      <div class="pcard hot sr d1">
+        <div class="pline"></div>
+        <div class="ptier" data-i18n="p2_tier">Полный доступ</div>
+        <div class="pamount"><span class="pcur">₸</span>2 990 <span class="pper" data-i18n="p2_per">/мес</span></div>
+        <p class="pctx" data-i18n="p2_ctx">= <span class="hl">99 ₸ в день</span>. При 20 заказах в день окупается за первые два рабочих дня. Оплата онлайн — доступ открывается мгновенно.</p>
+        <ul class="plist"><li class="y" data-i18n="p2_li1">Накладные — безлимитно</li><li class="y" data-i18n="p2_li2">Аналитика — безлимитно</li><li class="y" data-i18n="p2_li3">Калькулятор — безлимитно</li><li class="y" data-i18n="p2_li4">Курсы + уведомления</li><li class="y" data-i18n="p2_li5">QR-коды — безлимитно</li><li class="y" data-i18n="p2_li6">Поддержка в Telegram</li><li class="y" data-i18n="p2_li7">Новые функции без доплаты</li><li class="y" data-i18n="p2_li8">Возврат в течение 3 дней</li></ul>
+        <a href="https://t.me/kaspitoolsbot" class="pbtn fill magnetic"><span data-i18n="p2_btn">Оплатить и начать →</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ANALYTICS DEEP DIVE ══ -->
+<section class="featsec" id="analytics" style="background:var(--void)">
+  <div class="secin">
+    <div class="sec-head sr">
+      <div>
+        <div class="stag" data-i18n="an_tag">Аналитика</div>
+        <h2 class="h2" data-i18n="an_h2">10 листов Excel.<br><span class="dim">Все ответы</span><br><span class="acc">за 30 секунд.</span></h2>
+      </div>
+      <p class="sub" style="max-width:380px" data-i18n="an_sub">Загружаешь два файла из Kaspi Pay — получаешь полный отчёт о том что реально происходит в твоём бизнесе.</p>
+    </div>
+
+    <!-- KPI row -->
+    <div class="sr" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:3rem">
+      <div style="background:var(--s2);border:1px solid var(--edge);border-radius:14px;padding:1.75rem;text-align:center">
+        <div style="font-family:var(--fh);font-size:2rem;font-weight:900;letter-spacing:-.04em;color:var(--snow)" data-count="1243500" data-suf=" ₸">1 243 500 ₸</div>
+        <div style="font-size:.65rem;color:var(--grey);margin-top:.35rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600" data-i18n="an_kpi1">Выручка</div>
+      </div>
+      <div style="background:var(--s2);border:1px solid var(--edge);border-radius:14px;padding:1.75rem;text-align:center">
+        <div style="font-family:var(--fh);font-size:2rem;font-weight:900;letter-spacing:-.04em;color:var(--snow)" data-count="218" data-suf=" шт">218 шт</div>
+        <div style="font-size:.65rem;color:var(--grey);margin-top:.35rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600" data-i18n="an_kpi2">Заказов</div>
+      </div>
+      <div style="background:var(--s2);border:1px solid var(--edge);border-radius:14px;padding:1.75rem;text-align:center">
+        <div style="font-family:var(--fh);font-size:2rem;font-weight:900;letter-spacing:-.04em;color:var(--snow)" data-count="5703" data-suf=" ₸">5 703 ₸</div>
+        <div style="font-size:.65rem;color:var(--grey);margin-top:.35rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600" data-i18n="an_kpi3">Средний чек</div>
+      </div>
+      <div style="background:rgba(0,232,122,.06);border:1px solid rgba(0,232,122,.15);border-radius:14px;padding:1.75rem;text-align:center">
+        <div style="font-family:var(--fh);font-size:2rem;font-weight:900;letter-spacing:-.04em;color:var(--green)" data-count="891420" data-suf=" ₸">891 420 ₸</div>
+        <div style="font-size:.65rem;color:var(--grey);margin-top:.35rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600" data-i18n="an_kpi4">Прибыль до COGS</div>
+      </div>
+    </div>
+
+    <!-- Sheets grid -->
+    <div class="sr" style="margin-bottom:3rem">
+      <div style="font-family:var(--fm);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey2);margin-bottom:1.25rem" data-i18n="an_sheets_lbl">// что внутри Excel — 10 листов</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem">
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(255,61,0,.3)'" onmouseleave="this.style.borderColor=''">
+          <span style="font-size:1.4rem">📊</span>
+          <div><div style="font-size:.85rem;font-weight:700" data-i18n="sh1_n">Сводка</div><div style="font-size:.73rem;color:var(--grey);margin-top:2px" data-i18n="sh1_d">Выручка, расходы, прибыль — полный P&L</div></div>
+        </div>
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(255,61,0,.3)'" onmouseleave="this.style.borderColor=''">
+          <span style="font-size:1.4rem">🏆</span>
+          <div><div style="font-size:.85rem;font-weight:700" data-i18n="sh2_n">Топ товаров</div><div style="font-size:.73rem;color:var(--grey);margin-top:2px" data-i18n="sh2_d">Рейтинг по выручке, доля, возврат %</div></div>
+        </div>
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(255,61,0,.3)'" onmouseleave="this.style.borderColor=''">
+          <span style="font-size:1.4rem">📅</span>
+          <div><div style="font-size:.85rem;font-weight:700" data-i18n="sh3_n">По дням</div><div style="font-size:.73rem;color:var(--grey);margin-top:2px" data-i18n="sh3_d">Динамика выручки каждый день месяца</div></div>
+        </div>
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(255,61,0,.3)'" onmouseleave="this.style.borderColor=''">
+          <span style="font-size:1.4rem">⏰</span>
+          <div><div style="font-size:.85rem;font-weight:700" data-i18n="sh4_n">По часам</div><div style="font-size:.73rem;color:var(--grey);margin-top:2px" data-i18n="sh4_d">Когда покупают — пики активности</div></div>
+        </div>
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(255,61,0,.3)'" onmouseleave="this.style.borderColor=''">
+          <span style="font-size:1.4rem">📆</span>
+          <div><div style="font-size:.85rem;font-weight:700" data-i18n="sh5_n">Дни недели</div><div style="font-size:.73rem;color:var(--grey);margin-top:2px" data-i18n="sh5_d">Лучший день — Сб (198 400 ₸, 15.9%)</div></div>
+        </div>
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(255,61,0,.3)'" onmouseleave="this.style.borderColor=''">
+          <span style="font-size:1.4rem">💸</span>
+          <div><div style="font-size:.85rem;font-weight:700" data-i18n="sh6_n">Ценовые сегменты</div><div style="font-size:.73rem;color:var(--grey);margin-top:2px" data-i18n="sh6_d">76% заказов — сегмент 3–8 тыс. ₸</div></div>
+        </div>
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(255,61,0,.3)'" onmouseleave="this.style.borderColor=''">
+          <span style="font-size:1.4rem">🏷️</span>
+          <div><div style="font-size:.85rem;font-weight:700" data-i18n="sh7_n">Бренды</div><div style="font-size:.73rem;color:var(--grey);margin-top:2px" data-i18n="sh7_d">Топ бренд — 38.4% всей выручки</div></div>
+        </div>
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(255,61,0,.3)'" onmouseleave="this.style.borderColor=''">
+          <span style="font-size:1.4rem">↩️</span>
+          <div><div style="font-size:.85rem;font-weight:700" data-i18n="sh8_n">Возвраты</div><div style="font-size:.73rem;color:var(--grey);margin-top:2px" data-i18n="sh8_d">Детализация по каждому возврату</div></div>
+        </div>
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(255,61,0,.3)'" onmouseleave="this.style.borderColor=''">
+          <span style="font-size:1.4rem">💳</span>
+          <div><div style="font-size:.85rem;font-weight:700" data-i18n="sh9_n">Способы оплаты</div><div style="font-size:.73rem;color:var(--grey);margin-top:2px" data-i18n="sh9_d">Gold 71.2%, Кредит 18.4%, Red 8.9%</div></div>
+        </div>
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(255,61,0,.3)'" onmouseleave="this.style.borderColor=''">
+          <span style="font-size:1.4rem">📋</span>
+          <div><div style="font-size:.85rem;font-weight:700" data-i18n="sh10_n">Все операции</div><div style="font-size:.73rem;color:var(--grey);margin-top:2px" data-i18n="sh10_d">Полная транзакционная детализация</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Two column insights -->
+    <div class="sr" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:3rem">
+
+      <!-- Weekday bar chart -->
+      <div style="background:var(--s2);border:1px solid var(--edge);border-radius:16px;padding:2rem">
+        <div style="font-family:var(--fm);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--r);margin-bottom:1.5rem" data-i18n="chart_days">// Продажи по дням недели</div>
+        <div style="display:flex;flex-direction:column;gap:.75rem" id="daybars"></div>
+      </div>
+
+      <!-- Hour heatmap -->
+      <div style="background:var(--s2);border:1px solid var(--edge);border-radius:16px;padding:2rem">
+        <div style="font-family:var(--fm);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--r);margin-bottom:1.5rem" data-i18n="chart_hours">// Пиковые часы покупок</div>
+        <div style="display:flex;flex-direction:column;gap:.6rem" id="hourbars"></div>
+        <div style="font-size:.7rem;color:var(--grey2);margin-top:1rem" data-i18n="chart_hours_note">Пик: 14:00–18:00 · выручка 426 900 ₸ (34%)</div>
+      </div>
+    </div>
+
+    <!-- Cost breakdown + top brand -->
+    <div class="sr" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+
+      <!-- Expenses -->
+      <div style="background:var(--s2);border:1px solid var(--edge);border-radius:16px;padding:2rem">
+        <div style="font-family:var(--fm);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--r);margin-bottom:1.5rem" data-i18n="exp_title">// Расходы (удержания Kaspi)</div>
+        <div style="display:flex;flex-direction:column;gap:.85rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:.85rem;border-bottom:1px solid var(--edge)">
+            <span style="font-size:.82rem;color:var(--grey)" data-i18n="exp1">Комиссия Kaspi</span>
+            <span style="font-family:var(--fh);font-size:.9rem;font-weight:700;color:var(--snow)">236 140 ₸</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:.85rem;border-bottom:1px solid var(--edge)">
+            <span style="font-size:.82rem;color:var(--grey)" data-i18n="exp2">Реклама / Boost</span>
+            <span style="font-family:var(--fh);font-size:.9rem;font-weight:700;color:var(--snow)">31 200 ₸</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:.85rem;border-bottom:1px solid var(--edge)">
+            <span style="font-size:.82rem;color:var(--grey)" data-i18n="exp3">Бонусы покупателям</span>
+            <span style="font-family:var(--fh);font-size:.9rem;font-weight:700;color:var(--snow)">4 870 ₸</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:.85rem;border-bottom:1px solid var(--edge)">
+            <span style="font-size:.82rem;color:var(--grey)" data-i18n="exp4">Kaspi Pay комиссия</span>
+            <span style="font-family:var(--fh);font-size:.9rem;font-weight:700;color:var(--snow)">3 120 ₸</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:.85rem;border-bottom:1px solid var(--edge)">
+            <span style="font-size:.82rem;color:var(--grey)" data-i18n="exp5">ИПН 3%</span>
+            <span style="font-family:var(--fh);font-size:.9rem;font-weight:700;color:var(--snow)">37 305 ₸</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:.82rem;font-weight:700;color:var(--snow)" data-i18n="exp_total">Итого расходов</span>
+            <span style="font-family:var(--fh);font-size:1.1rem;font-weight:900;color:var(--r)">312 635 ₸</span>
+          </div>
+          <div style="background:rgba(0,232,122,.06);border:1px solid rgba(0,232,122,.12);border-radius:10px;padding:1rem;margin-top:.5rem">
+            <div style="font-size:.73rem;color:var(--grey);margin-bottom:.3rem" data-i18n="exp_profit">Чистая прибыль (до COGS)</div>
+            <div style="font-family:var(--fh);font-size:1.6rem;font-weight:900;color:var(--green);letter-spacing:-.03em">891 420 ₸ <span style="font-size:.9rem;opacity:.7">71.7%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Insights -->
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:16px;padding:1.75rem">
+          <div style="font-family:var(--fm);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--r);margin-bottom:1rem" data-i18n="top3_title">// Топ-3 товара</div>
+          <div style="display:flex;flex-direction:column;gap:.7rem">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:.78rem;color:var(--grey)"><span data-i18n="top1_name">🥇 Кошелёк кожаный Premium черный</span></span><span style="font-size:.82rem;font-weight:700;color:var(--snow)" data-i18n="top1_val">98 400 ₸ · 6 шт</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:.78rem;color:var(--grey)"><span data-i18n="top2_name">🥈 Сумка поясная Streetwear серая</span></span><span style="font-size:.82rem;font-weight:700;color:var(--snow)" data-i18n="top2_val">81 750 ₸ · 15 шт</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:.78rem;color:var(--grey)"><span data-i18n="top3_name">🥉 Шапка Logo Knit черная</span></span><span style="font-size:.82rem;font-weight:700;color:var(--snow)" data-i18n="top3_val">74 850 ₸ · 21 шт</span></div>
+          </div>
+        </div>
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:16px;padding:1.75rem">
+          <div style="font-family:var(--fm);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--r);margin-bottom:1rem" data-i18n="ins_title">// Умные выводы бота</div>
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <div style="font-size:.78rem;color:var(--grey);display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--green);flex-shrink:0">✓</span><span data-i18n="ins1">Лучший день — 14.03.2026: <span style="color:var(--snow)">138 200 ₸ (22 заказа)</span></span></div>
+            <div style="font-size:.78rem;color:var(--grey);display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--r);flex-shrink:0">⚠</span><span data-i18n="ins2">Высокий возврат 40%+: <span style="color:var(--snow)">Рюкзак City Brown</span></span></div>
+            <div style="font-size:.78rem;color:var(--grey);display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--green);flex-shrink:0">✓</span><span data-i18n="ins3">Лучший день недели — <span style="color:var(--snow)">Суббота (66 100 ₸ ср.)</span></span></div>
+            <div style="font-size:.78rem;color:var(--grey);display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--green);flex-shrink:0">✓</span><span data-i18n="ins4">Пик покупок — <span style="color:var(--snow)">14:00–18:00 (41% выручки)</span></span></div>
+          </div>
+        </div>
+        <div style="background:var(--s2);border:1px solid var(--edge);border-radius:16px;padding:1.75rem">
+          <div style="font-family:var(--fm);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--r);margin-bottom:1rem" data-i18n="buyer_title">// Портрет покупателя</div>
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <div style="font-size:.78rem;color:var(--grey);display:flex;justify-content:space-between"><span data-i18n="pay1">Kaspi Gold</span><span style="color:var(--snow);font-weight:600">71.2% · 155 заказов</span></div>
+            <div style="font-size:.78rem;color:var(--grey);display:flex;justify-content:space-between"><span data-i18n="pay2">Кредит на Покупки</span><span style="color:var(--snow);font-weight:600">18.4% · 40 заказов</span></div>
+            <div style="font-size:.78rem;color:var(--grey);display:flex;justify-content:space-between"><span data-i18n="pay3">Kaspi Red</span><span style="color:var(--snow);font-weight:600">8.9% · 19 заказов</span></div>
+            <div style="font-size:.7rem;color:var(--grey2);margin-top:.3rem;padding-top:.6rem;border-top:1px solid var(--edge)" data-i18n="buyer_note">27.3% — кредитные покупки. Аудитория покупает в рассрочку.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW TO GET FILES ══ -->
+<section style="background:var(--s1);padding:clamp(60px,8vw,100px) clamp(1.5rem,4vw,3rem)">
+  <div class="secin">
+    <div class="sr" style="text-align:center;margin-bottom:3rem">
+      <div class="stag" style="justify-content:center" data-i18n="qs_tag">Быстрый старт</div>
+      <h2 class="h2" data-i18n="qs_h2">Где взять файлы<br><span class="acc">для бота</span></h2>
+    </div>
+    <div class="sr" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:860px;margin:0 auto">
+      <div style="background:var(--s2);border:1px solid var(--edge);border-radius:16px;padding:2rem">
+        <div style="font-family:var(--fm);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--r);margin-bottom:1.25rem" data-i18n="qs_w1_h">// Накладные</div>
+        <div style="display:flex;flex-direction:column;gap:.85rem">
+          <div style="display:flex;gap:.9rem;align-items:flex-start">
+            <div style="width:22px;height:22px;border-radius:6px;background:var(--r);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.62rem;font-weight:900;flex-shrink:0;margin-top:1px">1</div>
+            <span style="font-size:.83rem;color:var(--grey);line-height:1.5" data-i18n="qs_w1_s1">Открой <strong style="color:var(--snow)">Kaspi Магазин</strong> → Заказы</span>
+          </div>
+          <div style="display:flex;gap:.9rem;align-items:flex-start">
+            <div style="width:22px;height:22px;border-radius:6px;background:var(--r);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.62rem;font-weight:900;flex-shrink:0;margin-top:1px">2</div>
+            <span style="font-size:.83rem;color:var(--grey);line-height:1.5" data-i18n="qs_w1_s2">Нажми <strong style="color:var(--snow)">Накладные → Скачать ZIP</strong></span>
+          </div>
+          <div style="display:flex;gap:.9rem;align-items:flex-start">
+            <div style="width:22px;height:22px;border-radius:6px;background:var(--r);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.62rem;font-weight:900;flex-shrink:0;margin-top:1px">3</div>
+            <span style="font-size:.83rem;color:var(--grey);line-height:1.5" data-i18n="qs_w1_s3">Отправь ZIP-файл в бота — выбери формат и готово</span>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--s2);border:1px solid var(--edge);border-radius:16px;padding:2rem">
+        <div style="font-family:var(--fm);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--r);margin-bottom:1.25rem" data-i18n="qs_w2_h">// Аналитика</div>
+        <div style="display:flex;flex-direction:column;gap:.85rem">
+          <div style="display:flex;gap:.9rem;align-items:flex-start">
+            <div style="width:22px;height:22px;border-radius:6px;background:var(--r);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.62rem;font-weight:900;flex-shrink:0;margin-top:1px">1</div>
+            <span style="font-size:.83rem;color:var(--grey);line-height:1.5" data-i18n="qs_w2_s1">Открой <strong style="color:var(--snow)">Kaspi Pay</strong> → Мой банк → Текущий счёт → Инфо</span>
+          </div>
+          <div style="display:flex;gap:.9rem;align-items:flex-start">
+            <div style="width:22px;height:22px;border-radius:6px;background:var(--r);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.62rem;font-weight:900;flex-shrink:0;margin-top:1px">2</div>
+            <span style="font-size:.83rem;color:var(--grey);line-height:1.5" data-i18n="qs_w2_s2">Скачай <strong style="color:var(--snow)">Отчёт по продажам</strong> и <strong style="color:var(--snow)">Выписку</strong> за один период</span>
+          </div>
+          <div style="display:flex;gap:.9rem;align-items:flex-start">
+            <div style="width:22px;height:22px;border-radius:6px;background:var(--r);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.62rem;font-weight:900;flex-shrink:0;margin-top:1px">3</div>
+            <span style="font-size:.83rem;color:var(--grey);line-height:1.5" data-i18n="qs_w2_s3">Отправь оба Excel-файла боту — через 30 сек получишь отчёт</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faqsec" id="faq">
+  <div class="secin">
+    <div class="sr" style="text-align:center"><div class="stag" style="justify-content:center">FAQ</div><h2 class="h2" data-i18n="faq_h2">Часто спрашивают</h2></div>
+    <div class="faqwrap sr">
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq1_q">Нужен ли API ключ или доступ к аккаунту?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq1_a">Нет. Бот работает только с файлами которые ты скачиваешь сам из Kaspi Pay и Kaspi Магазина. Файлы обрабатываются в памяти и сразу удаляются — данные нигде не хранятся.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq2_q">Где найти нужные файлы в Kaspi Pay?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq2_a">Для аналитики: Kaspi Pay → Мой банк → Текущий счёт → Инфо → Отчёт по продажам. И там же → Выписка. Оба файла за одинаковый период. Для накладных: Kaspi Магазин → Заказы → Накладные → Скачать ZIP.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq3_q">Как оплатить подписку?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq3_a">Онлайн оплата прямо в боте. Нажми "Подписка" → "Оплатить". Доступ открывается мгновенно после подтверждения оплаты.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq4_q">Работает на iPhone и Android?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq4_a">Да, на любом устройстве с Telegram. Дополнительных приложений не нужно.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq5_q">Что если не понравится?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq5_a">Есть демо-доступ без карты — накладные 1 раз, аналитика 1 раз, калькулятор 5 раз, курсы и QR-коды безлимитно. Попробуй сначала, оплачивай только если убедился что работает.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq6_q">Можно ли сравнить два месяца между собой?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq6_a">Да. Загрузи отчёты за два разных периода — бот покажет динамику: выручка выросла или упала, какие товары вышли в топ, где потери. Удобно для ежемесячного разбора.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq7_q">Мои данные где-то хранятся?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq7_a">Нет. Все файлы обрабатываются в памяти сервера и удаляются сразу после отправки результата. Бот не сохраняет ни накладные, ни данные из Kaspi Pay. Никакой базы данных с твоими файлами не существует.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="ctasec">
+  <div class="cta-arc"></div>
+  <div class="sr">
+    <h2 class="ctah">
+      <span class="stroke" data-i18n="cta_h1">Порядок</span><br>
+      <span class="fill" data-i18n="cta_h2">в сборке.</span><br>
+      <span class="red" data-i18n="cta_h3">Цифры ясны.</span>
+    </h2>
+    <p class="ctap" data-i18n="cta_p">Первые накладные и первый отчёт — бесплатно. Без карты, без регистрации.<br>Просто открой бот и отправь файл.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem">
+      <a href="https://t.me/kaspitoolsbot" class="btn-r magnetic">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
+        <span data-i18n="cta_btn">Попробовать бесплатно</span>
+      </a>
+      <a href="https://t.me/kaspitoolsbot" class="btn-o magnetic"><span data-i18n="cta_btn2">Проверить на своих файлах →</span></a>
+    </div>
+    <p class="ctanote" data-i18n="cta_note">2 990 ₸ / мес · Оплата онлайн · Доступ мгновенно · Возврат в течение 3 дней</p>
+  </div>
+</section>
+
+<footer>
+  <div><div class="flogo"><div class="fmk">KT</div>KitSeller</div><p class="fcopy" data-i18n="footer_copy">© 2026 Path of Peaks · Казахстан</p></div>
+  <ul class="flinks"><li><a href="https://t.me/kaspitoolsbot" data-i18n="footer_bot">Бот</a></li><li><a href="https://t.me/kaspitoolsbot" data-i18n="footer_support">Поддержка</a></li><li><a href="#faq">FAQ</a></li><li><a href="#pricing" data-i18n="nav_pricing">Тарифы</a></li><li><a href="/offer.html">Оферта</a></li><li><a href="/privacy.html">Конфиденциальность</a></li></ul>
+</footer>
+
+<script>
+/* ════ LANG STATE — must be first ════ */
+let currentLang='ru';
+
+/* ════ CURSOR ════ */
+const cd=document.getElementById('cd'),cr=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cd.style.left=mx+'px';cd.style.top=my+'px';
+});
+(function al(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(al)})();
+document.querySelectorAll('a,button,[onclick],input').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hover'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hover'));
+});
+document.querySelectorAll('p,.sub,.fc-desc,.fwdesc,.rvtext,.fqin').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('text'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('text'));
+});
+
+/* ════ MAGNETIC ════ */
+document.querySelectorAll('.magnetic').forEach(el=>{
+  el.addEventListener('mousemove',e=>{
+    const r=el.getBoundingClientRect();
+    const dx=(e.clientX-r.left-r.width/2)*.3;
+    const dy=(e.clientY-r.top-r.height/2)*.3;
+    el.style.transform=`translate(${dx}px,${dy}px)`;
+  });
+  el.addEventListener('mouseleave',()=>el.style.transform='');
+});
+
+/* ════ CANVAS BG — animated constellation ════ */
+const canv=document.getElementById('bg-canvas');
+const ctx=canv.getContext('2d');
+let W,H,nodes=[];
+function resize(){
+  W=canv.width=window.innerWidth;
+  H=canv.height=window.innerHeight;
+}
+resize();window.addEventListener('resize',resize);
+class Node{
+  constructor(){this.reset()}
+  reset(){
+    this.x=Math.random()*W;this.y=Math.random()*H;
+    this.vx=(Math.random()-.5)*.3;this.vy=(Math.random()-.5)*.3;
+    this.r=Math.random()*.8+.2;this.a=Math.random()*.3+.05;
+  }
+  update(){
+    this.x+=this.vx;this.y+=this.vy;
+    if(this.x<0||this.x>W)this.vx*=-1;
+    if(this.y<0||this.y>H)this.vy*=-1;
+  }
+}
+for(let i=0;i<70;i++)nodes.push(new Node());
+let animFrame;
+function drawBG(){
+  ctx.clearRect(0,0,W,H);
+  nodes.forEach(n=>{
+    n.update();
+    ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(255,61,0,${n.a})`;ctx.fill();
+  });
+  // Connections
+  for(let i=0;i<nodes.length;i++){
+    for(let j=i+1;j<nodes.length;j++){
+      const dx=nodes[i].x-nodes[j].x;const dy=nodes[i].y-nodes[j].y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<120){
+        ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);
+        ctx.strokeStyle=`rgba(255,61,0,${.06*(1-d/120)})`;ctx.lineWidth=.5;ctx.stroke();
+      }
+    }
+  }
+  // Mouse proximity glow
+  nodes.forEach(n=>{
+    const dx=n.x-mx;const dy=n.y-my;
+    const d=Math.sqrt(dx*dx+dy*dy);
+    if(d<150){
+      ctx.beginPath();ctx.arc(n.x,n.y,n.r*2,0,Math.PI*2);
+      ctx.fillStyle=`rgba(255,61,0,${.4*(1-d/150)})`;ctx.fill();
+    }
+  });
+  animFrame=requestAnimationFrame(drawBG);
+}
+drawBG();
+
+/* ════ SCRAMBLE TEXT ════ */
+const chars='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%';
+let scrambleInterval;
+function scramble(el,finalText,duration=1200){
+  clearInterval(scrambleInterval);
+  let iteration=0;
+  const len=finalText.length;
+  scrambleInterval=setInterval(()=>{
+    el.textContent=finalText.split('').map((c,i)=>{
+      if(i<Math.floor(iteration))return c;
+      return chars[Math.floor(Math.random()*chars.length)];
+    }).join('');
+    iteration+=len/(duration/30);
+    if(iteration>=len){el.textContent=finalText;clearInterval(scrambleInterval)}
+  },30);
+}
+const st=document.getElementById('scramble-target');
+setTimeout(()=>scramble(st,'умнее',1500),600);
+setInterval(()=>scramble(st,'умнее',1200),6000);
+
+/* ════ 3D CARD TILT ════ */
+document.querySelectorAll('.fcard').forEach(card=>{
+  const glow=card.querySelector('.fcard-glow');
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(800px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateZ(4px)`;
+    if(glow){glow.style.left=(e.clientX-r.left)+'px';glow.style.top=(e.clientY-r.top)+'px'}
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='';
+  });
+});
+
+/* ════ NAV ════ */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('s',scrollY>30));
+
+/* ════ MOBILE ════ */
+function tmob(){document.getElementById('mob').classList.toggle('o')}
+function cmob(){document.getElementById('mob').classList.remove('o')}
+
+/* ════ TICKER ════ */
+// ticker is initialised by setLang() on load
+
+/* ════ CALC ════ */
+function rc(){
+  const o=+document.getElementById('s1').value;
+  const t=+document.getElementById('s2').value;
+  const d=+document.getElementById('s3').value;
+  document.getElementById('v1').textContent=o;
+  document.getElementById('v2').textContent=t;
+  document.getElementById('v3').textContent=d;
+  ['s1','s2','s3'].forEach(id=>{
+    const el=document.getElementById(id);
+    el.style.setProperty('--v',((el.value-el.min)/(el.max-el.min)*100).toFixed(1)+'%');
+  });
+  const h=(o*t*d/60).toFixed(1);
+  const s=(o*t*d*.95/60).toFixed(1);
+  document.getElementById('rh').textContent=h;
+  document.getElementById('rs').textContent=s;
+  document.getElementById('rc2').textContent=(s>0?Math.round(2990/s):0)+' ₸';
+}
+rc();
+
+/* ════ DEMO CHAT ════ */
+function getSC(){
+  const kz=currentLang==='kz';
+  return {
+  analytics:[
+    {t:'usr',x: kz?'Kaspi Pay-дан екі Excel файлын жіберемін 📎📎':'Отправляю два Excel файла из Kaspi Pay 📎📎'},
+    {t:'typ'},
+    {t:'bot',h: kz
+      ?`📊 <strong>Есеп 01.03–31.03.2026</strong><br><br><div class="pr"><span>💰 Табыс</span><span>1 243 500 ₸</span></div><div class="pr"><span>🛒 Тапсырыс</span><span>218 дана</span></div><div class="pr"><span>📦 Орташа чек</span><span>5 703 ₸</span></div><div class="pr"><span>↩️ Қайтару</span><span>62 400 ₸ (5.0%)</span></div><div class="pr g"><span>✅ Пайда</span><span>891 420 ₸ (71.7%)</span></div>`
+      :`📊 <strong>Отчёт 01.03–31.03.2026</strong><br><br><div class="pr"><span>💰 Выручка</span><span>1 243 500 ₸</span></div><div class="pr"><span>🛒 Заказов</span><span>218 шт</span></div><div class="pr"><span>📦 Средний чек</span><span>5 703 ₸</span></div><div class="pr"><span>↩️ Возвраты</span><span>62 400 ₸ (5.0%)</span></div><div class="pr g"><span>✅ Прибыль</span><span>891 420 ₸ (71.7%)</span></div>`},
+    {t:'bot',h: kz
+      ?`🏆 Топ тауар: Əмиян Premium — <strong>98 400 ₸</strong> · 6 дана<br>📅 Үздік күн: 14.03 — <strong>138 200 ₸</strong><br>⚠️ Жоғары қайтару: Рюкзак City Brown (40%)`
+      :`🏆 Топ товар: Кошелёк Premium — <strong>98 400 ₸</strong> · 6 шт<br>📅 Лучший день: 14.03 — <strong>138 200 ₸</strong><br>⚠️ Высокий возврат: Рюкзак City Brown (40%)`},
+    {t:'bot',x: kz
+      ?'📎 Excel дайын — 10 бет: Жиынтық, Топ тауарлар, Күндер, Сағаттар, Апта күндері, Сегменттер, Брендтер, Қайтарулар, Төлем, Барлық операциялар'
+      :'📎 Excel готов — 10 листов: Сводка, Топ товаров, По дням, По часам, Дни недели, Сегменты, Бренды, Возвраты, Оплата, Все операции'},
+  ],
+  waybills:[
+    {t:'usr',x: kz?'ZIP жіберемін — жүкқұжаттар 📎':'Отправляю ZIP с накладными 📎'},
+    {t:'typ'},
+    {t:'bot',x: kz?'📦 Мұрағат алынды! Форматты таңда:':'📦 Архив получен! Выбери формат:'},
+    {t:'usr',x: kz?'Термопринтер · Тауар бойынша (жеке файлдар)':'Термопринтер · По товарам (отд. файлы)'},
+    {t:'typ'},
+    {t:'bot',h: kz
+      ?`✅ <strong>13 жүкқұжат · 10 тауар</strong><br>📎 жинау_тізімі_13дана.xlsx<br><div class="pr"><span>Nike Air Max ақ</span><span>3 дана</span></div><div class="pr"><span>Adidas Samba қара</span><span>2 дана</span></div><div class="pr g"><span>+ тауарлар бойынша тағы 8 файл</span><span>✓</span></div>`
+      :`✅ <strong>13 накладных · 10 товаров</strong><br>📎 сборочный_лист_13шт.xlsx<br><div class="pr"><span>Nike Air Max белый</span><span>3 шт</span></div><div class="pr"><span>Adidas Samba черный</span><span>2 шт</span></div><div class="pr g"><span>+ ещё 8 файлов по товарам</span><span>✓</span></div>`},
+  ],
+  calc:[
+    {t:'usr',x: kz?'3990 ₸ тауардың юнит-экономикасы':'Юнит-экономика товара за 3990 ₸'},
+    {t:'bot',x: kz?'📦 Өзіндік құнды енгіз (₸):':'📦 Введи себестоимость (₸):'},
+    {t:'usr',x:'1800'},
+    {t:'typ'},
+    {t:'bot',h: kz
+      ?`<div class="pr"><span>💰 Баға</span><span>2 990 ₸</span></div><div class="pr"><span>📦 Өзіндік құн</span><span>-1 200 ₸</span></div><div class="pr"><span>🏪 Комиссия 15%</span><span>-449 ₸</span></div><div class="pr"><span>📋 ЖТС 3%</span><span>-90 ₸</span></div><div class="pr g"><span>✅ Пайда</span><span>1 251 ₸ (41.8%)</span></div>`
+      :`<div class="pr"><span>💰 Цена</span><span>2 990 ₸</span></div><div class="pr"><span>📦 Себест.</span><span>-1 200 ₸</span></div><div class="pr"><span>🏪 Комиссия 15%</span><span>-449 ₸</span></div><div class="pr"><span>📋 ИПН 3%</span><span>-90 ₸</span></div><div class="pr g"><span>✅ Прибыль</span><span>1 251 ₸ (41.8%)</span></div>`},
+  ],
+  rates:[
+    {t:'usr',x: kz?'Валюта бағамдары':'Курсы валют'},
+    {t:'typ'},
+    {t:'bot',h: kz
+      ?`💱 <strong>ҚР Ұлттық банк</strong><br><br><div class="pr"><span>🇨🇳 CNY</span><span>71.43 ₸</span></div><div class="pr"><span>🇺🇸 USD</span><span>511.20 ₸</span></div><div class="pr"><span>🇪🇺 EUR</span><span>553.80 ₸</span></div>`
+      :`💱 <strong>Нацбанк РК</strong><br><br><div class="pr"><span>🇨🇳 CNY</span><span>71.43 ₸</span></div><div class="pr"><span>🇺🇸 USD</span><span>511.20 ₸</span></div><div class="pr"><span>🇪🇺 EUR</span><span>553.80 ₸</span></div>`},
+    {t:'usr',x: kz?'500 CNY теңгеге?':'500 CNY в тенге?'},
+    {t:'typ'},
+    {t:'bot',h:`500 CNY = <strong>35 715 ₸</strong>`},
+  ],
+};}
+let dt=[];
+function sw(k,el){
+  document.querySelectorAll('.dtab').forEach(t=>t.classList.remove('a'));el.classList.add('a');rd(k);
+}
+function rd(k){
+  dt.forEach(clearTimeout);dt=[];
+  const SC=getSC();
+  const chat=document.getElementById('dc'),typ=document.getElementById('dt');
+  chat.innerHTML='';chat.appendChild(typ);typ.classList.remove('s');
+  let delay=400;
+  SC[k].forEach(m=>{
+    dt.push(setTimeout(()=>{
+      if(m.t==='typ'){typ.classList.add('s');chat.scrollTop=1e5}
+      else{
+        typ.classList.remove('s');
+        const el=document.createElement('div');
+        el.className='pm '+(m.t==='usr'?'usr':'bot');
+        el.innerHTML=m.h||m.x;
+        chat.insertBefore(el,typ);
+        requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('s')));
+        chat.scrollTop=1e5;
+      }
+    },delay));
+    delay+=m.t==='typ'?900:m.t==='usr'?750:1000;
+  });
+}
+rd('analytics');
+
+/* ════ FAQ ════ */
+function tf(btn){
+  const item=btn.parentElement,ans=item.querySelector('.fqa'),open=item.classList.contains('open');
+  document.querySelectorAll('.fq.open').forEach(el=>{el.classList.remove('open');el.querySelector('.fqa').style.maxHeight='0'});
+  if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}
+}
+
+/* ════ ANIMATED COUNTERS ════ */
+function animCount(el,target,suf,dur=1400){
+  const start=performance.now();
+  const isF=String(target).includes('.');
+  (function tick(now){
+    const p=Math.min((now-start)/dur,1);
+    const e=1-Math.pow(1-p,4);
+    const v=isF?(target*e).toFixed(1):Math.round(target*e);
+    el.textContent=Number(v).toLocaleString('ru')+suf;
+    if(p<1)requestAnimationFrame(tick);
+  })(start);
+}
+const cio=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const el=e.target,d=el.dataset;
+  if(d.count)animCount(el,parseFloat(d.count),d.suf||'',parseInt(d.dur||1400));
+  cio.unobserve(el);
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+/* ════ ANALYTICS CHARTS ════ */
+(function(){
+  const days=[['Пн',178400],['Вт',112600],['Ср',165800],['Чт',134200],['Пт',149700],['Сб',198400],['Вс',188300]];
+  const maxD=Math.max(...days.map(d=>d[1]));
+  const db=document.getElementById('daybars');
+  if(db)days.forEach(([d,v])=>{
+    const pct=(v/maxD*100).toFixed(1);
+    const isBest=v===maxD;
+    db.innerHTML+=`<div style="display:flex;align-items:center;gap:.75rem">
+      <div style="font-size:.72rem;font-family:var(--fh);font-weight:700;color:${isBest?'var(--snow)':'var(--grey2)'};min-width:2rem">${d}</div>
+      <div style="flex:1;height:6px;background:var(--edge);border-radius:3px;overflow:hidden">
+        <div style="width:${pct}%;height:100%;background:${isBest?'var(--r)':'var(--grey2)'};border-radius:3px;transition:width 1s"></div>
+      </div>
+      <div style="font-size:.72rem;color:${isBest?'var(--snow)':'var(--grey)'};min-width:60px;text-align:right">${(v/1000).toFixed(0)}k ₸</div>
+    </div>`;
+  });
+
+  const hours=[['10:00',38400],['11:00',29700],['12:00',61200],['13:00',44800],['14:00',128600],['15:00',67300],['16:00',118900],['17:00',109400],['18:00',122700],['19:00',88500],['20:00',42100],['21:00',54600]];
+  const maxH=Math.max(...hours.map(h=>h[1]));
+  const hb=document.getElementById('hourbars');
+  if(hb)hours.forEach(([h,v])=>{
+    const pct=(v/maxH*100).toFixed(1);
+    const isPeak=v>=90000;
+    hb.innerHTML+=`<div style="display:flex;align-items:center;gap:.75rem">
+      <div style="font-size:.68rem;font-family:var(--fm);color:${isPeak?'var(--snow)':'var(--grey2)'};min-width:2.8rem">${h}</div>
+      <div style="flex:1;height:5px;background:var(--edge);border-radius:3px;overflow:hidden">
+        <div style="width:${pct}%;height:100%;background:${isPeak?'var(--r)':'var(--grey2)'};border-radius:3px"></div>
+      </div>
+      <div style="font-size:.68rem;color:${isPeak?'var(--snow)':'var(--grey)'};min-width:48px;text-align:right">${(v/1000).toFixed(0)}k</div>
+    </div>`;
+  });
+})();
+
+/* ════ i18n — KZ / RU ════ */
+const LANG={
+  ru:{
+    nav_products:'Продукты', nav_features:'Как работает', nav_analytics:'Аналитика', nav_forwho:'Для кого',
+    nav_pricing:'Тарифы', nav_cta:'Попробовать →', mob_open:'Открыть бота →',
+    badge_free:'ПОПРОБУЙ<br>БЕСПЛАТНО',
+    hero_line1:'Работай', hero_line2:'умнее',
+    hero_desc:'<strong>Накладные, сборочный лист и глубокая Excel-аналитика</strong> в одном Telegram-боте.<br><br>Собирайте заказы быстрее, снижайте хаос на упаковке и получайте понятные отчёты по бизнесу без ручной рутины.',
+    pill1:'Накладные ZIP → PDF за 10 сек', pill2:'Excel-аналитика из Kaspi Pay', pill3:'Разбивка по товарам',
+    hero_btn:'Попробовать бесплатно', hero_btn2:'Открыть бота →',
+    stat1_lbl:'Обработка накладных', stat2_lbl:'В месяц', stat3_lbl:'В каждом отчёте', stat4_lbl:'Накладных и отчётов',
+    feat_tag:'Как это работает',
+    feat_h2:'Загрузил файл —<br><span class="dim">получил</span><br><span class="acc">результат</span>',
+    feat_sub:'Никаких регистраций, API ключей и сторонних сервисов. Просто отправь файл в Telegram — бот сделает всё остальное.',
+    fc1_tag:'Ключевой инструмент', fc1_title:'Накладные за 10 секунд',
+    fc1_desc:'Скидываешь ZIP из Kaspi Магазина — получаешь готовый PDF. Термопринтер, A4, 4 или 9 на листе. Сортировка по товару, по дедлайну или отдельные файлы на каждый товар.<br><br>147 накладных. 9.3 секунды. Раньше уходило 40 минут.',
+    fc2_tag:'Аналитика', fc2_title:'Полный отчёт из двух Excel',
+    fc2_desc:'Два файла из Kaspi Pay (.xlsx) → детальный отчёт с выручкой, расходами, топ‑товарами и разбивкой по дням. 10+ листов за 30 секунд. Все данные остаются у тебя.',
+    fc3_tag:'Калькулятор', fc3_title:'Точная маржа с первой попытки',
+    fc3_desc:'Введи цену и себестоимость — бот покажет чистую прибыль с учётом комиссии Kaspi, ИПН и стоимости доставки. Больше не угадываешь — знаешь точно.',
+    fc4_tag:'✦ Уникальная функция — нигде больше нет', fc4_title:'Разбивка по товарам + Сборочный лист',
+    fc5_tag:'Курсы', fc5_title:'Курсы Нацбанка РК прямо в чате',
+    fc5_desc:'CNY, USD, EUR, RUB к тенге — актуально каждый день. Конвертируй в пару нажатий. Подпишись на уведомления — бот напишет когда курс изменится.',
+    fc6_tag:'QR', fc6_title:'QR-коды за 5 секунд',
+    fc6_desc:'Генерируй QR для своего Kaspi магазина, ссылки на товар или акции. Распечатай, поставь на точке — покупатели сканируют и попадают прямо к тебе.',
+    fw_tag:'Для кого',
+    fw_h2:'Это для<br><span class="dim">тебя, если</span><br><span class="acc">хоть раз...</span>',
+    fw_sub:'Если хоть один пункт про тебя — бот сэкономит тебе минимум час в день.',
+    fw1_t:'Каждое утро тратишь время на накладные', fw1_d:'Вручную, по одной, заново каждый день. Бот делает то же самое за 10 секунд.',
+    fw2_t:'Выручка есть — прибыли нет', fw2_d:'Kaspi удерживает комиссии, реклама, ИПН. Бот разложит всё по полочкам: вот выручка, вот расходы, вот что реально осталось.',
+    fw3_t:'Выставляешь цену на глаз', fw3_d:'И потом оказывается что продал в минус. Калькулятор считает точную маржу с учётом комиссии, ИПН и стоимости доставки — до того как ты поставил цену.',
+    fw4_t:'Закупаешь в Китае', fw4_d:'Каждый день проверяешь курс CNY вручную. Подпишись на уведомления — бот сам напишет когда курс изменился.',
+    fw5_t:'От 10 заказов в день', fw5_d:'При 10 заказах бот экономит 20 минут в день. При 50 заказах — больше часа. Чем активнее торговля, тем сильнее разница.',
+    fw6_t:'Хочешь развивать бизнес, а не делать одно и то же', fw6_d:'Пока конкуренты тратят утро на накладные — ты уже знаешь какой товар приносит прибыль и где терять меньше.',
+    fws1:'Столько тратят продавцы на ручную обработку накладных в день при 30+ заказах. Каждый день.',
+    fws2:'В месяц. Меньше стакана кофе в день. При 20 заказах окупается за первые два рабочих дня.',
+    fws3:'Времени на накладные экономит бот. Остаток — на то что реально важно.',
+    // Flagship products
+    fl_tag:'Два флагманских продукта',
+    fl_h2:'Два сильных<br><span class="dim">результата</span><br><span class="acc">для бизнеса</span>',
+    fl_sub:'Не просто «набор функций», а два инструмента которые решают конкретные проблемы каждого дня. Отправил файл — получил результат.',
+    fl1_tag:'// Накладные и сборка', fl1_title:'Накладные за 10 секунд.<br>Порядок на упаковке.',
+    fl1_desc:'Отправляешь ZIP из Kaspi Магазина — получаешь готовые PDF. Один клик разбивает накладные по товарам и создаёт сборочный лист. Упаковщик берёт только свою пачку. Никакой путаницы.',
+    fl1_li1:'ZIP из Kaspi → готовые PDF за 10 секунд', fl1_li2:'Разбивка по товарам — отдельный PDF на каждый',
+    fl1_li3:'Сборочный лист Excel с количеством', fl1_li4:'Меньше путаницы на сборке', fl1_li5:'Быстрее работа упаковщика',
+    fl1_cta:'Сделать накладные за 10 секунд →',
+    fl2_tag:'// Excel-аналитика', fl2_title:'Понятные цифры<br>по бизнесу за 30 сек.',
+    fl2_desc:'Два файла из Kaspi Pay → готовый детальный отчёт на 10 листах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.',
+    fl2_li1:'2 Excel из Kaspi Pay → 10 листов отчёта', fl2_li2:'Топ товаров, выручка, расходы, маржа',
+    fl2_li3:'Динамика по дням, часам и дням недели', fl2_li4:'Умные выводы: лучший день, высокий возврат',
+    fl2_li5:'Сравнение двух периодов между собой', fl2_cta:'Получить отчёт из Kaspi Pay →',
+    // Before/After
+    ba_tag:'До / После', ba_h2:'Что меняется<br><span class="acc">с первого дня</span>',
+    ba_sub:'Реальный сценарий: 30+ заказов в день, накладные вручную, цифры бизнеса непонятны.',
+    ba_w_label:'// Накладные и сборка', ba_a_label:'// Excel-аналитика',
+    ba_before:'ДО', ba_after:'ПОСЛЕ',
+    ba_w_b1:'Открываешь каждую накладную вручную по одной', ba_w_b2:'40 минут каждое утро только на печать',
+    ba_w_b3:'Упаковщик ищет нужную накладную в общей стопке', ba_w_b4:'Ошибки при сборке, перепутанные товары',
+    ba_w_b5:'Не знаешь сколько каких товаров собирать',
+    ba_w_a1:'Скинул ZIP боту — через 12 секунд всё готово', ba_w_a2:'Каждый товар — отдельный PDF с нужным форматом',
+    ba_w_a3:'Сборочный лист показывает точное количество', ba_w_a4:'Ноль путаницы, ноль ошибок при сборке',
+    ba_w_a5:'Утро начинается с работы, а не с рутины',
+    ba_a_b1:'Не знаешь какой товар приносит реальную прибыль', ba_a_b2:'Видишь только общую выручку в Kaspi Pay',
+    ba_a_b3:'Выставляешь цены на глаз — иногда продаёшь в минус', ba_a_b4:'Часы в Excel чтобы собрать хоть какую-то картину',
+    ba_a_b5:'Решения принимаешь на ощущениях, не на данных',
+    ba_a_a1:'Топ товаров по выручке — сразу видно кто тянет', ba_a_a2:'Понятная разбивка: выручка, расходы, чистая прибыль',
+    ba_a_a3:'Лучшие дни и часы — знаешь когда делать рекламу', ba_a_a4:'Товары с высоким возвратом — видишь проблему сразу',
+    ba_a_a5:'30 секунд и у тебя полная картина месяца',
+    // Extra tools
+    extra_tag:'Дополнительные инструменты',
+    extra_h2:'Ещё три инструмента<br><span class="dim">в том же боте</span>',
+    ex1_title:'Калькулятор маржи', ex1_desc:'Введи цену и себестоимость — бот покажет чистую прибыль с учётом комиссии Kaspi 15%, ИПН и доставки. Больше не угадываешь — знаешь точно до того как поставил цену.',
+    ex2_title:'Курсы Нацбанка РК', ex2_desc:'CNY, USD, EUR, RUB к тенге — актуально каждый день. Конвертируй в пару нажатий. Подпишись на уведомления — бот напишет когда курс изменится.',
+    ex3_title:'QR-коды за 5 секунд', ex3_desc:'Генерируй QR для своего Kaspi магазина, ссылки на товар или акции. Распечатай, поставь на точке — покупатели сканируют и попадают прямо к тебе.',
+    calc_tag:'Калькулятор экономии',
+    calc_h2:'Посчитай сколько<br><span class="acc">стоит рутина</span><br><span class="dim">в твоём случае</span>',
+    calc_s1:'Заказов в день', calc_s2:'Минут на накладную', calc_s3:'Рабочих дней в месяц',
+    calc_r1:'Часов тратишь', calc_r2:'Часов экономишь', calc_r3:'Цена часа экономии',
+    calc_meta:'* 95% экономии времени · подписка 2 990 ₸/мес · данные приблизительные',
+    demo_tag:'Демо',
+    demo_h2:'Посмотри как<br>это выглядит<br><span class="acc">в чате</span>',
+    demo_t1:'Аналитика', demo_h1:'Два PDF → полный Excel отчёт',
+    demo_t2:'Накладные', demo_h2_tab:'ZIP → PDF + сборочный лист',
+    demo_t3:'Калькулятор', demo_h3:'Юнит-экономика за 3 шага',
+    demo_t4:'Курсы валют', demo_h4:'Нацбанк + конвертация',
+    an_tag:'Аналитика',
+    an_h2:'10 листов Excel.<br><span class="dim">Все ответы</span><br><span class="acc">за 30 секунд.</span>',
+    an_sub:'Загружаешь два файла из Kaspi Pay — получаешь полный отчёт о том что реально происходит в твоём бизнесе.',
+    price_tag:'Тарифы',
+    price_h2:'Один тариф.<br><span class="dim">Без скрытых</span><br><span class="acc">условий.</span>',
+    p1_tier:'Демо-доступ', p1_ctx:'Попробуй без карты и без обязательств.', p1_btn:'Начать бесплатно',
+    p2_tier:'Полный доступ', p2_btn:'Оплатить и начать →',
+    qs_tag:'Быстрый старт',
+    qs_h2:'Где взять файлы<br><span class="acc">для бота</span>',
+    qs_w1_h:'// Накладные',
+    qs_w1_s1:'Открой <strong style="color:var(--snow)">Kaspi Магазин</strong> → Заказы',
+    qs_w1_s2:'Нажми <strong style="color:var(--snow)">Накладные → Скачать ZIP</strong>',
+    qs_w1_s3:'Отправь ZIP-файл в бота — выбери формат и готово',
+    qs_w2_h:'// Аналитика',
+    qs_w2_s1:'Открой <strong style="color:var(--snow)">Kaspi Pay</strong> → Мой банк → Текущий счёт → Инфо',
+    qs_w2_s2:'Скачай <strong style="color:var(--snow)">Отчёт по продажам</strong> и <strong style="color:var(--snow)">Выписку</strong> за один период',
+    qs_w2_s3:'Отправь оба Excel-файла боту — через 30 сек получишь отчёт',
+    faq_h2:'Часто спрашивают',
+    faq1_q:'Нужен ли API ключ или доступ к аккаунту?',
+    faq1_a:'Нет. Бот работает только с файлами которые ты скачиваешь сам из Kaspi Pay и Kaspi Магазина. Файлы обрабатываются в памяти и сразу удаляются — данные нигде не хранятся.',
+    faq2_q:'Где найти нужные файлы в Kaspi Pay?',
+    faq2_a:'Для аналитики: Kaspi Pay → Мой банк → Текущий счёт → Инфо → Отчёт по продажам. И там же → Выписка. Оба файла за одинаковый период. Для накладных: Kaspi Магазин → Заказы → Накладные → Скачать ZIP.',
+    faq3_q:'Как оплатить подписку?',
+    faq3_a:'Онлайн оплата прямо в боте. Нажми "Подписка" → "Оплатить". Доступ открывается мгновенно после подтверждения оплаты.',
+    faq4_q:'Работает на iPhone и Android?',
+    faq4_a:'Да, на любом устройстве с Telegram. Дополнительных приложений не нужно.',
+    faq5_q:'Что если не понравится?',
+    faq5_a:'Есть демо-доступ без карты — накладные 1 раз, аналитика 1 раз, калькулятор 5 раз, курсы и QR-коды безлимитно. Попробуй сначала, оплачивай только если убедился что работает.',
+    faq6_q:'Можно ли сравнить два месяца между собой?',
+    faq6_a:'Да. Загрузи отчёты за два разных периода — бот покажет динамику: выручка выросла или упала, какие товары вышли в топ, где потери. Удобно для ежемесячного разбора.',
+    faq7_q:'Мои данные где-то хранятся?',
+    faq7_a:'Нет. Все файлы обрабатываются в памяти сервера и удаляются сразу после отправки результата. Бот не сохраняет ни накладные, ни данные из Kaspi Pay. Никакой базы данных с твоими файлами не существует.',
+    cta_h1:'Порядок', cta_h2:'в сборке.', cta_h3:'Цифры ясны.',
+    cta_p:'Первые накладные и первый отчёт — бесплатно. Без карты, без регистрации. Просто открой бот и отправь файл.',
+    cta_btn:'Попробовать бесплатно', cta_btn2:'Проверить на своих файлах →',
+    cta_note:'2 990 ₸ / мес · Оплата онлайн · Доступ мгновенно · Возврат в течение 3 дней',
+    footer_copy:'© 2026 Path of Peaks · Казахстан',
+    footer_bot:'Бот', footer_support:'Поддержка',
+    // Pricing lists
+    p1_li1:'1 раз — Накладные', p1_li2:'1 раз — Аналитика', p1_li3:'5 раз — Калькулятор',
+    p1_li4:'Курсы валют — безлимитно', p1_li5:'QR-коды — безлимитно', p1_li6:'Без карты, без регистрации',
+    p2_per:'/мес', p2_ctx:'= <span class="hl">99 ₸ в день</span>. При 20 заказах в день окупается за первые два рабочих дня. Оплата онлайн — доступ открывается мгновенно.',
+    p2_li1:'Накладные — безлимитно', p2_li2:'Аналитика — безлимитно', p2_li3:'Калькулятор — безлимитно',
+    p2_li4:'Курсы + уведомления', p2_li5:'QR-коды — безлимитно', p2_li6:'Поддержка в Telegram',
+    p2_li7:'Новые функции без доплаты', p2_li8:'Возврат в течение 3 дней',
+    // Analytics KPIs
+    an_kpi1:'Выручка', an_kpi2:'Заказов', an_kpi3:'Средний чек', an_kpi4:'Прибыль до COGS',
+    an_sheets_lbl:'// что внутри Excel — 10 листов',
+    sh1_n:'Сводка', sh1_d:'Выручка, расходы, прибыль — полный P&L',
+    sh2_n:'Топ товаров', sh2_d:'Рейтинг по выручке, доля, возврат %',
+    sh3_n:'По дням', sh3_d:'Динамика выручки каждый день месяца',
+    sh4_n:'По часам', sh4_d:'Когда покупают — пики активности',
+    sh5_n:'Дни недели', sh5_d:'Лучший день — Сб (198 400 ₸, 15.9%)',
+    sh6_n:'Ценовые сегменты', sh6_d:'76% заказов — сегмент 3–8 тыс. ₸',
+    sh7_n:'Бренды', sh7_d:'Топ бренд — 38.4% всей выручки',
+    sh8_n:'Возвраты', sh8_d:'Детализация по каждому возврату',
+    sh9_n:'Способы оплаты', sh9_d:'Gold 71.2%, Кредит 18.4%, Red 8.9%',
+    sh10_n:'Все операции', sh10_d:'Полная транзакционная детализация',
+    // Charts
+    chart_days:'// Продажи по дням недели',
+    chart_hours:'// Пиковые часы покупок',
+    chart_hours_note:'Пик: 14:00–18:00 · выручка 426 900 ₸ (34%)',
+    // Expenses
+    exp_title:'// Расходы (удержания Kaspi)',
+    exp1:'Комиссия Kaspi', exp2:'Реклама / Boost', exp3:'Бонусы покупателям',
+    exp4:'Kaspi Pay комиссия', exp5:'ИПН 3%',
+    exp_total:'Итого расходов', exp_profit:'Чистая прибыль (до COGS)',
+    // Top-3
+    top3_title:'// Топ-3 товара',
+    top1_name:'🥇 Кошелёк кожаный Premium черный', top1_val:'98 400 ₸ · 6 шт',
+    top2_name:'🥈 Сумка поясная Streetwear серая', top2_val:'81 750 ₸ · 15 шт',
+    top3_name:'🥉 Шапка Logo Knit черная', top3_val:'74 850 ₸ · 21 шт',
+    // Insights
+    ins_title:'// Умные выводы бота',
+    ins1:'Лучший день — 14.03.2026: <span style="color:var(--snow)">138 200 ₸ (22 заказа)</span>',
+    ins2:'Высокий возврат 40%+: <span style="color:var(--snow)">Рюкзак City Brown</span>',
+    ins3:'Лучший день недели — <span style="color:var(--snow)">Суббота (66 100 ₸ ср.)</span>',
+    ins4:'Пик покупок — <span style="color:var(--snow)">14:00–18:00 (41% выручки)</span>',
+    // Buyer portrait
+    buyer_title:'// Портрет покупателя',
+    pay1:'Kaspi Gold', pay2:'Кредит на Покупки', pay3:'Kaspi Red',
+    buyer_note:'27.3% — кредитные покупки. Аудитория покупает в рассрочку.',
+    scramble_word:'умнее',
+    ticker:['Накладные ZIP → PDF за 10 сек','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','10 листов за 30 сек','Порядок на упаковке','Понятные цифры бизнеса','Без API ключей','Сравнение периодов','Мгновенный доступ','Попробовать бесплатно'],
+    ticker:['Накладные ZIP → PDF','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','10 листов за 30 сек','Юнит-экономика','CNY · USD · EUR · RUB','QR-коды для магазина','Сравнение периодов','Без API ключей','Мгновенный доступ'],
+  },
+  kz:{
+    nav_features:'Құралдар', nav_analytics:'Аналитика', nav_forwho:'Кімге арналған',
+    nav_pricing:'Тарифтер', nav_cta:'Тегін көру →', mob_open:'Ботты ашу →',
+    badge_free:'ТЕГІН<br>БАЙҚАП КӨР',
+    hero_line1:'Kaspi', hero_line2:'Tools',
+    hero_desc:'Бір Telegram-бот сағаттар бойғы қолмен жұмысты алмастырады.<br><strong>Жүкқұжаттар, аналитика, калькулятор</strong> — секундтар ішінде.<br>Тауарлар бойынша бөлу, жинақ тізімі, 10 Excel парағы.<br>API керек емес. Файлды жібер — нәтижені ал.',
+    hero_btn:'Тегін бастау', hero_btn2:'Қарау ↓',
+    stat1_lbl:'Жүкқұжат өңдеу', stat2_lbl:'Айына', stat3_lbl:'Әр есепте', stat4_lbl:'Жүкқұжат және есептер',
+    feat_tag:'Құралдар',
+    feat_h2:'Алты құрал<br><span class="dim">уақытты шынымен</span><br><span class="acc">үнемдейді</span>',
+    feat_sub:'Әр құрал нақты мәселені шешеді. Артық сөз жоқ — тікелей Telegram арқылы жұмыс істейді, тіркеусіз және үшінші тарап қызметтерінсіз.',
+    fc1_tag:'Негізгі құрал', fc1_title:'Жүкқұжаттар 10 секундта',
+    fc1_desc:'Kaspi Дүкенінен ZIP жіберсең — дайын PDF аласың. Термопринтер, A4, бетте 4 немесе 9 данада. Тауар бойынша, мерзімі бойынша немесе әр тауарға жеке файлмен сұрыптауды таңдауға болады.<br><br>147 жүкқұжат — 9.3 секунд. Бұрын 40 минут кетуші еді.',
+    fc2_tag:'Аналитика', fc2_title:'Екі Excel-дан толық есеп',
+    fc2_desc:'Kaspi Pay-дан екі файл (.xlsx) → табыс, шығын, топ-тауарлар және күн бойынша толық есеп. 30 секундта 10-нан астам парақ. Барлық деректер сенде қалады.',
+    fc3_tag:'Калькулятор', fc3_title:'Маржаны бірінші рет дәл есепте',
+    fc3_desc:'Баға мен өзіндік құнды енгіз — бот Kaspi комиссиясын, ЖТС пен жеткізу құнын ескеріп таза пайданы көрсетеді. Болжамайсың — нақты білесің.',
+    fc4_tag:'✦ Бірегей мүмкіндік — басқада жоқ', fc4_title:'Тауар бойынша бөлу + Жинақ тізімі',
+    fc5_tag:'Бағамдар', fc5_title:'ҚР Ұлттық банк бағамы чатта',
+    fc5_desc:'CNY, USD, EUR, RUB теңгеге — күн сайын жаңартылады. Бірнеше қадаммен конвертациялайсың. Хабарландыруларға жазыл — бағам өзгерген кезде бот өзі хабарлайды.',
+    fc6_tag:'QR', fc6_title:'QR-код 5 секундта',
+    fc6_desc:'Kaspi дүкеніңе, тауар сілтемесіне немесе акцияға QR жаса. Басып шығар, нүктеге қой — сатып алушылар сканерлеп тікелей саған келеді.',
+    fw_tag:'Кімге арналған',
+    fw_h2:'Бұл сен үшін,<br><span class="dim">егер кем дегенде</span><br><span class="acc">бір рет...</span>',
+    fw_sub:'Осы тармақтардың кем дегенде біреуі сенікі болса — бот күніне бір сағаттан артық үнемдейді.',
+    fw1_t:'Таңертен жүкқұжаттарға уақыт кетеді', fw1_d:'Қолмен, біртіндеп, күн сайын. Бот дәл сол нәрсені 10 секундта жасайды.',
+    fw2_t:'Табыс бар — пайда жоқ', fw2_d:'Kaspi комиссия, жарнама, ЖТС ұстайды. Бот барлығын жайып береді: табыс, шығын және шынымен қалғаны.',
+    fw3_t:'Бағаны көз мөлшерімен қоясың', fw3_d:'Содан кейін зиянға саттым деп білесің. Калькулятор комиссия, ЖТС пен жеткізу құнын ескеріп, баға қоймас бұрын дәл маржаны есептейді.',
+    fw4_t:'Қытайдан тауар алып тұрасың', fw4_d:'CNY бағамын күн сайын қолмен тексересің. Хабарландыруларға жазыл — бағам өзгерген кезде бот өзі жазады.',
+    fw5_t:'Күніне 10-нан астам тапсырыс', fw5_d:'10 тапсырыста бот күніне 20 минут үнемдейді. 50 тапсырыста — бір сағаттан астам. Сауда белсенді болған сайын нәтиже де артады.',
+    fw6_t:'Бизнесіңді дамытқың бар, рутинаға уақыт жоқ', fw6_d:'Бәсекелестер таңертенін жүкқұжаттарға жұмсап жатқанда — сен қай тауар пайда әкелетінін және шығынды қайда азайтуға болатынын білесің.',
+    fws1:'30+ тапсырыста сатушылар жүкқұжаттарды қолмен өңдеуге күніне осынша уақыт жұмсайды. Күн сайын.',
+    fws2:'Айына. Күніне бір стакан кофеден де арзан. 20 тапсырыста алғашқы екі жұмыс күнінде ақталады.',
+    fws3:'Жүкқұжаттарға кететін уақытты бот үнемдейді. Қалған уақытты шынымен маңызды іске жұмса.',
+    calc_tag:'Үнемдеу калькуляторы',
+    calc_h2:'Рутина сенің жағдайда<br><span class="acc">қанша тұрады</span><br><span class="dim">есептеп көр</span>',
+    calc_s1:'Күніне тапсырыс саны', calc_s2:'Жүкқұжатқа кететін минут', calc_s3:'Айына жұмыс күні',
+    calc_r1:'Жұмсайтын сағат', calc_r2:'Үнемделетін сағат', calc_r3:'Үнемделген сағаттың бағасы',
+    calc_meta:'* 95% уақыт үнемдеу · жазылым 2 990 ₸/ай · деректер шамамен',
+    demo_tag:'Демо',
+    demo_h2:'Чатта қалай<br>көрінетінін<br><span class="acc">қара</span>',
+    demo_t1:'Аналитика', demo_h1:'Екі файл → толық Excel есебі',
+    demo_t2:'Жүкқұжаттар', demo_h2_tab:'ZIP → PDF + жинақ тізімі',
+    demo_t3:'Калькулятор', demo_h3:'3 қадамда юнит-экономика',
+    demo_t4:'Валюта бағамы', demo_h4:'Ұлттық банк + конвертация',
+    an_tag:'Аналитика',
+    an_h2:'10 Excel парағы.<br><span class="dim">Барлық жауап</span><br><span class="acc">30 секундта.</span>',
+    an_sub:'Kaspi Pay-дан екі файл жүктейсің — бизнесіңде нақты не болып жатқаны туралы толық есеп аласың.',
+    price_tag:'Тарифтер',
+    price_h2:'Бір тариф.<br><span class="dim">Жасырын шарт</span><br><span class="acc">жоқ.</span>',
+    p1_tier:'Демо-қол жеткізу', p1_ctx:'Картасыз және ешқандай міндеттемесіз байқап көр.', p1_btn:'Тегін бастау',
+    p2_tier:'Толық қол жеткізу', p2_btn:'Төлеп бастау →',
+    qs_tag:'Жылдам бастау',
+    qs_h2:'Бот үшін файлдарды<br><span class="acc">қайдан алуға болады</span>',
+    qs_w1_h:'// Жүкқұжаттар',
+    qs_w1_s1:'<strong style="color:var(--snow)">Kaspi Дүкенін</strong> аш → Тапсырыстар',
+    qs_w1_s2:'<strong style="color:var(--snow)">Жүкқұжаттар → ZIP жүктеу</strong> батырмасын бас',
+    qs_w1_s3:'ZIP-файлды ботқа жібер — форматты таңда, дайын',
+    qs_w2_h:'// Аналитика',
+    qs_w2_s1:'<strong style="color:var(--snow)">Kaspi Pay</strong> → Менің банкім → Ағымдағы шот → Ақпарат',
+    qs_w2_s2:'<strong style="color:var(--snow)">Сату есебін</strong> және <strong style="color:var(--snow)">Үзінді көшірмені</strong> бір кезең үшін жүктеп ал',
+    qs_w2_s3:'Екі Excel файлды ботқа жібер — 30 секундта есепті аласың',
+    faq_h2:'Жиі қойылатын сұрақтар',
+    faq1_q:'API кілті немесе аккаунтқа кіру керек пе?',
+    faq1_a:'Жоқ. Бот тек Kaspi Pay мен Kaspi Дүкенінен өзің жүктейтін файлдармен жұмыс істейді. Файлдар жадта өңделіп, бірден жойылады — деректерің ешжерде сақталмайды.',
+    faq2_q:'Kaspi Pay-дан қажет файлдарды қайдан табуға болады?',
+    faq2_a:'Аналитика үшін: Kaspi Pay → Менің банкім → Ағымдағы шот → Ақпарат → Сату есебі. Сол жерден → Үзінді көшірме. Екі файл да бір кезең үшін болуы керек. Жүкқұжаттар үшін: Kaspi Дүкені → Тапсырыстар → Жүкқұжаттар → ZIP жүктеу.',
+    faq3_q:'Жазылымды қалай төлеуге болады?',
+    faq3_a:'Ботта тікелей онлайн төлем арқылы. «Жазылым» → «Төлеу» батырмасын бас. Төлем расталған соң қол жеткізу лезде ашылады.',
+    faq4_q:'iPhone мен Android-та жұмыс істей ме?',
+    faq4_a:'Иә, Telegram орнатылған кез келген құрылғыда жұмыс істейді. Қосымша бағдарлама жүктеудің қажеті жоқ.',
+    faq5_q:'Ұнамаса ше?',
+    faq5_a:'Картасыз демо-қол жеткізу бар — жүкқұжаттар 1 рет, аналитика 1 рет, калькулятор 5 рет, бағамдар мен QR-кодтар шексіз. Алдымен байқап көр, жұмыс істейтініне көзің жеткенде ғана төле.',
+    faq6_q:'Екі айды салыстыруға болады ма?',
+    faq6_a:'Иә. Екі түрлі кезеңнің есептерін жүкте — бот динамиканы көрсетеді: табыс өстті ме, азайды ма, қай тауарлар топқа кірді, шығын қайда кетті. Ай сайынғы талдауға өте ыңғайлы.',
+    faq7_q:'Менің деректерім сақталады ма?',
+    faq7_a:'Жоқ. Барлық файлдар сервер жадында өңделіп, нәтиже жіберілген соң бірден жойылады. Бот жүкқұжаттарыңды да, Kaspi Pay деректеріңді де сақтамайды. Файлдарыңды сақтайтын дерекқор жоқ.',
+    cta_h1:'Тәртіп', cta_h2:'орамада.', cta_h3:'Сандар анық.',
+    cta_p:'Бірінші жүкқұжаттар мен бірінші есеп — тегін. Картасыз, тіркеусіз. Ботты ашып, файлды жібер.',
+    cta_btn:'Тегін байқап көру', cta_btn2:'Өз файлдарыңда тексеру →',
+    cta_note:'2 990 ₸ / ай · Онлайн төлем · Қол жеткізу лезде · Кез келген уақытта тоқтатуға болады',
+    footer_copy:'© 2026 Path of Peaks · Қазақстан',
+    footer_bot:'Бот', footer_support:'Қолдау',
+    // Pricing lists
+    p1_li1:'1 рет — Жүкқұжаттар', p1_li2:'1 рет — Аналитика', p1_li3:'5 рет — Калькулятор',
+    p1_li4:'Валюта бағамдары — шексіз', p1_li5:'QR-кодтар — шексіз', p1_li6:'Тіркеусіз, картасыз',
+    p2_per:'/ай', p2_ctx:'= <span class="hl">күніне 99 ₸</span>. Күніне 20 тапсырыста алғашқы екі жұмыс күнінде ақталады. Онлайн төлем — қол жеткізу лезде ашылады.',
+    p2_li1:'Жүкқұжаттар — шексіз', p2_li2:'Аналитика — шексіз', p2_li3:'Калькулятор — шексіз',
+    p2_li4:'Бағамдар + хабарландырулар', p2_li5:'QR-кодтар — шексіз', p2_li6:'Telegram арқылы қолдау',
+    p2_li7:'Жаңа мүмкіндіктер қосымша ақысыз', p2_li8:'Кез келген уақытта тоқтатуға болады',
+    // Analytics KPIs
+    an_kpi1:'Табыс', an_kpi2:'Тапсырыс', an_kpi3:'Орташа чек', an_kpi4:'Таза пайда (COGS-қа дейін)',
+    an_sheets_lbl:'// Excel ішінде не бар — 10 парақ',
+    sh1_n:'Жиынтық', sh1_d:'Табыс, шығын, пайда — толық P&L',
+    sh2_n:'Топ тауарлар', sh2_d:'Табыс бойынша рейтинг, үлес, қайтару %',
+    sh3_n:'Күндер бойынша', sh3_d:'Ай бойы табыс динамикасы',
+    sh4_n:'Сағаттар бойынша', sh4_d:'Қашан сатып алады — белсенділік шыңдары',
+    sh5_n:'Апта күндері', sh5_d:'Үздік күн — Сб (198 400 ₸, 15.9%)',
+    sh6_n:'Баға сегменттері', sh6_d:'Тапсырыстардың 76%-ы — 3–8 мың ₸ сегменті',
+    sh7_n:'Брендтер', sh7_d:'Топ бренд — табыстың 38.4%-ы',
+    sh8_n:'Қайтарулар', sh8_d:'Әр қайтарудың егжей-тегжейлі мәліметі',
+    sh9_n:'Төлем тәсілдері', sh9_d:'Gold 71.2%, Несие 18.4%, Red 8.9%',
+    sh10_n:'Барлық операциялар', sh10_d:'Толық транзакция тізімі',
+    // Charts
+    chart_days:'// Апта күндері бойынша сатылым',
+    chart_hours:'// Ең белсенді сатып алу сағаттары',
+    chart_hours_note:'Шың: 14:00–18:00 · табыс 426 900 ₸ (34%)',
+    // Expenses
+    exp_title:'// Шығындар (Kaspi ұстамалары)',
+    exp1:'Kaspi комиссиясы', exp2:'Жарнама / Boost', exp3:'Сатып алушыларға бонустар',
+    exp4:'Kaspi Pay комиссиясы', exp5:'ЖТС 3%',
+    exp_total:'Шығындар жиыны', exp_profit:'Таза пайда (COGS-қа дейін)',
+    // Top-3
+    top3_title:'// Топ-3 тауар',
+    top1_name:'🥇 Былғары әмиян Premium қара', top1_val:'98 400 ₸ · 6 дана',
+    top2_name:'🥈 Белдік сөмке Streetwear сұр', top2_val:'81 750 ₸ · 15 дана',
+    top3_name:'🥉 Қалпақ Logo Knit қара', top3_val:'74 850 ₸ · 21 дана',
+    // Insights
+    ins_title:'// Боттың ақылды тұжырымдары',
+    ins1:'Үздік күн — 14.03.2026: <span style="color:var(--snow)">138 200 ₸ (22 тапсырыс)</span>',
+    ins2:'Жоғары қайтару 40%+: <span style="color:var(--snow)">Рюкзак City Brown</span>',
+    ins3:'Аптаның үздік күні — <span style="color:var(--snow)">Сенбі (орт. 66 100 ₸)</span>',
+    ins4:'Ең белсенді сағаттар — <span style="color:var(--snow)">14:00–18:00 (табыстың 41%-ы)</span>',
+    // Buyer portrait
+    buyer_title:'// Сатып алушы портреті',
+    pay1:'Kaspi Gold', pay2:'Сатып алуға несие', pay3:'Kaspi Red',
+    buyer_note:'27.3% — несиеге сатып алады. Аудитория бөліп төлеуді жөн көреді.',
+    scramble_word:'жұмыс',
+    ticker:['Жүкқұжаттар ZIP → PDF','Тауарлар бойынша бөлу','Жинақ тізімі Excel','Kaspi Pay аналитикасы','30 секундта 10 парақ','Юнит-экономика','CNY · USD · EUR · RUB','Дүкен QR-коды','Кезеңдерді салыстыру','API кілті керек емес','Лезде қол жеткізу'],
+  }
+};
+function setLang(lang){
+  currentLang=lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===lang));
+  document.body.classList.toggle('lang-kz', lang==='kz');
+  const t=LANG[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(t[k]!==undefined) el.innerHTML=t[k];
+  });
+  const ht=document.getElementById('htinner');
+  if(ht){ht.innerHTML='';[...t.ticker,...t.ticker].forEach(tx=>{ht.innerHTML+=`<div class="hti"><span class="sep">◆</span>${tx}</div>`});}
+  scramble(document.getElementById('scramble-target'),t.scramble_word,1000);
+  // Re-render active demo tab
+  const activeTab=document.querySelector('.dtab.a');
+  if(activeTab) activeTab.click();
+  document.title = lang==='kz'
+    ? 'KitSeller — Kaspi сатушыларға Telegram-бот'
+    : 'KitSeller — Telegram-бот для Kaspi продавцов | Накладные, аналитика, калькулятор';
+}
+
+/* ════ INIT LANG ════ */
+setLang('ru');
+
+/* ════ SCROLL REVEAL ════ */
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.08});
+document.querySelectorAll('.sr').forEach(el=>io.observe(el));
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     SEO BLOG ARTICLES — индексируются Google
+     Скрыты визуально, но читаются поисковиками
+════════════════════════════════════════════════ -->
+<div id="seo-articles" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+
+  <!-- СТАТЬЯ 1 -->
+  <article id="article-nakladnye" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="url" content="https://kaspitools.kz/#article-nakladnye">
+    <h1 itemprop="headline">Как распечатать накладные Kaspi автоматически — за 10 секунд</h1>
+    <p>Если вы продаёте на Kaspi и каждое утро тратите 30–40 минут на накладные вручную — эта инструкция для вас. Расскажу как сократить это время до 10 секунд.</p>
+    <h2>Как скачать ZIP с накладными из Kaspi Магазина</h2>
+    <ol>
+      <li>Войдите в Kaspi Магазин (магазин.kaspi.kz)</li>
+      <li>В меню слева выберите Заказы</li>
+      <li>Нажмите Накладные</li>
+      <li>Нажмите кнопку Скачать ZIP</li>
+    </ol>
+    <h2>Как распечатать накладные Kaspi автоматически</h2>
+    <p>Самый быстрый способ — использовать Telegram-бот @kaspitoolsbot. Он принимает ZIP-архив и выдаёт готовый PDF за 10 секунд. Поддерживает форматы: термопринтер, A4, 4 на листе, 9 на листе. Также умеет сортировать по дедлайну и разбивать по товарам.</p>
+    <h2>Разбивка по товарам и сборочный лист — уникальная функция</h2>
+    <p>Режим "По товарам": каждый товар получает отдельный PDF-файл плюс сборочный лист Excel с количеством. Нигде больше нет такой функции. При 10 и более позиций экономит ещё 20–30 минут каждый день.</p>
+    <p>Реальный результат: 47 накладных за 12 секунд вместо 40 минут вручную.</p>
+    <p>Попробовать бесплатно: @kaspitoolsbot. Подписка 2 990 тенге в месяц.</p>
+  </article>
+
+  <!-- СТАТЬЯ 2 -->
+  <article id="article-analitika" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="url" content="https://kaspitools.kz/#article-analitika">
+    <h1 itemprop="headline">Аналитика Kaspi Pay в Excel за 30 секунд — полный отчёт о продажах</h1>
+    <p>Вы знаете в какой день недели у вас больше всего продаж? Какой товар приносит 40 процентов выручки? Расскажу как получить полную аналитику из Kaspi Pay за 30 секунд.</p>
+    <h2>Где найти файлы для аналитики в Kaspi Pay</h2>
+    <ol>
+      <li>Откройте приложение Kaspi Pay</li>
+      <li>Перейдите: Мой банк → Текущий счёт → Инфо</li>
+      <li>Нажмите Отчёт по продажам — скачайте за нужный период</li>
+      <li>Там же нажмите Выписка — скачайте за тот же период</li>
+    </ol>
+    <h2>Что входит в отчёт — 10 листов Excel</h2>
+    <p>Бот @kaspitoolsbot обрабатывает оба файла и создаёт Excel с 10 листами: Сводка (P&L), Топ товаров, По дням, По часам, Дни недели, Ценовые сегменты, Бренды, Возвраты, Способы оплаты, Все операции. Первый отчёт бесплатно на @kaspitoolsbot.</p>
+    <h2>Аналитика Kaspi Pay — умные выводы</h2>
+    <p>После анализа бот показывает: лучший день за период, товары с высоким процентом возвратов, лучший день недели, пиковые часы покупок. Можно сравнить два периода между собой.</p>
+  </article>
+
+  <!-- СТАТЬЯ 3 -->
+  <article id="article-marzha" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="url" content="https://kaspitools.kz/#article-marzha">
+    <h1 itemprop="headline">Как рассчитать маржу на Kaspi — комиссия 15%, ИПН 3%, формула</h1>
+    <p>Многие Kaspi-продавцы выставляют цену на глаз и потом работают в минус. Разберём точную формулу расчёта маржи для Kaspi продавца.</p>
+    <h2>Что удерживает Kaspi из ваших продаж</h2>
+    <p>Комиссия Kaspi Магазин 15 процентов от суммы продажи. ИПН 3 процента для ИП на упрощённом режиме. Реклама и Boost. Kaspi Pay комиссия около 0.5-1 процента. Бонусы покупателям.</p>
+    <h2>Формула расчёта маржи Kaspi</h2>
+    <p>Чистая прибыль = Цена продажи минус Себестоимость минус Комиссия Kaspi 15 процентов минус ИПН 3 процента минус Реклама минус Доставка. Минимальная цена = Себестоимость делённая на 0.82.</p>
+    <h2>Калькулятор маржи Kaspi онлайн</h2>
+    <p>В Telegram-боте @kaspitoolsbot есть встроенный калькулятор маржи. Вводите цену и себестоимость — получаете чистую прибыль с учётом комиссии Kaspi и ИПН. Также есть расчёт минимальной цены продажи и цели по прибыли. Попробовать бесплатно: @kaspitoolsbot.</p>
+  </article>
+
+  <!-- СТАТЬЯ 4 -->
+  <article id="article-unit" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="url" content="https://kaspitools.kz/#article-unit">
+    <h1 itemprop="headline">Юнит-экономика для Kaspi продавца — как перестать работать в убыток</h1>
+    <p>Многие Kaspi-продавцы видят что оборот растёт, а денег на счету не прибавляется. Причина — нет понимания юнит-экономики. Разберём что это и как применить.</p>
+    <h2>Что такое юнит-экономика для Kaspi</h2>
+    <p>Юнит-экономика — расчёт прибыли от одной единицы товара. Нужно учесть: себестоимость товара, доставку, упаковку, комиссию Kaspi 15 процентов, ИПН 3 процента, рекламу на единицу, долю постоянных расходов.</p>
+    <h2>Как найти убыточные товары на Kaspi</h2>
+    <p>Признаки убыточного товара: высокий процент возвратов выше 15 процентов, низкая цена при высокой себестоимости доставки, много рекламных расходов при малом объёме. Бот @kaspitoolsbot автоматически находит товары с аномальным процентом возвратов в аналитике Kaspi Pay.</p>
+  </article>
+
+  <!-- СТАТЬЯ 5 -->
+  <article id="article-instrumenty" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="url" content="https://kaspitools.kz/#article-instrumenty">
+    <h1 itemprop="headline">Инструменты для Kaspi продавца 2025 — полный список сервисов</h1>
+    <p>Продавцы которые автоматизируют рутину и принимают решения на основе данных выигрывают у тех кто всё делает вручную. Лучший инструмент для Kaspi продавца — @kaspitoolsbot.</p>
+    <h2>Автоматизация накладных Kaspi</h2>
+    <p>KitSeller — Telegram-бот который принимает ZIP с накладными и выдаёт готовый PDF за 10 секунд. Разбивка по товарам, сборочный лист Excel. Нигде больше нет.</p>
+    <h2>Аналитика продаж Kaspi</h2>
+    <p>Два файла из Kaspi Pay превращаются в 10 листов Excel с полной аналитикой: выручка, топ товары, маржа, дни, часы, возвраты, способы оплаты. За 30 секунд.</p>
+    <h2>Курс CNY тенге НБ РК</h2>
+    <p>Актуальный курс китайского юаня CNY к тенге по данным Национального банка РК. Плюс курсы USD, EUR, RUB. Уведомления об изменении курса. Доступно в @kaspitoolsbot бесплатно.</p>
+    <p>Попробовать все инструменты бесплатно: @kaspitoolsbot. Подписка 2 990 тенге в месяц.</p>
+  </article>
+
+</div>
+<!-- ═══════════════════════════════════════════════ -->
+</body>
+</html>
