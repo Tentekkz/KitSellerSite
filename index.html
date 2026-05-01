@@ -575,6 +575,159 @@ a, button, .btn-r, .btn-o, .ncta, [role="button"], .lang-btn, .burger {
   pointer-events: none !important;
 }
 
+
+/* === Clean readable KitSeller hero === */
+.clean-hero{
+  background:linear-gradient(180deg,#ffffff 0%,#f7f8fa 100%)!important;
+  padding:132px 20px 92px!important;
+  min-height:auto!important;
+  position:relative!important;
+  overflow:hidden!important;
+}
+.clean-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(720px 420px at 78% 10%,rgba(255,59,31,.08),transparent 62%);
+  pointer-events:none;
+}
+.clean-hero-inner{
+  width:min(1120px,100%);
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.clean-hero-kicker{
+  display:inline-flex;
+  align-items:center;
+  background:#fff1f0;
+  color:#b42318;
+  border:1px solid #ffd5d0;
+  border-radius:999px;
+  padding:9px 14px;
+  font-size:13px;
+  font-weight:950;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:26px;
+}
+.clean-hero-title{
+  margin:0;
+  color:#0b1220!important;
+  font-size:clamp(48px,8vw,112px)!important;
+  line-height:.92!important;
+  letter-spacing:-.065em!important;
+  font-weight:950!important;
+  text-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.clean-hero-title .accent{
+  color:#ff3b1f!important;
+}
+.clean-hero-subtitle{
+  margin:28px 0 0!important;
+  max-width:690px!important;
+  color:#667085!important;
+  font-size:clamp(18px,1.45vw,22px)!important;
+  line-height:1.65!important;
+  font-weight:500!important;
+}
+.clean-hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:34px;
+}
+.clean-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  padding:0 24px;
+  border-radius:15px;
+  font-weight:900;
+  text-decoration:none;
+  transition:transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.clean-btn-primary{
+  background:#ff3b1f!important;
+  color:#fff!important;
+  border:1px solid #ff3b1f!important;
+  box-shadow:0 14px 34px rgba(255,59,31,.23)!important;
+}
+.clean-btn-primary:hover{
+  background:#dc2f16!important;
+  border-color:#dc2f16!important;
+  transform:translateY(-2px);
+  box-shadow:0 18px 44px rgba(255,59,31,.28)!important;
+}
+.clean-btn-secondary{
+  background:#fff!important;
+  color:#0b1220!important;
+  border:1px solid rgba(17,24,39,.12)!important;
+  box-shadow:0 12px 30px rgba(17,24,39,.06)!important;
+}
+.clean-btn-secondary:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,59,31,.24)!important;
+}
+.clean-hero-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:26px;
+}
+.clean-hero-badges span{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  color:#374151;
+  border-radius:999px;
+  padding:10px 15px;
+  font-size:14px;
+  font-weight:800;
+  box-shadow:0 10px 26px rgba(17,24,39,.04);
+}
+/* Disable old hero visual artifacts */
+.hero-mega,.mega-line,.hero-ticker,.hero-pills,.hero-sub-row,.outline,.ghost{
+  text-shadow:none!important;
+}
+#cur,.cursor,.custom-cursor,.cursor-dot,.cursor-ring{
+  display:none!important;
+  opacity:0!important;
+  pointer-events:none!important;
+}
+html,body,*{
+  cursor:auto!important;
+}
+a,button,.clean-btn,.ncta,.btn-r,.btn-o,.lang-btn,.burger,[role="button"]{
+  cursor:pointer!important;
+}
+@media(max-width:760px){
+  .clean-hero{
+    padding:96px 18px 64px!important;
+  }
+  .clean-hero-kicker{
+    font-size:11px;
+    margin-bottom:18px;
+  }
+  .clean-hero-title{
+    font-size:clamp(44px,16vw,72px)!important;
+    line-height:.95!important;
+    letter-spacing:-.055em!important;
+  }
+  .clean-hero-subtitle{
+    font-size:16px!important;
+    line-height:1.62!important;
+    margin-top:22px!important;
+  }
+  .clean-btn{
+    width:100%;
+  }
+  .clean-hero-badges span{
+    width:100%;
+    text-align:center;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -612,40 +765,35 @@ a, button, .btn-r, .btn-o, .ncta, [role="button"], .lang-btn, .burger {
 </div>
 
 <!-- ══ HERO ══ -->
-<section class="hero">
-  </div>
 
-  <div class="hero-mega">
-    <span class="mega-line"><span class="inner" data-i18n="hero_line1">Работай</span></span>
-    <span class="mega-line"><span class="inner outline" id="scramble-target" data-i18n="hero_line2">умнее</span></span>
-  </div>
+<section class="hero clean-hero" id="top">
+  <div class="clean-hero-inner">
+    <div class="clean-hero-kicker">KitSeller для продавцов</div>
 
-  <div class="hero-sub-row">
-    <div>
-      <p class="hero-desc" data-i18n="hero_desc">
-        <strong>Накладные, сборочный лист и глубокая Excel-аналитика</strong> в одном Telegram-боте.<br><br>
-        Собирайте заказы быстрее, снижайте хаос на упаковке и получайте понятные отчёты по бизнесу без ручной рутины.
-      </p>
-      <!-- Hero product pills -->
-      <div class="hero-pills" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem">
-        <div class="hero-pill"><span>📦</span> <span data-i18n="pill1">Накладные ZIP → PDF за 10 сек</span></div>
-        <div class="hero-pill"><span>📊</span> <span data-i18n="pill2">Excel-аналитика из Kaspi Pay</span></div>
-        <div class="hero-pill"><span>🗂</span> <span data-i18n="pill3">Разбивка по товарам</span></div>
-      </div>
+    <h1 class="clean-hero-title">
+      <span data-i18n="h1_a">Накладные и</span><br>
+      <span data-i18n="h1_b">Excel-аналитика</span><br>
+      <span class="accent" data-i18n="h1_c">за 10 секунд</span>
+    </h1>
+
+    <p class="clean-hero-subtitle" data-i18n="hero_desc">
+      Загрузи ZIP → получи готовый PDF и Excel-отчёт на 17 страниц.
+      Без ручной возни, ошибок и лишнего Excel.
+    </p>
+
+    <div class="clean-hero-actions">
+      <a class="clean-btn clean-btn-primary" href="https://t.me/kitseller_bot" target="_blank" rel="noopener" data-i18n="hero_cta">Открыть бот</a>
+      <a class="clean-btn clean-btn-secondary" href="#how" data-i18n="hero_demo">Как это работает</a>
     </div>
-    <div class="hero-cta-wrap">
-      <a href="https://t.me/kitseller_bot" class="btn-r magnetic">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
-        <span data-i18n="hero_btn">Попробовать бесплатно</span>
-      </a>
-      <a href="https://t.me/kitseller_bot" class="btn-o magnetic"><span data-i18n="hero_btn2">Открыть бота →</span></a>
-    </div>
-  </div>
 
-  <div class="hero-ticker">
-    <div class="htinner" id="htinner"></div>
+    <div class="clean-hero-badges">
+      <span data-i18n="pill1">14 дней бесплатно</span>
+      <span data-i18n="pill2">990 ₸ / месяц</span>
+      <span data-i18n="pill3">17 страниц Excel</span>
+    </div>
   </div>
 </section>
+
 
 <!-- STATS BAR -->
 <div class="stats-bar">
@@ -1546,8 +1694,8 @@ const LANG={
     nav_pricing:'Тарифы', nav_cta:'Попробовать →', mob_open:'Открыть бота →',
     badge_free:'ПОПРОБУЙ<br>БЕСПЛАТНО',
     hero_line1:'Работай', hero_line2:'умнее',
-    hero_desc:'<strong>Накладные, сборочный лист и глубокая Excel-аналитика</strong> в одном Telegram-боте.<br><br>Собирайте заказы быстрее, снижайте хаос на упаковке и получайте понятные отчёты по бизнесу без ручной рутины.',
-    pill1:'Накладные ZIP → PDF за 10 сек', pill2:'Excel-аналитика из Kaspi Pay', pill3:'Разбивка по товарам',
+    hero_desc:'Загрузи ZIP → получи готовый PDF и Excel-отчёт на 17 страниц. Без ручной возни, ошибок и лишнего Excel.',
+    pill1:'14 дней бесплатно', pill2:'990 ₸ / месяц', pill3:'17 страниц Excel',
     hero_btn:'Попробовать бесплатно', hero_btn2:'Открыть бота →',
     stat1_lbl:'Обработка накладных', stat2_lbl:'В месяц', stat3_lbl:'В каждом отчёте', stat4_lbl:'Накладных и отчётов',
     feat_tag:'Как это работает',
@@ -1715,7 +1863,7 @@ const LANG={
     nav_pricing:'Тарифтер', nav_cta:'Тегін көру →', mob_open:'Ботты ашу →',
     badge_free:'ТЕГІН<br>БАЙҚАП КӨР',
     hero_line1:'Kaspi', hero_line2:'Tools',
-    hero_desc:'Бір Telegram-бот сағаттар бойғы қолмен жұмысты алмастырады.<br><strong>Жүкқұжаттар, аналитика, калькулятор</strong> — секундтар ішінде.<br>Тауарлар бойынша бөлу, жинақ тізімі, 10 Excel парағы.<br>API керек емес. Файлды жібер — нәтижені ал.',
+    hero_desc:'ZIP файлын жүкте → дайын PDF пен 17 бет Excel-есеп ал. Қолмен реттеу, қате және артық Excel жоқ.',
     hero_btn:'Тегін бастау', hero_btn2:'Қарау ↓',
     stat1_lbl:'Жүкқұжат өңдеу', stat2_lbl:'Айына', stat3_lbl:'Әр есепте', stat4_lbl:'Жүкқұжат және есептер',
     feat_tag:'Құралдар',
