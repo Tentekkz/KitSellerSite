@@ -775,6 +775,58 @@ pre .ok {
   color: #22c55e !important;
 }
 
+
+/* === Final polish: grey hero title + single CTA === */
+.clean-hero-title,
+.clean-hero-title span,
+.clean-hero-title .accent,
+.clean-hero-title strong,
+.hero h1,
+.hero h1 span,
+.hero h1 .accent,
+.hero h1 strong {
+  color: #374151 !important;
+  -webkit-text-fill-color: #374151 !important;
+  background: none !important;
+  text-shadow: none !important;
+}
+.clean-hero-title,
+.hero h1 {
+  font-weight: 820 !important;
+  letter-spacing: -0.052em !important;
+  line-height: 1.04 !important;
+}
+.clean-btn-secondary,
+.clean-hero-actions a[data-i18n="hero_demo"],
+a[href="#how"].clean-btn-secondary,
+a[href="#how"] {
+  display: none !important;
+}
+.clean-hero-actions {
+  margin-top: 32px !important;
+}
+.clean-btn-primary {
+  min-width: 210px !important;
+}
+.clean-hero {
+  padding-top: 138px !important;
+  padding-bottom: 88px !important;
+}
+.clean-hero-subtitle {
+  max-width: 760px !important;
+}
+@media(max-width:760px){
+  .clean-hero {
+    padding-top: 104px !important;
+    padding-bottom: 62px !important;
+  }
+  .clean-hero-title,
+  .hero h1 {
+    line-height: 1.06 !important;
+    letter-spacing: -0.042em !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -830,7 +882,6 @@ pre .ok {
 
     <div class="clean-hero-actions">
       <a class="clean-btn clean-btn-primary" href="https://t.me/kitseller_bot" target="_blank" rel="noopener" data-i18n="hero_cta">Открыть бот</a>
-      <a class="clean-btn clean-btn-secondary" href="#how" data-i18n="hero_demo">Как работает</a>
     </div>
 
     <div class="clean-hero-badges">
