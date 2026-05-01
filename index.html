@@ -1351,6 +1351,185 @@ html[lang="kk"] .mega-line{
   }
 }
 
+
+/* ======================================================
+   KitSeller fixes after review: logo, pricing, FAQ, no calculator
+   ====================================================== */
+
+/* logo bigger and readable */
+.brand-logo{
+  height:56px!important;
+  max-width:230px!important;
+  object-fit:contain!important;
+}
+nav .nlogo{
+  min-width:190px!important;
+  display:flex!important;
+  align-items:center!important;
+}
+.footer-logo{
+  height:48px!important;
+  max-width:220px!important;
+}
+
+/* nav balance with bigger logo */
+nav{
+  height:88px!important;
+}
+.hero{
+  padding-top:150px!important;
+}
+
+/* KPI top numbers */
+.stats-bar .stat:nth-child(3) .stat-num::before{
+  content:"17";
+}
+.stats-bar .stat:nth-child(3) .stat-num{
+  font-size:0!important;
+}
+.stats-bar .stat:nth-child(3) .stat-num::before{
+  font-size:inherit!important;
+}
+.stats-bar .stat:nth-child(3) .stat-label{
+  font-size:0!important;
+}
+.stats-bar .stat:nth-child(3) .stat-label::before{
+  content:"страниц в Excel-отчёте";
+  font-size:1rem!important;
+}
+
+/* remove economy calculator section completely */
+.calcsec,
+#calculator,
+section[id*="calc"],
+section[class*="calc"]{
+  display:none!important;
+}
+
+/* headings: less broken and more balanced */
+.h2,.fc-title,.fwtitle,.ctah{
+  line-height:.96!important;
+  max-width:780px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.sec-head{
+  max-width:820px!important;
+}
+.sbl{
+  max-width:650px!important;
+}
+
+/* product cards: align text */
+.flagship-card{
+  display:flex!important;
+  flex-direction:column!important;
+}
+.fl-title{
+  line-height:1.05!important;
+  max-width:520px!important;
+}
+.fl-desc{
+  max-width:560px!important;
+}
+.fl-result{
+  margin-top:auto!important;
+}
+
+/* pricing card: fix old price visually if any remnants remain */
+.pricesec .pamount,
+.price-card .pamount,
+.price-card [class*="amount"]{
+  color:#07111f!important;
+}
+.price-card.popular .pamount::after,
+.pcard-popular .pamount::after{
+  content:"14 дней бесплатно, потом 990 ₸ / месяц";
+  display:block;
+  margin-top:.8rem;
+  font-size:1rem;
+  line-height:1.5;
+  color:#667085;
+  font-weight:700;
+  letter-spacing:0;
+}
+
+/* hide obsolete daily calculation line if still present */
+.price-card p:has(+ .pfeat),
+.price-card .pnote{
+  color:#667085!important;
+}
+
+/* FAQ redesign — clean full-width accordions */
+.faq-list{
+  max-width:980px!important;
+}
+.faq-item{
+  width:100%!important;
+  min-height:auto!important;
+  padding:0!important;
+  border-radius:20px!important;
+  overflow:hidden!important;
+  background:#fff!important;
+}
+.faq-q{
+  width:100%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:1rem!important;
+  padding:1.35rem 1.55rem!important;
+  font-size:1.08rem!important;
+  line-height:1.25!important;
+  letter-spacing:-.025em!important;
+  color:#07111f!important;
+}
+.faq-q::after{
+  content:"+";
+  width:34px;
+  height:34px;
+  flex:0 0 34px;
+  display:grid;
+  place-items:center;
+  border-radius:999px;
+  background:rgba(14,165,164,.09);
+  color:#0f766e;
+  font-weight:900;
+}
+.faq-a{
+  padding:0 1.55rem 1.35rem!important;
+  color:#667085!important;
+  line-height:1.65!important;
+}
+
+/* final CTA text looks premium */
+.ctabox .ctah{
+  line-height:.98!important;
+}
+.ctabox::after{
+  content:"14 дней бесплатно • потом 990 ₸ / месяц • 17 страниц Excel"!important;
+}
+
+/* mobile logo and spacing */
+@media(max-width:760px){
+  .brand-logo{
+    height:42px!important;
+    max-width:170px!important;
+  }
+  nav .nlogo{
+    min-width:150px!important;
+  }
+  nav{
+    height:76px!important;
+  }
+  .hero{
+    padding-top:108px!important;
+  }
+  .stats-bar .stat:nth-child(3) .stat-label::before{
+    font-size:.78rem!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1429,7 +1608,7 @@ html[lang="kk"] .mega-line{
 <div class="stats-bar">
   <div class="sbi"><div class="sbn" data-count="10" data-suf=" сек">10 сек</div><div class="sbl" data-i18n="stat1_lbl">Обработка накладных</div></div>
   <div class="sbi"><div class="sbn" data-count="990" data-suf=" ₸">990 ₸</div><div class="sbl" data-i18n="stat2_lbl">В месяц</div></div>
-  <div class="sbi"><div class="sbn" data-count="10" data-suf=" листов">17 страниц</div><div class="sbl" data-i18n="stat3_lbl">В каждом отчёте</div></div>
+  <div class="sbi"><div class="sbn" data-count="10" data-suf=" листов">17 страниц</div><div class="sbl" data-i18n="stat3_lbl">В Excel-отчёте</div></div>
   <div class="sbi"><div class="sbn">∞</div><div class="sbl" data-i18n="stat4_lbl">Накладных и отчётов</div></div>
 </div>
 
@@ -1450,7 +1629,7 @@ html[lang="kk"] .mega-line{
         <div class="fl-num">01</div>
         <span class="fl-icon">📦</span>
         <div class="fl-tag t-r" data-i18n="fl1_tag">// Накладные и сборка</div>
-        <div class="fl-title" data-i18n="fl1_title">Накладные за 10 секунд.<br>Порядок на упаковке.</div>
+        <div class="fl-title" data-i18n="fl1_title">Накладные за 10 секунд.<br>Начни на упаковке.</div>
         <p class="fl-desc" data-i18n="fl1_desc">Отправляешь ZIP из Kaspi Магазина — получаешь готовые PDF. Один клик разбивает накладные по товарам и создаёт сборочный лист. Упаковщик берёт только свою пачку. Никакой путаницы.</p>
         <ul class="fl-list">
           <li data-i18n="fl1_li1">ZIP из Kaspi → готовые PDF за 10 секунд</li>
@@ -1689,7 +1868,7 @@ html[lang="kk"] .mega-line{
         </div>
         <div class="fw-stat">
           <div class="fws-n" data-count="990" data-suf=" ₸">990 ₸</div>
-          <p class="fws-l" data-i18n="fws2">В месяц. Меньше стакана кофе в день. При 20 заказах окупается за первые два рабочих дня.</p>
+          <p class="fws-l" data-i18n="fws2">В месяц. Меньше стакана кофе в день. 14 дней бесплатно, потом 990 ₸ в месяц.</p>
         </div>
         <div class="fw-stat" style="background:rgba(255,61,0,.06);border-color:rgba(255,61,0,.2)">
           <div class="fws-n" style="color:var(--green)" data-count="95" data-suf="%">95%</div>
@@ -1704,8 +1883,8 @@ html[lang="kk"] .mega-line{
 <section class="calcsec" id="calc">
   <div class="secin">
     <div class="sr">
-      <div class="stag" data-i18n="calc_tag">Калькулятор экономии</div>
-      <h2 class="h2" data-i18n="calc_h2">Посчитай сколько<br><span class="acc">стоит рутина</span><br><span class="dim">в твоём случае</span></h2>
+      <div class="stag" data-i18n="calc_tag">Экономия времени</div>
+      <h2 class="h2" data-i18n="calc_h2">Посчитай сколько<br><span class="acc">стоит рутина</span><br><span class="dim">каждый день</span></h2>
     </div>
     <div class="cbox sr">
       <div class="chead">
@@ -1760,16 +1939,16 @@ html[lang="kk"] .mega-line{
       <div class="pcard sr">
         <div class="ptier" data-i18n="p1_tier">Демо-доступ</div>
         <div class="pamount"><span class="pcur">₸</span>0</div>
-        <p class="pctx" data-i18n="p1_ctx">Попробуй без карты и без обязательств.</p>
-        <ul class="plist" id="p1list"><li class="y" data-i18n="p1_li1">1 раз — Накладные</li><li class="y" data-i18n="p1_li2">1 раз — Аналитика</li><li class="y" data-i18n="p1_li3">5 раз — Калькулятор</li><li class="y" data-i18n="p1_li4">Курсы валют — безлимитно</li><li class="y" data-i18n="p1_li5">QR-коды — безлимитно</li><li data-i18n="p1_li6">Без карты, без регистрации</li></ul>
-        <a href="https://t.me/sellerkit_bot" class="pbtn ol magnetic"><span data-i18n="p1_btn">Начать бесплатно</span></a>
+        <p class="pctx" data-i18n="p1_ctx">14 дней бесплатно при старте.</p>
+        <ul class="plist" id="p1list"><li class="y" data-i18n="p1_li1">Накладные — без ограничений</li><li class="y" data-i18n="p1_li2">Аналитика — без ограничений</li><li class="y" data-i18n="p1_li3">Excel-отчёт — 17 страниц</li><li class="y" data-i18n="p1_li4">Поддержка в Telegram</li><li class="y" data-i18n="p1_li5">Новые функции без доплаты</li><li data-i18n="p1_li6">Без карты на старте</li></ul>
+        <a href="https://t.me/sellerkit_bot" class="pbtn ol magnetic"><span data-i18n="p1_btn">Открыть бот</span></a>
       </div>
       <div class="pcard hot sr d1">
         <div class="pline"></div>
         <div class="ptier" data-i18n="p2_tier">Полный доступ</div>
-        <div class="pamount"><span class="pcur">₸</span>2 990 <span class="pper" data-i18n="p2_per">/мес</span></div>
-        <p class="pctx" data-i18n="p2_ctx">= <span class="hl">99 ₸ в день</span>. При 20 заказах в день окупается за первые два рабочих дня. Оплата онлайн — доступ открывается мгновенно.</p>
-        <ul class="plist"><li class="y" data-i18n="p2_li1">Накладные — безлимитно</li><li class="y" data-i18n="p2_li2">Аналитика — безлимитно</li><li class="y" data-i18n="p2_li3">Калькулятор — безлимитно</li><li class="y" data-i18n="p2_li4">Курсы + уведомления</li><li class="y" data-i18n="p2_li5">QR-коды — безлимитно</li><li class="y" data-i18n="p2_li6">Поддержка в Telegram</li><li class="y" data-i18n="p2_li7">Новые функции без доплаты</li><li class="y" data-i18n="p2_li8">Возврат в течение 3 дней</li></ul>
+        <div class="pamount"><span class="pcur">₸</span>990 <span class="pper" data-i18n="p2_per">/мес</span></div>
+        <p class="pctx" data-i18n="p2_ctx">= <span class="hl">99 ₸ в день</span>. 14 дней бесплатно, потом 990 ₸ в месяц.</p>
+        <ul class="plist"><li class="y" data-i18n="p2_li1">Накладные — безлимитно</li><li class="y" data-i18n="p2_li2">Аналитика — безлимитно</li><li class="y" data-i18n="p2_li3">Калькулятор — безлимитно</li><li class="y" data-i18n="p2_li4">Курсы + уведомления</li><li class="y" data-i18n="p2_li5">Новые функции без доплаты</li><li class="y" data-i18n="p2_li6">Поддержка в Telegram</li><li class="y" data-i18n="p2_li7">Новые функции без доплаты</li><li class="y" data-i18n="p2_li8">Возврат в течение 3 дней</li></ul>
         <a href="https://t.me/sellerkit_bot" class="pbtn fill magnetic"><span data-i18n="p2_btn">Оплатить и начать →</span></a>
       </div>
     </div>
@@ -1993,13 +2172,13 @@ html[lang="kk"] .mega-line{
   <div class="secin">
     <div class="sr" style="text-align:center"><div class="stag" style="justify-content:center">FAQ</div><h2 class="h2" data-i18n="faq_h2">Часто спрашивают</h2></div>
     <div class="faqwrap sr">
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq1_q">Нужен ли API ключ или доступ к аккаунту?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq1_a">Нет. Бот работает только с файлами которые ты скачиваешь сам из Kaspi Pay и Kaspi Магазина. Файлы обрабатываются в памяти и сразу удаляются — данные нигде не хранятся.</div></div></div>
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq2_q">Где найти нужные файлы в Kaspi Pay?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq2_a">Для аналитики: Kaspi Pay → Мой банк → Текущий счёт → Инфо → Отчёт по продажам. И там же → Выписка. Оба файла за одинаковый период. Для накладных: Kaspi Магазин → Заказы → Накладные → Скачать ZIP.</div></div></div>
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq3_q">Как оплатить подписку?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq3_a">Онлайн оплата прямо в боте. Нажми "Подписка" → "Оплатить". Доступ открывается мгновенно после подтверждения оплаты.</div></div></div>
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq4_q">Работает на iPhone и Android?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq4_a">Да, на любом устройстве с Telegram. Дополнительных приложений не нужно.</div></div></div>
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq5_q">Что если не понравится?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq5_a">Есть демо-доступ без карты — накладные 1 раз, аналитика 1 раз, калькулятор 5 раз, курсы и QR-коды безлимитно. Попробуй сначала, оплачивай только если убедился что работает.</div></div></div>
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq6_q">Можно ли сравнить два месяца между собой?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq6_a">Да. Загрузи отчёты за два разных периода — бот покажет динамику: выручка выросла или упала, какие товары вышли в топ, где потери. Удобно для ежемесячного разбора.</div></div></div>
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq7_q">Мои данные где-то хранятся?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq7_a">Нет. Все файлы обрабатываются в памяти сервера и удаляются сразу после отправки результата. Бот не сохраняет ни накладные, ни данные из Kaspi Pay. Никакой базы данных с твоими файлами не существует.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq1_q">Нужен ли API-ключ?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq1_a">Нет. Бот работает только с файлами которые ты скачиваешь сам из Kaspi Pay и Kaspi Магазина. Файлы обрабатываются в памяти и сразу удаляются — данные нигде не хранятся.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq2_q">Где взять файлы для бота?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq2_a">Для аналитики: Kaspi Pay → Мой банк → Текущий счёт → Инфо → Отчёт по продажам. И там же → Выписка. Оба файла за одинаковый период. Для накладных: Kaspi Магазин → Заказы → Накладные → Скачать ZIP.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq3_q">Как работает оплата?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq3_a">Онлайн оплата прямо в боте. Нажми "Подписка" → "Оплатить". Доступ открывается мгновенно после подтверждения оплаты.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq4_q">Работает ли на телефоне?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq4_a">Да, на любом устройстве с Telegram. Дополнительных приложений не нужно.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq5_q">Можно попробовать бесплатно?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq5_a">Есть демо-доступ без карты — накладные 1 раз, аналитика 1 раз, калькулятор 5 раз, курсы и QR-коды безлимитно. Попробуй сначала, оплачивай только если убедился что работает.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq6_q">Можно сравнивать периоды?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq6_a">Да. Загрузи отчёты за два разных периода — бот покажет динамику: выручка выросла или упала, какие товары вышли в топ, где потери. Удобно для ежемесячного разбора.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq7_q">Где хранятся данные?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq7_a">Нет. Все файлы обрабатываются в памяти сервера и удаляются сразу после отправки результата. Бот не сохраняет ни накладные, ни данные из Kaspi Pay. Никакой базы данных с твоими файлами не существует.</div></div></div>
     </div>
   </div>
 </section>
@@ -2009,11 +2188,11 @@ html[lang="kk"] .mega-line{
   <div class="cta-arc"></div>
   <div class="sr">
     <h2 class="ctah">
-      <span class="stroke" data-i18n="cta_h1">Порядок</span><br>
-      <span class="fill" data-i18n="cta_h2">в сборке.</span><br>
-      <span class="red" data-i18n="cta_h3">Цифры ясны.</span>
+      <span class="stroke" data-i18n="cta_h1">Начни</span><br>
+      <span class="fill" data-i18n="cta_h2">без рутины.</span><br>
+      <span class="red" data-i18n="cta_h3">14 дней бесплатно.</span>
     </h2>
-    <p class="ctap" data-i18n="cta_p">Первые накладные и первый отчёт — бесплатно. Без карты, без регистрации.<br>Просто открой бот и отправь файл.</p>
+    <p class="ctap" data-i18n="cta_p">Первые накладные и первый отчёт — бесплатно. Без карты на старте.<br>Просто открой бот и отправь файл.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem">
       <a href="https://t.me/sellerkit_bot" class="btn-r magnetic">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
@@ -2178,7 +2357,7 @@ function rc(){
   const s=(o*t*d*.95/60).toFixed(1);
   document.getElementById('rh').textContent=h;
   document.getElementById('rs').textContent=s;
-  document.getElementById('rc2').textContent=(s>0?Math.round(2990/s):0)+' ₸';
+  document.getElementById('rc2').textContent=(s>0?Math.round(990/s):0)+' ₸';
 }
 rc();
 
@@ -2327,7 +2506,7 @@ const LANG={
     hero_desc:'<strong>Накладные, сборочный лист и глубокая Excel-аналитика</strong> в одном Telegram-боте.<br><br>Собирайте заказы быстрее, снижайте хаос на упаковке и получайте понятные отчёты по бизнесу без ручной рутины.',
     pill1:'Накладные ZIP → PDF за 10 сек', pill2:'Excel-аналитика из Kaspi Pay', pill3:'Разбивка по товарам',
     hero_btn:'Попробовать бесплатно', hero_btn2:'Открыть бота →',
-    stat1_lbl:'Обработка накладных', stat2_lbl:'В месяц', stat3_lbl:'В каждом отчёте', stat4_lbl:'Накладных и отчётов',
+    stat1_lbl:'Обработка накладных', stat2_lbl:'В месяц', stat3_lbl:'В Excel-отчёте', stat4_lbl:'Накладных и отчётов',
     feat_tag:'Как это работает',
     feat_h2:'Загрузил файл —<br><span class="dim">получил</span><br><span class="acc">результат</span>',
     feat_sub:'Никаких регистраций, API ключей и сторонних сервисов. Просто отправь файл в Telegram — бот сделает всё остальное.',
@@ -2352,13 +2531,9 @@ const LANG={
     fw5_t:'От 10 заказов в день', fw5_d:'При 10 заказах бот экономит 20 минут в день. При 50 заказах — больше часа. Чем активнее торговля, тем сильнее разница.',
     fw6_t:'Хочешь развивать бизнес, а не делать одно и то же', fw6_d:'Пока конкуренты тратят утро на накладные — ты уже знаешь какой товар приносит прибыль и где терять меньше.',
     fws1:'Столько тратят продавцы на ручную обработку накладных в день при 30+ заказах. Каждый день.',
-    fws2:'В месяц. Меньше стакана кофе в день. При 20 заказах окупается за первые два рабочих дня.',
-    fws3:'Времени на накладные экономит бот. Остаток — на то что реально важно.',
-    // Flagship products
-    fl_tag:'Два флагманских продукта',
-    fl_h2:'Два сильных<br><span class="dim">результата</span><br><span class="acc">для бизнеса</span>',
+    fws2:'В месяц. Меньше стакана кофе в день. 14 дней бесплатно, потом 990 ₸ в месяц.<br><span class="dim">результата</span><br><span class="acc">для бизнеса</span>',
     fl_sub:'Не просто «набор функций», а два инструмента которые решают конкретные проблемы каждого дня. Отправил файл — получил результат.',
-    fl1_tag:'// Накладные и сборка', fl1_title:'Накладные за 10 секунд.<br>Порядок на упаковке.',
+    fl1_tag:'// Накладные и сборка', fl1_title:'Накладные за 10 секунд.<br>Начни на упаковке.',
     fl1_desc:'Отправляешь ZIP из Kaspi Магазина — получаешь готовые PDF. Один клик разбивает накладные по товарам и создаёт сборочный лист. Упаковщик берёт только свою пачку. Никакой путаницы.',
     fl1_li1:'ZIP из Kaspi → готовые PDF за 10 секунд', fl1_li2:'Разбивка по товарам — отдельный PDF на каждый',
     fl1_li3:'Сборочный лист Excel с количеством', fl1_li4:'Меньше путаницы на сборке', fl1_li5:'Быстрее работа упаковщика',
@@ -2391,8 +2566,8 @@ const LANG={
     ex1_title:'Калькулятор маржи', ex1_desc:'Введи цену и себестоимость — бот покажет чистую прибыль с учётом комиссии Kaspi 15%, ИПН и доставки. Больше не угадываешь — знаешь точно до того как поставил цену.',
     ex2_title:'Курсы Нацбанка РК', ex2_desc:'CNY, USD, EUR, RUB к тенге — актуально каждый день. Конвертируй в пару нажатий. Подпишись на уведомления — бот напишет когда курс изменится.',
     ex3_title:'QR-коды за 5 секунд', ex3_desc:'Генерируй QR для своего Kaspi магазина, ссылки на товар или акции. Распечатай, поставь на точке — покупатели сканируют и попадают прямо к тебе.',
-    calc_tag:'Калькулятор экономии',
-    calc_h2:'Посчитай сколько<br><span class="acc">стоит рутина</span><br><span class="dim">в твоём случае</span>',
+    calc_tag:'Экономия времени',
+    calc_h2:'Посчитай сколько<br><span class="acc">стоит рутина</span><br><span class="dim">каждый день</span>',
     calc_s1:'Заказов в день', calc_s2:'Минут на накладную', calc_s3:'Рабочих дней в месяц',
     calc_r1:'Часов тратишь', calc_r2:'Часов экономишь', calc_r3:'Цена часа экономии',
     calc_meta:'* 95% экономии времени · подписка 990 ₸/мес · данные приблизительные',
@@ -2407,7 +2582,7 @@ const LANG={
     an_sub:'Загружаешь два файла из Kaspi Pay — получаешь полный отчёт о том что реально происходит в твоём бизнесе.',
     price_tag:'Тарифы',
     price_h2:'Один тариф.<br><span class="dim">Без скрытых</span><br><span class="acc">условий.</span>',
-    p1_tier:'Демо-доступ', p1_ctx:'Попробуй без карты и без обязательств.', p1_btn:'Начать бесплатно',
+    p1_tier:'Демо-доступ', p1_ctx:'14 дней бесплатно при старте.', p1_btn:'Открыть бот',
     p2_tier:'Полный доступ', p2_btn:'Оплатить и начать →',
     qs_tag:'Быстрый старт',
     qs_h2:'Где взять файлы<br><span class="acc">для бота</span>',
@@ -2420,63 +2595,30 @@ const LANG={
     qs_w2_s2:'Скачай <strong style="color:var(--snow)">Отчёт по продажам</strong> и <strong style="color:var(--snow)">Выписку</strong> за один период',
     qs_w2_s3:'Отправь оба Excel-файла боту — через 30 сек получишь отчёт',
     faq_h2:'Часто спрашивают',
-    faq1_q:'Нужен ли API ключ или доступ к аккаунту?',
+    faq1_q:'Нужен ли API-ключ?',
     faq1_a:'Нет. Бот работает только с файлами которые ты скачиваешь сам из Kaspi Pay и Kaspi Магазина. Файлы обрабатываются в памяти и сразу удаляются — данные нигде не хранятся.',
-    faq2_q:'Где найти нужные файлы в Kaspi Pay?',
+    faq2_q:'Где взять файлы для бота?',
     faq2_a:'Для аналитики: Kaspi Pay → Мой банк → Текущий счёт → Инфо → Отчёт по продажам. И там же → Выписка. Оба файла за одинаковый период. Для накладных: Kaspi Магазин → Заказы → Накладные → Скачать ZIP.',
-    faq3_q:'Как оплатить подписку?',
+    faq3_q:'Как работает оплата?',
     faq3_a:'Онлайн оплата прямо в боте. Нажми "Подписка" → "Оплатить". Доступ открывается мгновенно после подтверждения оплаты.',
-    faq4_q:'Работает на iPhone и Android?',
+    faq4_q:'Работает ли на телефоне?',
     faq4_a:'Да, на любом устройстве с Telegram. Дополнительных приложений не нужно.',
-    faq5_q:'Что если не понравится?',
+    faq5_q:'Можно попробовать бесплатно?',
     faq5_a:'Есть демо-доступ без карты — накладные 1 раз, аналитика 1 раз, калькулятор 5 раз, курсы и QR-коды безлимитно. Попробуй сначала, оплачивай только если убедился что работает.',
-    faq6_q:'Можно ли сравнить два месяца между собой?',
+    faq6_q:'Можно сравнивать периоды?',
     faq6_a:'Да. Загрузи отчёты за два разных периода — бот покажет динамику: выручка выросла или упала, какие товары вышли в топ, где потери. Удобно для ежемесячного разбора.',
-    faq7_q:'Мои данные где-то хранятся?',
+    faq7_q:'Где хранятся данные?',
     faq7_a:'Нет. Все файлы обрабатываются в памяти сервера и удаляются сразу после отправки результата. Бот не сохраняет ни накладные, ни данные из Kaspi Pay. Никакой базы данных с твоими файлами не существует.',
-    cta_h1:'Порядок', cta_h2:'в сборке.', cta_h3:'Цифры ясны.',
-    cta_p:'Первые накладные и первый отчёт — бесплатно. Без карты, без регистрации. Просто открой бот и отправь файл.',
+    cta_h1:'Начни', cta_h2:'без рутины.', cta_h3:'14 дней бесплатно.',
+    cta_p:'Первые накладные и первый отчёт — бесплатно. Без карты на старте. Просто открой бот и отправь файл.',
     cta_btn:'Попробовать бесплатно', cta_btn2:'Проверить на своих файлах →',
     cta_note:'990 ₸ / мес · Оплата онлайн · Доступ мгновенно · Возврат в течение 3 дней',
     footer_copy:'© 2026 Path of Peaks · Казахстан',
     footer_bot:'Бот', footer_support:'Поддержка',
     // Pricing lists
-    p1_li1:'1 раз — Накладные', p1_li2:'1 раз — Аналитика', p1_li3:'5 раз — Калькулятор',
-    p1_li4:'Курсы валют — безлимитно', p1_li5:'QR-коды — безлимитно', p1_li6:'Без карты, без регистрации',
-    p2_per:'/мес', p2_ctx:'= <span class="hl">99 ₸ в день</span>. При 20 заказах в день окупается за первые два рабочих дня. Оплата онлайн — доступ открывается мгновенно.',
-    p2_li1:'Накладные — безлимитно', p2_li2:'Аналитика — безлимитно', p2_li3:'Калькулятор — безлимитно',
-    p2_li4:'Курсы + уведомления', p2_li5:'QR-коды — безлимитно', p2_li6:'Поддержка в Telegram',
-    p2_li7:'Новые функции без доплаты', p2_li8:'Возврат в течение 3 дней',
-    // Analytics KPIs
-    an_kpi1:'Выручка', an_kpi2:'Заказов', an_kpi3:'Средний чек', an_kpi4:'Прибыль до COGS',
-    an_sheets_lbl:'// что внутри Excel — 17 страниц',
-    sh1_n:'Сводка', sh1_d:'Выручка, расходы, прибыль — полный P&L',
-    sh2_n:'Топ товаров', sh2_d:'Рейтинг по выручке, доля, возврат %',
-    sh3_n:'По дням', sh3_d:'Динамика выручки каждый день месяца',
-    sh4_n:'По часам', sh4_d:'Когда покупают — пики активности',
-    sh5_n:'Дни недели', sh5_d:'Лучший день — Сб (198 400 ₸, 15.9%)',
-    sh6_n:'Ценовые сегменты', sh6_d:'76% заказов — сегмент 3–8 тыс. ₸',
-    sh7_n:'Бренды', sh7_d:'Топ бренд — 38.4% всей выручки',
-    sh8_n:'Возвраты', sh8_d:'Детализация по каждому возврату',
-    sh9_n:'Способы оплаты', sh9_d:'Gold 71.2%, Кредит 18.4%, Red 8.9%',
-    sh10_n:'Все операции', sh10_d:'Полная транзакционная детализация',
-    // Charts
-    chart_days:'// Продажи по дням недели',
-    chart_hours:'// Пиковые часы покупок',
-    chart_hours_note:'Пик: 14:00–18:00 · выручка 426 900 ₸ (34%)',
-    // Expenses
-    exp_title:'// Расходы (удержания Kaspi)',
-    exp1:'Комиссия Kaspi', exp2:'Реклама / Boost', exp3:'Бонусы покупателям',
-    exp4:'Kaspi Pay комиссия', exp5:'ИПН 3%',
-    exp_total:'Итого расходов', exp_profit:'Чистая прибыль (до COGS)',
-    // Top-3
-    top3_title:'// Топ-3 товара',
-    top1_name:'🥇 Кошелёк кожаный Premium черный', top1_val:'98 400 ₸ · 6 шт',
-    top2_name:'🥈 Сумка поясная Streetwear серая', top2_val:'81 750 ₸ · 15 шт',
-    top3_name:'🥉 Шапка Logo Knit черная', top3_val:'74 850 ₸ · 21 шт',
-    // Insights
-    ins_title:'// Умные выводы бота',
-    ins1:'Лучший день — 14.03.2026: <span style="color:var(--snow)">138 200 ₸ (22 заказа)</span>',
+    p1_li1:'Накладные — без ограничений', p1_li2:'Аналитика — без ограничений', p1_li3:'Excel-отчёт — 17 страниц',
+    p1_li4:'Поддержка в Telegram', p1_li5:'Новые функции без доплаты', p1_li6:'Без карты на старте',
+    p2_per:'/мес', p2_ctx:'= <span class="hl">99 ₸ в день</span>. 14 дней бесплатно, потом 990 ₸ в месяц.<span style="color:var(--snow)">138 200 ₸ (22 заказа)</span>',
     ins2:'Высокий возврат 40%+: <span style="color:var(--snow)">Рюкзак City Brown</span>',
     ins3:'Лучший день недели — <span style="color:var(--snow)">Суббота (66 100 ₸ ср.)</span>',
     ins4:'Пик покупок — <span style="color:var(--snow)">14:00–18:00 (41% выручки)</span>',
@@ -2485,7 +2627,7 @@ const LANG={
     pay1:'Kaspi Gold', pay2:'Кредит на Покупки', pay3:'Kaspi Red',
     buyer_note:'27.3% — кредитные покупки. Аудитория покупает в рассрочку.',
     scramble_word:'умнее',
-    ticker:['Накладные ZIP → PDF за 10 сек','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','17 страниц за 30 сек','Порядок на упаковке','Понятные цифры бизнеса','Без API ключей','Сравнение периодов','Мгновенный доступ','Попробовать бесплатно'],
+    ticker:['Накладные ZIP → PDF за 10 сек','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','17 страниц за 30 сек','Начни на упаковке','Понятные цифры бизнеса','Без API ключей','Сравнение периодов','Мгновенный доступ','Попробовать бесплатно'],
     ticker:['Накладные ZIP → PDF','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','17 страниц за 30 сек','Юнит-экономика','CNY · USD · EUR · RUB','QR-коды для магазина','Сравнение периодов','Без API ключей','Мгновенный доступ'],
   },
   kz:{
