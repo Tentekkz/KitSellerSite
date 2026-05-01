@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://tentekkz.github.io/KitSellerSite/sitemap.xml
+Sitemap: https://kitseller.kz/sitemap.xml
