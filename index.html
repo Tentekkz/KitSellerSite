@@ -32,7 +32,7 @@
   "inLanguage": ["ru", "kk"],
   "offers": {"@type": "Offer", "price": "990", "priceCurrency": "KZT"},
   "url": "https://tentekkz.github.io/KitSellerSite",
-  "sameAs": ["https://t.me/sellerkit_bot"],
+  "sameAs": ["https://t.me/kitseller_bot"],
   "provider": {"@type": "Organization", "name": "Path of Peaks", "address": {"@type": "PostalAddress", "addressCountry": "KZ"}},
   "featureList": ["Накладные ZIP→PDF за 10 секунд","Разбивка накладных по товарам","Сборочный лист Excel","Аналитика Kaspi Pay — 17 страниц Excel","Калькулятор маржи с учётом комиссии и ИПН","Курсы НБ РК с уведомлениями","QR-коды для Kaspi магазина"]
 }
@@ -1929,6 +1929,24 @@ nav{height:90px!important}
   .stripe-kpi-row{grid-template-columns:1fr 1fr!important}
 }
 
+
+/* === Final fixed: bot, KZ language, logo, legal styling links === */
+.brand-logo{height:52px!important;max-width:220px!important;width:auto!important}
+nav .nlogo{min-width:210px!important}
+.hero{padding-top:136px!important}
+.mega-line{font-size:clamp(4.2rem,9.8vw,10.4rem)!important;line-height:.9!important}
+.hero-desc{max-width:760px!important}
+.ks-offer-strip{margin-top:1.6rem!important;justify-content:flex-start!important}
+.stripe-hero-visual{margin-top:3.4rem!important}
+footer a[href="offer.html"],footer a[href="privacy.html"]{color:#667085!important;text-decoration:none!important}
+footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f766e!important}
+@media(max-width:760px){
+  .brand-logo{height:40px!important;max-width:165px!important}
+  nav .nlogo{min-width:150px!important}
+  .mega-line{font-size:clamp(3rem,16vw,5.2rem)!important;line-height:.94!important}
+  .hero{padding-top:102px!important}
+}
+
 </style>
 </head>
 <body>
@@ -1952,7 +1970,7 @@ nav{height:90px!important}
       <button class="lang-btn active" onclick="setLang('ru')">RU</button>
       <button class="lang-btn" onclick="setLang('kz')">KZ</button>
     </div>
-    <a href="https://t.me/sellerkit_bot" class="ncta magnetic"><span data-i18n="nav_cta">Попробовать →</span></a>
+    <a href="https://t.me/kitseller_bot" class="ncta magnetic"><span data-i18n="nav_cta">Попробовать →</span></a>
   </div>
   <button class="burger" id="burger" onclick="tmob()"><span></span><span></span><span></span></button>
 </nav>
@@ -1962,7 +1980,7 @@ nav{height:90px!important}
   <a href="#features" onclick="cmob()" data-i18n="nav_features">Как работает</a>
   <a href="#pricing" onclick="cmob()" data-i18n="nav_pricing">Тарифы</a>
   <a href="#faq" onclick="cmob()">FAQ</a>
-  <a href="https://t.me/sellerkit_bot" data-i18n="mob_open">Открыть бота →</a>
+  <a href="https://t.me/kitseller_bot" data-i18n="mob_open">Открыть бота →</a>
 </div>
 
 <!-- ══ HERO ══ -->
@@ -1990,20 +2008,20 @@ nav{height:90px!important}
       </div>
     </div>
     <div class="hero-cta-wrap">
-      <a href="https://t.me/sellerkit_bot" class="btn-r magnetic">
+      <a href="https://t.me/kitseller_bot" class="btn-r magnetic">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
         <span data-i18n="hero_btn">Попробовать бесплатно</span>
       </a>
-      <a href="https://t.me/sellerkit_bot" class="btn-o magnetic"><span data-i18n="hero_btn2">Открыть бота →</span></a>
+      <a href="https://t.me/kitseller_bot" class="btn-o magnetic"><span data-i18n="hero_btn2">Открыть бота →</span></a>
     </div>
   </div>
 
   <div class="ks-offer-strip">
-    <span>14 дней бесплатно</span>
+    <span data-i18n="pill1">14 дней бесплатно</span>
     <i></i>
-    <span>потом 990 ₸ / месяц</span>
+    <span data-i18n="pill2">Потом 990 ₸ / месяц</span>
     <i></i>
-    <span>17 страниц Excel</span>
+    <span data-i18n="pill3">17 страниц Excel</span>
   </div>
 
   <div class="hero-ticker">
@@ -2052,7 +2070,7 @@ nav{height:90px!important}
           <span style="color:var(--r)">time</span>: <span style="color:var(--snow)">12 сек</span> <span style="color:var(--green)">✓</span> <span style="color:var(--grey2)">раньше: 40 мин</span>
         </div>
         <div style="margin-top:1.5rem">
-          <a href="https://t.me/sellerkit_bot" class="btn-r magnetic" style="font-size:.68rem;padding:.75rem 1.6rem">
+          <a href="https://t.me/kitseller_bot" class="btn-r magnetic" style="font-size:.68rem;padding:.75rem 1.6rem">
             <span data-i18n="fl1_cta">Сделать накладные за 10 секунд →</span>
           </a>
         </div>
@@ -2079,7 +2097,7 @@ nav{height:90px!important}
           <span style="color:var(--green)">time</span>: <span style="color:var(--snow)">30 сек</span> <span style="color:var(--green)">✓</span>
         </div>
         <div style="margin-top:1.5rem">
-          <a href="https://t.me/sellerkit_bot" class="btn-r magnetic" style="background:var(--green);font-size:.68rem;padding:.75rem 1.6rem;box-shadow:none">
+          <a href="https://t.me/kitseller_bot" class="btn-r magnetic" style="background:var(--green);font-size:.68rem;padding:.75rem 1.6rem;box-shadow:none">
             <span data-i18n="fl2_cta" style="color:#000">Получить отчёт из Kaspi Pay →</span>
           </a>
         </div>
@@ -2322,7 +2340,7 @@ nav{height:90px!important}
         <div class="pamount"><span class="pcur">₸</span>0</div>
         <p class="pctx" data-i18n="p1_ctx">14 дней бесплатно при старте.</p>
         <ul class="plist" id="p1list"><li class="y" data-i18n="p1_li1">Накладные — без ограничений</li><li class="y" data-i18n="p1_li2">Аналитика — без ограничений</li><li class="y" data-i18n="p1_li3">Excel-отчёт — 17 страниц</li><li class="y" data-i18n="p1_li4">Поддержка в Telegram</li><li class="y" data-i18n="p1_li5">Новые функции без доплаты</li><li data-i18n="p1_li6">Без карты на старте</li></ul>
-        <a href="https://t.me/sellerkit_bot" class="pbtn ol magnetic"><span data-i18n="p1_btn">Открыть бот</span></a>
+        <a href="https://t.me/kitseller_bot" class="pbtn ol magnetic"><span data-i18n="p1_btn">Открыть бот</span></a>
       </div>
       <div class="pcard hot sr d1">
         <div class="pline"></div>
@@ -2330,7 +2348,7 @@ nav{height:90px!important}
         <div class="pamount"><span class="pcur">₸</span>990 <span class="pper" data-i18n="p2_per">/мес</span></div>
         <p class="pctx" data-i18n="p2_ctx">14 дней бесплатно, потом 990 ₸ / месяц.</p>
         <ul class="plist"><li class="y" data-i18n="p2_li1">Накладные — безлимитно</li><li class="y" data-i18n="p2_li2">Аналитика — безлимитно</li><li class="y" data-i18n="p2_li3">Excel-отчёт — 17 страниц</li><li class="y" data-i18n="p2_li4">14 дней бесплатно при старте</li><li class="y" data-i18n="p2_li5">Поддержка в Telegram</li><li class="y" data-i18n="p2_li6">Новые функции без доплаты</li><li class="y" data-i18n="p2_li8">Возврат в течение 3 дней</li></ul>
-        <a href="https://t.me/sellerkit_bot" class="pbtn fill magnetic"><span data-i18n="p2_btn">Оплатить и начать →</span></a>
+        <a href="https://t.me/kitseller_bot" class="pbtn fill magnetic"><span data-i18n="p2_btn">Оплатить и начать →</span></a>
       </div>
     </div>
   </div>
@@ -2575,11 +2593,11 @@ nav{height:90px!important}
     </h2>
     <p class="ctap" data-i18n="cta_p">Первые накладные и первый отчёт — бесплатно. Без карты на старте.<br>Просто открой бот и отправь файл.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem">
-      <a href="https://t.me/sellerkit_bot" class="btn-r magnetic">
+      <a href="https://t.me/kitseller_bot" class="btn-r magnetic">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
         <span data-i18n="cta_btn">Попробовать бесплатно</span>
       </a>
-      <a href="https://t.me/sellerkit_bot" class="btn-o magnetic"><span data-i18n="cta_btn2">Проверить на своих файлах →</span></a>
+      <a href="https://t.me/kitseller_bot" class="btn-o magnetic"><span data-i18n="cta_btn2">Проверить на своих файлах →</span></a>
     </div>
     <p class="ctanote" data-i18n="cta_note">990 ₸ / мес · Оплата онлайн · Доступ мгновенно · Возврат в течение 3 дней</p>
   </div>
@@ -2587,7 +2605,7 @@ nav{height:90px!important}
 
 <footer>
   <div><div class="flogo"><img src="kitseller-logo.png" alt="KitSeller" class="footer-logo"></div><p class="fcopy" data-i18n="footer_copy">© 2026 Path of Peaks · Казахстан</p></div>
-  <ul class="flinks"><li><a href="https://t.me/sellerkit_bot" data-i18n="footer_bot">Бот</a></li><li><a href="https://t.me/sellerkit_bot" data-i18n="footer_support">Поддержка</a></li><li><a href="#faq">FAQ</a></li><li><a href="#pricing" data-i18n="nav_pricing">Тарифы</a></li><li><a href="offer.html">Оферта</a></li><li><a href="privacy.html">Конфиденциальность</a></li></ul>
+  <ul class="flinks"><li><a href="https://t.me/kitseller_bot" data-i18n="footer_bot">Бот</a></li><li><a href="https://t.me/kitseller_bot" data-i18n="footer_support">Поддержка</a></li><li><a href="#faq">FAQ</a></li><li><a href="#pricing" data-i18n="nav_pricing">Тарифы</a></li><li><a href="offer.html">Оферта</a></li><li><a href="privacy.html">Конфиденциальность</a></li></ul>
 </footer>
 
 <script>
@@ -3006,9 +3024,9 @@ const LANG={
     nav_pricing:'Тарифтер', nav_cta:'Тегін көру →', mob_open:'Ботты ашу →',
     badge_free:'ТЕГІН<br>БАЙҚАП КӨР',
     hero_line1:'Kaspi', hero_line2:'Tools',
-    hero_desc:'Загрузи ZIP → получи готовый PDF и Excel-отчёт на 17 страниц. Без ручной возни, ошибок и лишнего Excel.',
+    hero_desc:'ZIP файлын жүкте → дайын PDF пен 17 бет Excel-есеп ал. Қолмен реттеу, қате және артық Excel жоқ.',
     hero_btn:'Тегін бастау', hero_btn2:'Қарау ↓',
-    stat1_lbl:'Жүкқұжат өңдеу', stat2_lbl:'Айына', stat3_lbl:'В Excel-отчёте', stat4_lbl:'Жүкқұжат және есептер',
+    stat1_lbl:'Накладной өңдеу', stat2_lbl:'Айына', stat3_lbl:'Excel есебінде', stat4_lbl:'Накладной мен есеп',
     feat_tag:'Құралдар',
     feat_h2:'Алты құрал<br><span class="dim">уақытты шынымен</span><br><span class="acc">үнемдейді</span>',
     feat_sub:'Әр құрал нақты мәселені шешеді. Артық сөз жоқ — тікелей Telegram арқылы жұмыс істейді, тіркеусіз және үшінші тарап қызметтерінсіз.',
@@ -3179,11 +3197,11 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
       <li>Нажмите кнопку Скачать ZIP</li>
     </ol>
     <h2>Как распечатать накладные Kaspi автоматически</h2>
-    <p>Самый быстрый способ — использовать Telegram-бот @sellerkit_bot. Он принимает ZIP-архив и выдаёт готовый PDF за 10 секунд. Поддерживает форматы: термопринтер, A4, 4 на листе, 9 на листе. Также умеет сортировать по дедлайну и разбивать по товарам.</p>
+    <p>Самый быстрый способ — использовать Telegram-бот @kitseller_bot. Он принимает ZIP-архив и выдаёт готовый PDF за 10 секунд. Поддерживает форматы: термопринтер, A4, 4 на листе, 9 на листе. Также умеет сортировать по дедлайну и разбивать по товарам.</p>
     <h2>Разбивка по товарам и сборочный лист — уникальная функция</h2>
     <p>Режим "По товарам": каждый товар получает отдельный PDF-файл плюс сборочный лист Excel с количеством. Нигде больше нет такой функции. При 10 и более позиций экономит ещё 20–30 минут каждый день.</p>
     <p>Реальный результат: 47 накладных за 12 секунд вместо 40 минут вручную.</p>
-    <p>Попробовать бесплатно: @sellerkit_bot. Подписка 990 тенге в месяц.</p>
+    <p>Попробовать бесплатно: @kitseller_bot. Подписка 990 тенге в месяц.</p>
   </article>
 
   <!-- СТАТЬЯ 2 -->
@@ -3199,7 +3217,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
       <li>Там же нажмите Выписка — скачайте за тот же период</li>
     </ol>
     <h2>Что входит в отчёт — 17 страниц Excel</h2>
-    <p>Бот @sellerkit_bot обрабатывает оба файла и создаёт Excel с 17 страницами: Сводка (P&L), Топ товаров, По дням, По часам, Дни недели, Ценовые сегменты, Бренды, Возвраты, Способы оплаты, Все операции. Первый отчёт бесплатно на @sellerkit_bot.</p>
+    <p>Бот @kitseller_bot обрабатывает оба файла и создаёт Excel с 17 страницами: Сводка (P&L), Топ товаров, По дням, По часам, Дни недели, Ценовые сегменты, Бренды, Возвраты, Способы оплаты, Все операции. Первый отчёт бесплатно на @kitseller_bot.</p>
     <h2>Аналитика Kaspi Pay — умные выводы</h2>
     <p>После анализа бот показывает: лучший день за период, товары с высоким процентом возвратов, лучший день недели, пиковые часы покупок. Можно сравнить два периода между собой.</p>
   </article>
@@ -3214,7 +3232,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
     <h2>Формула расчёта маржи Kaspi</h2>
     <p>Чистая прибыль = Цена продажи минус Себестоимость минус Комиссия Kaspi 15 процентов минус ИПН 3 процента минус Реклама минус Доставка. Минимальная цена = Себестоимость делённая на 0.82.</p>
     <h2>Калькулятор маржи Kaspi онлайн</h2>
-    <p>В Telegram-боте @sellerkit_bot есть встроенный калькулятор маржи. Вводите цену и себестоимость — получаете чистую прибыль с учётом комиссии Kaspi и ИПН. Также есть расчёт минимальной цены продажи и цели по прибыли. Попробовать бесплатно: @sellerkit_bot.</p>
+    <p>В Telegram-боте @kitseller_bot есть встроенный калькулятор маржи. Вводите цену и себестоимость — получаете чистую прибыль с учётом комиссии Kaspi и ИПН. Также есть расчёт минимальной цены продажи и цели по прибыли. Попробовать бесплатно: @kitseller_bot.</p>
   </article>
 
   <!-- СТАТЬЯ 4 -->
@@ -3225,21 +3243,21 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
     <h2>Что такое юнит-экономика для Kaspi</h2>
     <p>Юнит-экономика — расчёт прибыли от одной единицы товара. Нужно учесть: себестоимость товара, доставку, упаковку, комиссию Kaspi 15 процентов, ИПН 3 процента, рекламу на единицу, долю постоянных расходов.</p>
     <h2>Как найти убыточные товары на Kaspi</h2>
-    <p>Признаки убыточного товара: высокий процент возвратов выше 15 процентов, низкая цена при высокой себестоимости доставки, много рекламных расходов при малом объёме. Бот @sellerkit_bot автоматически находит товары с аномальным процентом возвратов в аналитике Kaspi Pay.</p>
+    <p>Признаки убыточного товара: высокий процент возвратов выше 15 процентов, низкая цена при высокой себестоимости доставки, много рекламных расходов при малом объёме. Бот @kitseller_bot автоматически находит товары с аномальным процентом возвратов в аналитике Kaspi Pay.</p>
   </article>
 
   <!-- СТАТЬЯ 5 -->
   <article id="article-instrumenty" itemscope itemtype="https://schema.org/Article">
     <meta itemprop="url" content="https://tentekkz.github.io/KitSellerSite/#article-instrumenty">
     <h1 itemprop="headline">Инструменты для Kaspi продавца 2025 — полный список сервисов</h1>
-    <p>Продавцы которые автоматизируют рутину и принимают решения на основе данных выигрывают у тех кто всё делает вручную. Лучший инструмент для Kaspi продавца — @sellerkit_bot.</p>
+    <p>Продавцы которые автоматизируют рутину и принимают решения на основе данных выигрывают у тех кто всё делает вручную. Лучший инструмент для Kaspi продавца — @kitseller_bot.</p>
     <h2>Автоматизация накладных Kaspi</h2>
     <p>KitSeller — Telegram-бот который принимает ZIP с накладными и выдаёт готовый PDF за 10 секунд. Разбивка по товарам, сборочный лист Excel. Нигде больше нет.</p>
     <h2>Аналитика продаж Kaspi</h2>
     <p>Два файла из Kaspi Pay превращаются в 17 страниц Excel с полной аналитикой: выручка, топ товары, маржа, дни, часы, возвраты, способы оплаты. За 30 секунд.</p>
     <h2>Курс CNY тенге НБ РК</h2>
-    <p>Актуальный курс китайского юаня CNY к тенге по данным Национального банка РК. Плюс курсы USD, EUR, RUB. Уведомления об изменении курса. Доступно в @sellerkit_bot бесплатно.</p>
-    <p>Попробовать все инструменты бесплатно: @sellerkit_bot. Подписка 990 тенге в месяц.</p>
+    <p>Актуальный курс китайского юаня CNY к тенге по данным Национального банка РК. Плюс курсы USD, EUR, RUB. Уведомления об изменении курса. Доступно в @kitseller_bot бесплатно.</p>
+    <p>Попробовать все инструменты бесплатно: @kitseller_bot. Подписка 990 тенге в месяц.</p>
   </article>
 
 </div>
