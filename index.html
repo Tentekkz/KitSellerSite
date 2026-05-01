@@ -874,6 +874,31 @@ a[href="#how"] {
   }
 }
 
+
+/* === Temporarily disable KZ language button; KZ code stays in source === */
+.lang-btn[data-lang="kz"],
+.lang-btn[data-l="kz"],
+button[data-lang="kz"],
+button[data-l="kz"],
+.lang-btn.kz,
+.lang-btn[data-i18n="kz"],
+#kz,
+.kz-btn {
+  display: none !important;
+}
+
+/* Fallback: if RU/KZ buttons are just second button in language switch */
+.lang-sw .lang-btn:nth-child(2),
+.lang-switch .lang-btn:nth-child(2) {
+  display: none !important;
+}
+
+.lang-sw,
+.lang-switch {
+  grid-template-columns: 1fr !important;
+  width: auto !important;
+}
+
 </style>
 </head>
 <body>
@@ -2246,5 +2271,20 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
 
 </div>
 <!-- ═══════════════════════════════════════════════ -->
+
+<script>
+/* Temporarily force RU language. KZ translations remain in code for later. */
+(function(){
+  try { localStorage.setItem('lang', 'ru'); } catch(e) {}
+  document.documentElement.setAttribute('lang', 'ru');
+  document.addEventListener('DOMContentLoaded', function(){
+    document.documentElement.setAttribute('lang', 'ru');
+    document.querySelectorAll('[data-lang="kz"], [data-l="kz"], .lang-btn.kz').forEach(function(el){
+      el.style.display = 'none';
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
