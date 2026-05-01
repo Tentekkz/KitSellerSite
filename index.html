@@ -827,6 +827,53 @@ a[href="#how"] {
   }
 }
 
+
+/* === Final CTA red text fix === */
+.ctasec .ctah,
+.ctasec .ctah *,
+.ctabox .ctah,
+.ctabox .ctah *,
+[data-i18n="cta_title"],
+[data-i18n="cta_title"] * {
+  color: #ff3b1f !important;
+  -webkit-text-fill-color: #ff3b1f !important;
+  background: none !important;
+  text-shadow: 0 10px 34px rgba(255,59,31,.18) !important;
+}
+
+.ctasec .ctah,
+.ctabox .ctah,
+[data-i18n="cta_title"] {
+  line-height: .96 !important;
+  letter-spacing: -0.055em !important;
+  font-weight: 950 !important;
+  overflow: visible !important;
+}
+
+/* ensure final CTA block doesn't clip the top line */
+.ctasec,
+.ctabox,
+.cta-box {
+  overflow: visible !important;
+}
+
+.ctasec {
+  padding-top: 130px !important;
+  padding-bottom: 130px !important;
+}
+
+@media(max-width:760px){
+  .ctasec {
+    padding-top: 90px !important;
+    padding-bottom: 90px !important;
+  }
+  .ctasec .ctah,
+  .ctabox .ctah,
+  [data-i18n="cta_title"] {
+    line-height: 1.02 !important;
+  }
+}
+
 </style>
 </head>
 <body>
