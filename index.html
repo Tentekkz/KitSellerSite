@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KitSeller — накладные Kaspi за 10 секунд | Аналитика Kaspi Pay в Excel</title>
-<meta name="description" content="Telegram-бот для Kaspi продавцов: накладные ZIP→PDF за 10 секунд, разбивка по товарам, аналитика Kaspi Pay — 17 страниц Excel за 30 секунд. Попробовать бесплатно.">
+<meta name="description" content="Telegram-бот для Kaspi продавцов: накладные ZIP→PDF, аналитика Kaspi Pay — Excel за 30 секунд, калькулятор маржи. 14 дней бесплатно, потом 990 ₸/мес.">
 <meta name="keywords" content="накладные Kaspi, распечатать накладные Kaspi, аналитика Kaspi Pay, калькулятор маржи Kaspi, жүкқұжаттар Kaspi, юнит-экономика Kaspi, инструменты Kaspi продавец">
 <meta name="robots" content="index, follow">
 <meta name="author" content="KitSeller">
 <meta property="og:title" content="KitSeller — накладные и аналитика для Kaspi продавцов">
-<meta property="og:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — 17 страниц Excel за 30 секунд. Калькулятор маржи. Без API. Попробовать бесплатно.">
+<meta property="og:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — Excel за 30 секунд. Калькулятор маржи. 14 дней бесплатно, потом 990 ₸/мес.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://tentekkz.github.io/KitSellerSite/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="KitSeller">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="KitSeller — накладные и аналитика для Kaspi продавцов">
-<meta name="twitter:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — 17 страниц Excel за 30 секунд.">
+<meta name="twitter:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — Excel за 30 секунд. 14 дней бесплатно.">
 <meta name="twitter:image" content="https://tentekkz.github.io/KitSellerSite/og-image.png">
 <script type="application/ld+json">
 {
@@ -34,1917 +34,545 @@
   "url": "https://tentekkz.github.io/KitSellerSite",
   "sameAs": ["https://t.me/kitseller_bot"],
   "provider": {"@type": "Organization", "name": "Path of Peaks", "address": {"@type": "PostalAddress", "addressCountry": "KZ"}},
-  "featureList": ["Накладные ZIP→PDF за 10 секунд","Разбивка накладных по товарам","Сборочный лист Excel","Аналитика Kaspi Pay — 17 страниц Excel","Калькулятор маржи с учётом комиссии и ИПН","Курсы НБ РК с уведомлениями","QR-коды для Kaspi магазина"]
+  "featureList": ["Накладные ZIP→PDF за 10 секунд","Разбивка накладных по товарам","Сборочный лист Excel","Аналитика Kaspi Pay — 17 листов Excel","Калькулятор маржи с учётом комиссии и ИПН","Курсы НБ РК с уведомлениями","QR-коды для Kaspi магазина"]
 }
 </script>
-<link rel="icon" href="kitseller-icon.png">
+<link rel="icon" href="kitseller-icon.png"><rect width='32' height='32' rx='8' fill='%230a0a0a'/><text y='23' x='5' font-size='20' font-family='sans-serif' font-weight='900' fill='%23ff3d00'>K</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;700;900&family=Nunito:wght@800;900&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-:root{--bg:#fff;--paper:#f5f7f8;--paper2:#eef2f4;--ink:#07111f;--muted:#657284;--soft:#94a3b8;--line:#dfe5ea;--teal:#0ea5a4;--teal2:#087f7e;--dark:#08111e;--green:#0ea5a4;--r:#0ea5a4;--r2:#087f7e;--snow:#07111f;--grey:#657284;--grey2:#94a3b8;--void:#fff;--s1:#fff;--s2:#f6f8fa;--edge:rgba(15,23,42,.10);--edge2:rgba(15,23,42,.16);--fh:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Arial,sans-serif;--fb:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Arial,sans-serif;--fm:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--radius:28px;--shadow:0 28px 80px rgba(8,17,30,.08);--shadow2:0 10px 34px rgba(8,17,30,.06)}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;background:#fff;color:var(--ink)}body{font-family:var(--fb);background:linear-gradient(180deg,#fff 0%,#f7fafb 48%,#fff 100%);color:var(--ink);line-height:1.55;overflow-x:hidden;cursor:auto}a{text-decoration:none;color:inherit}button{font:inherit}::selection{background:rgba(14,165,164,.22);color:var(--ink)}#cur,#bg-canvas,.grain{display:none!important}.magnetic{cursor:pointer}.sr{opacity:1!important;transform:none!important}.dim{color:#64748b}.acc,.red{color:var(--teal)!important}.big,.g{color:var(--teal)}
-nav{position:fixed;top:0;left:0;right:0;z-index:50;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,72px);background:rgba(255,255,255,.84);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid rgba(15,23,42,.08);box-shadow:0 10px 34px rgba(15,23,42,.04)}.nlogo{display:flex;align-items:center;gap:.7rem;font-weight:900;color:var(--ink);letter-spacing:-.02em}.brand-logo{height:40px;width:auto;display:block}.nmark,.fmk{width:34px;height:34px;border-radius:11px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:900}.nlinks{display:flex;align-items:center;gap:2.6rem;list-style:none}.nlinks a{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);transition:.2s}.nlinks a:hover{color:var(--ink)}.lang-sw{display:flex;padding:4px;background:#f1f5f9;border:1px solid var(--line);border-radius:14px}.lang-btn{border:0;background:transparent;color:var(--muted);font-weight:800;padding:.42rem .7rem;border-radius:10px;cursor:pointer}.lang-btn.active{background:#fff;color:var(--ink);box-shadow:0 4px 14px rgba(15,23,42,.08)}.ncta,.btn-r,.btn-o,.pbtn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:999px;font-weight:800;letter-spacing:-.01em;transition:.22s ease;white-space:nowrap}.ncta,.btn-r,.pbtn{background:var(--ink)!important;color:#fff!important;border:1px solid var(--ink)!important;box-shadow:0 14px 34px rgba(8,17,30,.14)!important}.ncta{padding:.78rem 1.25rem}.btn-r,.btn-o,.pbtn{padding:.95rem 1.35rem}.ncta:hover,.btn-r:hover,.pbtn:hover{background:var(--teal)!important;border-color:var(--teal)!important;transform:translateY(-1px);box-shadow:0 18px 38px rgba(14,165,164,.22)!important}.btn-o{background:#fff!important;color:var(--ink)!important;border:1px solid var(--line)!important;box-shadow:var(--shadow2)}.btn-o:hover{border-color:rgba(14,165,164,.35)!important;color:var(--teal2)!important;transform:translateY(-1px)}.burger{display:none;border:0;background:transparent;flex-direction:column;gap:5px}.burger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px}.mob{display:none}
-section{position:relative;padding:clamp(78px,9vw,130px) clamp(18px,4vw,48px)}.secin{width:min(1180px,100%);margin:0 auto}.sub{color:var(--muted);font-size:1.04rem;line-height:1.75}.stag{display:inline-flex;align-items:center;gap:.45rem;color:var(--teal2);background:rgba(14,165,164,.08);border:1px solid rgba(14,165,164,.16);border-radius:999px;padding:.42rem .8rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;font-weight:900;margin-bottom:1rem}.h2{font-size:clamp(2.05rem,5vw,5.4rem);font-weight:900;letter-spacing:-.065em;line-height:.94;color:var(--ink)}.sec-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.2rem}.hero{padding:132px clamp(18px,4vw,72px) 70px;background:radial-gradient(circle at 20% 2%,rgba(14,165,164,.14),transparent 31%),linear-gradient(#fff,#f8fafc);min-height:auto}.hero-mega{width:min(1180px,100%);margin:0 auto}.mega-line{display:block;font-size:clamp(4.1rem,13vw,12rem);font-weight:950;line-height:.86;letter-spacing:-.085em;color:var(--ink)}.mega-line .outline{color:rgba(7,17,31,.18);-webkit-text-stroke:0}.hero-sub-row{width:min(1180px,100%);margin:2rem auto 0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end}.hero-desc{max-width:720px;color:var(--muted);font-size:clamp(1.03rem,1.5vw,1.26rem);line-height:1.75}.hero-desc strong{color:var(--ink)}.hero-pills{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.35rem}.hero-pill{background:#fff;border:1px solid var(--line);box-shadow:0 8px 24px rgba(8,17,30,.05);border-radius:999px;padding:.55rem .9rem;color:#475569;font-size:.86rem}.hero-pill:hover{border-color:rgba(14,165,164,.32);color:var(--teal2)}.hero-cta-wrap{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}.hero-ticker{width:min(1180px,100%);margin:3rem auto 0;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.9rem 0;color:var(--soft);font-size:.8rem}.htinner{display:flex;gap:2rem;white-space:nowrap}.hti .sep{color:var(--teal)}
-.stats-bar{width:min(1080px,calc(100% - 36px));margin:-20px auto 0;background:rgba(255,255,255,.9);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:26px;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;position:relative;z-index:3}.sbi{padding:1.3rem 1rem;text-align:center;border-right:1px solid var(--line)}.sbi:last-child{border-right:0}.sbn{font-size:clamp(1.3rem,3vw,2.5rem);font-weight:950;letter-spacing:-.055em;color:var(--ink)}.sbl{font-size:.82rem;color:var(--muted);margin-top:.2rem}
-.flagship-sec{background:#fff}.flagship-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4rem}.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.price-card,.faq-item,.rv-card,.demo-card,.calc-card,.cbox,.pcard,.phone{background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow2);color:var(--ink)}.flagship-card{position:relative;padding:clamp(1.4rem,3vw,2.2rem);overflow:hidden;min-height:560px}.flagship-card::before,.extra-card::before,.price-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 0%,rgba(14,165,164,.10),transparent 34%);pointer-events:none}.flagship-card:hover,.extra-card:hover,.fcard:hover,.fwcard:hover,.ba-col:hover,.price-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:rgba(14,165,164,.28)}.fl-num{position:absolute;right:1.5rem;top:1rem;font-size:5.4rem;font-weight:950;letter-spacing:-.08em;color:rgba(15,23,42,.055);line-height:1}.fl-icon,.extra-icon{font-size:2rem;display:block;margin-bottom:1.3rem}.fl-tag{display:inline-block;color:var(--teal2);background:rgba(14,165,164,.08);border:1px solid rgba(14,165,164,.18);border-radius:999px;padding:.35rem .65rem;font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem}.fl-title,.extra-title,.fc-title,.fwtitle,.calc-title,.ctah{font-size:clamp(1.35rem,2.7vw,2.3rem);line-height:1.08;font-weight:950;letter-spacing:-.045em;color:var(--ink);position:relative}.fl-desc,.extra-desc,.fc-desc,.fwdesc,.faq-a,.fcopy,.ctap,.pctx,.pfeat,.dhint{color:var(--muted);line-height:1.75}.fl-desc{margin:1rem 0}.fl-list{list-style:none;margin:1.2rem 0;display:grid;gap:.55rem}.fl-list li{color:#475569;font-size:.95rem}.fl-list li::before{content:"✓";display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:rgba(14,165,164,.10);color:var(--teal2);font-weight:900;margin-right:.5rem}.fl-result,pre,code,.demo-code,.pterminal,.calc-code,.outbox{background:#08111e!important;color:#e7eef7!important;border:1px solid rgba(255,255,255,.08)!important;border-radius:18px!important;padding:1rem!important;font-family:var(--fm)!important;font-size:.82rem;box-shadow:0 18px 44px rgba(8,17,30,.18)!important;position:relative;z-index:1}.fl-result span[style*="var(--snow)"]{color:#e7eef7!important}.fl-result span[style*="var(--r)"],.fl-result span[style*="var(--green)"]{color:#25d5d2!important}
-.ba-sec,.featsec,.calcsec,.pricesec{background:#f7fafb}.ba-grid{display:grid;grid-template-columns:1fr 70px 1fr;gap:1rem;align-items:center;margin-top:1rem}.ba-col{padding:1.3rem}.ba-label{font-size:.78rem;font-weight:950;letter-spacing:.1em;color:var(--teal2);margin-bottom:.75rem}.ba-item{padding:.65rem 0;color:#475569;border-bottom:1px solid rgba(15,23,42,.07)}.ba-item:last-child{border-bottom:0}.ba-item::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#ef4444;margin-right:.55rem}.after .ba-item::before{background:var(--teal)}.ba-divider{display:grid;place-items:center}.ba-arrow{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--teal)!important;color:#fff;font-weight:900;box-shadow:0 12px 30px rgba(14,165,164,.24)}
-.fgrid,.extra-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.fcard,.extra-card{position:relative;padding:1.35rem;min-height:230px}.fc-num{font-size:.78rem;color:var(--teal2);font-weight:950}.fc-tag{font-size:.74rem;color:var(--soft);text-transform:uppercase;letter-spacing:.08em;margin:.7rem 0}.fc-icon{font-size:1.8rem;margin:.4rem 0}.fc-title{font-size:1.18rem;letter-spacing:-.03em}.fc-desc{font-size:.92rem;margin-top:.7rem}.extra-card{padding:1.5rem;overflow:hidden}.extra-title{font-size:1.2rem}.extra-desc{font-size:.94rem;margin-top:.7rem}.fwsec{background:#fff}.fwinner{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:1.2rem;align-items:start}.fwlist{display:grid;gap:.85rem}.fwitem{display:grid;grid-template-columns:42px 1fr;gap:1rem;padding:1.05rem;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 8px 24px rgba(8,17,30,.04)}.fwn{width:42px;height:42px;border-radius:50%;background:rgba(14,165,164,.10);color:var(--teal2);display:grid;place-items:center;font-weight:950}.fwtitle{font-size:1rem;letter-spacing:-.02em}.fwdesc{font-size:.9rem;margin-top:.2rem}.fwcard{padding:1.4rem;position:sticky;top:100px}.fw-stat{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:.9rem 0}.fws-n{font-size:1.8rem;color:var(--ink);font-weight:950}.fws-l{color:var(--muted);font-size:.84rem}
-.cbox{padding:1.2rem;overflow:hidden}.chead{display:flex;align-items:center;gap:.7rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}.cdots{display:flex;gap:.35rem}.cdot{width:10px;height:10px;border-radius:50%;background:#cbd5e1}.cht{font-family:var(--fm);font-size:.82rem;color:var(--muted)}.cbody{display:grid;grid-template-columns:1fr 320px;gap:1rem;padding-top:1rem}.crow{margin-bottom:1rem}.clbl{display:flex;justify-content:space-between;color:var(--muted);font-size:.9rem;margin-bottom:.45rem}.cslw{height:10px;background:#e2e8f0;border-radius:999px;overflow:hidden}.cslw .fill{height:100%;background:var(--teal);border-radius:999px}.cresults{display:grid;gap:.7rem}.cs{background:#f8fafc;border:1px solid var(--line);border-radius:18px;padding:1rem}.csn{font-size:1.5rem;font-weight:950;color:var(--ink)}.csl2{font-size:.78rem;color:var(--muted)}.demosec{background:#fff}.dlayout{display:grid;grid-template-columns:260px 1fr;gap:1.2rem}.dtabs{display:grid;gap:.7rem}.dtab{background:#fff;border:1px solid var(--line);border-radius:18px;padding:.95rem;text-align:left;color:var(--ink);display:grid;grid-template-columns:34px 1fr;gap:.7rem;cursor:pointer}.dtab.a,.dtab:hover{border-color:rgba(14,165,164,.35);box-shadow:var(--shadow2)}.demoji{font-size:1.35rem}.dname{font-weight:900}.phone{padding:1rem;background:#fff}.pbar{height:34px;background:#f1f5f9;border-radius:14px;display:flex;align-items:center;padding:0 .8rem;gap:.5rem;color:var(--muted);font-size:.8rem}.pbody{margin-top:1rem;display:grid;gap:.8rem}.pc{padding:.9rem;border:1px solid var(--line);border-radius:16px;background:#f8fafc}.ptyp{font-size:.78rem;color:var(--teal2);font-weight:900;margin-bottom:.3rem}.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.pcard{position:relative;padding:1.6rem;overflow:hidden}.pcard.hot{border-color:rgba(14,165,164,.35);box-shadow:0 22px 70px rgba(14,165,164,.10)}.ptier{font-size:.9rem;font-weight:950;color:var(--teal2);text-transform:uppercase;letter-spacing:.08em}.pamount{font-size:clamp(2.2rem,5vw,4rem);font-weight:950;color:var(--ink);letter-spacing:-.06em;margin:.6rem 0}.pcur,.pper{font-size:1rem;color:var(--muted);font-weight:700}.plist{list-style:none;display:grid;gap:.7rem;margin:1.2rem 0}.plist li{color:#475569}.plist li::before{content:"✓";color:var(--teal2);font-weight:900;margin-right:.5rem}.pline{height:1px;background:var(--line);margin:1rem 0}.pnote{color:var(--muted);font-size:.84rem}
-.fq{border:1px solid var(--line);border-radius:20px;background:#fff;margin-bottom:.75rem;overflow:hidden;box-shadow:0 8px 24px rgba(8,17,30,.04)}.fqq{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem;font-weight:900;cursor:pointer;color:var(--ink)}.fqico{width:28px;height:28px;border-radius:50%;background:#f1f5f9;color:var(--teal2);display:grid;place-items:center;flex:0 0 auto}.fqa{display:none;padding:0 1.15rem 1.15rem;color:var(--muted)}.fq.open .fqa{display:block}.ctasec{background:linear-gradient(180deg,#fff,#f0fdfa);text-align:center;padding-bottom:110px}.ctah{font-size:clamp(2.4rem,8vw,7rem);line-height:.9}.stroke{color:rgba(7,17,31,.18);-webkit-text-stroke:0}.ctap{max-width:620px;margin:1.2rem auto}.ctanote{margin-top:1rem;color:var(--muted);font-size:.84rem}.cta-arc{display:none}footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:28px clamp(18px,4vw,72px);background:#fff;border-top:1px solid var(--line);color:var(--muted)}.flogo{display:flex;align-items:center;gap:.7rem;font-weight:900;color:var(--ink)}.footer-logo{height:36px;width:auto}.flinks{display:flex;gap:1rem;flex-wrap:wrap}.flinks a{color:var(--muted);font-size:.9rem}.flinks a:hover{color:var(--teal2)}
-@media(max-width:980px){.nlinks{display:none}.burger{display:flex}.mob{position:fixed;left:0;right:0;top:78px;z-index:49;background:#fff;border-bottom:1px solid var(--line);padding:1rem 24px;box-shadow:var(--shadow2)}.mob.open{display:grid;gap:.8rem}.mob a{color:var(--ink);padding:.8rem 0;border-bottom:1px solid var(--line)}.hero-sub-row,.flagship-grid,.ba-grid,.fgrid,.extra-grid,.fwinner,.cbody,.dlayout,.pgrid{grid-template-columns:1fr}.ba-divider{display:none}.stats-bar{grid-template-columns:repeat(2,1fr)}.sbi:nth-child(2){border-right:0}.sec-head{display:block}.sub{margin-top:1rem}.fwcard{position:static}.hero-cta-wrap{justify-content:flex-start}.flagship-card{min-height:auto}}
-@media(max-width:640px){nav{height:68px;padding:0 14px}.brand-logo{height:32px}.ncta{display:none}.lang-sw{display:none}.mob{top:68px}.hero{padding:100px 16px 48px}.mega-line{font-size:clamp(3.1rem,18vw,5rem);letter-spacing:-.075em}.hero-sub-row{margin-top:1.4rem}.btn-r,.btn-o{width:100%;padding:.9rem 1rem}.hero-cta-wrap{width:100%}.stats-bar{grid-template-columns:1fr;margin-top:0}.sbi{border-right:0;border-bottom:1px solid var(--line)}.sbi:last-child{border-bottom:0}section{padding:64px 16px}.h2{font-size:clamp(2rem,12vw,3.4rem)}.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.pcard,.cbox{border-radius:22px;padding:1.1rem}.fl-num{font-size:4rem}.fl-title{font-size:1.45rem}footer{display:grid;text-align:center;justify-items:center}.flinks{justify-content:center}.cbody{padding-top:0}.dlayout{gap:.8rem}}
+/* ══════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════ */
+:root {
+  --void:   #060608;
+  --s1:     #0c0c10;
+  --s2:     #111118;
+  --edge:   rgba(255,255,255,.06);
+  --edge2:  rgba(255,255,255,.12);
+  --r:      #ff3d00;   /* radical red-orange */
+  --r2:     #ff6530;
+  --snow:   #f5f4f0;
+  --grey:   #7a7a8a;
+  --grey2:  #3a3a4a;
+  --green:  #00e87a;
+  --fh: 'Unbounded', sans-serif;
+  --fb: 'Instrument Sans', sans-serif;
+  --fm: 'JetBrains Mono', monospace;
+  --e: cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--fb);background:var(--void);color:var(--snow);overflow-x:hidden;cursor:auto;line-height:1.6}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--r);color:#fff}
 
+/* ── KZ FONT OVERRIDE ── */
+body.lang-kz .mega-line,
+body.lang-kz .h2,
+body.lang-kz .ctah,
+body.lang-kz .fc-title,
+body.lang-kz .fwtitle,
+body.lang-kz .fws-n,
+body.lang-kz .pamount,
+body.lang-kz .sbn {
+  font-family: 'Nunito', sans-serif !important;
+  letter-spacing: -.02em;
+}
+body.lang-kz .mega-line { line-height: .9; }
+body.lang-kz .stag { font-family: var(--fm) !important; }
 
-/* =========================================================
-   KitSeller Premium 9/10 — Apple/Linear style
-   White / graphite / teal, without changing core content
-   ========================================================= */
-:root{
-  --bg:#ffffff;
-  --paper:#f6f8fb;
-  --paper2:#eef3f7;
-  --ink:#0b1220;
-  --muted:#667085;
-  --soft:#98a2b3;
-  --line:#e6ebf0;
-  --line2:#d6dee7;
-  --teal:#0ea5a4;
-  --teal2:#0f766e;
-  --tealSoft:rgba(14,165,164,.10);
-  --dark:#08111e;
-  --shadow:0 30px 90px rgba(11,18,32,.09);
-  --shadow2:0 14px 44px rgba(11,18,32,.065);
-  --radius:28px;
-}
-html,body{
-  background:#fff!important;
-  color:var(--ink)!important;
-  overflow-x:hidden!important;
-  cursor:auto!important;
-}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Arial,sans-serif!important;
-  background:
-    radial-gradient(900px 520px at 18% -6%, rgba(14,165,164,.14), transparent 62%),
-    radial-gradient(760px 480px at 82% 2%, rgba(15,118,110,.08), transparent 60%),
-    linear-gradient(180deg,#fff 0%,#f7fafc 42%,#ffffff 100%)!important;
-}
-#cur,#bg-canvas,.grain{display:none!important}
-a,button,.magnetic,.flagship-card,.extra-card,.fcard,.price-card{cursor:pointer!important}
+/* ── HERO PILLS ── */
+.hero-pill{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.05);border:1px solid var(--edge2);border-radius:100px;padding:.35rem .9rem;font-size:.72rem;color:var(--grey);transition:all .2s}
+.hero-pill:hover{border-color:rgba(255,61,0,.3);color:var(--snow)}
 
-/* nav */
-nav{
-  height:78px!important;
-  padding:0 clamp(18px,4vw,72px)!important;
-  background:rgba(255,255,255,.78)!important;
-  backdrop-filter:blur(22px) saturate(160%)!important;
-  -webkit-backdrop-filter:blur(22px) saturate(160%)!important;
-  border-bottom:1px solid rgba(11,18,32,.08)!important;
-  box-shadow:0 8px 34px rgba(11,18,32,.045)!important;
-}
-nav.s{background:rgba(255,255,255,.92)!important}
-.brand-logo{height:38px!important;width:auto!important;display:block!important}
-.nlinks{gap:2.6rem!important}
-.nlinks a{
-  color:#667085!important;
-  font-size:.78rem!important;
-  letter-spacing:.06em!important;
-  font-weight:800!important;
-  opacity:1!important;
-}
-.nlinks a:hover{color:#0b1220!important}
-.nlinks a::after{background:var(--teal)!important;height:2px!important}
-.lang-sw{
-  background:#f6f8fb!important;
-  border:1px solid rgba(11,18,32,.08)!important;
-  border-radius:16px!important;
-  padding:4px!important;
-}
-.lang-btn{
-  color:#667085!important;
-  border-radius:12px!important;
-  padding:.52rem .7rem!important;
-}
-.lang-btn.active{
-  background:#0b1220!important;
-  color:#fff!important;
-  box-shadow:0 8px 18px rgba(11,18,32,.14)!important;
-}
-.ncta,.btn-r{
-  background:#0b1220!important;
-  color:#fff!important;
-  border:1px solid #0b1220!important;
-  border-radius:16px!important;
-  box-shadow:0 16px 36px rgba(11,18,32,.15)!important;
-}
-.ncta:hover,.btn-r:hover{
-  background:#0ea5a4!important;
-  border-color:#0ea5a4!important;
-  transform:translateY(-2px)!important;
-  box-shadow:0 22px 48px rgba(14,165,164,.25)!important;
-}
-.btn-o{
-  background:rgba(255,255,255,.85)!important;
-  color:#0b1220!important;
-  border:1px solid rgba(11,18,32,.10)!important;
-  border-radius:16px!important;
-  box-shadow:0 12px 32px rgba(11,18,32,.06)!important;
-}
-.btn-o:hover{
-  border-color:rgba(14,165,164,.38)!important;
-  color:#0f766e!important;
-  transform:translateY(-2px)!important;
-}
-.burger span{background:#0b1220!important}
-.mob{
-  background:rgba(255,255,255,.96)!important;
-  border-bottom:1px solid rgba(11,18,32,.08)!important;
-}
-.mob a{color:#0b1220!important}
-
-/* hero: premium product cover */
-.hero{
-  position:relative!important;
-  padding:128px clamp(18px,4vw,72px) 82px!important;
-  min-height:auto!important;
-  background:
-    radial-gradient(620px 380px at 72% 18%, rgba(14,165,164,.12), transparent 64%),
-    linear-gradient(180deg, rgba(255,255,255,.55), rgba(248,250,252,.72))!important;
-  overflow:hidden!important;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:78px 0 auto 0;
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(14,165,164,.32),transparent);
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  width:720px;height:720px;
-  right:-260px;top:90px;
-  background:radial-gradient(circle,rgba(14,165,164,.10),transparent 62%);
-  pointer-events:none;
-}
-.hero-mega,.hero-sub-row,.hero-ticker,.ks-showcase{position:relative;z-index:1}
-.hero-mega{
-  width:min(1120px,100%)!important;
-  margin:0 auto!important;
-  text-align:left!important;
-}
-.mega-line{
-  display:block!important;
-  font-size:clamp(4.2rem,11vw,10.8rem)!important;
-  font-weight:950!important;
-  line-height:.88!important;
-  letter-spacing:-.085em!important;
-  color:#0b1220!important;
-  text-wrap:balance!important;
-}
-.mega-line .outline{
-  color:transparent!important;
-  background:linear-gradient(180deg,rgba(11,18,32,.20),rgba(11,18,32,.08))!important;
-  -webkit-background-clip:text!important;
-  background-clip:text!important;
-  -webkit-text-stroke:0!important;
-}
-.hero-sub-row{
-  width:min(1120px,100%)!important;
-  margin:2.4rem auto 0!important;
-  display:grid!important;
-  grid-template-columns:minmax(0,1fr) auto!important;
-  gap:2rem!important;
-  align-items:end!important;
-}
-.hero-desc{
-  max-width:760px!important;
-  color:#667085!important;
-  font-size:clamp(1.05rem,1.45vw,1.28rem)!important;
-  line-height:1.78!important;
-}
-.hero-desc strong{color:#0b1220!important}
-.hero-pills{gap:.7rem!important;margin-top:1.5rem!important}
-.hero-pill{
-  background:rgba(255,255,255,.84)!important;
-  border:1px solid rgba(11,18,32,.08)!important;
-  border-radius:999px!important;
-  padding:.72rem 1rem!important;
-  color:#475467!important;
-  box-shadow:0 12px 32px rgba(11,18,32,.055)!important;
-  backdrop-filter:blur(14px)!important;
-}
-.hero-pill:hover{
-  transform:translateY(-2px)!important;
-  border-color:rgba(14,165,164,.30)!important;
-  color:#0f766e!important;
-}
-.hero-cta-wrap{gap:.8rem!important}
-
-/* new premium mockup */
-.ks-showcase{
-  width:min(1120px,100%);
-  margin:3.6rem auto 0;
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:1.1rem;
-  align-items:stretch;
-}
-.ks-dashboard,.ks-side-card{
-  position:relative;
-  overflow:hidden;
-  border:1px solid rgba(11,18,32,.09);
-  border-radius:32px;
-  background:rgba(255,255,255,.88);
-  box-shadow:0 34px 100px rgba(11,18,32,.10);
-  backdrop-filter:blur(18px);
-}
-.ks-dashboard{padding:1.1rem}
-.ks-dashboard::before,.ks-side-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at 12% 0%, rgba(14,165,164,.12), transparent 36%);
-  pointer-events:none;
-}
-.ks-window-top{
-  position:relative;
-  z-index:1;
-  height:38px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 .25rem .8rem;
-  border-bottom:1px solid rgba(11,18,32,.08);
-}
-.ks-dots{display:flex;gap:.45rem}
-.ks-dots span{width:10px;height:10px;border-radius:50%;background:#d0d5dd}
-.ks-dots span:nth-child(1){background:#ff6b57}
-.ks-dots span:nth-child(2){background:#ffbd2e}
-.ks-dots span:nth-child(3){background:#27c93f}
-.ks-window-title{font-size:.74rem;font-weight:800;color:#667085;letter-spacing:.04em}
-.ks-dashboard-grid{
-  position:relative;
-  z-index:1;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:.9rem;
-  padding-top:1rem;
-}
-.ks-mini{
-  border:1px solid rgba(11,18,32,.08);
-  background:#fff;
-  border-radius:22px;
-  padding:1rem;
-  min-height:132px;
-  box-shadow:0 12px 34px rgba(11,18,32,.055);
-}
-.ks-mini.wide{grid-column:1/-1;min-height:118px}
-.ks-mini-label{
-  font-size:.72rem;
-  font-weight:900;
-  color:#0f766e;
-  text-transform:uppercase;
-  letter-spacing:.09em;
-}
-.ks-mini-title{margin-top:.55rem;font-size:1rem;font-weight:950;letter-spacing:-.04em;color:#0b1220}
-.ks-mini-text{margin-top:.45rem;color:#667085;font-size:.86rem;line-height:1.55}
-.ks-linebar{height:9px;border-radius:999px;background:#eef2f6;margin-top:.8rem;overflow:hidden}
-.ks-linebar span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#0ea5a4,#14b8a6)}
-.ks-side-card{padding:1.25rem;display:flex;flex-direction:column;justify-content:space-between;min-height:330px}
-.ks-side-card h3{position:relative;z-index:1;font-size:1.5rem;line-height:1.05;letter-spacing:-.055em;color:#0b1220}
-.ks-side-card p{position:relative;z-index:1;margin-top:.7rem;color:#667085;line-height:1.6}
-.ks-kpis{position:relative;z-index:1;display:grid;gap:.7rem;margin-top:1rem}
-.ks-kpi{display:flex;justify-content:space-between;gap:1rem;padding:.85rem;border-radius:16px;background:#f7fafc;border:1px solid rgba(11,18,32,.06);font-weight:900;color:#0b1220}
-.ks-kpi span{color:#0f766e}
-
-/* ticker/stats */
-.hero-ticker{
-  width:min(1120px,100%)!important;
-  margin:3.4rem auto 0!important;
-  border-top:1px solid rgba(11,18,32,.08)!important;
-  border-bottom:1px solid rgba(11,18,32,.08)!important;
-  color:#98a2b3!important;
-}
-.hti .sep{color:#0ea5a4!important}
-.stats-bar{
-  width:min(980px,calc(100% - 36px))!important;
-  background:#fff!important;
-  border:1px solid rgba(11,18,32,.08)!important;
-  border-radius:22px!important;
-  box-shadow:0 22px 58px rgba(11,18,32,.08)!important;
-  margin:-34px auto 0!important;
-}
-.stat-num{color:#0b1220!important}
-.stat-label{color:#667085!important}
-
-/* section rhythm */
-section:not(.hero){
-  padding:104px clamp(18px,4vw,72px)!important;
-}
-.flagship-sec,.extra-sec,.calcsec,.faqsec,.ctasec,.featsec,.fwsec{
-  background:#fff!important;
-}
-.ba-sec,.pricesec,.demosec{
-  background:linear-gradient(180deg,#f7fafc,#ffffff)!important;
-}
-.sec-head{
-  width:min(760px,100%)!important;
-  margin:0 auto 3.2rem!important;
-  text-align:center!important;
-}
-.sec-head::before,.sec-head::after{
-  background:#0ea5a4!important;
-  opacity:.32!important;
-}
-.sec-kicker,.fl-tag,.stag,.fc-num{
-  color:#0f766e!important;
-}
-.h2,.fl-title,.extra-title,.fwtitle,.fc-title,.ctah,.rv-title,.pamount,.sbn,.faq-q,.calc-title{
-  color:#0b1220!important;
-  letter-spacing:-.055em!important;
-}
-.h2 .red,.ctah .red,.fc-title .red,.fwtitle .red,.red,.acc{
-  color:#0ea5a4!important;
-}
-.sbl,.fl-desc,.extra-desc,.fc-desc,.fwdesc,.calc-desc,.rv-desc,.faq-a,.fcopy,.pnote,.pfeat{
-  color:#667085!important;
-}
-
-/* bento cards */
-.flagship-grid{
-  width:min(1120px,100%)!important;
-  margin:0 auto!important;
-  gap:1.3rem!important;
-}
-.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.price-card,.faq-item,.rv-card,.demo-card,.calc-card,.cbox,.pcard,.phone{
-  background:rgba(255,255,255,.94)!important;
-  border:1px solid rgba(11,18,32,.09)!important;
-  border-radius:30px!important;
-  box-shadow:0 18px 50px rgba(11,18,32,.065)!important;
-  color:#0b1220!important;
-  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease!important;
-}
+/* ══ FLAGSHIP PRODUCTS ══ */
+.flagship-sec{background:var(--void);padding:clamp(80px,10vw,130px) clamp(1.5rem,4vw,3rem);position:relative;z-index:1}
+.flagship-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:4rem}
 .flagship-card{
-  min-height:500px!important;
-  padding:clamp(1.5rem,3vw,2.3rem)!important;
+  border-radius:20px;padding:3rem;position:relative;overflow:hidden;
+  border:1px solid var(--edge);background:var(--s1);
+  transition:border-color .3s,box-shadow .3s,transform .3s var(--e);
+  cursor:auto;
 }
-.flagship-card::before,.extra-card::before,.price-card::before{
-  background:radial-gradient(circle at 16% 0%, rgba(14,165,164,.10), transparent 34%)!important;
-}
-.flagship-card:hover,.extra-card:hover,.fcard:hover,.fwcard:hover,.ba-col:hover,.price-card:hover,.faq-item:hover{
-  transform:translateY(-5px)!important;
-  box-shadow:0 34px 90px rgba(11,18,32,.10)!important;
-  border-color:rgba(14,165,164,.28)!important;
-}
-.fl-num{
-  color:rgba(11,18,32,.055)!important;
-  font-size:5.2rem!important;
-}
-.fl-tag,.stag,.pbadge,.badge,.tag{
-  background:rgba(14,165,164,.085)!important;
-  border:1px solid rgba(14,165,164,.18)!important;
-  color:#0f766e!important;
-  border-radius:999px!important;
-}
-.fl-icon,.extra-icon,.fc-icon{filter:saturate(.96)}
-.fl-list li,.ba-item,.ftext,.fwtext,.faq-a{color:#667085!important}
-.fl-list li::before,.ba-col.after .ba-item::before{color:#0ea5a4!important;background:#0ea5a4!important}
-.ba-col.before .ba-item::before{background:#ef4444!important}
-.ba-grid{
-  width:min(980px,100%)!important;
-  margin:0 auto!important;
-  gap:1.1rem!important;
-}
-.ba-arrow{
-  background:#0ea5a4!important;
-  color:#fff!important;
-  box-shadow:0 16px 38px rgba(14,165,164,.24)!important;
-}
+.flagship-card:hover{transform:translateY(-6px);box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.flagship-card.fc-waybills{border-color:rgba(255,61,0,.15);background:linear-gradient(145deg,rgba(255,61,0,.05),var(--s1))}
+.flagship-card.fc-analytics{border-color:rgba(0,232,122,.1);background:linear-gradient(145deg,rgba(0,232,122,.03),var(--s1))}
+.flagship-card.fc-waybills:hover{border-color:rgba(255,61,0,.35);box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 60px rgba(255,61,0,.05)}
+.flagship-card.fc-analytics:hover{border-color:rgba(0,232,122,.2);box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 60px rgba(0,232,122,.03)}
+.fl-num{font-family:var(--fh);font-size:6rem;font-weight:900;line-height:1;letter-spacing:-.06em;color:rgba(255,255,255,.03);position:absolute;top:1.5rem;right:2rem}
+.fl-icon{font-size:2.8rem;margin-bottom:1.2rem;display:block;filter:drop-shadow(0 6px 16px rgba(255,61,0,.2))}
+.fl-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;padding:.25rem .75rem;border-radius:4px;margin-bottom:1rem}
+.fl-tag.t-r{color:var(--r);background:rgba(255,61,0,.1);border:1px solid rgba(255,61,0,.2)}
+.fl-tag.t-g{color:var(--green);background:rgba(0,232,122,.08);border:1px solid rgba(0,232,122,.15)}
+.fl-title{font-family:var(--fh);font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem}
+.fl-desc{font-size:.88rem;color:var(--grey);line-height:1.8;margin-bottom:2rem}
+.fl-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:2.2rem}
+.fl-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.83rem;color:var(--grey)}
+.fl-list li::before{content:'→';color:var(--r);flex-shrink:0;font-weight:700;margin-top:.05rem}
+.fc-analytics .fl-list li::before{color:var(--green)}
+.fl-result{background:var(--void);border:1px solid var(--edge);border-radius:12px;padding:1.25rem 1.5rem;font-family:var(--fm);font-size:.72rem;line-height:2;color:var(--grey);margin-top:auto}
 
-/* keep tech/code pieces dark, like Apple product contrast */
-.fl-result,pre,code,.code,.terminal,.demo-code,.pterminal,.calc-code,.codebox,.outbox,[class*="code"]{
-  background:#08111e!important;
-  color:#e6edf5!important;
-  border:1px solid rgba(255,255,255,.08)!important;
-  border-radius:22px!important;
-  box-shadow:0 24px 60px rgba(8,17,30,.22)!important;
-}
-.fl-result b,.code b{color:#14b8a6!important}
+/* ══ BEFORE/AFTER ══ */
+.ba-sec{background:var(--s1);padding:clamp(80px,10vw,130px) clamp(1.5rem,4vw,3rem)}
+.ba-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:stretch;margin-top:4rem;max-width:900px;margin-left:auto;margin-right:auto}
+.ba-col{background:var(--s2);border:1px solid var(--edge);border-radius:20px;padding:2.5rem;display:flex;flex-direction:column;gap:1.25rem}
+.ba-col.before{border-color:rgba(255,255,255,.08)}
+.ba-col.after{border-color:rgba(0,232,122,.15);background:linear-gradient(145deg,rgba(0,232,122,.03),var(--s2))}
+.ba-label{font-family:var(--fm);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.5rem}
+.ba-col.before .ba-label{color:var(--grey2)}
+.ba-col.after .ba-label{color:var(--green)}
+.ba-item{display:flex;align-items:flex-start;gap:.75rem;font-size:.83rem;line-height:1.5}
+.ba-col.before .ba-item{color:var(--grey)}
+.ba-col.before .ba-item::before{content:'✗';color:rgba(255,61,0,.5);flex-shrink:0;font-weight:700}
+.ba-col.after .ba-item{color:var(--snow)}
+.ba-col.after .ba-item::before{content:'✓';color:var(--green);flex-shrink:0;font-weight:700}
+.ba-divider{display:flex;align-items:center;justify-content:center}
+.ba-arrow{width:52px;height:52px;border-radius:50%;background:var(--r);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;box-shadow:0 0 30px rgba(255,61,0,.25)}
 
-/* grids */
-.fgrid,.extra-grid{
-  width:min(1120px,100%)!important;
-  margin:0 auto!important;
-  gap:1.1rem!important;
-}
-.fwinner,.calc-wrap,.demo-wrap,.price-wrap,.faq-list,.ctabox{
-  width:min(1120px,100%)!important;
-  margin-left:auto!important;
-  margin-right:auto!important;
-}
-.fwitem{
-  background:#fff!important;
-  border:1px solid rgba(11,18,32,.08)!important;
-  box-shadow:0 12px 34px rgba(11,18,32,.05)!important;
-  border-radius:22px!important;
-}
-.fwn{
-  background:rgba(14,165,164,.10)!important;
-  color:#0f766e!important;
-}
-.price-card.popular,.pcard-popular,.popular{
-  border-color:rgba(14,165,164,.34)!important;
-  box-shadow:0 34px 90px rgba(14,165,164,.14)!important;
-}
-.ctasec{
-  background:radial-gradient(700px 340px at 50% 0%, rgba(14,165,164,.13), transparent 62%),#fff!important;
-}
-.ctabox{
-  background:#0b1220!important;
-  color:#fff!important;
-  border:0!important;
-  border-radius:36px!important;
-  box-shadow:0 40px 110px rgba(11,18,32,.22)!important;
-}
-.ctabox .ctah,.ctabox p{color:#fff!important}
-.ctabox .btn-r{background:#fff!important;color:#0b1220!important;border-color:#fff!important}
-.ctabox .btn-o{background:rgba(255,255,255,.08)!important;color:#fff!important;border-color:rgba(255,255,255,.18)!important}
+/* ══ EXTRA TOOLS (secondary) ══ */
+.extra-sec{background:var(--void);padding:clamp(60px,8vw,100px) clamp(1.5rem,4vw,3rem)}
+.extra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+.extra-card{background:var(--s2);border:1px solid var(--edge);border-radius:14px;padding:1.75rem;transition:border-color .3s,transform .2s;cursor:auto}
+.extra-card:hover{border-color:rgba(255,61,0,.2);transform:translateY(-3px)}
+.extra-icon{font-size:1.6rem;margin-bottom:.75rem;display:block}
+.extra-title{font-family:var(--fh);font-size:.9rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+.extra-desc{font-size:.78rem;color:var(--grey);line-height:1.65}
 
-/* footer */
-footer{
-  background:#fff!important;
-  border-top:1px solid rgba(11,18,32,.08)!important;
-  color:#0b1220!important;
-}
-.footer-logo{height:34px!important;width:auto!important;display:block!important}
-.flinks a{color:#667085!important}
-.flinks a:hover{color:#0f766e!important}
-
-/* mobile */
 @media(max-width:900px){
-  nav{height:72px!important}
-  .nlinks{display:none!important}
-  .hero{padding-top:104px!important}
-  .hero-sub-row{grid-template-columns:1fr!important;gap:1.4rem!important}
-  .hero-cta-wrap{justify-content:flex-start!important}
-  .ks-showcase{grid-template-columns:1fr!important;margin-top:2.3rem!important}
-  .flagship-grid,.fgrid,.extra-grid,.ba-grid,.fwinner,.calc-wrap,.demo-wrap{grid-template-columns:1fr!important}
-  .ba-divider{display:none!important}
+  .flagship-grid{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr;grid-template-rows:auto auto auto}
+  .ba-divider{transform:rotate(90deg)}
+  .extra-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:560px){
-  .brand-logo{height:32px!important}
-  .hero{padding:98px 18px 64px!important}
-  .mega-line{
-    font-size:clamp(3.1rem,18vw,5.6rem)!important;
-    letter-spacing:-.075em!important;
-    line-height:.91!important;
-  }
-  .hero-desc{font-size:1rem!important;line-height:1.68!important}
-  .hero-pill{width:100%!important;justify-content:flex-start!important}
-  .btn-r,.btn-o{width:100%!important;justify-content:center!important}
-  .ks-dashboard,.ks-side-card{border-radius:24px!important}
-  .ks-dashboard-grid{grid-template-columns:1fr!important}
-  .ks-mini.wide{grid-column:auto!important}
-  section:not(.hero){padding:76px 18px!important}
-  .flagship-card{min-height:auto!important;border-radius:24px!important}
-  .stats-bar{margin:-24px 18px 0!important;width:auto!important}
-  .h2{font-size:clamp(2rem,10vw,3rem)!important}
+@media(max-width:600px){
+  .extra-grid{grid-template-columns:1fr}
 }
 
+/* ── CUSTOM CURSOR ── */
+#cur{position:fixed;z-index:99999;pointer-events:none;top:0;left:0}
+#cd{position:absolute;width:8px;height:8px;background:var(--r);border-radius:50%;transform:translate(-50%,-50%);transition:width .35s var(--e),height .35s var(--e),border-radius .35s,background .35s}
+#cr{position:absolute;width:36px;height:36px;border:1px solid rgba(255,61,0,.4);border-radius:50%;transform:translate(-50%,-50%);transition:width .2s var(--e),height .2s var(--e),border-color .3s,border-radius .3s}
+body.hover #cd{width:56px;height:56px;background:rgba(255,61,0,.12);border-radius:50%}
+body.hover #cr{width:56px;height:56px;border-color:transparent}
+body.text #cd{width:2px;height:26px;border-radius:2px}
+body.text #cr{opacity:0}
+body.drag #cd{width:80px;height:80px;background:rgba(255,61,0,.08);border-radius:12px}
 
-/* ======================================================
-   KitSeller Stripe/Linear rebuild — final premium layer
-   ====================================================== */
-:root{
-  --ks-bg:#ffffff;
-  --ks-paper:#f7fafc;
-  --ks-paper2:#eef4f7;
-  --ks-ink:#09111f;
-  --ks-muted:#667085;
-  --ks-soft:#98a2b3;
-  --ks-line:#e5ebf0;
-  --ks-teal:#0ea5a4;
-  --ks-teal-dark:#0f766e;
-  --ks-dark:#07111f;
-  --ks-shadow:0 28px 90px rgba(9,17,31,.10);
-  --ks-soft-shadow:0 14px 44px rgba(9,17,31,.07);
-}
-html,body{background:#fff!important;color:var(--ks-ink)!important;overflow-x:hidden!important;cursor:auto!important}
-body{
-  background:
-    radial-gradient(760px 460px at 18% -4%, rgba(14,165,164,.15), transparent 64%),
-    radial-gradient(640px 420px at 86% 2%, rgba(14,165,164,.08), transparent 62%),
-    linear-gradient(180deg,#fff 0%,#f8fafc 42%,#fff 100%)!important;
-  font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Arial,sans-serif!important;
-}
-#cur,#bg-canvas,.grain{display:none!important}
-*{box-sizing:border-box}
-a,button,.magnetic,.flagship-card,.extra-card,.price-card{cursor:pointer!important}
+/* ── CANVAS BACKGROUND ── */
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
 
-/* NAV */
-nav{
-  height:78px!important;
-  padding:0 clamp(18px,4vw,72px)!important;
-  background:rgba(255,255,255,.80)!important;
-  border-bottom:1px solid rgba(9,17,31,.08)!important;
-  box-shadow:0 10px 34px rgba(9,17,31,.045)!important;
-  backdrop-filter:blur(22px) saturate(170%)!important;
-}
-nav.s{background:rgba(255,255,255,.93)!important}
-.brand-logo,.footer-logo{height:38px!important;width:auto!important;display:block!important}
-.nlinks{gap:2.5rem!important}
-.nlinks a{
-  color:#667085!important;
-  font-size:.78rem!important;
-  font-weight:850!important;
-  letter-spacing:.06em!important;
-}
-.nlinks a:hover{color:#09111f!important}
-.nlinks a::after{background:var(--ks-teal)!important}
-.lang-sw{background:#f6f8fb!important;border:1px solid rgba(9,17,31,.09)!important;border-radius:16px!important;padding:4px!important}
-.lang-btn{color:#667085!important;border-radius:12px!important}
-.lang-btn.active{background:#09111f!important;color:#fff!important;box-shadow:0 8px 22px rgba(9,17,31,.15)!important}
-.ncta,.btn-r{
-  background:#09111f!important;color:#fff!important;border:1px solid #09111f!important;
-  border-radius:16px!important;box-shadow:0 18px 44px rgba(9,17,31,.18)!important;
-  transition:.25s ease!important;
-}
-.ncta:hover,.btn-r:hover{
-  background:var(--ks-teal)!important;border-color:var(--ks-teal)!important;
-  transform:translateY(-2px)!important;box-shadow:0 22px 54px rgba(14,165,164,.25)!important;
-}
-.btn-o{
-  background:#fff!important;color:#09111f!important;border:1px solid rgba(9,17,31,.10)!important;
-  border-radius:16px!important;box-shadow:0 12px 32px rgba(9,17,31,.06)!important;
-}
-.btn-o:hover{border-color:rgba(14,165,164,.38)!important;color:var(--ks-teal-dark)!important;transform:translateY(-2px)!important}
-.burger span{background:#09111f!important}
-.mob{background:rgba(255,255,255,.98)!important;border-bottom:1px solid rgba(9,17,31,.08)!important}
-.mob a{color:#09111f!important}
+/* ── GRAIN ── */
+.grain{position:fixed;inset:-200%;width:400%;height:400%;opacity:.02;pointer-events:none;z-index:9997;animation:grain 5s steps(7) infinite;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes grain{0%{transform:translate(0,0)}14%{transform:translate(-4%,-8%)}28%{transform:translate(7%,3%)}42%{transform:translate(-3%,12%)}57%{transform:translate(10%,-4%)}71%{transform:translate(-6%,6%)}85%{transform:translate(4%,-10%)}100%{transform:translate(0,0)}}
 
-/* HERO — two-column SaaS cover */
-.hero{
-  padding:126px clamp(18px,4vw,72px) 82px!important;
-  min-height:auto!important;
-  background:
-    radial-gradient(680px 420px at 70% 16%, rgba(14,165,164,.13), transparent 64%),
-    linear-gradient(180deg,rgba(255,255,255,.7),rgba(247,250,252,.86))!important;
-  overflow:hidden!important;
-  position:relative!important;
-}
-.hero::before{
-  content:"";position:absolute;inset:78px 0 auto;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(14,165,164,.32),transparent);
-}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,4vw,3rem);border-bottom:1px solid transparent;transition:all .5s var(--e)}
+nav.s{background:rgba(6,6,8,.88);backdrop-filter:blur(28px) saturate(160%);border-color:var(--edge)}
+.nlogo{font-family:var(--fh);font-size:.95rem;font-weight:900;letter-spacing:-.03em;display:flex;align-items:center;gap:.5rem}
+.nmark{width:28px;height:28px;background:var(--r);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;color:#fff;transition:transform .3s var(--e)}
+.nmark:hover{transform:rotate(-10deg) scale(1.1)}
+.nlinks{display:flex;gap:2.5rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
+.nlinks a{font-size:.75rem;font-weight:500;color:var(--grey);letter-spacing:.04em;text-transform:uppercase;transition:color .2s;position:relative}
+.nlinks a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--r);transform:scaleX(0);transition:transform .3s var(--e)}
+.nlinks a:hover{color:var(--snow)}
+.nlinks a:hover::after{transform:scaleX(1)}
+.ncta{display:inline-flex;align-items:center;gap:.45rem;background:var(--r);color:#fff;font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:.52rem 1.35rem;border-radius:6px;cursor:auto;position:relative;overflow:hidden;transition:transform .2s,box-shadow .3s}
+.ncta::before{content:'';position:absolute;inset:0;background:var(--r2);opacity:0;transition:opacity .3s}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,61,0,.4)}
+.ncta:hover::before{opacity:1}
+.ncta span{position:relative;z-index:1}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:auto;padding:5px}
+.burger span{display:block;width:20px;height:1px;background:var(--snow);border-radius:1px;transition:all .3s}
+.mob{display:none;position:fixed;top:62px;left:0;right:0;background:rgba(6,6,8,.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--edge);padding:2rem clamp(1.5rem,4vw,3rem);flex-direction:column;gap:1rem;z-index:490}
+.mob.o{display:flex}
+.mob a{font-size:.85rem;font-weight:500;color:var(--grey);padding:.6rem 0;border-bottom:1px solid var(--edge);transition:color .2s;text-transform:uppercase;letter-spacing:.04em}
+.mob a:hover{color:var(--snow)}
+/* ── LANG SWITCHER ── */
+.lang-sw{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.06);border:1px solid var(--edge2);border-radius:6px;padding:2px;margin-right:.75rem}
+.lang-btn{font-family:var(--fh);font-size:.62rem;font-weight:700;letter-spacing:.04em;padding:.3rem .6rem;border-radius:4px;border:none;background:transparent;color:var(--grey);cursor:pointer;transition:all .2s}
+.lang-btn.active{background:var(--r);color:#fff}
+.lang-btn:hover:not(.active){color:var(--snow)}
+
+/* ══ HERO ══════════════════════════════════════════ */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;z-index:1}
+
+/* Huge split text */
 .hero-mega{
-  width:min(1180px,100%)!important;margin:0 auto!important;
-}
-.mega-line{
-  display:block!important;
-  color:#09111f!important;
-  font-size:clamp(4.4rem,10.5vw,10.6rem)!important;
-  line-height:.87!important;
-  letter-spacing:-.085em!important;
-  font-weight:950!important;
-}
-.mega-line .outline{
-  color:transparent!important;
-  background:linear-gradient(180deg,rgba(9,17,31,.22),rgba(9,17,31,.07))!important;
-  -webkit-background-clip:text!important;background-clip:text!important;-webkit-text-stroke:0!important;
-}
-.mega-line .red,.mega-line .ghost{color:var(--ks-teal)!important;-webkit-text-stroke:0!important}
-.hero-sub-row{
-  width:min(1180px,100%)!important;margin:2.2rem auto 0!important;
-  display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:2rem!important;align-items:end!important;
-}
-.hero-desc{max-width:760px!important;color:#667085!important;font-size:clamp(1.05rem,1.45vw,1.28rem)!important;line-height:1.76!important}
-.hero-desc strong{color:#09111f!important}
-.hero-pills{gap:.7rem!important;margin-top:1.4rem!important}
-.hero-pill{
-  background:rgba(255,255,255,.86)!important;border:1px solid rgba(9,17,31,.08)!important;border-radius:999px!important;
-  color:#475467!important;padding:.72rem 1rem!important;box-shadow:0 12px 32px rgba(9,17,31,.055)!important;
-}
-.hero-pill:hover{border-color:rgba(14,165,164,.32)!important;color:var(--ks-teal-dark)!important;transform:translateY(-2px)!important}
-
-/* Hero visual */
-.stripe-hero-visual{
-  width:min(1180px,100%);
-  margin:3.8rem auto 0;
-  display:grid;
-  grid-template-columns:minmax(0,1.35fr) minmax(250px,.55fr);
-  gap:1.2rem;
-  align-items:stretch;
-  position:relative;
-  z-index:2;
-}
-.stripe-main-window,.stripe-side-card{
-  background:rgba(255,255,255,.88);
-  border:1px solid rgba(9,17,31,.09);
-  box-shadow:0 36px 110px rgba(9,17,31,.12);
-  backdrop-filter:blur(20px);
-}
-.stripe-main-window{
-  border-radius:34px;
+  position:relative;padding:0 clamp(1.5rem,4vw,3rem);padding-top:90px;
   overflow:hidden;
 }
-.stripe-window-head{
-  height:50px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 1.25rem;
-  border-bottom:1px solid rgba(9,17,31,.08);
-  color:#667085;
-  font-size:.8rem;
-  font-weight:850;
-}
-.stripe-dots{display:flex;gap:.45rem}
-.stripe-dots i{width:10px;height:10px;border-radius:50%;display:block;background:#d0d5dd}
-.stripe-dots i:nth-child(1){background:#ff6257}.stripe-dots i:nth-child(2){background:#ffbd2e}.stripe-dots i:nth-child(3){background:#28c840}
-.stripe-window-head b{color:var(--ks-teal-dark);background:rgba(14,165,164,.09);border:1px solid rgba(14,165,164,.18);border-radius:999px;padding:.35rem .62rem}
-.stripe-window-body{
-  padding:1.25rem;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1rem;
-}
-.stripe-upload-card,.stripe-result-card,.stripe-kpi-row{
-  border-radius:24px;
-  border:1px solid rgba(9,17,31,.08);
-}
-.stripe-upload-card{
-  background:#fff;
-  padding:1.25rem;
-  min-height:210px;
-  box-shadow:0 14px 42px rgba(9,17,31,.06);
-}
-.stripe-mini-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:950;color:var(--ks-teal-dark)}
-.stripe-upload-card h3{margin:.7rem 0 .45rem;font-size:1.7rem;letter-spacing:-.055em;color:#09111f}
-.stripe-upload-card p{color:#667085;line-height:1.55;margin:0}
-.stripe-progress{height:10px;background:#eef4f7;border-radius:999px;margin-top:1.15rem;overflow:hidden}
-.stripe-progress em{height:100%;display:block;border-radius:inherit;background:linear-gradient(90deg,#0ea5a4,#14b8a6)}
-.stripe-result-card.dark{
-  background:#07111f!important;color:#e6edf5!important;padding:1.25rem;box-shadow:0 22px 60px rgba(7,17,31,.24)!important;
-}
-.stripe-result-card span{color:#94a3b8;font-size:.82rem}
-.stripe-result-card p{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin:.9rem 0 0;color:#e6edf5}
-.stripe-result-card b{color:#14b8a6}
-.stripe-kpi-row{
-  grid-column:1/-1;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  background:#f8fafc;
-  overflow:hidden;
-}
-.stripe-kpi-row div{padding:1.1rem;border-right:1px solid rgba(9,17,31,.07)}
-.stripe-kpi-row div:last-child{border-right:0}
-.stripe-kpi-row b{display:block;font-size:1.45rem;letter-spacing:-.05em;color:#09111f}
-.stripe-kpi-row span{display:block;margin-top:.25rem;font-size:.82rem;color:#667085;font-weight:750}
-.stripe-side-stack{display:grid;gap:1.2rem}
-.stripe-side-card{
-  border-radius:30px;
-  padding:1.35rem;
-  min-height:190px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-.stripe-side-card span{font-size:3.6rem;line-height:1;font-weight:950;color:rgba(9,17,31,.08);letter-spacing:-.08em}
-.stripe-side-card b{font-size:1.22rem;letter-spacing:-.05em;color:#09111f}
-.stripe-side-card p{margin:.55rem 0 0;color:#667085;line-height:1.55}
-.stripe-side-card.accent{background:linear-gradient(145deg,rgba(14,165,164,.10),#fff);border-color:rgba(14,165,164,.22)}
-
-/* stats */
-.hero-ticker{width:min(1180px,100%)!important;margin:3.4rem auto 0!important;border-color:rgba(9,17,31,.08)!important;color:#98a2b3!important}
-.hti .sep{color:var(--ks-teal)!important}
-.stats-bar{
-  width:min(980px,calc(100% - 36px))!important;margin:-34px auto 0!important;background:#fff!important;
-  border:1px solid rgba(9,17,31,.08)!important;border-radius:24px!important;box-shadow:0 24px 70px rgba(9,17,31,.09)!important;
-}
-.stat-num{color:#09111f!important}.stat-label{color:#667085!important}
-
-/* section rhythm */
-section:not(.hero){padding:112px clamp(18px,4vw,72px)!important}
-.ba-sec,.pricesec,.demosec{background:linear-gradient(180deg,#f7fafc,#fff)!important}
-.flagship-sec,.extra-sec,.calcsec,.faqsec,.ctasec,.featsec,.fwsec{background:#fff!important}
-.sec-head{width:min(760px,100%)!important;margin:0 auto 3.5rem!important;text-align:center!important}
-.sec-head::before,.sec-head::after{background:var(--ks-teal)!important;opacity:.32!important}
-.sec-kicker,.fl-tag,.stag,.fc-num{color:var(--ks-teal-dark)!important}
-.h2,.fl-title,.extra-title,.fwtitle,.fc-title,.ctah,.rv-title,.pamount,.sbn,.faq-q,.calc-title{
-  color:#09111f!important;letter-spacing:-.055em!important;
-}
-.h2 .red,.ctah .red,.fc-title .red,.fwtitle .red,.red,.acc{color:var(--ks-teal)!important}
-.sbl,.fl-desc,.extra-desc,.fc-desc,.fwdesc,.calc-desc,.rv-desc,.faq-a,.fcopy,.pnote,.pfeat{color:#667085!important}
-
-/* bento/grid cards */
-.flagship-grid,.fgrid,.extra-grid,.ba-grid,.fwinner,.calc-wrap,.demo-wrap,.price-wrap,.faq-list,.ctabox{
-  width:min(1180px,100%)!important;margin-left:auto!important;margin-right:auto!important;
-}
-.flagship-grid{gap:1.3rem!important}
-.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.price-card,.faq-item,.rv-card,.demo-card,.calc-card,.cbox,.pcard,.phone{
-  background:rgba(255,255,255,.94)!important;border:1px solid rgba(9,17,31,.09)!important;border-radius:30px!important;
-  box-shadow:0 18px 56px rgba(9,17,31,.07)!important;color:#09111f!important;
-  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease!important;
-}
-.flagship-card{min-height:500px!important;padding:clamp(1.5rem,3vw,2.35rem)!important}
-.flagship-card.fc-waybills{grid-column:span 7!important}
-.flagship-card.fc-analytics{grid-column:span 5!important}
-.flagship-card::before,.extra-card::before,.price-card::before{background:radial-gradient(circle at 18% 0%,rgba(14,165,164,.10),transparent 36%)!important}
-.flagship-card:hover,.extra-card:hover,.fcard:hover,.fwcard:hover,.ba-col:hover,.price-card:hover,.faq-item:hover{
-  transform:translateY(-5px)!important;box-shadow:0 34px 90px rgba(9,17,31,.105)!important;border-color:rgba(14,165,164,.30)!important;
-}
-.fl-num{color:rgba(9,17,31,.055)!important;font-size:5.2rem!important}
-.fl-tag,.stag,.pbadge,.badge,.tag{background:rgba(14,165,164,.085)!important;border:1px solid rgba(14,165,164,.18)!important;color:var(--ks-teal-dark)!important;border-radius:999px!important}
-.fl-list li,.ba-item,.ftext,.fwtext,.faq-a{color:#667085!important}
-.fl-list li::before,.ba-col.after .ba-item::before{color:var(--ks-teal)!important;background:var(--ks-teal)!important}
-.ba-col.before .ba-item::before{background:#ef4444!important}
-.ba-arrow{background:var(--ks-teal)!important;color:#fff!important;box-shadow:0 16px 40px rgba(14,165,164,.25)!important}
-
-/* code previews stay dark */
-.fl-result,pre,code,.code,.terminal,.demo-code,.pterminal,.calc-code,.codebox,.outbox,[class*="code"]{
-  background:#07111f!important;color:#e6edf5!important;border:1px solid rgba(255,255,255,.08)!important;border-radius:22px!important;
-  box-shadow:0 24px 60px rgba(7,17,31,.22)!important;
-}
-.fl-result b,.code b{color:#14b8a6!important}
-
-/* CTAs */
-.ctasec{background:radial-gradient(720px 360px at 50% 0%,rgba(14,165,164,.13),transparent 62%),#fff!important}
-.ctabox{
-  background:#07111f!important;color:#fff!important;border:0!important;border-radius:38px!important;
-  box-shadow:0 44px 120px rgba(7,17,31,.24)!important;
-}
-.ctabox .ctah,.ctabox p{color:#fff!important}
-.ctabox .btn-r{background:#fff!important;color:#07111f!important;border-color:#fff!important}
-.ctabox .btn-o{background:rgba(255,255,255,.08)!important;color:#fff!important;border-color:rgba(255,255,255,.18)!important}
-
-/* footer */
-footer{background:#fff!important;border-top:1px solid rgba(9,17,31,.08)!important;color:#09111f!important}
-.flinks a{color:#667085!important}.flinks a:hover{color:var(--ks-teal-dark)!important}
-
-/* responsive */
-@media(max-width:980px){
-  .nlinks{display:none!important}
-  .hero-sub-row{grid-template-columns:1fr!important;gap:1.4rem!important}
-  .stripe-hero-visual{grid-template-columns:1fr!important}
-  .stripe-side-stack{grid-template-columns:1fr 1fr}
-  .flagship-card.fc-waybills,.flagship-card.fc-analytics{grid-column:auto!important}
-}
-@media(max-width:640px){
-  nav{height:70px!important}
-  .brand-logo{height:32px!important}
-  .hero{padding:98px 18px 64px!important}
-  .mega-line{font-size:clamp(3.1rem,18vw,5.7rem)!important;letter-spacing:-.075em!important;line-height:.91!important}
-  .hero-desc{font-size:1rem!important;line-height:1.68!important}
-  .hero-pill{width:100%!important;justify-content:flex-start!important}
-  .btn-r,.btn-o{width:100%!important;justify-content:center!important}
-  .stripe-window-body{grid-template-columns:1fr!important}
-  .stripe-kpi-row{grid-template-columns:1fr!important}
-  .stripe-kpi-row div{border-right:0;border-bottom:1px solid rgba(9,17,31,.07)}
-  .stripe-kpi-row div:last-child{border-bottom:0}
-  .stripe-side-stack{grid-template-columns:1fr}
-  .stripe-main-window,.stripe-side-card{border-radius:24px}
-  section:not(.hero){padding:78px 18px!important}
-  .flagship-card{min-height:auto!important;border-radius:24px!important}
-  .stats-bar{width:auto!important;margin:-24px 18px 0!important}
-}
-
-
-/* ======================================================
-   KitSeller final polish — 990 ₸ / 14 days / 17 pages
-   ====================================================== */
-
-/* stronger premium hero */
-.hero{
-  padding-top:132px!important;
-  padding-bottom:92px!important;
-}
-.hero-mega,.hero-sub-row,.stripe-hero-visual,.hero-ticker{
-  width:min(1240px,100%)!important;
-}
 .mega-line{
-  font-size:clamp(4.8rem,11.4vw,11.8rem)!important;
-  letter-spacing:-.092em!important;
-}
-.hero-desc{
-  max-width:700px!important;
-}
-.stripe-hero-visual{
-  margin-top:4.3rem!important;
-  grid-template-columns:minmax(0,1.55fr) minmax(260px,.52fr)!important;
-  gap:1.35rem!important;
-}
-.stripe-main-window{
-  transform:scale(1.025);
-  transform-origin:center top;
-  box-shadow:0 46px 130px rgba(9,17,31,.16)!important;
-}
-.stripe-window-body{
-  padding:1.45rem!important;
-  gap:1.15rem!important;
-}
-.stripe-upload-card{
-  min-height:240px!important;
-}
-.stripe-upload-card h3{
-  font-size:2rem!important;
-}
-.stripe-kpi-row{
-  grid-template-columns:repeat(4,1fr)!important;
-}
-.stripe-kpi-row b{
-  font-size:1.35rem!important;
-}
-.stripe-side-card{
-  min-height:210px!important;
-}
-
-/* more expensive depth */
-.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.price-card,.faq-item,.rv-card,.demo-card,.calc-card,.cbox,.pcard,.phone{
-  background:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%)!important;
-  box-shadow:0 22px 68px rgba(9,17,31,.075)!important;
-}
-.flagship-card:hover,.extra-card:hover,.fcard:hover,.fwcard:hover,.ba-col:hover,.price-card:hover,.faq-item:hover{
-  transform:translateY(-7px)!important;
-  box-shadow:0 38px 104px rgba(9,17,31,.115)!important;
-}
-
-/* better section rhythm */
-section:not(.hero){
-  padding-top:122px!important;
-  padding-bottom:122px!important;
-}
-.sec-head{
-  margin-bottom:4rem!important;
-}
-.ba-sec,.pricesec,.demosec{
-  background:
-    radial-gradient(760px 360px at 50% 0%,rgba(14,165,164,.065),transparent 64%),
-    linear-gradient(180deg,#f7fafc,#ffffff)!important;
-}
-
-/* pricing: make 990 / 14 days clear */
-.price-card.popular,.pcard-popular,.popular{
-  transform:scale(1.025);
-  border-color:rgba(14,165,164,.42)!important;
-  box-shadow:0 40px 110px rgba(14,165,164,.16)!important;
-}
-.price-card.popular:hover,.pcard-popular:hover,.popular:hover{
-  transform:scale(1.025) translateY(-7px)!important;
-}
-
-/* final CTA stronger */
-.ctabox{
-  padding:clamp(2.5rem,5vw,5rem)!important;
-  background:
-    radial-gradient(640px 280px at 50% 0%,rgba(14,165,164,.23),transparent 64%),
-    linear-gradient(135deg,#07111f 0%,#0b1625 60%,#07111f 100%)!important;
-}
-.ctabox .ctah{
-  font-size:clamp(2.4rem,6vw,5.4rem)!important;
-  letter-spacing:-.07em!important;
-}
-.ctabox::after{
-  content:"14 дней бесплатно • 990 ₸/мес • 17 страниц Excel";
   display:block;
-  margin-top:1.2rem;
-  color:rgba(255,255,255,.68);
-  font-weight:800;
-  letter-spacing:.02em;
-}
-
-/* mobile */
-@media(max-width:980px){
-  .stripe-hero-visual{
-    grid-template-columns:1fr!important;
-  }
-  .stripe-main-window{
-    transform:none!important;
-  }
-}
-@media(max-width:640px){
-  .hero{
-    padding-top:102px!important;
-    padding-bottom:66px!important;
-  }
-  .mega-line{
-    font-size:clamp(3.25rem,19vw,5.9rem)!important;
-    line-height:.9!important;
-  }
-  .stripe-kpi-row{
-    grid-template-columns:1fr 1fr!important;
-  }
-  section:not(.hero){
-    padding-top:84px!important;
-    padding-bottom:84px!important;
-  }
-  .price-card.popular,.pcard-popular,.popular{
-    transform:none!important;
-  }
-}
-
-
-/* ======================================================
-   KitSeller ULTRA FINAL — text rhythm + premium visuals
-   ====================================================== */
-:root{
-  --u-bg:#ffffff;
-  --u-paper:#f7fafc;
-  --u-ink:#07111f;
-  --u-muted:#667085;
-  --u-soft:#98a2b3;
-  --u-line:#e5ebf0;
-  --u-teal:#0ea5a4;
-  --u-teal2:#14b8a6;
-  --u-teal-dark:#0f766e;
-  --u-shadow:0 28px 86px rgba(7,17,31,.105);
-  --u-shadow-strong:0 44px 130px rgba(7,17,31,.16);
-}
-html,body{
-  background:#fff!important;
-  color:var(--u-ink)!important;
-  overflow-x:hidden!important;
-  text-rendering:geometricPrecision!important;
-  -webkit-font-smoothing:antialiased!important;
-}
-body{
-  background:
-    radial-gradient(820px 520px at 20% -6%, rgba(14,165,164,.16), transparent 62%),
-    radial-gradient(720px 520px at 88% 4%, rgba(20,184,166,.09), transparent 62%),
-    linear-gradient(180deg,#fff 0%,#f8fafc 40%,#fff 100%)!important;
-}
-#cur,#bg-canvas,.grain{display:none!important}
-a,button,.magnetic,.flagship-card,.extra-card,.price-card,.faq-item{cursor:pointer!important}
-
-/* TEXT RHYTHM */
-h1,h2,h3,.mega-line,.h2,.fl-title,.extra-title,.fwtitle,.fc-title,.ctah,.rv-title,.calc-title,.pamount{
-  letter-spacing:-.065em!important;
-  text-wrap:balance!important;
-}
-p,.hero-desc,.fl-desc,.extra-desc,.fc-desc,.fwdesc,.calc-desc,.rv-desc,.faq-a,.fcopy,.pnote,.pfeat{
-  line-height:1.72!important;
-  text-wrap:pretty!important;
-}
-.sec-head{
-  text-align:center!important;
-  max-width:760px!important;
-}
-.sbl{
-  max-width:620px!important;
-  margin-left:auto!important;
-  margin-right:auto!important;
-}
-
-/* GLOW / GRID VISUALS */
-.hero{
-  position:relative!important;
-  isolation:isolate!important;
-  overflow:hidden!important;
-}
-.ks-glow{
-  position:absolute;
-  pointer-events:none;
-  z-index:0;
-  border-radius:999px;
-  filter:blur(72px);
-  opacity:.9;
-}
-.ks-glow-1{
-  width:640px;height:640px;
-  top:-250px;right:-210px;
-  background:radial-gradient(circle,rgba(14,165,164,.22),transparent 68%);
-}
-.ks-glow-2{
-  width:520px;height:520px;
-  left:-220px;top:170px;
-  background:radial-gradient(circle,rgba(20,184,166,.12),transparent 70%);
-}
-.ks-grid-glow{
-  position:absolute;
-  inset:90px 0 auto 0;
-  height:420px;
-  z-index:0;
-  opacity:.34;
-  pointer-events:none;
-  background-image:
-    linear-gradient(rgba(14,165,164,.10) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14,165,164,.10) 1px, transparent 1px);
-  background-size:54px 54px;
-  mask-image:radial-gradient(circle at 50% 0%, black 0%, transparent 70%);
-  -webkit-mask-image:radial-gradient(circle at 50% 0%, black 0%, transparent 70%);
-}
-.hero > *:not(.ks-glow):not(.ks-grid-glow){
-  position:relative;
-  z-index:1;
-}
-
-/* NAV PREMIUM */
-nav{
-  height:78px!important;
-  background:rgba(255,255,255,.78)!important;
-  backdrop-filter:blur(24px) saturate(175%)!important;
-  -webkit-backdrop-filter:blur(24px) saturate(175%)!important;
-  border-bottom:1px solid rgba(7,17,31,.08)!important;
-  box-shadow:0 10px 36px rgba(7,17,31,.045)!important;
-}
-.brand-logo,.footer-logo{
-  height:38px!important;
-  width:auto!important;
-  display:block!important;
-}
-.nlinks a{
-  color:#667085!important;
-  font-weight:850!important;
-  letter-spacing:.06em!important;
-}
-.nlinks a:hover{color:var(--u-ink)!important}
-.nlinks a::after{background:linear-gradient(90deg,var(--u-teal),var(--u-teal2))!important}
-.lang-sw{
-  background:rgba(255,255,255,.78)!important;
-  border:1px solid rgba(7,17,31,.09)!important;
-  box-shadow:0 12px 30px rgba(7,17,31,.045)!important;
-}
-.lang-btn.active{
-  background:var(--u-ink)!important;
-  color:#fff!important;
-}
-
-/* BUTTON GLOW */
-.ncta,.btn-r,.btn-o{
-  position:relative!important;
-  overflow:hidden!important;
-  transition:transform .24s ease, box-shadow .24s ease, background .24s ease!important;
-}
-.ncta::after,.btn-r::after{
-  content:"";
-  position:absolute;
-  inset:-8px;
-  background:radial-gradient(circle,rgba(14,165,164,.28),transparent 62%);
-  filter:blur(18px);
-  opacity:0;
-  transition:.26s ease;
-  z-index:-1;
-}
-.ncta:hover::after,.btn-r:hover::after{opacity:1}
-.ncta,.btn-r{
-  background:var(--u-ink)!important;
-  border-color:var(--u-ink)!important;
-  box-shadow:0 18px 44px rgba(7,17,31,.18)!important;
-}
-.ncta:hover,.btn-r:hover{
-  background:var(--u-teal)!important;
-  border-color:var(--u-teal)!important;
-  transform:translateY(-3px)!important;
-  box-shadow:0 24px 60px rgba(14,165,164,.28)!important;
-}
-
-/* HERO STRONGER */
-.hero{
-  padding-top:134px!important;
-  padding-bottom:98px!important;
-}
-.hero-mega,.hero-sub-row,.stripe-hero-visual,.hero-ticker{
-  width:min(1240px,100%)!important;
-}
-.mega-line{
-  font-size:clamp(5rem,11.6vw,12.2rem)!important;
-  line-height:.86!important;
-  letter-spacing:-.095em!important;
-  font-weight:950!important;
-}
-.mega-line .outline{
-  color:transparent!important;
-  background:linear-gradient(180deg,rgba(7,17,31,.24),rgba(7,17,31,.07))!important;
-  -webkit-background-clip:text!important;
-  background-clip:text!important;
-  -webkit-text-stroke:0!important;
-}
-.mega-line .red,.mega-line .ghost,.gradient-text{
-  color:transparent!important;
-  background:linear-gradient(90deg,var(--u-teal),var(--u-teal2))!important;
-  -webkit-background-clip:text!important;
-  background-clip:text!important;
-  -webkit-text-fill-color:transparent!important;
-}
-.hero-desc{
-  max-width:680px!important;
-  color:var(--u-muted)!important;
-  font-size:clamp(1.05rem,1.42vw,1.26rem)!important;
-}
-.hero-pill{
-  background:rgba(255,255,255,.78)!important;
-  backdrop-filter:blur(18px)!important;
-  border:1px solid rgba(7,17,31,.08)!important;
-  box-shadow:0 14px 36px rgba(7,17,31,.06)!important;
-}
-.hero-pill:hover{
-  transform:translateY(-3px)!important;
-  border-color:rgba(14,165,164,.36)!important;
-  box-shadow:0 18px 46px rgba(14,165,164,.12)!important;
-}
-
-/* HERO UI FLOATING GLASS */
-.stripe-hero-visual{
-  margin-top:4.6rem!important;
-  grid-template-columns:minmax(0,1.62fr) minmax(260px,.50fr)!important;
-  gap:1.45rem!important;
-}
-.stripe-main-window{
-  transform:scale(1.045)!important;
-  transform-origin:center top!important;
-  background:rgba(255,255,255,.78)!important;
-  backdrop-filter:blur(24px) saturate(170%)!important;
-  -webkit-backdrop-filter:blur(24px) saturate(170%)!important;
-  border:1px solid rgba(7,17,31,.09)!important;
-  box-shadow:var(--u-shadow-strong)!important;
-}
-.stripe-main-window::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(420px 220px at 18% 0%, rgba(14,165,164,.13), transparent 64%),
-    linear-gradient(180deg,rgba(255,255,255,.4),transparent);
-  pointer-events:none;
-}
-.stripe-window-body{
-  padding:1.55rem!important;
-  gap:1.2rem!important;
-}
-.stripe-upload-card{
-  min-height:250px!important;
-  background:linear-gradient(180deg,#fff,#fbfdff)!important;
-}
-.stripe-upload-card h3{
-  font-size:2.05rem!important;
-}
-.stripe-result-card.dark{
-  background:
-    radial-gradient(320px 180px at 20% 0%,rgba(14,165,164,.18),transparent 70%),
-    #07111f!important;
-}
-.stripe-kpi-row{
-  grid-template-columns:repeat(4,1fr)!important;
-  background:rgba(247,250,252,.9)!important;
-}
-.stripe-kpi-row div{
-  transition:.22s ease!important;
-}
-.stripe-kpi-row div:hover{
-  background:rgba(14,165,164,.06)!important;
-}
-.stripe-kpi-row b{
-  color:var(--u-ink)!important;
-}
-.stripe-side-card{
-  background:rgba(255,255,255,.78)!important;
-  backdrop-filter:blur(20px)!important;
-  box-shadow:0 26px 78px rgba(7,17,31,.105)!important;
-}
-
-/* PREMIUM CARDS */
-.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.price-card,.faq-item,.rv-card,.demo-card,.calc-card,.cbox,.pcard,.phone{
-  background:
-    radial-gradient(360px 170px at 15% 0%,rgba(14,165,164,.055),transparent 70%),
-    linear-gradient(180deg,#ffffff 0%,#fbfdff 100%)!important;
-  border:1px solid rgba(7,17,31,.085)!important;
-  box-shadow:0 22px 68px rgba(7,17,31,.075)!important;
-  transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease!important;
-}
-.flagship-card:hover,.extra-card:hover,.fcard:hover,.fwcard:hover,.ba-col:hover,.price-card:hover,.faq-item:hover{
-  transform:translateY(-8px) scale(1.006)!important;
-  box-shadow:0 40px 110px rgba(7,17,31,.13)!important;
-  border-color:rgba(14,165,164,.34)!important;
-}
-.fl-tag,.stag,.pbadge,.badge,.tag{
-  background:rgba(14,165,164,.085)!important;
-  border:1px solid rgba(14,165,164,.20)!important;
-  color:var(--u-teal-dark)!important;
-}
-.fl-num{
-  color:rgba(7,17,31,.052)!important;
-}
-.fl-title,.extra-title{
-  max-width:460px!important;
-}
-.fl-desc,.extra-desc{
-  max-width:560px!important;
-}
-
-/* DARK CODE CONTRAST */
-.fl-result,pre,code,.code,.terminal,.demo-code,.pterminal,.calc-code,.codebox,.outbox,[class*="code"]{
-  background:
-    radial-gradient(380px 180px at 12% 0%,rgba(14,165,164,.16),transparent 70%),
-    #07111f!important;
-  color:#e6edf5!important;
-  border:1px solid rgba(255,255,255,.08)!important;
-  box-shadow:0 26px 68px rgba(7,17,31,.24)!important;
-}
-
-/* SECTION DIVIDERS */
-section:not(.hero){
-  position:relative!important;
-  padding-top:124px!important;
-  padding-bottom:124px!important;
-}
-section:not(.hero)::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(840px,70%);
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(14,165,164,.22),transparent);
-}
-.ba-sec,.pricesec,.demosec{
-  background:
-    radial-gradient(720px 340px at 50% 0%,rgba(14,165,164,.06),transparent 66%),
-    linear-gradient(180deg,#f7fafc,#fff)!important;
-}
-
-/* PRICING FACTS */
-.price-card.popular,.pcard-popular,.popular{
-  border-color:rgba(14,165,164,.42)!important;
-  box-shadow:0 42px 118px rgba(14,165,164,.17)!important;
-}
-
-/* FINAL CTA */
-.ctabox{
-  position:relative!important;
-  overflow:hidden!important;
-  background:
-    radial-gradient(720px 320px at 50% 0%,rgba(14,165,164,.28),transparent 66%),
-    linear-gradient(135deg,#07111f 0%,#0b1625 62%,#07111f 100%)!important;
-  box-shadow:0 48px 132px rgba(7,17,31,.26)!important;
-}
-.ctabox::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
-  background-size:42px 42px;
-  opacity:.35;
-  mask-image:radial-gradient(circle at 50% 0%, black, transparent 70%);
-}
-.ctabox>*{position:relative;z-index:1}
-.ctabox::after{
-  content:"14 дней бесплатно • 990 ₸/мес • 17 страниц Excel";
-  display:block;
-  margin-top:1.25rem;
-  color:rgba(255,255,255,.70);
-  font-weight:850;
-  letter-spacing:.02em;
-}
-
-/* LANGUAGE/HERO alignment safeguards */
-[lang="kk"] .mega-line,
-html[lang="kk"] .mega-line{
-  letter-spacing:-.08em!important;
-}
-
-/* MOBILE */
-@media(max-width:980px){
-  .stripe-hero-visual{
-    grid-template-columns:1fr!important;
-  }
-  .stripe-main-window{
-    transform:none!important;
-  }
-}
-@media(max-width:640px){
-  .hero{
-    padding:102px 18px 68px!important;
-  }
-  .mega-line{
-    font-size:clamp(3.25rem,19vw,5.9rem)!important;
-    line-height:.9!important;
-    letter-spacing:-.078em!important;
-  }
-  .hero-desc{
-    font-size:1rem!important;
-    max-width:100%!important;
-  }
-  .stripe-window-body{
-    grid-template-columns:1fr!important;
-    padding:1rem!important;
-  }
-  .stripe-kpi-row{
-    grid-template-columns:1fr 1fr!important;
-  }
-  .stripe-kpi-row div:nth-child(2n){
-    border-right:0!important;
-  }
-  .stripe-side-stack{
-    grid-template-columns:1fr!important;
-  }
-  section:not(.hero){
-    padding-top:86px!important;
-    padding-bottom:86px!important;
-  }
-  .ctabox::after{
-    font-size:.82rem;
-    line-height:1.6;
-  }
-}
-
-
-/* ======================================================
-   KitSeller fixes after review: logo, pricing, FAQ, no calculator
-   ====================================================== */
-
-/* logo bigger and readable */
-.brand-logo{
-  height:56px!important;
-  max-width:230px!important;
-  object-fit:contain!important;
-}
-nav .nlogo{
-  min-width:190px!important;
-  display:flex!important;
-  align-items:center!important;
-}
-.footer-logo{
-  height:48px!important;
-  max-width:220px!important;
-}
-
-/* nav balance with bigger logo */
-nav{
-  height:88px!important;
-}
-.hero{
-  padding-top:150px!important;
-}
-
-/* KPI top numbers */
-.stats-bar .stat:nth-child(3) .stat-num::before{
-  content:"17";
-}
-.stats-bar .stat:nth-child(3) .stat-num{
-  font-size:0!important;
-}
-.stats-bar .stat:nth-child(3) .stat-num::before{
-  font-size:inherit!important;
-}
-.stats-bar .stat:nth-child(3) .stat-label{
-  font-size:0!important;
-}
-.stats-bar .stat:nth-child(3) .stat-label::before{
-  content:"страниц в Excel-отчёте";
-  font-size:1rem!important;
-}
-
-/* remove economy calculator section completely */
-.calcsec,
-#calculator,
-section[id*="calc"],
-section[class*="calc"]{
-  display:none!important;
-}
-
-/* headings: less broken and more balanced */
-.h2,.fc-title,.fwtitle,.ctah{
-  line-height:.96!important;
-  max-width:780px!important;
-  margin-left:auto!important;
-  margin-right:auto!important;
-}
-.sec-head{
-  max-width:820px!important;
-}
-.sbl{
-  max-width:650px!important;
-}
-
-/* product cards: align text */
-.flagship-card{
-  display:flex!important;
-  flex-direction:column!important;
-}
-.fl-title{
-  line-height:1.05!important;
-  max-width:520px!important;
-}
-.fl-desc{
-  max-width:560px!important;
-}
-.fl-result{
-  margin-top:auto!important;
-}
-
-/* pricing card: fix old price visually if any remnants remain */
-.pricesec .pamount,
-.price-card .pamount,
-.price-card [class*="amount"]{
-  color:#07111f!important;
-}
-.price-card.popular .pamount::after,
-.pcard-popular .pamount::after{
-  content:"14 дней бесплатно, потом 990 ₸ / месяц";
-  display:block;
-  margin-top:.8rem;
-  font-size:1rem;
-  line-height:1.5;
-  color:#667085;
-  font-weight:700;
-  letter-spacing:0;
-}
-
-/* hide obsolete daily calculation line if still present */
-.price-card p:has(+ .pfeat),
-.price-card .pnote{
-  color:#667085!important;
-}
-
-/* FAQ redesign — clean full-width accordions */
-.faq-list{
-  max-width:980px!important;
-}
-.faq-item{
-  width:100%!important;
-  min-height:auto!important;
-  padding:0!important;
-  border-radius:20px!important;
-  overflow:hidden!important;
-  background:#fff!important;
-}
-.faq-q{
-  width:100%!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:space-between!important;
-  gap:1rem!important;
-  padding:1.35rem 1.55rem!important;
-  font-size:1.08rem!important;
-  line-height:1.25!important;
-  letter-spacing:-.025em!important;
-  color:#07111f!important;
-}
-.faq-q::after{
-  content:"+";
-  width:34px;
-  height:34px;
-  flex:0 0 34px;
-  display:grid;
-  place-items:center;
-  border-radius:999px;
-  background:rgba(14,165,164,.09);
-  color:#0f766e;
+  font-family:var(--fh);
+  font-size:clamp(5rem,16vw,18rem);
   font-weight:900;
+  line-height:.85;
+  letter-spacing:-.05em;
+  position:relative;
+  overflow:hidden;
 }
-.faq-a{
-  padding:0 1.55rem 1.35rem!important;
-  color:#667085!important;
-  line-height:1.65!important;
+.mega-line .inner{
+  display:block;
+  transform:translateY(110%);
+  animation:slide-up .9s var(--e) forwards;
 }
+.mega-line:nth-child(1) .inner{animation-delay:.1s}
+.mega-line:nth-child(2) .inner{animation-delay:.22s}
+.mega-line:nth-child(3) .inner{animation-delay:.34s}
+@keyframes slide-up{to{transform:translateY(0)}}
 
-/* final CTA text looks premium */
-.ctabox .ctah{
-  line-height:.98!important;
-}
-.ctabox::after{
-  content:"14 дней бесплатно • потом 990 ₸ / месяц • 17 страниц Excel"!important;
-}
-
-/* mobile logo and spacing */
-@media(max-width:760px){
-  .brand-logo{
-    height:42px!important;
-    max-width:170px!important;
-  }
-  nav .nlogo{
-    min-width:150px!important;
-  }
-  nav{
-    height:76px!important;
-  }
-  .hero{
-    padding-top:108px!important;
-  }
-  .stats-bar .stat:nth-child(3) .stat-label::before{
-    font-size:.78rem!important;
-  }
-}
-
-
-/* === Code review fixes: logo, stats, pricing, FAQ === */
-.brand-logo{
-  height:64px!important;
-  width:auto!important;
-  max-width:260px!important;
-  object-fit:contain!important;
-  display:block!important;
-}
-nav .nlogo{
-  min-width:230px!important;
-  display:flex!important;
-  align-items:center!important;
-}
-.footer-logo{
-  height:54px!important;
-  width:auto!important;
-  max-width:250px!important;
-}
-nav{height:92px!important}
-.hero{padding-top:158px!important}
-
-/* fixed top stat: 17 pages */
-.stats-bar .sbi:nth-child(3) .sbn{
-  font-size:0!important;
-}
-.stats-bar .sbi:nth-child(3) .sbn::before{
-  content:"17 страниц";
-  font-size:clamp(1.7rem,3vw,3rem)!important;
-}
-.stats-bar .sbi:nth-child(3) .sbl{
-  font-size:0!important;
-}
-.stats-bar .sbi:nth-child(3) .sbl::before{
-  content:"В Excel-отчёте";
-  font-size:1rem!important;
-  color:#667085!important;
-}
-
-/* hide economy calculator section */
-.calcsec,#calc{
-  display:none!important;
-}
-
-/* pricing clean-up */
-.pctx .hl{
-  color:#0f766e!important;
-  background:rgba(14,165,164,.08)!important;
-  border-radius:8px!important;
-  padding:.1rem .35rem!important;
-}
-.pcard.hot .pctx{
-  font-size:1.05rem!important;
-  line-height:1.6!important;
-  color:#667085!important;
-}
-.pcard.hot .pctx::before{
-  content:"14 дней бесплатно, потом 990 ₸ / месяц";
-}
-.pcard.hot .pctx{
-  font-size:0!important;
-}
-.pcard.hot .pctx::before{
-  font-size:1.05rem!important;
-}
-.pcard.hot .pamount::after{
-  content:"";
-  display:none!important;
-}
-
-/* FAQ actual markup redesign */
-.faqwrap{
-  width:min(980px,100%)!important;
-  margin:2.5rem auto 0!important;
-  display:flex!important;
-  flex-direction:column!important;
-  gap:.85rem!important;
-}
-.fq{
-  width:100%!important;
-  border:1px solid rgba(7,17,31,.10)!important;
-  border-radius:20px!important;
-  background:#fff!important;
-  box-shadow:0 14px 42px rgba(7,17,31,.055)!important;
-  overflow:hidden!important;
-}
-.fqq{
-  width:100%!important;
-  min-height:64px!important;
-  padding:1.25rem 1.45rem!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:space-between!important;
-  gap:1rem!important;
-  background:#fff!important;
-  border:0!important;
-  color:#07111f!important;
-  font-size:1.05rem!important;
-  line-height:1.25!important;
-  font-weight:900!important;
-  letter-spacing:-.025em!important;
-  text-align:left!important;
-}
-.fqico{
-  width:34px!important;
-  height:34px!important;
-  flex:0 0 34px!important;
-  display:grid!important;
-  place-items:center!important;
-  border-radius:999px!important;
-  background:rgba(14,165,164,.09)!important;
-  color:#0f766e!important;
-  font-weight:950!important;
-}
-.fqa{
-  background:#fff!important;
-}
-.fqin{
-  padding:0 1.45rem 1.35rem!important;
-  color:#667085!important;
-  line-height:1.65!important;
-  font-size:.98rem!important;
-}
-.fq:hover{
-  border-color:rgba(14,165,164,.30)!important;
-  box-shadow:0 22px 62px rgba(7,17,31,.085)!important;
-}
-
-/* cleaner headings that looked too broken */
-.h2,.fc-title,.fwtitle,.ctah{
-  line-height:1.02!important;
-  text-wrap:balance!important;
-}
-.sec-head .sub,.sub{
-  line-height:1.7!important;
-  color:#667085!important;
-}
-
-/* mobile */
-@media(max-width:760px){
-  .brand-logo{height:46px!important;max-width:180px!important}
-  nav .nlogo{min-width:160px!important}
-  nav{height:78px!important}
-  .hero{padding-top:112px!important}
-  .faqwrap{gap:.7rem!important}
-  .fqq{font-size:.98rem!important;padding:1.05rem 1.15rem!important}
-  .fqin{padding:0 1.15rem 1.15rem!important}
-}
-
-
-/* === final clean pass === */
-.brand-logo{
-  height:58px!important;
-  width:auto!important;
-  max-width:240px!important;
-}
-nav .nlogo{
-  min-width:220px!important;
-}
-nav{
-  height:88px!important;
-}
-.hero{
-  padding-top:148px!important;
-}
-.stats-bar .sbi:nth-child(3) .sbn,
-.stats-bar .stat:nth-child(3) .stat-num{
-  font-size:0!important;
-}
-.stats-bar .sbi:nth-child(3) .sbn::before,
-.stats-bar .stat:nth-child(3) .stat-num::before{
-  content:"17 страниц";
-  font-size:clamp(1.7rem,3vw,3rem)!important;
-}
-.stats-bar .sbi:nth-child(3) .sbl,
-.stats-bar .stat:nth-child(3) .stat-label{
-  font-size:0!important;
-}
-.stats-bar .sbi:nth-child(3) .sbl::before,
-.stats-bar .stat:nth-child(3) .stat-label::before{
-  content:"В Excel-отчёте";
-  font-size:1rem!important;
-  color:#667085!important;
-}
-.calcsec,#calc{display:none!important}
-.pcard.hot .pctx,
-.price-card.popular .pnote{
-  font-size:0!important;
-}
-.pcard.hot .pctx::before,
-.price-card.popular .pnote::before{
-  content:"14 дней бесплатно, потом 990 ₸ / месяц";
-  font-size:1.05rem!important;
-  line-height:1.6!important;
-  color:#667085!important;
-}
-.fq,.faq-item{
-  background:#fff!important;
-  border:1px solid rgba(7,17,31,.10)!important;
-  border-radius:20px!important;
-  box-shadow:0 14px 42px rgba(7,17,31,.055)!important;
-}
-.fqq,.faq-q{
-  background:#fff!important;
-  color:#07111f!important;
-  font-weight:900!important;
-  letter-spacing:-.025em!important;
-}
-@media(max-width:760px){
-  .brand-logo{height:44px!important;max-width:180px!important}
-  nav .nlogo{min-width:160px!important}
-  nav{height:76px!important}
-  .hero{padding-top:108px!important}
-}
-
-
-/* ======================================================
-   KitSeller 10/10 conversion polish
-   ====================================================== */
-:root{
-  --ten-ink:#06111f;
-  --ten-muted:#667085;
-  --ten-soft:#98a2b3;
-  --ten-line:#e7edf3;
-  --ten-teal:#0ea5a4;
-  --ten-teal2:#14b8a6;
-}
-body{
-  background:
-    radial-gradient(900px 560px at 18% -8%, rgba(14,165,164,.18), transparent 62%),
-    radial-gradient(720px 460px at 92% 2%, rgba(20,184,166,.10), transparent 66%),
-    linear-gradient(180deg,#fff 0%,#f8fafc 40%,#fff 100%)!important;
-}
-
-/* Bigger confident logo */
-.brand-logo{height:60px!important;max-width:250px!important;width:auto!important}
-nav .nlogo{min-width:230px!important}
-nav{height:90px!important}
-
-/* Hero: cleaner hierarchy */
-.hero{
-  padding-top:152px!important;
-  padding-bottom:94px!important;
-}
-.hero-mega,.hero-sub-row,.stripe-hero-visual,.hero-ticker,.ks-offer-strip{
-  width:min(1240px,100%)!important;
-}
-.mega-line{
-  font-size:clamp(4.6rem,10.8vw,11.6rem)!important;
-  line-height:.88!important;
-  letter-spacing:-.088em!important;
-  font-weight:950!important;
-}
 .mega-line .outline{
-  color:var(--ten-ink)!important;
-  opacity:.16!important;
-  -webkit-text-stroke:0!important;
+  -webkit-text-stroke:2px rgba(245,244,240,.25);
+  color:transparent;
+  transition:-webkit-text-stroke .3s;
 }
-.mega-line .red,.mega-line .ghost{
-  color:transparent!important;
-  background:linear-gradient(90deg,var(--ten-teal),var(--ten-teal2))!important;
-  -webkit-background-clip:text!important;
-  background-clip:text!important;
-  -webkit-text-fill-color:transparent!important;
-}
-.hero-desc{
-  max-width:720px!important;
-  font-size:clamp(1.05rem,1.45vw,1.28rem)!important;
-  line-height:1.72!important;
-  color:var(--ten-muted)!important;
-}
-.hero-desc strong{color:var(--ten-ink)!important}
-.hero-pills{display:none!important}
-.ks-offer-strip{
-  margin:2rem auto 0!important;
-  display:flex!important;
-  flex-wrap:wrap!important;
-  align-items:center!important;
-  gap:.75rem!important;
-  color:#475467!important;
-  font-weight:850!important;
-  letter-spacing:-.015em!important;
-}
-.ks-offer-strip span{
-  background:rgba(255,255,255,.78);
-  border:1px solid rgba(6,17,31,.09);
-  box-shadow:0 12px 34px rgba(6,17,31,.055);
-  border-radius:999px;
-  padding:.72rem 1rem;
-}
-.ks-offer-strip i{
-  width:5px;height:5px;border-radius:50%;
-  background:var(--ten-teal);
-  opacity:.75;
+.mega-line:hover .outline{-webkit-text-stroke-color:rgba(245,244,240,.55)}
+.mega-line .red{color:var(--r)}
+.mega-line .ghost{
+  -webkit-text-stroke:1px rgba(255,61,0,.35);
+  color:transparent;
 }
 
-/* Hero product visual: dominant but not messy */
-.stripe-hero-visual{
-  margin-top:4.1rem!important;
-  grid-template-columns:minmax(0,1.62fr) minmax(260px,.48fr)!important;
-  gap:1.35rem!important;
+/* Sub row */
+.hero-sub-row{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding:2rem clamp(1.5rem,4vw,3rem) 0;
+  gap:2rem;flex-wrap:wrap;
+  opacity:0;animation:fadein .8s .6s var(--e) forwards;
 }
-.stripe-main-window{
-  transform:scale(1.035)!important;
-  transform-origin:center top!important;
-  box-shadow:0 48px 128px rgba(6,17,31,.16)!important;
-}
-.stripe-upload-card h3{font-size:2.1rem!important}
-.stripe-kpi-row{grid-template-columns:repeat(4,1fr)!important}
+.hero-desc{max-width:440px;font-size:clamp(.88rem,1.3vw,1.05rem);color:var(--grey);line-height:1.75}
+.hero-desc strong{color:var(--snow);font-weight:500}
+.hero-cta-wrap{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
 
-/* Make all important cards feel premium */
-.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.price-card,.faq-item,.rv-card,.demo-card,.calc-card,.cbox,.pcard,.phone,.fq{
-  background:
-    radial-gradient(360px 180px at 15% 0%,rgba(14,165,164,.06),transparent 70%),
-    linear-gradient(180deg,#fff,#fbfdff)!important;
-  border:1px solid rgba(6,17,31,.09)!important;
-  box-shadow:0 22px 68px rgba(6,17,31,.075)!important;
+/* Scroll ticker in hero */
+.hero-ticker{
+  border-top:1px solid var(--edge);
+  overflow:hidden;margin-top:2.5rem;
+  opacity:0;animation:fadein .6s .85s var(--e) forwards;
 }
-.flagship-card:hover,.extra-card:hover,.fcard:hover,.fwcard:hover,.ba-col:hover,.price-card:hover,.faq-item:hover,.fq:hover{
-  transform:translateY(-7px)!important;
-  border-color:rgba(14,165,164,.34)!important;
-  box-shadow:0 40px 108px rgba(6,17,31,.12)!important;
+.htinner{display:flex;animation:htick 18s linear infinite;white-space:nowrap}
+.hti{display:inline-flex;align-items:center;gap:1rem;padding:.75rem 2rem;font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--grey2);flex-shrink:0}
+.hti .sep{color:var(--r);font-size:.5rem}
+@keyframes htick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+
+/* Floating badge */
+.hero-badge{
+  position:absolute;top:120px;right:clamp(1.5rem,4vw,3rem);
+  width:120px;height:120px;border-radius:50%;
+  background:var(--r);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:var(--fh);font-size:.58rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:#fff;
+  animation:spin-badge 12s linear infinite, fadein .8s .4s var(--e) both;
+  cursor:auto;
+  text-align:center;line-height:1.4;
+  transition:transform .3s var(--e);
+}
+.hero-badge:hover{transform:scale(1.08)}
+.hero-badge-text{animation:spin-badge 12s linear infinite reverse;font-size:.62rem;font-weight:800}
+@keyframes spin-badge{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.hero-badge-inner{position:absolute;animation:spin-badge 12s linear infinite reverse;display:flex;flex-direction:column;align-items:center}
+
+/* Btns */
+.btn-r{display:inline-flex;align-items:center;gap:.5rem;background:var(--r);color:#fff;font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.04em;padding:.88rem 2.2rem;border-radius:8px;cursor:auto;position:relative;overflow:hidden;transition:transform .2s,box-shadow .3s}
+.btn-r::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--r2),var(--r));opacity:0;transition:opacity .3s}
+.btn-r:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(255,61,0,.4)}
+.btn-r:hover::before{opacity:1}
+.btn-r span{position:relative;z-index:1}
+.btn-o{display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:1px solid var(--edge2);color:var(--grey);font-family:var(--fh);font-size:.7rem;font-weight:600;padding:.85rem 2rem;border-radius:8px;cursor:auto;transition:all .2s}
+.btn-o:hover{border-color:var(--snow);color:var(--snow)}
+
+/* ══ STATS BAR ══ */
+.stats-bar{background:var(--r);padding:1.5rem clamp(1.5rem,4vw,3rem);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;position:relative;z-index:2}
+.sbi{padding:1rem 1.5rem;text-align:center;position:relative}
+.sbi::after{content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:rgba(255,255,255,.2)}
+.sbi:last-child::after{display:none}
+.sbn{font-family:var(--fh);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:#fff;line-height:1;letter-spacing:-.04em}
+.sbl{font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:.3rem}
+
+/* ══ FEATURE CARDS — 3D TILT ══ */
+.featsec{background:var(--s1);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.secin{max-width:1300px;margin:0 auto}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
+.stag{font-family:var(--fm);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--r);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.stag::before{content:'//';color:var(--grey2)}
+.h2{font-family:var(--fh);font-size:clamp(2rem,5.5vw,4.5rem);font-weight:900;line-height:1;letter-spacing:-.04em}
+.h2 .dim{color:var(--grey2)}
+.h2 .acc{color:var(--r)}
+.sub{font-size:clamp(.88rem,1.2vw,1rem);color:var(--grey);line-height:1.75}
+
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.fcard{
+  background:var(--s2);border:1px solid var(--edge);
+  border-radius:16px;padding:2.5rem;
+  position:relative;overflow:hidden;
+  transition:border-color .3s,box-shadow .3s;
+  transform-style:preserve-3d;
+  cursor:auto;
+}
+.fcard::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,61,0,.06),transparent 60%);
+  opacity:0;transition:opacity .4s;border-radius:16px;
+}
+.fcard:hover{border-color:rgba(255,61,0,.3);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,61,0,.1)}
+.fcard:hover::before{opacity:1}
+.fcard-glow{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,61,0,.15),transparent 70%);pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity .3s}
+.fcard:hover .fcard-glow{opacity:1}
+.fc-num{font-family:var(--fh);font-size:4.5rem;font-weight:900;color:rgba(255,255,255,.04);line-height:1;letter-spacing:-.06em;margin-bottom:-.5rem}
+.fc-icon{font-size:2rem;margin-bottom:1.25rem;display:block;filter:drop-shadow(0 4px 12px rgba(255,61,0,.25))}
+.fc-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--r);background:rgba(255,61,0,.08);border:1px solid rgba(255,61,0,.15);padding:.22rem .7rem;border-radius:4px;margin-bottom:.85rem}
+.fc-title{font-family:var(--fh);font-size:1.05rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.65rem;line-height:1.2}
+.fc-desc{font-size:.83rem;color:var(--grey);line-height:1.75}
+
+/* Featured card */
+.fcard.big{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+.fcard.big .fc-desc{font-size:.9rem}
+
+/* ══ FOR WHO — DARK SPLIT ══ */
+.fwsec{background:var(--void);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.fwinner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,8rem)}
+.fwlist{display:flex;flex-direction:column;gap:0}
+.fwitem{
+  padding:2rem 0;border-bottom:1px solid var(--edge);
+  display:grid;grid-template-columns:auto 1fr;gap:2rem;
+  align-items:start;position:relative;
+  transition:padding-left .35s var(--e);cursor:auto;
+}
+.fwitem::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--r);transition:width .35s var(--e)}
+.fwitem:hover{padding-left:1.5rem}
+.fwitem:hover::before{width:2px}
+.fwn{font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--grey2);margin-top:.2rem}
+.fwtitle{font-family:var(--fh);font-size:1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem;transition:color .3s}
+.fwitem:hover .fwtitle{color:var(--r)}
+.fwdesc{font-size:.82rem;color:var(--grey);line-height:1.65}
+
+.fw-right{display:flex;flex-direction:column;gap:1.5rem;position:sticky;top:80px}
+.fw-stat{
+  background:var(--s2);border:1px solid var(--edge);border-radius:14px;
+  padding:2rem;position:relative;overflow:hidden;transition:border-color .3s;
+}
+.fw-stat:hover{border-color:rgba(255,61,0,.25)}
+.fws-n{font-family:var(--fh);font-size:3rem;font-weight:900;letter-spacing:-.05em;line-height:1;color:var(--r)}
+.fws-l{font-size:.78rem;color:var(--grey);margin-top:.4rem;line-height:1.5}
+
+/* ══ CALC ══ */
+.calcsec{background:var(--s1);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.cbox{max-width:800px;margin:4rem auto 0;background:var(--s2);border:1px solid var(--edge);border-radius:20px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.4)}
+.chead{background:var(--void);padding:1.25rem 2rem;display:flex;align-items:center;gap:.75rem;border-bottom:1px solid var(--edge)}
+.cht{font-family:var(--fm);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--grey)}
+.cdots{display:flex;gap:.4rem}
+.cdot{width:10px;height:10px;border-radius:50%}
+.cbody{padding:2rem}
+.crow{display:flex;align-items:center;gap:2rem;margin-bottom:2rem}
+.clbl{font-size:.8rem;color:var(--grey);min-width:190px}
+.cslw{flex:1}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:linear-gradient(to right,var(--r) var(--v,30%),var(--edge) var(--v,30%));outline:none;cursor:auto;border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--snow);border:2px solid var(--r);box-shadow:0 0 0 3px rgba(255,61,0,.2),0 0 16px rgba(255,61,0,.3);cursor:auto;transition:transform .2s,box-shadow .2s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);box-shadow:0 0 0 5px rgba(255,61,0,.1),0 0 24px rgba(255,61,0,.5)}
+.cval{font-family:var(--fh);font-size:1.5rem;font-weight:900;color:var(--snow);min-width:60px;text-align:right;letter-spacing:-.03em}
+.cresults{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--edge);border:1px solid var(--edge);border-radius:12px;overflow:hidden;margin-top:.5rem}
+.cs{background:var(--void);padding:1.75rem;text-align:center;transition:background .3s}
+.cs:hover{background:rgba(255,61,0,.04)}
+.csn{font-family:var(--fh);font-size:2.2rem;font-weight:900;line-height:1;letter-spacing:-.04em}
+.csn.o{color:var(--r)}
+.csn.g{color:var(--green)}
+.csl2{font-size:.64rem;color:var(--grey);margin-top:.4rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.cmeta{font-size:.65rem;color:var(--grey2);margin-top:1rem;font-family:var(--fm);text-align:center}
+
+/* ══ DEMO ══ */
+.demosec{background:var(--void);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.dlayout{display:grid;grid-template-columns:1fr 380px;gap:6rem;align-items:start;margin-top:4rem}
+.dtabs{display:flex;flex-direction:column;gap:.5rem}
+.dtab{display:flex;gap:1.25rem;padding:1.4rem 1.5rem;border:1px solid transparent;border-radius:12px;cursor:auto;transition:all .25s var(--e);align-items:flex-start}
+.dtab:hover{background:var(--s2);border-color:var(--edge)}
+.dtab.a{background:rgba(255,61,0,.06);border-color:rgba(255,61,0,.25)}
+.dtab.a .dname{color:var(--snow)}
+.demoji{font-size:1.5rem;flex-shrink:0;margin-top:.1rem;transition:transform .3s var(--e)}
+.dtab:hover .demoji,.dtab.a .demoji{transform:scale(1.1)}
+.dname{font-size:.9rem;font-weight:700;color:var(--grey);margin-bottom:.25rem;transition:color .2s;letter-spacing:-.01em}
+.dhint{font-size:.75rem;color:var(--grey2)}
+.phone{background:var(--s2);border:1px solid var(--edge2);border-radius:20px;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03);position:sticky;top:82px}
+.pbar{background:var(--void);padding:.85rem 1.2rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--edge)}
+.pc{width:10px;height:10px;border-radius:50%}
+.pname{font-size:.72rem;color:var(--grey);margin-left:.35rem;font-weight:700;font-family:var(--fh);letter-spacing:.02em}
+.pst{font-size:.62rem;color:var(--green);margin-left:auto;font-family:var(--fm)}
+.pbody{padding:1.25rem;min-height:340px;display:flex;flex-direction:column;gap:.65rem;overflow:hidden}
+.pm{max-width:88%;padding:.68rem 1rem;font-size:.79rem;line-height:1.6;opacity:0;transform:translateY(8px);transition:opacity .3s var(--e),transform .3s var(--e)}
+.pm.s{opacity:1;transform:translateY(0)}
+.pm.bot{background:var(--s1);border:1px solid var(--edge);border-radius:3px 12px 12px 12px;align-self:flex-start;color:rgba(245,244,240,.9)}
+.pm.usr{background:rgba(255,61,0,.12);border:1px solid rgba(255,61,0,.2);border-radius:12px 3px 12px 12px;align-self:flex-end}
+.pm strong{color:rgba(255,100,48,.9)}
+.pr{display:flex;justify-content:space-between;font-size:.72rem;padding:.12rem 0;border-bottom:1px solid var(--edge);color:var(--grey2)}
+.pr:last-child{border:none}
+.pr span:last-child{color:var(--snow);font-weight:600}
+.pr.g span:last-child{color:var(--green)}
+.ptyp{display:flex;align-items:center;gap:4px;padding:.68rem 1rem;background:var(--s1);border:1px solid var(--edge);border-radius:3px 12px 12px 12px;width:fit-content;opacity:0;transition:opacity .2s}
+.ptyp.s{opacity:1}
+.ptyp span{width:5px;height:5px;border-radius:50%;background:var(--grey);animation:d 1.2s infinite}
+.ptyp span:nth-child(2){animation-delay:.2s}
+.ptyp span:nth-child(3){animation-delay:.4s}
+@keyframes d{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+
+/* ══ PRICING ══ */
+.pricesec{background:var(--s1);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:860px;margin:4rem auto 0}
+.pcard{background:var(--s2);border:1px solid var(--edge);border-radius:20px;padding:2.75rem;position:relative;overflow:hidden;transition:transform .4s var(--e),box-shadow .4s,border-color .4s}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.pcard.hot{border-color:rgba(255,61,0,.25);background:linear-gradient(145deg,rgba(255,61,0,.06),var(--s2))}
+.pcard.hot:hover{border-color:rgba(255,61,0,.5);box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 60px rgba(255,61,0,.07)}
+.pline{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 5%,var(--r) 50%,transparent 95%)}
+.ptier{font-family:var(--fm);font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey2);margin-bottom:2rem}
+.pamount{font-family:var(--fh);font-size:4.5rem;font-weight:900;letter-spacing:-.06em;line-height:1;margin-bottom:.5rem}
+.pcur{font-size:2rem;vertical-align:top;margin-top:.7rem;display:inline-block;color:var(--r)}
+.pper{font-family:var(--fb);font-size:.82rem;color:var(--grey2);font-weight:400;letter-spacing:0}
+.pctx{font-size:.78rem;color:var(--grey2);padding:.8rem 0;margin-bottom:2rem;border-bottom:1px solid var(--edge);line-height:1.6}
+.pctx .hl{color:var(--r);font-weight:700}
+.plist{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-bottom:2.5rem}
+.plist li{font-size:.83rem;display:flex;align-items:flex-start;gap:.6rem;color:var(--grey);line-height:1.4}
+.plist li::before{content:'—';color:var(--grey2);flex-shrink:0}
+.plist li.y{color:var(--snow)}
+.plist li.y::before{content:'✓';color:var(--green);font-weight:700}
+.pbtn{display:block;text-align:center;padding:.92rem;border-radius:10px;font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.04em;cursor:auto;transition:all .25s;position:relative;overflow:hidden}
+.pbtn.ol{border:1px solid var(--edge2);color:var(--grey)}
+.pbtn.ol:hover{border-color:var(--snow);color:var(--snow)}
+.pbtn.fill{background:var(--r);color:#fff}
+.pbtn.fill::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--r2),var(--r));opacity:0;transition:opacity .3s}
+.pbtn.fill:hover::before{opacity:1}
+.pbtn.fill:hover{box-shadow:0 8px 30px rgba(255,61,0,.4)}
+.pbtn span{position:relative;z-index:1}
+
+/* ══ REVIEWS ══ */
+.rvsec{background:var(--void);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.rvgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:4rem}
+.rvcard{background:var(--s2);border:1px solid var(--edge);border-radius:16px;padding:2.25rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.rvcard::before{content:'"';position:absolute;top:-1rem;right:1.5rem;font-family:var(--fh);font-size:8rem;font-weight:900;color:rgba(255,61,0,.05);line-height:1;pointer-events:none}
+.rvcard:hover{border-color:rgba(255,61,0,.2);transform:translateY(-4px)}
+.rvstars{display:flex;gap:3px;margin-bottom:1rem}
+.rvstar{width:13px;height:13px;background:var(--r);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.rvtext{font-size:.88rem;color:var(--grey);line-height:1.8;margin-bottom:1.4rem;font-style:italic}
+.rvtext em{color:var(--snow);font-style:normal;font-weight:600}
+.rvauth{display:flex;align-items:center;gap:.75rem}
+.rvava{width:34px;height:34px;border-radius:50%;background:var(--s1);border:1px solid var(--edge);display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.rvname{font-size:.83rem;font-weight:700;letter-spacing:-.01em}
+.rvmeta{font-size:.7rem;color:var(--grey2)}
+
+/* ══ FAQ ══ */
+.faqsec{background:var(--s1);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
+.faqwrap{max-width:720px;margin:4rem auto 0}
+.fq{border-bottom:1px solid var(--edge)}
+.fqq{width:100%;background:none;border:none;color:var(--snow);font-family:var(--fh);font-size:.88rem;font-weight:700;text-align:left;padding:1.5rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:auto;transition:color .2s;letter-spacing:-.01em}
+.fqq:hover{color:var(--r)}
+.fqico{width:24px;height:24px;border:1px solid var(--grey2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--grey2);flex-shrink:0;transition:all .3s}
+.fq.open .fqico{transform:rotate(135deg);border-color:var(--r);color:var(--r)}
+.fqa{max-height:0;overflow:hidden;transition:max-height .4s var(--e)}
+.fqin{padding:0 0 1.5rem;font-size:.86rem;color:var(--grey);line-height:1.8}
+
+/* ══ CTA FULL-BLEED ══ */
+.ctasec{
+  background:var(--void);
+  padding:clamp(80px,12vw,160px) clamp(1.5rem,4vw,3rem);
+  text-align:center;position:relative;overflow:hidden;
+}
+.cta-arc{
+  position:absolute;bottom:-50%;left:50%;transform:translateX(-50%);
+  width:200%;height:200%;
+  border-radius:50%;
+  background:radial-gradient(ellipse,rgba(255,61,0,.07) 0%,transparent 60%);
+  pointer-events:none;
+}
+.ctah{
+  font-family:var(--fh);
+  font-size:clamp(4rem,10vw,9rem);
+  font-weight:900;line-height:.92;
+  letter-spacing:-.05em;
+  margin-bottom:1.5rem;
+  position:relative;
+}
+.ctah .stroke{-webkit-text-stroke:2px rgba(245,244,240,.2);color:transparent}
+.ctah .fill{color:var(--snow)}
+.ctah .red{color:var(--r)}
+.ctap{color:var(--grey);font-size:1.05rem;margin-bottom:3rem;position:relative}
+.ctanote{font-family:var(--fm);font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey2);margin-top:1.5rem}
+
+/* ══ FOOTER ══ */
+footer{border-top:1px solid var(--edge);padding:2.5rem clamp(1.5rem,4vw,3rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;position:relative;z-index:1;background:var(--void)}
+.flogo{font-family:var(--fh);font-size:1rem;font-weight:900;letter-spacing:-.03em;display:flex;align-items:center;gap:.45rem}
+.fmk{width:24px;height:24px;background:var(--r);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:900;color:#fff}
+.fcopy{font-size:.7rem;color:var(--grey2);margin-top:.2rem}
+.flinks{display:flex;gap:2rem;list-style:none}
+.flinks a{font-size:.72rem;color:var(--grey2);transition:color .2s;letter-spacing:.06em;text-transform:uppercase}
+.flinks a:hover{color:var(--r)}
+
+/* ══ SCROLL REVEAL ══ */
+.sr{opacity:0;transform:translateY(36px);transition:opacity .8s var(--e),transform .8s var(--e)}
+.sr.in{opacity:1;transform:translateY(0)}
+.sr.d1{transition-delay:.1s}.sr.d2{transition-delay:.2s}.sr.d3{transition-delay:.3s}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1024px){
+  .fgrid{grid-template-columns:1fr 1fr}.fcard.big{grid-column:span 2}.fcard[style*="span 3"]{grid-column:span 2!important}
+  .dlayout{grid-template-columns:1fr}.phone{display:none}
+  .fwinner{grid-template-columns:1fr}
+  .rvgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nlinks{display:none}.burger{display:flex}
+  .fgrid{grid-template-columns:1fr}.fcard.big{grid-column:span 1;grid-template-columns:1fr}.fcard[style*="span 3"]{grid-column:span 1!important;grid-template-columns:1fr!important}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .sbi:nth-child(2)::after{display:none}
+  .sbi:nth-child(3){border-top:1px solid rgba(255,255,255,.2)}
+  .hero-badge{display:none}
+  .pgrid{grid-template-columns:1fr;max-width:420px}
+  .rvgrid{grid-template-columns:1fr}
+  .cresults{grid-template-columns:1fr}
+  .crow{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .clbl{min-width:unset}.cslw{width:100%}
+  footer{flex-direction:column;text-align:center}
+  .flinks{flex-wrap:wrap;justify-content:center}
+  .sec-head{grid-template-columns:1fr;gap:2rem}
+  .hero-sub-row{flex-direction:column;gap:1.5rem;align-items:flex-start}
+  #analytics .secin > .sr[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr!important}
+  #analytics .secin > .sr[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
 }
 
-/* Price: simple and clear */
-.pcard.hot .pctx,
-.price-card.popular .pnote{
-  font-size:0!important;
-}
-.pcard.hot .pctx::before,
-.price-card.popular .pnote::before{
-  content:"14 дней бесплатно, потом 990 ₸ / месяц";
-  font-size:1.05rem!important;
-  line-height:1.6!important;
-  color:#667085!important;
-}
-.pcard.hot .pamount::after,
-.price-card.popular .pamount::after{
-  content:"";
-  display:none!important;
-}
-
-/* FAQ clean */
-.faqwrap{
-  width:min(980px,100%)!important;
-  margin:2.5rem auto 0!important;
-  display:flex!important;
-  flex-direction:column!important;
-  gap:.85rem!important;
-}
-.fq{
-  border-radius:20px!important;
-  overflow:hidden!important;
-}
-.fqq{
-  padding:1.25rem 1.45rem!important;
-  color:var(--ten-ink)!important;
-  font-weight:900!important;
-  letter-spacing:-.025em!important;
-}
-.fqin{
-  padding:0 1.45rem 1.35rem!important;
-  color:#667085!important;
-  line-height:1.65!important;
-}
-
-/* final CTA */
-.ctabox::after{
-  content:"14 дней бесплатно • потом 990 ₸ / месяц • 17 страниц Excel"!important;
-}
-
-/* no calculator */
-.calcsec,#calc{display:none!important}
-
-/* mobile */
-@media(max-width:980px){
-  .stripe-hero-visual{grid-template-columns:1fr!important}
-  .stripe-main-window{transform:none!important}
-}
-@media(max-width:760px){
-  .brand-logo{height:44px!important;max-width:180px!important}
-  nav .nlogo{min-width:160px!important}
-  nav{height:76px!important}
-  .hero{padding-top:108px!important}
-  .mega-line{
-    font-size:clamp(3.2rem,18vw,5.7rem)!important;
-    letter-spacing:-.075em!important;
-  }
-  .ks-offer-strip{
-    gap:.55rem!important;
-  }
-  .ks-offer-strip span{
-    width:100%;
-    text-align:center;
-  }
-  .ks-offer-strip i{display:none}
-  .stripe-kpi-row{grid-template-columns:1fr 1fr!important}
-}
+/* KitSeller minimal rebrand: keep original layout, lighten palette */
+:root{--void:#ffffff!important;--s1:#ffffff!important;--s2:#f7f8fa!important;--edge:rgba(17,24,39,.10)!important;--edge2:rgba(17,24,39,.16)!important;--snow:#111827!important;--grey:#667085!important;--grey2:#98a2b3!important;--r:#ff3b1f!important;--r2:#dc2f16!important;--green:#16a34a!important}
+html,body{background:#fff!important;color:#111827!important}
+body{background:linear-gradient(180deg,#ffffff 0%,#f7f8fa 58%,#ffffff 100%)!important}
+#cur,#bg-canvas,.grain{display:none!important}
+.brand-logo{height:48px;width:auto;display:block}.footer-logo{height:42px;width:auto;display:block}
+nav{background:rgba(255,255,255,.88)!important;border-bottom:1px solid rgba(17,24,39,.08)!important;backdrop-filter:blur(16px)!important;box-shadow:0 8px 30px rgba(17,24,39,.04)!important}
+.nlinks a,.mob a{color:#667085!important}.nlinks a:hover,.mob a:hover{color:#111827!important}.nlinks a::after{background:#ff3b1f!important}
+.lang-sw{background:#f7f8fa!important;border:1px solid rgba(17,24,39,.10)!important}.lang-btn{color:#667085!important}.lang-btn.active{background:#ff3b1f!important;color:#fff!important}
+.ncta,.btn-r{background:#ff3b1f!important;color:#fff!important;border-color:#ff3b1f!important;box-shadow:0 14px 34px rgba(255,59,31,.20)!important}.ncta:hover,.btn-r:hover{background:#dc2f16!important;border-color:#dc2f16!important}
+.btn-o{background:#fff!important;color:#111827!important;border:1px solid rgba(17,24,39,.12)!important}
+.hero,.flagship-sec,.extra-sec,.calcsec,.faqsec,.pricesec,.ctasec,.rvsec,.demosec,.featsec,.fwsec,.ba-sec{background:transparent!important}
+.card,.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.price-card,.faq-item,.rv-card,.demo-card,.calc-card,.stats-bar,.cbox,.panel,.pcard,.fq{background:#fff!important;color:#111827!important;border:1px solid rgba(17,24,39,.10)!important;box-shadow:0 18px 55px rgba(17,24,39,.06)!important}
+h1,h2,h3,h4,.title,.headline,.h2,.fl-title,.extra-title,.fwtitle,.fc-title,.ctah,.rv-title,.pamount,.sbn,.faq-q,.calc-title{color:#111827!important}
+p,li,.muted,.subtitle,.desc,.text-muted,.hero-desc,.fl-desc,.extra-desc,.sbl,.sec-kicker,.fc-desc,.fwcopy,.calc-desc,.rv-desc,.faq-a,.fcopy,.pnote,.pfeat,.stat-label{color:#667085!important}
+.red,.acc,.h2 .red,.ctah .red,.fc-title .red,.fwtitle .red,.mega-line .red{color:#ff3b1f!important}
+.badge,.tag,.label,.fl-tag,.stag{background:#fff1f0!important;color:#b42318!important;border:1px solid #ffd5d0!important}
+pre,code,.terminal,.code,.codebox,[class*="code"],.fl-result{background:#111827!important;color:#f9fafb!important;border-color:rgba(255,255,255,.08)!important}
+footer{background:#fff!important;color:#111827!important;border-top:1px solid rgba(17,24,39,.08)!important}
+footer a{color:#667085!important}footer a:hover{color:#ff3b1f!important}
+@media(max-width:760px){.brand-logo{height:38px}.footer-logo{height:36px}}
 
 
-/* === Final fixed: bot, KZ language, logo, legal styling links === */
-.brand-logo{height:52px!important;max-width:220px!important;width:auto!important}
-nav .nlogo{min-width:210px!important}
-.hero{padding-top:136px!important}
-.mega-line{font-size:clamp(4.2rem,9.8vw,10.4rem)!important;line-height:.9!important}
-.hero-desc{max-width:760px!important}
-.ks-offer-strip{margin-top:1.6rem!important;justify-content:flex-start!important}
-.stripe-hero-visual{margin-top:3.4rem!important}
-footer a[href="offer.html"],footer a[href="privacy.html"]{color:#667085!important;text-decoration:none!important}
-footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f766e!important}
-@media(max-width:760px){
-  .brand-logo{height:40px!important;max-width:165px!important}
-  nav .nlogo{min-width:150px!important}
-  .mega-line{font-size:clamp(3rem,16vw,5.2rem)!important;line-height:.94!important}
-  .hero{padding-top:102px!important}
+/* Cursor fix: restore normal system cursor */
+html, body, *, a, button, input, textarea, select, label, .magnetic, .btn-r, .btn-o, .ncta {
+  cursor: auto !important;
+}
+a, button, .btn-r, .btn-o, .ncta, [role="button"], .lang-btn, .burger {
+  cursor: pointer !important;
+}
+#cur, .cursor, .custom-cursor, .cursor-dot, .cursor-ring {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 </style>
@@ -1985,9 +613,6 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
 
 <!-- ══ HERO ══ -->
 <section class="hero">
-  <div class="ks-glow ks-glow-1"></div>
-  <div class="ks-glow ks-glow-2"></div>
-  <div class="ks-grid-glow"></div>
   </div>
 
   <div class="hero-mega">
@@ -1997,14 +622,15 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
 
   <div class="hero-sub-row">
     <div>
-      <p class="hero-desc" data-i18n="hero_desc">Загрузи ZIP → получи готовый PDF и Excel-отчёт на 17 страниц. Без ручной возни, ошибок и лишнего Excel.</strong> в одном Telegram-боте.<br><br>
+      <p class="hero-desc" data-i18n="hero_desc">
+        <strong>Накладные, сборочный лист и глубокая Excel-аналитика</strong> в одном Telegram-боте.<br><br>
         Собирайте заказы быстрее, снижайте хаос на упаковке и получайте понятные отчёты по бизнесу без ручной рутины.
       </p>
       <!-- Hero product pills -->
       <div class="hero-pills" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem">
-        <div class="hero-pill"><span>📦</span> L дней бесплатно</span></div>
-        <div class="hero-pill"><span>📊</span> <span data-i18n="pill2">Потом 990 ₸ / месяц</span></div>
-        <div class="hero-pill"><span>🗂</span> O страниц Excel</span></div>
+        <div class="hero-pill"><span>📦</span> <span data-i18n="pill1">Накладные ZIP → PDF за 10 сек</span></div>
+        <div class="hero-pill"><span>📊</span> <span data-i18n="pill2">Excel-аналитика из Kaspi Pay</span></div>
+        <div class="hero-pill"><span>🗂</span> <span data-i18n="pill3">Разбивка по товарам</span></div>
       </div>
     </div>
     <div class="hero-cta-wrap">
@@ -2016,14 +642,6 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
     </div>
   </div>
 
-  <div class="ks-offer-strip">
-    <span data-i18n="pill1">14 дней бесплатно</span>
-    <i></i>
-    <span data-i18n="pill2">Потом 990 ₸ / месяц</span>
-    <i></i>
-    <span data-i18n="pill3">17 страниц Excel</span>
-  </div>
-
   <div class="hero-ticker">
     <div class="htinner" id="htinner"></div>
   </div>
@@ -2033,7 +651,7 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
 <div class="stats-bar">
   <div class="sbi"><div class="sbn" data-count="10" data-suf=" сек">10 сек</div><div class="sbl" data-i18n="stat1_lbl">Обработка накладных</div></div>
   <div class="sbi"><div class="sbn" data-count="990" data-suf=" ₸">990 ₸</div><div class="sbl" data-i18n="stat2_lbl">В месяц</div></div>
-  <div class="sbi"><div class="sbn" data-count="17" data-suf=" страниц">17 страниц</div><div class="sbl" data-i18n="stat3_lbl">В Excel-отчёте</div></div>
+  <div class="sbi"><div class="sbn" data-count="17" data-suf=" листов">17 листов</div><div class="sbl" data-i18n="stat3_lbl">В каждом отчёте</div></div>
   <div class="sbi"><div class="sbn">∞</div><div class="sbl" data-i18n="stat4_lbl">Накладных и отчётов</div></div>
 </div>
 
@@ -2054,8 +672,8 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
         <div class="fl-num">01</div>
         <span class="fl-icon">📦</span>
         <div class="fl-tag t-r" data-i18n="fl1_tag">// Накладные и сборка</div>
-        <div class="fl-title" data-i18n="fl1_title">Накладные за 10 секунд</div>
-        <p class="fl-desc" data-i18n="fl1_desc">ZIP → готовый PDF для печати. Без ручной сортировки и лишних действий.</p>
+        <div class="fl-title" data-i18n="fl1_title">Накладные за 10 секунд.<br>Порядок на упаковке.</div>
+        <p class="fl-desc" data-i18n="fl1_desc">Отправляешь ZIP из Kaspi Магазина — получаешь готовые PDF. Один клик разбивает накладные по товарам и создаёт сборочный лист. Упаковщик берёт только свою пачку. Никакой путаницы.</p>
         <ul class="fl-list">
           <li data-i18n="fl1_li1">ZIP из Kaspi → готовые PDF за 10 секунд</li>
           <li data-i18n="fl1_li2">Разбивка по товарам — отдельный PDF на каждый</li>
@@ -2065,7 +683,7 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
         </ul>
         <div class="fl-result">
           <span style="color:var(--grey2)">// пример</span><br>
-          <span style="color:var(--r)">input</span>: <span style="color:var(--green)">orders.zip</span> · 47 штук<br>
+          <span style="color:var(--r)">input</span>: <span style="color:var(--green)">накладные.zip</span> · 47 штук<br>
           <span style="color:var(--r)">output</span>: <span style="color:var(--snow)">10 PDF + сборочный.xlsx</span><br>
           <span style="color:var(--r)">time</span>: <span style="color:var(--snow)">12 сек</span> <span style="color:var(--green)">✓</span> <span style="color:var(--grey2)">раньше: 40 мин</span>
         </div>
@@ -2081,10 +699,10 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
         <div class="fl-num">02</div>
         <span class="fl-icon">📊</span>
         <div class="fl-tag t-g" data-i18n="fl2_tag">// Excel-аналитика</div>
-        <div class="fl-title" data-i18n="fl2_title">Excel-отчёт на 17 страниц</div>
-        <p class="fl-desc" data-i18n="fl2_desc">Выручка, расходы, маржа, товары и итоговые цифры — всё собрано в одном понятном файле.</p>
+        <div class="fl-title" data-i18n="fl2_title">Понятные цифры<br>по бизнесу за 30 сек.</div>
+        <p class="fl-desc" data-i18n="fl2_desc">Два файла из Kaspi Pay → готовый детальный отчёт на 17 листах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.</p>
         <ul class="fl-list">
-          <li data-i18n="fl2_li1">2 Excel из Kaspi Pay → 17 страниц отчёта</li>
+          <li data-i18n="fl2_li1">2 Excel из Kaspi Pay → 17 листов отчёта</li>
           <li data-i18n="fl2_li2">Топ товаров, выручка, расходы, маржа</li>
           <li data-i18n="fl2_li3">Динамика по дням, часам и дням недели</li>
           <li data-i18n="fl2_li4">Умные выводы: лучший день, высокий возврат</li>
@@ -2093,7 +711,7 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
         <div class="fl-result">
           <span style="color:var(--grey2)">// пример</span><br>
           <span style="color:var(--green)">input</span>: <span style="color:var(--snow)">отчёт_продаж.xlsx + выписка.xlsx</span><br>
-          <span style="color:var(--green)">output</span>: <span style="color:var(--snow)">17 страниц · 1 243 500 ₸ выручки</span><br>
+          <span style="color:var(--green)">output</span>: <span style="color:var(--snow)">17 листов · 1 243 500 ₸ выручки</span><br>
           <span style="color:var(--green)">time</span>: <span style="color:var(--snow)">30 сек</span> <span style="color:var(--green)">✓</span>
         </div>
         <div style="margin-top:1.5rem">
@@ -2113,7 +731,7 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
     <div class="sr" style="text-align:center;margin-bottom:0">
       <div class="stag" style="justify-content:center" data-i18n="ba_tag">До / После</div>
       <h2 class="h2" data-i18n="ba_h2">Что меняется<br><span class="acc">с первого дня</span></h2>
-      <p class="sub" style="max-width:480px;margin:1rem auto 0" data-i18n="ba_sub">Меньше ручной работы. Больше порядка в заказах и цифрах.</p>
+      <p class="sub" style="max-width:480px;margin:1rem auto 0" data-i18n="ba_sub">Реальный сценарий: 30+ заказов в день, накладные вручную, цифры бизнеса непонятны.</p>
     </div>
 
     <!-- WAYBILLS BEFORE/AFTER -->
@@ -2184,16 +802,16 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
           <div class="fc-tag" data-i18n="fc1_tag">Ключевой инструмент</div>
           <span class="fc-icon">📦</span>
           <div class="fc-title" data-i18n="fc1_title">Накладные за 10 секунд</div>
-          <p class="fc-desc" data-i18n="fc1_desc">Скидываешь ZIP из Kaspi Магазина — получаешь готовый PDF. Термопринтер, A4, 4 или 9 на листе. Сортировка по товару, по дедлайну или отдельные файлы на каждый товар.<br><br>147 PDF. 9.3 секунды. Раньше уходило 40 минут.</p>
+          <p class="fc-desc" data-i18n="fc1_desc">Скидываешь ZIP из Kaspi Магазина — получаешь готовый PDF. Термопринтер, A4, 4 или 9 на листе. Сортировка по товару, по дедлайну или отдельные файлы на каждый товар.<br><br>147 накладных. 9.3 секунды. Раньше уходило 40 минут.</p>
         </div>
         <div style="background:var(--void);border:1px solid var(--edge);border-radius:12px;padding:1.5rem;font-family:var(--fm);font-size:.75rem;line-height:1.9;color:var(--grey)">
           <span style="color:var(--grey2)">// входящие данные</span><br>
-          <span style="color:var(--r)">input</span>: <span style="color:var(--green)">orders.zip</span><br>
+          <span style="color:var(--r)">input</span>: <span style="color:var(--green)">накладные.zip</span><br>
           <span style="color:var(--r)">format</span>: <span style="color:var(--green)">"9_на_лист"</span><br>
           <span style="color:var(--r)">sort</span>: <span style="color:var(--green)">"по_дедлайну"</span><br><br>
           <span style="color:var(--grey2)">// результат</span><br>
           <span style="color:var(--r)">output</span>: <span style="color:var(--green)">готово.pdf</span><br>
-          <span style="color:var(--r)">count</span>: <span style="color:#fff">147 PDF</span><br>
+          <span style="color:var(--r)">count</span>: <span style="color:#fff">147 накладных</span><br>
           <span style="color:var(--r)">time</span>: <span style="color:#fff">9.3 сек</span> ✓
         </div>
       </div>
@@ -2203,7 +821,7 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
         <div class="fc-tag" data-i18n="fc2_tag">Аналитика</div>
         <span class="fc-icon">📊</span>
         <div class="fc-title" data-i18n="fc2_title">Полный отчёт из двух Excel</div>
-        <p class="fc-desc" data-i18n="fc2_desc">Два файла из Kaspi Pay (.xlsx) → детальный отчёт с выручкой, расходами, топ‑товарами и разбивкой по дням. 17 страниц за 30 секунд. Все данные остаются у тебя.</p>
+        <p class="fc-desc" data-i18n="fc2_desc">Два файла из Kaspi Pay (.xlsx) → детальный отчёт с выручкой, расходами, топ‑товарами и разбивкой по дням. 10+ листов за 30 секунд. Все данные остаются у тебя.</p>
       </div>
       <div class="fcard sr d2" id="tilt-2">
         <div class="fcard-glow"></div>
@@ -2275,7 +893,7 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
         <div class="stag" data-i18n="fw_tag">Для кого</div>
         <h2 class="h2" data-i18n="fw_h2">Это для тебя,<br><span class="dim">если узнаёшь</span><br><span class="acc">себя здесь</span></h2>
       </div>
-      <p class="sub" data-i18n="fw_sub">Если заказов становится больше, ручная работа начинает съедать время и деньги.</p>
+      <p class="sub" data-i18n="fw_sub">Если хоть один пункт про тебя — бот сэкономит минимум час в день и даст понятные цифры по бизнесу.</p>
     </div>
     <div class="fwinner">
       <div class="fwlist sr">
@@ -2293,7 +911,7 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
         </div>
         <div class="fw-stat">
           <div class="fws-n" data-count="990" data-suf=" ₸">990 ₸</div>
-          <p class="fws-l" data-i18n="fws2">В месяц. Меньше стакана кофе в день. 14 дней бесплатно, потом 990 ₸ в месяц.</p>
+          <p class="fws-l" data-i18n="fws2">В месяц. Меньше стакана кофе в день. При 20 заказах окупается за первые два рабочих дня.</p>
         </div>
         <div class="fw-stat" style="background:rgba(255,61,0,.06);border-color:rgba(255,61,0,.2)">
           <div class="fws-n" style="color:var(--green)" data-count="95" data-suf="%">95%</div>
@@ -2305,6 +923,32 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
 </section>
 
 <!-- ══ CALC ══ -->
+<section class="calcsec" id="calc">
+  <div class="secin">
+    <div class="sr">
+      <div class="stag" data-i18n="calc_tag">Калькулятор экономии</div>
+      <h2 class="h2" data-i18n="calc_h2">Посчитай сколько<br><span class="acc">стоит рутина</span><br><span class="dim">в твоём случае</span></h2>
+    </div>
+    <div class="cbox sr">
+      <div class="chead">
+        <div class="cdots"><div class="cdot" style="background:#ff5f57"></div><div class="cdot" style="background:#febc2e"></div><div class="cdot" style="background:#28c840"></div></div>
+        <span class="cht">savings_calculator.ts</span>
+      </div>
+      <div class="cbody">
+        <div class="crow"><span class="clbl" data-i18n="calc_s1">Заказов в день</span><div class="cslw"><input type="range" min="5" max="200" value="30" id="s1" oninput="rc()"></div><div class="cval" id="v1">30</div></div>
+        <div class="crow"><span class="clbl" data-i18n="calc_s2">Минут на накладную</span><div class="cslw"><input type="range" min="0.5" max="5" value="2" step="0.5" id="s2" oninput="rc()"></div><div class="cval" id="v2">2</div></div>
+        <div class="crow"><span class="clbl" data-i18n="calc_s3">Рабочих дней в месяц</span><div class="cslw"><input type="range" min="10" max="30" value="26" id="s3" oninput="rc()"></div><div class="cval" id="v3">26</div></div>
+        <div class="cresults">
+          <div class="cs"><div class="csn o" id="rh">26.0</div><div class="csl2" data-i18n="calc_r1">Часов тратишь</div></div>
+          <div class="cs"><div class="csn g" id="rs">24.7</div><div class="csl2" data-i18n="calc_r2">Часов экономишь</div></div>
+          <div class="cs"><div class="csn g" id="rc2">162 ₸</div><div class="csl2" data-i18n="calc_r3">Цена часа экономии</div></div>
+        </div>
+        <p class="cmeta" data-i18n="calc_meta">* 95% экономии времени · подписка 990 ₸/мес · данные приблизительные</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ DEMO ══ -->
 <section class="demosec" id="demo">
   <div class="secin">
@@ -2336,19 +980,19 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
     </div>
     <div class="pgrid">
       <div class="pcard sr">
-        <div class="ptier" data-i18n="p1_tier">Демо-доступ</div>
-        <div class="pamount"><span class="pcur">₸</span>0</div>
-        <p class="pctx" data-i18n="p1_ctx">14 дней бесплатно при старте.</p>
-        <ul class="plist" id="p1list"><li class="y" data-i18n="p1_li1">Накладные — без ограничений</li><li class="y" data-i18n="p1_li2">Аналитика — без ограничений</li><li class="y" data-i18n="p1_li3">Excel-отчёт — 17 страниц</li><li class="y" data-i18n="p1_li4">Поддержка в Telegram</li><li class="y" data-i18n="p1_li5">Новые функции без доплаты</li><li data-i18n="p1_li6">Без карты на старте</li></ul>
-        <a href="https://t.me/kitseller_bot" class="pbtn ol magnetic"><span data-i18n="p1_btn">Открыть бот</span></a>
+        <div class="ptier" data-i18n="p1_tier">14 дней бесплатно</div>
+        <div class="pamount" style="font-size:2.8rem;letter-spacing:-.03em">14 <span style="font-size:1.6rem;font-weight:700;opacity:.85" data-i18n="p1_days">ДНЕЙ</span></div>
+        <p class="pctx" data-i18n="p1_ctx">Полный доступ ко всем инструментам. Без карты, без обязательств.</p>
+        <ul class="plist" id="p1list"><li class="y" data-i18n="p1_li1">Накладные — безлимитно</li><li class="y" data-i18n="p1_li2">Аналитика — безлимитно</li><li class="y" data-i18n="p1_li3">Калькулятор — безлимитно</li><li class="y" data-i18n="p1_li4">Курсы валют — безлимитно</li><li class="y" data-i18n="p1_li5">QR-коды — безлимитно</li><li class="y" data-i18n="p1_li6">14 дней · карта не нужна</li></ul>
+        <a href="https://t.me/kitseller_bot" class="pbtn ol magnetic"><span data-i18n="p1_btn">Начать бесплатно</span></a>
       </div>
       <div class="pcard hot sr d1">
         <div class="pline"></div>
-        <div class="ptier" data-i18n="p2_tier">Полный доступ</div>
+        <div class="ptier" data-i18n="p2_tier">После пробного периода</div>
         <div class="pamount"><span class="pcur">₸</span>990 <span class="pper" data-i18n="p2_per">/мес</span></div>
-        <p class="pctx" data-i18n="p2_ctx">14 дней бесплатно, потом 990 ₸ / месяц.</p>
-        <ul class="plist"><li class="y" data-i18n="p2_li1">Накладные — безлимитно</li><li class="y" data-i18n="p2_li2">Аналитика — безлимитно</li><li class="y" data-i18n="p2_li3">Excel-отчёт — 17 страниц</li><li class="y" data-i18n="p2_li4">14 дней бесплатно при старте</li><li class="y" data-i18n="p2_li5">Поддержка в Telegram</li><li class="y" data-i18n="p2_li6">Новые функции без доплаты</li><li class="y" data-i18n="p2_li8">Возврат в течение 3 дней</li></ul>
-        <a href="https://t.me/kitseller_bot" class="pbtn fill magnetic"><span data-i18n="p2_btn">Оплатить и начать →</span></a>
+        <p class="pctx" data-i18n="p2_ctx">= <span class="hl">33 ₸ в день</span>. При 20 заказах в день окупается за первые два рабочих дня. Оплата онлайн — доступ открывается мгновенно.</p>
+        <ul class="plist"><li class="y" data-i18n="p2_li1">Накладные — безлимитно</li><li class="y" data-i18n="p2_li2">Аналитика — безлимитно</li><li class="y" data-i18n="p2_li3">Калькулятор — безлимитно</li><li class="y" data-i18n="p2_li4">Курсы + уведомления</li><li class="y" data-i18n="p2_li5">QR-коды — безлимитно</li><li class="y" data-i18n="p2_li6">Поддержка в Telegram</li><li class="y" data-i18n="p2_li7">Новые функции без доплаты</li><li class="y" data-i18n="p2_li8">Возврат в течение 3 дней</li></ul>
+        <a href="https://t.me/kitseller_bot" class="pbtn fill magnetic"><span data-i18n="p2_btn">Попробовать 14 дней →</span></a>
       </div>
     </div>
   </div>
@@ -2360,7 +1004,7 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
     <div class="sec-head sr">
       <div>
         <div class="stag" data-i18n="an_tag">Аналитика</div>
-        <h2 class="h2" data-i18n="an_h2">17 страниц Excel.<br><span class="dim">Все ответы</span><br><span class="acc">за 30 секунд.</span></h2>
+        <h2 class="h2" data-i18n="an_h2">17 листов Excel.<br><span class="dim">Все ответы</span><br><span class="acc">за 30 секунд.</span></h2>
       </div>
       <p class="sub" style="max-width:380px" data-i18n="an_sub">Загружаешь два файла из Kaspi Pay — получаешь полный отчёт о том что реально происходит в твоём бизнесе.</p>
     </div>
@@ -2387,7 +1031,7 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
 
     <!-- Sheets grid -->
     <div class="sr" style="margin-bottom:3rem">
-      <div style="font-family:var(--fm);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey2);margin-bottom:1.25rem" data-i18n="an_sheets_lbl">// что внутри Excel — 17 страниц</div>
+      <div style="font-family:var(--fm);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey2);margin-bottom:1.25rem" data-i18n="an_sheets_lbl">// что внутри Excel — 17 листов</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem">
         <div style="background:var(--s2);border:1px solid var(--edge);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(255,61,0,.3)'" onmouseleave="this.style.borderColor=''">
           <span style="font-size:1.4rem">📊</span>
@@ -2571,13 +1215,13 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
   <div class="secin">
     <div class="sr" style="text-align:center"><div class="stag" style="justify-content:center">FAQ</div><h2 class="h2" data-i18n="faq_h2">Часто спрашивают</h2></div>
     <div class="faqwrap sr">
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq1_q">Нужен ли API-ключ?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq1_a">Нет. Бот работает только с файлами которые ты скачиваешь сам из Kaspi Pay и Kaspi Магазина. Файлы обрабатываются в памяти и сразу удаляются — данные нигде не хранятся.</div></div></div>
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq2_q">Где взять файлы для бота?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq2_a">Для аналитики: Kaspi Pay → Мой банк → Текущий счёт → Инфо → Отчёт по продажам. И там же → Выписка. Оба файла за одинаковый период. Для накладных: Kaspi Магазин → Заказы → Накладные → Скачать ZIP.</div></div></div>
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq3_q">Как работает оплата?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq3_a">Онлайн оплата прямо в боте. Нажми "Подписка" → "Оплатить". Доступ открывается мгновенно после подтверждения оплаты.</div></div></div>
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq4_q">Работает ли на телефоне?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq4_a">Да, на любом устройстве с Telegram. Дополнительных приложений не нужно.</div></div></div>
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq5_q">Можно попробовать бесплатно?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq5_a">Есть демо-доступ без карты — накладные 1 раз, аналитика 1 раз, калькулятор 5 раз, курсы и QR-коды безлимитно. Попробуй сначала, оплачивай только если убедился что работает.</div></div></div>
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq6_q">Можно сравнивать периоды?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq6_a">Да. Загрузи отчёты за два разных периода — бот покажет динамику: выручка выросла или упала, какие товары вышли в топ, где потери. Удобно для ежемесячного разбора.</div></div></div>
-      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq7_q">Где хранятся данные?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq7_a">Нет. Все файлы обрабатываются в памяти сервера и удаляются сразу после отправки результата. Бот не сохраняет ни накладные, ни данные из Kaspi Pay. Никакой базы данных с твоими файлами не существует.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq1_q">Нужен ли API ключ или доступ к аккаунту?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq1_a">Нет. Бот работает только с файлами которые ты скачиваешь сам из Kaspi Pay и Kaspi Магазина. Файлы обрабатываются в памяти и сразу удаляются — данные нигде не хранятся.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq2_q">Где найти нужные файлы в Kaspi Pay?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq2_a">Для аналитики: Kaspi Pay → Мой банк → Текущий счёт → Инфо → Отчёт по продажам. И там же → Выписка. Оба файла за одинаковый период. Для накладных: Kaspi Магазин → Заказы → Накладные → Скачать ZIP.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq3_q">Как оплатить подписку?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq3_a">Онлайн оплата прямо в боте. Нажми "Подписка" → "Оплатить". Доступ открывается мгновенно после подтверждения оплаты.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq4_q">Работает на iPhone и Android?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq4_a">Да, на любом устройстве с Telegram. Дополнительных приложений не нужно.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq5_q">Что если не понравится?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq5_a">Первые 14 дней — полный доступ ко всем инструментам бесплатно, без карты. Попробуй сначала, оплачивай только если убедился что работает.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq6_q">Можно ли сравнить два месяца между собой?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq6_a">Да. Загрузи отчёты за два разных периода — бот покажет динамику: выручка выросла или упала, какие товары вышли в топ, где потери. Удобно для ежемесячного разбора.</div></div></div>
+      <div class="fq"><button class="fqq" onclick="tf(this)"><span data-i18n="faq7_q">Мои данные где-то хранятся?</span><span class="fqico">+</span></button><div class="fqa"><div class="fqin" data-i18n="faq7_a">Нет. Все файлы обрабатываются в памяти сервера и удаляются сразу после отправки результата. Бот не сохраняет ни накладные, ни данные из Kaspi Pay. Никакой базы данных с твоими файлами не существует.</div></div></div>
     </div>
   </div>
 </section>
@@ -2587,11 +1231,11 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
   <div class="cta-arc"></div>
   <div class="sr">
     <h2 class="ctah">
-      <span class="stroke" data-i18n="cta_h1">Начни</span><br>
-      <span class="fill" data-i18n="cta_h2">без рутины.</span><br>
-      <span class="red" data-i18n="cta_h3">14 дней бесплатно.</span>
+      <span class="stroke" data-i18n="cta_h1">Порядок</span><br>
+      <span class="fill" data-i18n="cta_h2">в сборке.</span><br>
+      <span class="red" data-i18n="cta_h3">Цифры ясны.</span>
     </h2>
-    <p class="ctap" data-i18n="cta_p">Первые накладные и первый отчёт — бесплатно. Без карты на старте.<br>Просто открой бот и отправь файл.</p>
+    <p class="ctap" data-i18n="cta_p">Первые накладные и первый отчёт — бесплатно. Без карты, без регистрации.<br>Просто открой бот и отправь файл.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem">
       <a href="https://t.me/kitseller_bot" class="btn-r magnetic">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
@@ -2599,7 +1243,7 @@ footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#0f7
       </a>
       <a href="https://t.me/kitseller_bot" class="btn-o magnetic"><span data-i18n="cta_btn2">Проверить на своих файлах →</span></a>
     </div>
-    <p class="ctanote" data-i18n="cta_note">990 ₸ / мес · Оплата онлайн · Доступ мгновенно · Возврат в течение 3 дней</p>
+    <p class="ctanote" data-i18n="cta_note">14 дней бесплатно · потом 990 ₸ / мес · Оплата онлайн · Доступ мгновенно</p>
   </div>
 </section>
 
@@ -2741,7 +1385,17 @@ function cmob(){document.getElementById('mob').classList.remove('o')}
 // ticker is initialised by setLang() on load
 
 /* ════ CALC ════ */
-);
+function rc(){
+  const o=+document.getElementById('s1').value;
+  const t=+document.getElementById('s2').value;
+  const d=+document.getElementById('s3').value;
+  document.getElementById('v1').textContent=o;
+  document.getElementById('v2').textContent=t;
+  document.getElementById('v3').textContent=d;
+  ['s1','s2','s3'].forEach(id=>{
+    const el=document.getElementById(id);
+    el.style.setProperty('--v',((el.value-el.min)/(el.max-el.min)*100).toFixed(1)+'%');
+  });
   const h=(o*t*d/60).toFixed(1);
   const s=(o*t*d*.95/60).toFixed(1);
   document.getElementById('rh').textContent=h;
@@ -2764,8 +1418,8 @@ function getSC(){
       ?`🏆 Топ тауар: Əмиян Premium — <strong>98 400 ₸</strong> · 6 дана<br>📅 Үздік күн: 14.03 — <strong>138 200 ₸</strong><br>⚠️ Жоғары қайтару: Рюкзак City Brown (40%)`
       :`🏆 Топ товар: Кошелёк Premium — <strong>98 400 ₸</strong> · 6 шт<br>📅 Лучший день: 14.03 — <strong>138 200 ₸</strong><br>⚠️ Высокий возврат: Рюкзак City Brown (40%)`},
     {t:'bot',x: kz
-      ?'📎 Excel дайын — 10 бет: Жиынтық, Топ тауарлар, Күндер, Сағаттар, Апта күндері, Сегменттер, Брендтер, Қайтарулар, Төлем, Барлық операциялар'
-      :'📎 Excel готов — 17 страниц: Сводка, Топ товаров, По дням, По часам, Дни недели, Сегменты, Бренды, Возвраты, Оплата, Все операции'},
+      ?'📎 Excel дайын — 17 бет: Жиынтық, Топ тауарлар, Күндер, Сағаттар, Апта күндері, Сегменттер, Брендтер, Қайтарулар, Төлем, Барлық операциялар'
+      :'📎 Excel готов — 17 листов: Сводка, Топ товаров, По дням, По часам, Дни недели, Сегменты, Бренды, Возвраты, Оплата, Все операции'},
   ],
   waybills:[
     {t:'usr',x: kz?'ZIP жіберемін — жүкқұжаттар 📎':'Отправляю ZIP с накладными 📎'},
@@ -2892,17 +1546,17 @@ const LANG={
     nav_pricing:'Тарифы', nav_cta:'Попробовать →', mob_open:'Открыть бота →',
     badge_free:'ПОПРОБУЙ<br>БЕСПЛАТНО',
     hero_line1:'Работай', hero_line2:'умнее',
-    hero_desc:'Загрузи ZIP → получи готовый PDF и Excel-отчёт на 17 страниц. Без ручной возни, ошибок и лишнего Excel.',
-    L дней бесплатно', pill2:'Потом 990 ₸ / месяц', O страниц Excel',
+    hero_desc:'<strong>Накладные, сборочный лист и глубокая Excel-аналитика</strong> в одном Telegram-боте.<br><br>Собирайте заказы быстрее, снижайте хаос на упаковке и получайте понятные отчёты по бизнесу без ручной рутины.',
+    pill1:'Накладные ZIP → PDF за 10 сек', pill2:'Excel-аналитика из Kaspi Pay', pill3:'Разбивка по товарам',
     hero_btn:'Попробовать бесплатно', hero_btn2:'Открыть бота →',
-    stat1_lbl:'Обработка накладных', stat2_lbl:'В месяц', stat3_lbl:'В Excel-отчёте', stat4_lbl:'Накладных и отчётов',
+    stat1_lbl:'Обработка накладных', stat2_lbl:'В месяц', stat3_lbl:'В каждом отчёте', stat4_lbl:'Накладных и отчётов',
     feat_tag:'Как это работает',
     feat_h2:'Загрузил файл —<br><span class="dim">получил</span><br><span class="acc">результат</span>',
     feat_sub:'Никаких регистраций, API ключей и сторонних сервисов. Просто отправь файл в Telegram — бот сделает всё остальное.',
     fc1_tag:'Ключевой инструмент', fc1_title:'Накладные за 10 секунд',
-    fc1_desc:'Скидываешь ZIP из Kaspi Магазина — получаешь готовый PDF. Термопринтер, A4, 4 или 9 на листе. Сортировка по товару, по дедлайну или отдельные файлы на каждый товар.<br><br>147 PDF. 9.3 секунды. Раньше уходило 40 минут.',
+    fc1_desc:'Скидываешь ZIP из Kaspi Магазина — получаешь готовый PDF. Термопринтер, A4, 4 или 9 на листе. Сортировка по товару, по дедлайну или отдельные файлы на каждый товар.<br><br>147 накладных. 9.3 секунды. Раньше уходило 40 минут.',
     fc2_tag:'Аналитика', fc2_title:'Полный отчёт из двух Excel',
-    fc2_desc:'Два файла из Kaspi Pay (.xlsx) → детальный отчёт с выручкой, расходами, топ‑товарами и разбивкой по дням. 17 страниц за 30 секунд. Все данные остаются у тебя.',
+    fc2_desc:'Два файла из Kaspi Pay (.xlsx) → детальный отчёт с выручкой, расходами, топ‑товарами и разбивкой по дням. 10+ листов за 30 секунд. Все данные остаются у тебя.',
     fc3_tag:'Калькулятор', fc3_title:'Точная маржа с первой попытки',
     fc3_desc:'Введи цену и себестоимость — бот покажет чистую прибыль с учётом комиссии Kaspi, ИПН и стоимости доставки. Больше не угадываешь — знаешь точно.',
     fc4_tag:'✦ Уникальная функция — нигде больше нет', fc4_title:'Разбивка по товарам + Сборочный лист',
@@ -2920,16 +1574,20 @@ const LANG={
     fw5_t:'От 10 заказов в день', fw5_d:'При 10 заказах бот экономит 20 минут в день. При 50 заказах — больше часа. Чем активнее торговля, тем сильнее разница.',
     fw6_t:'Хочешь развивать бизнес, а не делать одно и то же', fw6_d:'Пока конкуренты тратят утро на накладные — ты уже знаешь какой товар приносит прибыль и где терять меньше.',
     fws1:'Столько тратят продавцы на ручную обработку накладных в день при 30+ заказах. Каждый день.',
-    fws2:'В месяц. Меньше стакана кофе в день. 14 дней бесплатно, потом 990 ₸ в месяц.<br><span class="dim">результата</span><br><span class="acc">для бизнеса</span>',
+    fws2:'В месяц. Меньше стакана кофе в день. При 20 заказах окупается за первые два рабочих дня.',
+    fws3:'Времени на накладные экономит бот. Остаток — на то что реально важно.',
+    // Flagship products
+    fl_tag:'Два флагманских продукта',
+    fl_h2:'Два сильных<br><span class="dim">результата</span><br><span class="acc">для бизнеса</span>',
     fl_sub:'Не просто «набор функций», а два инструмента которые решают конкретные проблемы каждого дня. Отправил файл — получил результат.',
-    fl1_tag:'// Накладные и сборка', fl1_title:'Накладные за 10 секунд',
+    fl1_tag:'// Накладные и сборка', fl1_title:'Накладные за 10 секунд.<br>Порядок на упаковке.',
     fl1_desc:'Отправляешь ZIP из Kaspi Магазина — получаешь готовые PDF. Один клик разбивает накладные по товарам и создаёт сборочный лист. Упаковщик берёт только свою пачку. Никакой путаницы.',
     fl1_li1:'ZIP из Kaspi → готовые PDF за 10 секунд', fl1_li2:'Разбивка по товарам — отдельный PDF на каждый',
     fl1_li3:'Сборочный лист Excel с количеством', fl1_li4:'Меньше путаницы на сборке', fl1_li5:'Быстрее работа упаковщика',
     fl1_cta:'Сделать накладные за 10 секунд →',
-    fl2_tag:'// Excel-аналитика', fl2_title:'Excel-отчёт на 17 страниц',
-    fl2_desc:'Два файла из Kaspi Pay → готовый детальный отчёт на 17 страницах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.',
-    fl2_li1:'2 Excel из Kaspi Pay → 17 страниц отчёта', fl2_li2:'Топ товаров, выручка, расходы, маржа',
+    fl2_tag:'// Excel-аналитика', fl2_title:'Понятные цифры<br>по бизнесу за 30 сек.',
+    fl2_desc:'Два файла из Kaspi Pay → готовый детальный отчёт на 17 листах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.',
+    fl2_li1:'2 Excel из Kaspi Pay → 17 листов отчёта', fl2_li2:'Топ товаров, выручка, расходы, маржа',
     fl2_li3:'Динамика по дням, часам и дням недели', fl2_li4:'Умные выводы: лучший день, высокий возврат',
     fl2_li5:'Сравнение двух периодов между собой', fl2_cta:'Получить отчёт из Kaspi Pay →',
     // Before/After
@@ -2955,11 +1613,11 @@ const LANG={
     ex1_title:'Калькулятор маржи', ex1_desc:'Введи цену и себестоимость — бот покажет чистую прибыль с учётом комиссии Kaspi 15%, ИПН и доставки. Больше не угадываешь — знаешь точно до того как поставил цену.',
     ex2_title:'Курсы Нацбанка РК', ex2_desc:'CNY, USD, EUR, RUB к тенге — актуально каждый день. Конвертируй в пару нажатий. Подпишись на уведомления — бот напишет когда курс изменится.',
     ex3_title:'QR-коды за 5 секунд', ex3_desc:'Генерируй QR для своего Kaspi магазина, ссылки на товар или акции. Распечатай, поставь на точке — покупатели сканируют и попадают прямо к тебе.',
-    calc_tag:'Экономия времени',
-    calc_h2:'Посчитай сколько<br><span class="acc">стоит рутина</span><br><span class="dim">каждый день</span>',
+    calc_tag:'Калькулятор экономии',
+    calc_h2:'Посчитай сколько<br><span class="acc">стоит рутина</span><br><span class="dim">в твоём случае</span>',
     calc_s1:'Заказов в день', calc_s2:'Минут на накладную', calc_s3:'Рабочих дней в месяц',
     calc_r1:'Часов тратишь', calc_r2:'Часов экономишь', calc_r3:'Цена часа экономии',
-    calc_meta:'* 95% экономии времени · подписка 990 ₸/мес · данные приблизительные',
+    calc_meta:'* 95% экономии времени · 14 дней бесплатно · потом 990 ₸/мес',
     demo_tag:'Демо',
     demo_h2:'Посмотри как<br>это выглядит<br><span class="acc">в чате</span>',
     demo_t1:'Аналитика', demo_h1:'Два PDF → полный Excel отчёт',
@@ -2967,12 +1625,12 @@ const LANG={
     demo_t3:'Калькулятор', demo_h3:'Юнит-экономика за 3 шага',
     demo_t4:'Курсы валют', demo_h4:'Нацбанк + конвертация',
     an_tag:'Аналитика',
-    an_h2:'17 страниц Excel.<br><span class="dim">Все ответы</span><br><span class="acc">за 30 секунд.</span>',
+    an_h2:'17 листов Excel.<br><span class="dim">Все ответы</span><br><span class="acc">за 30 секунд.</span>',
     an_sub:'Загружаешь два файла из Kaspi Pay — получаешь полный отчёт о том что реально происходит в твоём бизнесе.',
     price_tag:'Тарифы',
     price_h2:'Один тариф.<br><span class="dim">Без скрытых</span><br><span class="acc">условий.</span>',
-    p1_tier:'Демо-доступ', p1_ctx:'14 дней бесплатно при старте.', p1_btn:'Открыть бот',
-    p2_tier:'Полный доступ', p2_btn:'Оплатить и начать →',
+    p1_days:'ДНЕЙ', p1_tier:'14 дней бесплатно', p1_ctx:'Полный доступ ко всем инструментам. Без карты, без обязательств.', p1_btn:'Начать бесплатно',
+    p2_tier:'Полный доступ', p2_btn:'Попробовать 14 дней →',
     qs_tag:'Быстрый старт',
     qs_h2:'Где взять файлы<br><span class="acc">для бота</span>',
     qs_w1_h:'// Накладные',
@@ -2984,30 +1642,63 @@ const LANG={
     qs_w2_s2:'Скачай <strong style="color:var(--snow)">Отчёт по продажам</strong> и <strong style="color:var(--snow)">Выписку</strong> за один период',
     qs_w2_s3:'Отправь оба Excel-файла боту — через 30 сек получишь отчёт',
     faq_h2:'Часто спрашивают',
-    faq1_q:'Нужен ли API-ключ?',
+    faq1_q:'Нужен ли API ключ или доступ к аккаунту?',
     faq1_a:'Нет. Бот работает только с файлами которые ты скачиваешь сам из Kaspi Pay и Kaspi Магазина. Файлы обрабатываются в памяти и сразу удаляются — данные нигде не хранятся.',
-    faq2_q:'Где взять файлы для бота?',
+    faq2_q:'Где найти нужные файлы в Kaspi Pay?',
     faq2_a:'Для аналитики: Kaspi Pay → Мой банк → Текущий счёт → Инфо → Отчёт по продажам. И там же → Выписка. Оба файла за одинаковый период. Для накладных: Kaspi Магазин → Заказы → Накладные → Скачать ZIP.',
-    faq3_q:'Как работает оплата?',
+    faq3_q:'Как оплатить подписку?',
     faq3_a:'Онлайн оплата прямо в боте. Нажми "Подписка" → "Оплатить". Доступ открывается мгновенно после подтверждения оплаты.',
-    faq4_q:'Работает ли на телефоне?',
+    faq4_q:'Работает на iPhone и Android?',
     faq4_a:'Да, на любом устройстве с Telegram. Дополнительных приложений не нужно.',
-    faq5_q:'Можно попробовать бесплатно?',
-    faq5_a:'Есть демо-доступ без карты — накладные 1 раз, аналитика 1 раз, калькулятор 5 раз, курсы и QR-коды безлимитно. Попробуй сначала, оплачивай только если убедился что работает.',
-    faq6_q:'Можно сравнивать периоды?',
+    faq5_q:'Что если не понравится?',
+    faq5_a:'Первые 14 дней — полный доступ ко всем инструментам бесплатно, без карты. Попробуй сначала, оплачивай только если убедился что работает.',
+    faq6_q:'Можно ли сравнить два месяца между собой?',
     faq6_a:'Да. Загрузи отчёты за два разных периода — бот покажет динамику: выручка выросла или упала, какие товары вышли в топ, где потери. Удобно для ежемесячного разбора.',
-    faq7_q:'Где хранятся данные?',
+    faq7_q:'Мои данные где-то хранятся?',
     faq7_a:'Нет. Все файлы обрабатываются в памяти сервера и удаляются сразу после отправки результата. Бот не сохраняет ни накладные, ни данные из Kaspi Pay. Никакой базы данных с твоими файлами не существует.',
-    cta_h1:'Начни', cta_h2:'без рутины.', cta_h3:'14 дней бесплатно.',
-    cta_p:'Первые накладные и первый отчёт — бесплатно. Без карты на старте. Просто открой бот и отправь файл.',
+    cta_h1:'Порядок', cta_h2:'в сборке.', cta_h3:'Цифры ясны.',
+    cta_p:'Первые накладные и первый отчёт — бесплатно. Без карты, без регистрации. Просто открой бот и отправь файл.',
     cta_btn:'Попробовать бесплатно', cta_btn2:'Проверить на своих файлах →',
-    cta_note:'990 ₸ / мес · Оплата онлайн · Доступ мгновенно · Возврат в течение 3 дней',
+    cta_note:'14 дней бесплатно · потом 990 ₸ / мес · Оплата онлайн · Доступ мгновенно',
     footer_copy:'© 2026 Path of Peaks · Казахстан',
     footer_bot:'Бот', footer_support:'Поддержка',
     // Pricing lists
-    p1_li1:'Накладные — без ограничений', p1_li2:'Аналитика — без ограничений', p1_li3:'Excel-отчёт — 17 страниц',
-    p1_li4:'Поддержка в Telegram', p1_li5:'Новые функции без доплаты', p1_li6:'Без карты на старте',
-    p2_per:'/мес', p2_ctx:'14 дней бесплатно, потом 990 ₸ / месяц.<span style="color:var(--snow)">138 200 ₸ (22 заказа)</span>',
+    p1_li1:'Накладные — безлимитно', p1_li2:'Аналитика — безлимитно', p1_li3:'Калькулятор — безлимитно',
+    p1_li4:'Курсы валют — безлимитно', p1_li5:'QR-коды — безлимитно', p1_li6:'14 дней · карта не нужна',
+    p2_per:'/мес', p2_ctx:'= <span class="hl">33 ₸ в день</span>. При 20 заказах в день окупается за первые два рабочих дня. Оплата онлайн — доступ открывается мгновенно.',
+    p2_li1:'Накладные — безлимитно', p2_li2:'Аналитика — безлимитно', p2_li3:'Калькулятор — безлимитно',
+    p2_li4:'Курсы + уведомления', p2_li5:'QR-коды — безлимитно', p2_li6:'Поддержка в Telegram',
+    p2_li7:'Новые функции без доплаты', p2_li8:'Возврат в течение 3 дней',
+    // Analytics KPIs
+    an_kpi1:'Выручка', an_kpi2:'Заказов', an_kpi3:'Средний чек', an_kpi4:'Прибыль до COGS',
+    an_sheets_lbl:'// что внутри Excel — 17 листов',
+    sh1_n:'Сводка', sh1_d:'Выручка, расходы, прибыль — полный P&L',
+    sh2_n:'Топ товаров', sh2_d:'Рейтинг по выручке, доля, возврат %',
+    sh3_n:'По дням', sh3_d:'Динамика выручки каждый день месяца',
+    sh4_n:'По часам', sh4_d:'Когда покупают — пики активности',
+    sh5_n:'Дни недели', sh5_d:'Лучший день — Сб (198 400 ₸, 15.9%)',
+    sh6_n:'Ценовые сегменты', sh6_d:'76% заказов — сегмент 3–8 тыс. ₸',
+    sh7_n:'Бренды', sh7_d:'Топ бренд — 38.4% всей выручки',
+    sh8_n:'Возвраты', sh8_d:'Детализация по каждому возврату',
+    sh9_n:'Способы оплаты', sh9_d:'Gold 71.2%, Кредит 18.4%, Red 8.9%',
+    sh10_n:'Все операции', sh10_d:'Полная транзакционная детализация',
+    // Charts
+    chart_days:'// Продажи по дням недели',
+    chart_hours:'// Пиковые часы покупок',
+    chart_hours_note:'Пик: 14:00–18:00 · выручка 426 900 ₸ (34%)',
+    // Expenses
+    exp_title:'// Расходы (удержания Kaspi)',
+    exp1:'Комиссия Kaspi', exp2:'Реклама / Boost', exp3:'Бонусы покупателям',
+    exp4:'Kaspi Pay комиссия', exp5:'ИПН 3%',
+    exp_total:'Итого расходов', exp_profit:'Чистая прибыль (до COGS)',
+    // Top-3
+    top3_title:'// Топ-3 товара',
+    top1_name:'🥇 Кошелёк кожаный Premium черный', top1_val:'98 400 ₸ · 6 шт',
+    top2_name:'🥈 Сумка поясная Streetwear серая', top2_val:'81 750 ₸ · 15 шт',
+    top3_name:'🥉 Шапка Logo Knit черная', top3_val:'74 850 ₸ · 21 шт',
+    // Insights
+    ins_title:'// Умные выводы бота',
+    ins1:'Лучший день — 14.03.2026: <span style="color:var(--snow)">138 200 ₸ (22 заказа)</span>',
     ins2:'Высокий возврат 40%+: <span style="color:var(--snow)">Рюкзак City Brown</span>',
     ins3:'Лучший день недели — <span style="color:var(--snow)">Суббота (66 100 ₸ ср.)</span>',
     ins4:'Пик покупок — <span style="color:var(--snow)">14:00–18:00 (41% выручки)</span>',
@@ -3016,17 +1707,17 @@ const LANG={
     pay1:'Kaspi Gold', pay2:'Кредит на Покупки', pay3:'Kaspi Red',
     buyer_note:'27.3% — кредитные покупки. Аудитория покупает в рассрочку.',
     scramble_word:'умнее',
-    ticker:['Накладные ZIP → PDF за 10 сек','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','17 страниц за 30 сек','Начни на упаковке','Понятные цифры бизнеса','Без API ключей','Сравнение периодов','Мгновенный доступ','Попробовать бесплатно'],
-    ticker:['Накладные ZIP → PDF','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','17 страниц за 30 сек','Юнит-экономика','CNY · USD · EUR · RUB','QR-коды для магазина','Сравнение периодов','Без API ключей','Мгновенный доступ'],
+    ticker:['Накладные ZIP → PDF за 10 сек','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','17 листов за 30 сек','Порядок на упаковке','Понятные цифры бизнеса','Без API ключей','Сравнение периодов','Мгновенный доступ','Попробовать бесплатно'],
+    ticker:['Накладные ZIP → PDF','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','17 листов за 30 сек','Юнит-экономика','CNY · USD · EUR · RUB','QR-коды для магазина','Сравнение периодов','Без API ключей','Мгновенный доступ'],
   },
   kz:{
     nav_features:'Құралдар', nav_analytics:'Аналитика', nav_forwho:'Кімге арналған',
     nav_pricing:'Тарифтер', nav_cta:'Тегін көру →', mob_open:'Ботты ашу →',
     badge_free:'ТЕГІН<br>БАЙҚАП КӨР',
     hero_line1:'Kaspi', hero_line2:'Tools',
-    hero_desc:'ZIP файлын жүкте → дайын PDF пен 17 бет Excel-есеп ал. Қолмен реттеу, қате және артық Excel жоқ.',
+    hero_desc:'Бір Telegram-бот сағаттар бойғы қолмен жұмысты алмастырады.<br><strong>Жүкқұжаттар, аналитика, калькулятор</strong> — секундтар ішінде.<br>Тауарлар бойынша бөлу, жинақ тізімі, 10 Excel парағы.<br>API керек емес. Файлды жібер — нәтижені ал.',
     hero_btn:'Тегін бастау', hero_btn2:'Қарау ↓',
-    stat1_lbl:'Накладной өңдеу', stat2_lbl:'Айына', stat3_lbl:'Excel есебінде', stat4_lbl:'Накладной мен есеп',
+    stat1_lbl:'Жүкқұжат өңдеу', stat2_lbl:'Айына', stat3_lbl:'Әр есепте', stat4_lbl:'Жүкқұжат және есептер',
     feat_tag:'Құралдар',
     feat_h2:'Алты құрал<br><span class="dim">уақытты шынымен</span><br><span class="acc">үнемдейді</span>',
     feat_sub:'Әр құрал нақты мәселені шешеді. Артық сөз жоқ — тікелей Telegram арқылы жұмыс істейді, тіркеусіз және үшінші тарап қызметтерінсіз.',
@@ -3057,7 +1748,7 @@ const LANG={
     calc_h2:'Рутина сенің жағдайда<br><span class="acc">қанша тұрады</span><br><span class="dim">есептеп көр</span>',
     calc_s1:'Күніне тапсырыс саны', calc_s2:'Жүкқұжатқа кететін минут', calc_s3:'Айына жұмыс күні',
     calc_r1:'Жұмсайтын сағат', calc_r2:'Үнемделетін сағат', calc_r3:'Үнемделген сағаттың бағасы',
-    calc_meta:'* 95% уақыт үнемдеу · жазылым 990 ₸/ай · деректер шамамен',
+    calc_meta:'* 95% уақыт үнемдеу · 14 күн тегін · кейін 990 ₸/ай',
     demo_tag:'Демо',
     demo_h2:'Чатта қалай<br>көрінетінін<br><span class="acc">қара</span>',
     demo_t1:'Аналитика', demo_h1:'Екі файл → толық Excel есебі',
@@ -3065,12 +1756,12 @@ const LANG={
     demo_t3:'Калькулятор', demo_h3:'3 қадамда юнит-экономика',
     demo_t4:'Валюта бағамы', demo_h4:'Ұлттық банк + конвертация',
     an_tag:'Аналитика',
-    an_h2:'17 страниц Excel парағы.<br><span class="dim">Барлық жауап</span><br><span class="acc">30 секундта.</span>',
+    an_h2:'10 Excel парағы.<br><span class="dim">Барлық жауап</span><br><span class="acc">30 секундта.</span>',
     an_sub:'Kaspi Pay-дан екі файл жүктейсің — бизнесіңде нақты не болып жатқаны туралы толық есеп аласың.',
     price_tag:'Тарифтер',
     price_h2:'Бір тариф.<br><span class="dim">Жасырын шарт</span><br><span class="acc">жоқ.</span>',
-    p1_tier:'Демо-қол жеткізу', p1_ctx:'Картасыз және ешқандай міндеттемесіз байқап көр.', p1_btn:'Тегін бастау',
-    p2_tier:'Толық қол жеткізу', p2_btn:'Төлеп бастау →',
+    p1_days:'КҮН', p1_tier:'14 күн тегін', p1_ctx:'Барлық құралдарға толық қол жеткізу. Картасыз, міндеттемесіз.', p1_btn:'Тегін бастау',
+    p2_tier:'Сынақтан кейін', p2_btn:'14 күн тегін байқа →',
     qs_tag:'Жылдам бастау',
     qs_h2:'Бот үшін файлдарды<br><span class="acc">қайдан алуға болады</span>',
     qs_w1_h:'// Жүкқұжаттар',
@@ -3091,7 +1782,7 @@ const LANG={
     faq4_q:'iPhone мен Android-та жұмыс істей ме?',
     faq4_a:'Иә, Telegram орнатылған кез келген құрылғыда жұмыс істейді. Қосымша бағдарлама жүктеудің қажеті жоқ.',
     faq5_q:'Ұнамаса ше?',
-    faq5_a:'Картасыз демо-қол жеткізу бар — жүкқұжаттар 1 рет, аналитика 1 рет, калькулятор 5 рет, бағамдар мен QR-кодтар шексіз. Алдымен байқап көр, жұмыс істейтініне көзің жеткенде ғана төле.',
+    faq5_a:'Алғашқы 14 күн — барлық құралдарға толық қол жеткізу тегін, картасыз. Алдымен байқап көр, жұмыс істейтініне көзің жеткенде ғана төле.',
     faq6_q:'Екі айды салыстыруға болады ма?',
     faq6_a:'Иә. Екі түрлі кезеңнің есептерін жүкте — бот динамиканы көрсетеді: табыс өстті ме, азайды ма, қай тауарлар топқа кірді, шығын қайда кетті. Ай сайынғы талдауға өте ыңғайлы.',
     faq7_q:'Менің деректерім сақталады ма?',
@@ -3099,19 +1790,19 @@ const LANG={
     cta_h1:'Тәртіп', cta_h2:'орамада.', cta_h3:'Сандар анық.',
     cta_p:'Бірінші жүкқұжаттар мен бірінші есеп — тегін. Картасыз, тіркеусіз. Ботты ашып, файлды жібер.',
     cta_btn:'Тегін байқап көру', cta_btn2:'Өз файлдарыңда тексеру →',
-    cta_note:'990 ₸ / ай · Онлайн төлем · Қол жеткізу лезде · Кез келген уақытта тоқтатуға болады',
+    cta_note:'14 күн тегін · кейін 990 ₸ / ай · Онлайн төлем · Қол жеткізу лезде',
     footer_copy:'© 2026 Path of Peaks · Қазақстан',
     footer_bot:'Бот', footer_support:'Қолдау',
     // Pricing lists
-    p1_li1:'1 рет — Жүкқұжаттар', p1_li2:'1 рет — Аналитика', p1_li3:'5 рет — Калькулятор',
-    p1_li4:'Валюта бағамдары — шексіз', p1_li5:'QR-кодтар — шексіз', p1_li6:'Тіркеусіз, картасыз',
-    p2_per:'/ай', p2_ctx:'14 дней бесплатно, потом 990 ₸ / месяц. Күніне 20 тапсырыста алғашқы екі жұмыс күнінде ақталады. Онлайн төлем — қол жеткізу лезде ашылады.',
+    p1_li1:'Жүкқұжаттар — шексіз', p1_li2:'Аналитика — шексіз', p1_li3:'Калькулятор — шексіз',
+    p1_li4:'Валюта бағамдары — шексіз', p1_li5:'QR-кодтар — шексіз', p1_li6:'14 күн · карта керек емес',
+    p2_per:'/ай', p2_ctx:'= <span class="hl">күніне 33 ₸</span>. Күніне 20 тапсырыста алғашқы екі жұмыс күнінде ақталады. Онлайн төлем — қол жеткізу лезде ашылады.',
     p2_li1:'Жүкқұжаттар — шексіз', p2_li2:'Аналитика — шексіз', p2_li3:'Калькулятор — шексіз',
     p2_li4:'Бағамдар + хабарландырулар', p2_li5:'QR-кодтар — шексіз', p2_li6:'Telegram арқылы қолдау',
     p2_li7:'Жаңа мүмкіндіктер қосымша ақысыз', p2_li8:'Кез келген уақытта тоқтатуға болады',
     // Analytics KPIs
     an_kpi1:'Табыс', an_kpi2:'Тапсырыс', an_kpi3:'Орташа чек', an_kpi4:'Таза пайда (COGS-қа дейін)',
-    an_sheets_lbl:'// Excel ішінде не бар — 10 парақ',
+    an_sheets_lbl:'// Excel ішінде не бар — 17 парақ',
     sh1_n:'Жиынтық', sh1_d:'Табыс, шығын, пайда — толық P&L',
     sh2_n:'Топ тауарлар', sh2_d:'Табыс бойынша рейтинг, үлес, қайтару %',
     sh3_n:'Күндер бойынша', sh3_d:'Ай бойы табыс динамикасы',
@@ -3147,7 +1838,7 @@ const LANG={
     pay1:'Kaspi Gold', pay2:'Сатып алуға несие', pay3:'Kaspi Red',
     buyer_note:'27.3% — несиеге сатып алады. Аудитория бөліп төлеуді жөн көреді.',
     scramble_word:'жұмыс',
-    ticker:['Жүкқұжаттар ZIP → PDF','Тауарлар бойынша бөлу','Жинақ тізімі Excel','Kaspi Pay аналитикасы','30 секундта 10 парақ','Юнит-экономика','CNY · USD · EUR · RUB','Дүкен QR-коды','Кезеңдерді салыстыру','API кілті керек емес','Лезде қол жеткізу'],
+    ticker:['Жүкқұжаттар ZIP → PDF','Тауарлар бойынша бөлу','Жинақ тізімі Excel','Kaspi Pay аналитикасы','30 секундта 17 парақ','Юнит-экономика','CNY · USD · EUR · RUB','Дүкен QR-коды','Кезеңдерді салыстыру','API кілті керек емес','Лезде қол жеткізу'],
   }
 };
 function setLang(lang){
@@ -3201,7 +1892,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
     <h2>Разбивка по товарам и сборочный лист — уникальная функция</h2>
     <p>Режим "По товарам": каждый товар получает отдельный PDF-файл плюс сборочный лист Excel с количеством. Нигде больше нет такой функции. При 10 и более позиций экономит ещё 20–30 минут каждый день.</p>
     <p>Реальный результат: 47 накладных за 12 секунд вместо 40 минут вручную.</p>
-    <p>Попробовать бесплатно: @kitseller_bot. Подписка 990 тенге в месяц.</p>
+    <p>Попробовать бесплатно 14 дней: @kitseller_bot. Подписка 990 тенге в месяц.</p>
   </article>
 
   <!-- СТАТЬЯ 2 -->
@@ -3216,8 +1907,8 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
       <li>Нажмите Отчёт по продажам — скачайте за нужный период</li>
       <li>Там же нажмите Выписка — скачайте за тот же период</li>
     </ol>
-    <h2>Что входит в отчёт — 17 страниц Excel</h2>
-    <p>Бот @kitseller_bot обрабатывает оба файла и создаёт Excel с 17 страницами: Сводка (P&L), Топ товаров, По дням, По часам, Дни недели, Ценовые сегменты, Бренды, Возвраты, Способы оплаты, Все операции. Первый отчёт бесплатно на @kitseller_bot.</p>
+    <h2>Что входит в отчёт — 17 листов Excel</h2>
+    <p>Бот @kitseller_bot обрабатывает оба файла и создаёт Excel с 17 листами: Сводка (P&L), Топ товаров, По дням, По часам, Дни недели, Ценовые сегменты, Бренды, Возвраты, Способы оплаты, Все операции. 14 дней бесплатно на @kitseller_bot.</p>
     <h2>Аналитика Kaspi Pay — умные выводы</h2>
     <p>После анализа бот показывает: лучший день за период, товары с высоким процентом возвратов, лучший день недели, пиковые часы покупок. Можно сравнить два периода между собой.</p>
   </article>
@@ -3232,7 +1923,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
     <h2>Формула расчёта маржи Kaspi</h2>
     <p>Чистая прибыль = Цена продажи минус Себестоимость минус Комиссия Kaspi 15 процентов минус ИПН 3 процента минус Реклама минус Доставка. Минимальная цена = Себестоимость делённая на 0.82.</p>
     <h2>Калькулятор маржи Kaspi онлайн</h2>
-    <p>В Telegram-боте @kitseller_bot есть встроенный калькулятор маржи. Вводите цену и себестоимость — получаете чистую прибыль с учётом комиссии Kaspi и ИПН. Также есть расчёт минимальной цены продажи и цели по прибыли. Попробовать бесплатно: @kitseller_bot.</p>
+    <p>В Telegram-боте @kitseller_bot есть встроенный калькулятор маржи. Вводите цену и себестоимость — получаете чистую прибыль с учётом комиссии Kaspi и ИПН. Также есть расчёт минимальной цены продажи и цели по прибыли. 14 дней бесплатно: @kitseller_bot.</p>
   </article>
 
   <!-- СТАТЬЯ 4 -->
@@ -3254,10 +1945,10 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
     <h2>Автоматизация накладных Kaspi</h2>
     <p>KitSeller — Telegram-бот который принимает ZIP с накладными и выдаёт готовый PDF за 10 секунд. Разбивка по товарам, сборочный лист Excel. Нигде больше нет.</p>
     <h2>Аналитика продаж Kaspi</h2>
-    <p>Два файла из Kaspi Pay превращаются в 17 страниц Excel с полной аналитикой: выручка, топ товары, маржа, дни, часы, возвраты, способы оплаты. За 30 секунд.</p>
+    <p>Два файла из Kaspi Pay превращаются в 17 листов Excel с полной аналитикой: выручка, топ товары, маржа, дни, часы, возвраты, способы оплаты. За 30 секунд.</p>
     <h2>Курс CNY тенге НБ РК</h2>
     <p>Актуальный курс китайского юаня CNY к тенге по данным Национального банка РК. Плюс курсы USD, EUR, RUB. Уведомления об изменении курса. Доступно в @kitseller_bot бесплатно.</p>
-    <p>Попробовать все инструменты бесплатно: @kitseller_bot. Подписка 990 тенге в месяц.</p>
+    <p>Попробовать все инструменты бесплатно 14 дней: @kitseller_bot. Подписка 990 тенге в месяц.</p>
   </article>
 
 </div>
