@@ -688,6 +688,93 @@ a,button,.clean-btn,.ncta,.btn-r,.btn-o,.lang-btn,.burger,[role="button"]{cursor
   .ctah{font-size:clamp(38px,12vw,64px)!important;line-height:1.04!important}
 }
 
+
+/* === Code/example blocks contrast fix === */
+.fl-result,
+.code-block,
+.codebox,
+.terminal,
+pre,
+code,
+[class*="code"] {
+  background: #0b1220 !important;
+  color: #e6edf3 !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+}
+
+/* comments like // пример */
+.fl-result .muted,
+.fl-result .comment,
+.fl-result .label,
+.codebox .muted,
+.codebox .comment,
+.codebox .label,
+.terminal .muted,
+.terminal .comment,
+.terminal .label,
+pre .muted,
+pre .comment,
+pre .label {
+  color: #8b9bb5 !important;
+}
+
+/* keys: input/output/time/count */
+.fl-result b,
+.fl-result strong,
+.fl-result .key,
+.codebox b,
+.codebox strong,
+.codebox .key,
+.terminal b,
+.terminal strong,
+.terminal .key,
+pre b,
+pre strong,
+pre .key {
+  color: #7dd3fc !important;
+}
+
+/* values */
+.fl-result span,
+.fl-result em,
+.fl-result .value,
+.codebox span,
+.codebox em,
+.codebox .value,
+.terminal span,
+.terminal em,
+.terminal .value,
+pre span,
+pre em,
+pre .value {
+  color: #34d399 !important;
+}
+
+/* plain text inside dark example blocks */
+.fl-result *,
+.codebox *,
+.terminal *,
+pre * {
+  color: inherit;
+}
+
+/* fallback for lines without spans */
+.fl-result,
+.codebox,
+.terminal,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace !important;
+  line-height: 1.7 !important;
+}
+
+/* make arrows/checks readable */
+.fl-result .ok,
+.codebox .ok,
+.terminal .ok,
+pre .ok {
+  color: #22c55e !important;
+}
+
 </style>
 </head>
 <body>
