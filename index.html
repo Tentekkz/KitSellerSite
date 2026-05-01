@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KitSeller — накладные Kaspi за 10 секунд | Аналитика Kaspi Pay в Excel</title>
-<meta name="description" content="Telegram-бот для Kaspi продавцов: накладные ZIP→PDF за 10 секунд, разбивка по товарам, аналитика Kaspi Pay — 10 листов Excel за 30 секунд. Попробовать бесплатно.">
+<meta name="description" content="Telegram-бот для Kaspi продавцов: накладные ZIP→PDF за 10 секунд, разбивка по товарам, аналитика Kaspi Pay — 17 страниц Excel за 30 секунд. Попробовать бесплатно.">
 <meta name="keywords" content="накладные Kaspi, распечатать накладные Kaspi, аналитика Kaspi Pay, калькулятор маржи Kaspi, жүкқұжаттар Kaspi, юнит-экономика Kaspi, инструменты Kaspi продавец">
 <meta name="robots" content="index, follow">
 <meta name="author" content="KitSeller">
 <meta property="og:title" content="KitSeller — накладные и аналитика для Kaspi продавцов">
-<meta property="og:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — 10 листов Excel за 30 секунд. Калькулятор маржи. Без API. Попробовать бесплатно.">
+<meta property="og:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — 17 страниц Excel за 30 секунд. Калькулятор маржи. Без API. Попробовать бесплатно.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://tentekkz.github.io/KitSellerSite/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="KitSeller">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="KitSeller — накладные и аналитика для Kaspi продавцов">
-<meta name="twitter:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — 10 листов Excel за 30 секунд.">
+<meta name="twitter:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — 17 страниц Excel за 30 секунд.">
 <meta name="twitter:image" content="https://tentekkz.github.io/KitSellerSite/og-image.png">
 <script type="application/ld+json">
 {
@@ -34,7 +34,7 @@
   "url": "https://tentekkz.github.io/KitSellerSite",
   "sameAs": ["https://t.me/sellerkit_bot"],
   "provider": {"@type": "Organization", "name": "Path of Peaks", "address": {"@type": "PostalAddress", "addressCountry": "KZ"}},
-  "featureList": ["Накладные ZIP→PDF за 10 секунд","Разбивка накладных по товарам","Сборочный лист Excel","Аналитика Kaspi Pay — 10 листов Excel","Калькулятор маржи с учётом комиссии и ИПН","Курсы НБ РК с уведомлениями","QR-коды для Kaspi магазина"]
+  "featureList": ["Накладные ZIP→PDF за 10 секунд","Разбивка накладных по товарам","Сборочный лист Excel","Аналитика Kaspi Pay — 17 страниц Excel","Калькулятор маржи с учётом комиссии и ИПН","Курсы НБ РК с уведомлениями","QR-коды для Kaspi магазина"]
 }
 </script>
 <link rel="icon" href="kitseller-icon.png">
@@ -810,6 +810,140 @@ footer{background:#fff!important;border-top:1px solid rgba(9,17,31,.08)!importan
   .stats-bar{width:auto!important;margin:-24px 18px 0!important}
 }
 
+
+/* ======================================================
+   KitSeller final polish — 990 ₸ / 14 days / 17 pages
+   ====================================================== */
+
+/* stronger premium hero */
+.hero{
+  padding-top:132px!important;
+  padding-bottom:92px!important;
+}
+.hero-mega,.hero-sub-row,.stripe-hero-visual,.hero-ticker{
+  width:min(1240px,100%)!important;
+}
+.mega-line{
+  font-size:clamp(4.8rem,11.4vw,11.8rem)!important;
+  letter-spacing:-.092em!important;
+}
+.hero-desc{
+  max-width:700px!important;
+}
+.stripe-hero-visual{
+  margin-top:4.3rem!important;
+  grid-template-columns:minmax(0,1.55fr) minmax(260px,.52fr)!important;
+  gap:1.35rem!important;
+}
+.stripe-main-window{
+  transform:scale(1.025);
+  transform-origin:center top;
+  box-shadow:0 46px 130px rgba(9,17,31,.16)!important;
+}
+.stripe-window-body{
+  padding:1.45rem!important;
+  gap:1.15rem!important;
+}
+.stripe-upload-card{
+  min-height:240px!important;
+}
+.stripe-upload-card h3{
+  font-size:2rem!important;
+}
+.stripe-kpi-row{
+  grid-template-columns:repeat(4,1fr)!important;
+}
+.stripe-kpi-row b{
+  font-size:1.35rem!important;
+}
+.stripe-side-card{
+  min-height:210px!important;
+}
+
+/* more expensive depth */
+.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.price-card,.faq-item,.rv-card,.demo-card,.calc-card,.cbox,.pcard,.phone{
+  background:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%)!important;
+  box-shadow:0 22px 68px rgba(9,17,31,.075)!important;
+}
+.flagship-card:hover,.extra-card:hover,.fcard:hover,.fwcard:hover,.ba-col:hover,.price-card:hover,.faq-item:hover{
+  transform:translateY(-7px)!important;
+  box-shadow:0 38px 104px rgba(9,17,31,.115)!important;
+}
+
+/* better section rhythm */
+section:not(.hero){
+  padding-top:122px!important;
+  padding-bottom:122px!important;
+}
+.sec-head{
+  margin-bottom:4rem!important;
+}
+.ba-sec,.pricesec,.demosec{
+  background:
+    radial-gradient(760px 360px at 50% 0%,rgba(14,165,164,.065),transparent 64%),
+    linear-gradient(180deg,#f7fafc,#ffffff)!important;
+}
+
+/* pricing: make 990 / 14 days clear */
+.price-card.popular,.pcard-popular,.popular{
+  transform:scale(1.025);
+  border-color:rgba(14,165,164,.42)!important;
+  box-shadow:0 40px 110px rgba(14,165,164,.16)!important;
+}
+.price-card.popular:hover,.pcard-popular:hover,.popular:hover{
+  transform:scale(1.025) translateY(-7px)!important;
+}
+
+/* final CTA stronger */
+.ctabox{
+  padding:clamp(2.5rem,5vw,5rem)!important;
+  background:
+    radial-gradient(640px 280px at 50% 0%,rgba(14,165,164,.23),transparent 64%),
+    linear-gradient(135deg,#07111f 0%,#0b1625 60%,#07111f 100%)!important;
+}
+.ctabox .ctah{
+  font-size:clamp(2.4rem,6vw,5.4rem)!important;
+  letter-spacing:-.07em!important;
+}
+.ctabox::after{
+  content:"14 дней бесплатно • 990 ₸/мес • 17 страниц Excel";
+  display:block;
+  margin-top:1.2rem;
+  color:rgba(255,255,255,.68);
+  font-weight:800;
+  letter-spacing:.02em;
+}
+
+/* mobile */
+@media(max-width:980px){
+  .stripe-hero-visual{
+    grid-template-columns:1fr!important;
+  }
+  .stripe-main-window{
+    transform:none!important;
+  }
+}
+@media(max-width:640px){
+  .hero{
+    padding-top:102px!important;
+    padding-bottom:66px!important;
+  }
+  .mega-line{
+    font-size:clamp(3.25rem,19vw,5.9rem)!important;
+    line-height:.9!important;
+  }
+  .stripe-kpi-row{
+    grid-template-columns:1fr 1fr!important;
+  }
+  section:not(.hero){
+    padding-top:84px!important;
+    padding-bottom:84px!important;
+  }
+  .price-card.popular,.pcard-popular,.popular{
+    transform:none!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -885,7 +1019,7 @@ footer{background:#fff!important;border-top:1px solid rgba(9,17,31,.08)!importan
 <div class="stats-bar">
   <div class="sbi"><div class="sbn" data-count="10" data-suf=" сек">10 сек</div><div class="sbl" data-i18n="stat1_lbl">Обработка накладных</div></div>
   <div class="sbi"><div class="sbn" data-count="990" data-suf=" ₸">990 ₸</div><div class="sbl" data-i18n="stat2_lbl">В месяц</div></div>
-  <div class="sbi"><div class="sbn" data-count="10" data-suf=" листов">10 листов</div><div class="sbl" data-i18n="stat3_lbl">В каждом отчёте</div></div>
+  <div class="sbi"><div class="sbn" data-count="10" data-suf=" листов">17 страниц</div><div class="sbl" data-i18n="stat3_lbl">В каждом отчёте</div></div>
   <div class="sbi"><div class="sbn">∞</div><div class="sbl" data-i18n="stat4_lbl">Накладных и отчётов</div></div>
 </div>
 
@@ -936,7 +1070,7 @@ footer{background:#fff!important;border-top:1px solid rgba(9,17,31,.08)!importan
         <div class="fl-title" data-i18n="fl2_title">Понятные цифры<br>по бизнесу за 30 сек.</div>
         <p class="fl-desc" data-i18n="fl2_desc">Два файла из Kaspi Pay → готовый детальный отчёт на 10 листах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.</p>
         <ul class="fl-list">
-          <li data-i18n="fl2_li1">2 Excel из Kaspi Pay → 10 листов отчёта</li>
+          <li data-i18n="fl2_li1">2 Excel из Kaspi Pay → 17 страниц отчёта</li>
           <li data-i18n="fl2_li2">Топ товаров, выручка, расходы, маржа</li>
           <li data-i18n="fl2_li3">Динамика по дням, часам и дням недели</li>
           <li data-i18n="fl2_li4">Умные выводы: лучший день, высокий возврат</li>
@@ -945,7 +1079,7 @@ footer{background:#fff!important;border-top:1px solid rgba(9,17,31,.08)!importan
         <div class="fl-result">
           <span style="color:var(--grey2)">// пример</span><br>
           <span style="color:var(--green)">input</span>: <span style="color:var(--snow)">отчёт_продаж.xlsx + выписка.xlsx</span><br>
-          <span style="color:var(--green)">output</span>: <span style="color:var(--snow)">10 листов · 1 243 500 ₸ выручки</span><br>
+          <span style="color:var(--green)">output</span>: <span style="color:var(--snow)">17 страниц · 1 243 500 ₸ выручки</span><br>
           <span style="color:var(--green)">time</span>: <span style="color:var(--snow)">30 сек</span> <span style="color:var(--green)">✓</span>
         </div>
         <div style="margin-top:1.5rem">
@@ -1055,7 +1189,7 @@ footer{background:#fff!important;border-top:1px solid rgba(9,17,31,.08)!importan
         <div class="fc-tag" data-i18n="fc2_tag">Аналитика</div>
         <span class="fc-icon">📊</span>
         <div class="fc-title" data-i18n="fc2_title">Полный отчёт из двух Excel</div>
-        <p class="fc-desc" data-i18n="fc2_desc">Два файла из Kaspi Pay (.xlsx) → детальный отчёт с выручкой, расходами, топ‑товарами и разбивкой по дням. 10+ листов за 30 секунд. Все данные остаются у тебя.</p>
+        <p class="fc-desc" data-i18n="fc2_desc">Два файла из Kaspi Pay (.xlsx) → детальный отчёт с выручкой, расходами, топ‑товарами и разбивкой по дням. 17 страниц за 30 секунд. Все данные остаются у тебя.</p>
       </div>
       <div class="fcard sr d2" id="tilt-2">
         <div class="fcard-glow"></div>
@@ -1238,7 +1372,7 @@ footer{background:#fff!important;border-top:1px solid rgba(9,17,31,.08)!importan
     <div class="sec-head sr">
       <div>
         <div class="stag" data-i18n="an_tag">Аналитика</div>
-        <h2 class="h2" data-i18n="an_h2">10 листов Excel.<br><span class="dim">Все ответы</span><br><span class="acc">за 30 секунд.</span></h2>
+        <h2 class="h2" data-i18n="an_h2">17 страниц Excel.<br><span class="dim">Все ответы</span><br><span class="acc">за 30 секунд.</span></h2>
       </div>
       <p class="sub" style="max-width:380px" data-i18n="an_sub">Загружаешь два файла из Kaspi Pay — получаешь полный отчёт о том что реально происходит в твоём бизнесе.</p>
     </div>
@@ -1265,7 +1399,7 @@ footer{background:#fff!important;border-top:1px solid rgba(9,17,31,.08)!importan
 
     <!-- Sheets grid -->
     <div class="sr" style="margin-bottom:3rem">
-      <div style="font-family:var(--fm);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey2);margin-bottom:1.25rem" data-i18n="an_sheets_lbl">// что внутри Excel — 10 листов</div>
+      <div style="font-family:var(--fm);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey2);margin-bottom:1.25rem" data-i18n="an_sheets_lbl">// что внутри Excel — 17 страниц</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem">
         <div style="background:var(--s2);border:1px solid var(--edge);border-radius:12px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(255,61,0,.3)'" onmouseleave="this.style.borderColor=''">
           <span style="font-size:1.4rem">📊</span>
@@ -1653,7 +1787,7 @@ function getSC(){
       :`🏆 Топ товар: Кошелёк Premium — <strong>98 400 ₸</strong> · 6 шт<br>📅 Лучший день: 14.03 — <strong>138 200 ₸</strong><br>⚠️ Высокий возврат: Рюкзак City Brown (40%)`},
     {t:'bot',x: kz
       ?'📎 Excel дайын — 10 бет: Жиынтық, Топ тауарлар, Күндер, Сағаттар, Апта күндері, Сегменттер, Брендтер, Қайтарулар, Төлем, Барлық операциялар'
-      :'📎 Excel готов — 10 листов: Сводка, Топ товаров, По дням, По часам, Дни недели, Сегменты, Бренды, Возвраты, Оплата, Все операции'},
+      :'📎 Excel готов — 17 страниц: Сводка, Топ товаров, По дням, По часам, Дни недели, Сегменты, Бренды, Возвраты, Оплата, Все операции'},
   ],
   waybills:[
     {t:'usr',x: kz?'ZIP жіберемін — жүкқұжаттар 📎':'Отправляю ZIP с накладными 📎'},
@@ -1790,7 +1924,7 @@ const LANG={
     fc1_tag:'Ключевой инструмент', fc1_title:'Накладные за 10 секунд',
     fc1_desc:'Скидываешь ZIP из Kaspi Магазина — получаешь готовый PDF. Термопринтер, A4, 4 или 9 на листе. Сортировка по товару, по дедлайну или отдельные файлы на каждый товар.<br><br>147 накладных. 9.3 секунды. Раньше уходило 40 минут.',
     fc2_tag:'Аналитика', fc2_title:'Полный отчёт из двух Excel',
-    fc2_desc:'Два файла из Kaspi Pay (.xlsx) → детальный отчёт с выручкой, расходами, топ‑товарами и разбивкой по дням. 10+ листов за 30 секунд. Все данные остаются у тебя.',
+    fc2_desc:'Два файла из Kaspi Pay (.xlsx) → детальный отчёт с выручкой, расходами, топ‑товарами и разбивкой по дням. 17 страниц за 30 секунд. Все данные остаются у тебя.',
     fc3_tag:'Калькулятор', fc3_title:'Точная маржа с первой попытки',
     fc3_desc:'Введи цену и себестоимость — бот покажет чистую прибыль с учётом комиссии Kaspi, ИПН и стоимости доставки. Больше не угадываешь — знаешь точно.',
     fc4_tag:'✦ Уникальная функция — нигде больше нет', fc4_title:'Разбивка по товарам + Сборочный лист',
@@ -1821,7 +1955,7 @@ const LANG={
     fl1_cta:'Сделать накладные за 10 секунд →',
     fl2_tag:'// Excel-аналитика', fl2_title:'Понятные цифры<br>по бизнесу за 30 сек.',
     fl2_desc:'Два файла из Kaspi Pay → готовый детальный отчёт на 10 листах Excel. Выручка, расходы, топ товаров, динамика, пики продаж. Наконец знаешь что происходит в бизнесе — без ручной работы.',
-    fl2_li1:'2 Excel из Kaspi Pay → 10 листов отчёта', fl2_li2:'Топ товаров, выручка, расходы, маржа',
+    fl2_li1:'2 Excel из Kaspi Pay → 17 страниц отчёта', fl2_li2:'Топ товаров, выручка, расходы, маржа',
     fl2_li3:'Динамика по дням, часам и дням недели', fl2_li4:'Умные выводы: лучший день, высокий возврат',
     fl2_li5:'Сравнение двух периодов между собой', fl2_cta:'Получить отчёт из Kaspi Pay →',
     // Before/After
@@ -1859,7 +1993,7 @@ const LANG={
     demo_t3:'Калькулятор', demo_h3:'Юнит-экономика за 3 шага',
     demo_t4:'Курсы валют', demo_h4:'Нацбанк + конвертация',
     an_tag:'Аналитика',
-    an_h2:'10 листов Excel.<br><span class="dim">Все ответы</span><br><span class="acc">за 30 секунд.</span>',
+    an_h2:'17 страниц Excel.<br><span class="dim">Все ответы</span><br><span class="acc">за 30 секунд.</span>',
     an_sub:'Загружаешь два файла из Kaspi Pay — получаешь полный отчёт о том что реально происходит в твоём бизнесе.',
     price_tag:'Тарифы',
     price_h2:'Один тариф.<br><span class="dim">Без скрытых</span><br><span class="acc">условий.</span>',
@@ -1905,7 +2039,7 @@ const LANG={
     p2_li7:'Новые функции без доплаты', p2_li8:'Возврат в течение 3 дней',
     // Analytics KPIs
     an_kpi1:'Выручка', an_kpi2:'Заказов', an_kpi3:'Средний чек', an_kpi4:'Прибыль до COGS',
-    an_sheets_lbl:'// что внутри Excel — 10 листов',
+    an_sheets_lbl:'// что внутри Excel — 17 страниц',
     sh1_n:'Сводка', sh1_d:'Выручка, расходы, прибыль — полный P&L',
     sh2_n:'Топ товаров', sh2_d:'Рейтинг по выручке, доля, возврат %',
     sh3_n:'По дням', sh3_d:'Динамика выручки каждый день месяца',
@@ -1941,15 +2075,15 @@ const LANG={
     pay1:'Kaspi Gold', pay2:'Кредит на Покупки', pay3:'Kaspi Red',
     buyer_note:'27.3% — кредитные покупки. Аудитория покупает в рассрочку.',
     scramble_word:'умнее',
-    ticker:['Накладные ZIP → PDF за 10 сек','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','10 листов за 30 сек','Порядок на упаковке','Понятные цифры бизнеса','Без API ключей','Сравнение периодов','Мгновенный доступ','Попробовать бесплатно'],
-    ticker:['Накладные ZIP → PDF','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','10 листов за 30 сек','Юнит-экономика','CNY · USD · EUR · RUB','QR-коды для магазина','Сравнение периодов','Без API ключей','Мгновенный доступ'],
+    ticker:['Накладные ZIP → PDF за 10 сек','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','17 страниц за 30 сек','Порядок на упаковке','Понятные цифры бизнеса','Без API ключей','Сравнение периодов','Мгновенный доступ','Попробовать бесплатно'],
+    ticker:['Накладные ZIP → PDF','Разбивка по товарам','Сборочный лист Excel','Аналитика Kaspi Pay','17 страниц за 30 сек','Юнит-экономика','CNY · USD · EUR · RUB','QR-коды для магазина','Сравнение периодов','Без API ключей','Мгновенный доступ'],
   },
   kz:{
     nav_features:'Құралдар', nav_analytics:'Аналитика', nav_forwho:'Кімге арналған',
     nav_pricing:'Тарифтер', nav_cta:'Тегін көру →', mob_open:'Ботты ашу →',
     badge_free:'ТЕГІН<br>БАЙҚАП КӨР',
     hero_line1:'Kaspi', hero_line2:'Tools',
-    hero_desc:'Бір Telegram-бот сағаттар бойғы қолмен жұмысты алмастырады.<br><strong>Жүкқұжаттар, аналитика, калькулятор</strong> — секундтар ішінде.<br>Тауарлар бойынша бөлу, жинақ тізімі, 10 Excel парағы.<br>API керек емес. Файлды жібер — нәтижені ал.',
+    hero_desc:'Бір Telegram-бот сағаттар бойғы қолмен жұмысты алмастырады.<br><strong>Жүкқұжаттар, аналитика, калькулятор</strong> — секундтар ішінде.<br>Тауарлар бойынша бөлу, жинақ тізімі, 17 страниц Excel парағы.<br>API керек емес. Файлды жібер — нәтижені ал.',
     hero_btn:'Тегін бастау', hero_btn2:'Қарау ↓',
     stat1_lbl:'Жүкқұжат өңдеу', stat2_lbl:'Айына', stat3_lbl:'Әр есепте', stat4_lbl:'Жүкқұжат және есептер',
     feat_tag:'Құралдар',
@@ -1990,7 +2124,7 @@ const LANG={
     demo_t3:'Калькулятор', demo_h3:'3 қадамда юнит-экономика',
     demo_t4:'Валюта бағамы', demo_h4:'Ұлттық банк + конвертация',
     an_tag:'Аналитика',
-    an_h2:'10 Excel парағы.<br><span class="dim">Барлық жауап</span><br><span class="acc">30 секундта.</span>',
+    an_h2:'17 страниц Excel парағы.<br><span class="dim">Барлық жауап</span><br><span class="acc">30 секундта.</span>',
     an_sub:'Kaspi Pay-дан екі файл жүктейсің — бизнесіңде нақты не болып жатқаны туралы толық есеп аласың.',
     price_tag:'Тарифтер',
     price_h2:'Бір тариф.<br><span class="dim">Жасырын шарт</span><br><span class="acc">жоқ.</span>',
@@ -2126,7 +2260,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
     <h2>Разбивка по товарам и сборочный лист — уникальная функция</h2>
     <p>Режим "По товарам": каждый товар получает отдельный PDF-файл плюс сборочный лист Excel с количеством. Нигде больше нет такой функции. При 10 и более позиций экономит ещё 20–30 минут каждый день.</p>
     <p>Реальный результат: 47 накладных за 12 секунд вместо 40 минут вручную.</p>
-    <p>Попробовать бесплатно: @sellerkit_bot. Подписка 2 990 тенге в месяц.</p>
+    <p>Попробовать бесплатно: @sellerkit_bot. Подписка 990 тенге в месяц.</p>
   </article>
 
   <!-- СТАТЬЯ 2 -->
@@ -2141,7 +2275,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
       <li>Нажмите Отчёт по продажам — скачайте за нужный период</li>
       <li>Там же нажмите Выписка — скачайте за тот же период</li>
     </ol>
-    <h2>Что входит в отчёт — 10 листов Excel</h2>
+    <h2>Что входит в отчёт — 17 страниц Excel</h2>
     <p>Бот @sellerkit_bot обрабатывает оба файла и создаёт Excel с 10 листами: Сводка (P&L), Топ товаров, По дням, По часам, Дни недели, Ценовые сегменты, Бренды, Возвраты, Способы оплаты, Все операции. Первый отчёт бесплатно на @sellerkit_bot.</p>
     <h2>Аналитика Kaspi Pay — умные выводы</h2>
     <p>После анализа бот показывает: лучший день за период, товары с высоким процентом возвратов, лучший день недели, пиковые часы покупок. Можно сравнить два периода между собой.</p>
@@ -2179,10 +2313,10 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
     <h2>Автоматизация накладных Kaspi</h2>
     <p>KitSeller — Telegram-бот который принимает ZIP с накладными и выдаёт готовый PDF за 10 секунд. Разбивка по товарам, сборочный лист Excel. Нигде больше нет.</p>
     <h2>Аналитика продаж Kaspi</h2>
-    <p>Два файла из Kaspi Pay превращаются в 10 листов Excel с полной аналитикой: выручка, топ товары, маржа, дни, часы, возвраты, способы оплаты. За 30 секунд.</p>
+    <p>Два файла из Kaspi Pay превращаются в 17 страниц Excel с полной аналитикой: выручка, топ товары, маржа, дни, часы, возвраты, способы оплаты. За 30 секунд.</p>
     <h2>Курс CNY тенге НБ РК</h2>
     <p>Актуальный курс китайского юаня CNY к тенге по данным Национального банка РК. Плюс курсы USD, EUR, RUB. Уведомления об изменении курса. Доступно в @sellerkit_bot бесплатно.</p>
-    <p>Попробовать все инструменты бесплатно: @sellerkit_bot. Подписка 2 990 тенге в месяц.</p>
+    <p>Попробовать все инструменты бесплатно: @sellerkit_bot. Подписка 990 тенге в месяц.</p>
   </article>
 
 </div>
