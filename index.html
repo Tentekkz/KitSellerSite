@@ -8,12 +8,10 @@
 <meta name="keywords" content="накладные Kaspi, распечатать накладные Kaspi, аналитика Kaspi Pay, калькулятор маржи Kaspi, жүкқұжаттар Kaspi, юнит-экономика Kaspi, инструменты Kaspi продавец">
 <meta name="robots" content="index, follow">
 <meta name="author" content="KitSeller">
-
 <meta property="og:title" content="KitSeller — накладные и аналитика для Kaspi продавцов">
 <meta property="og:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — 10 листов Excel за 30 секунд. Калькулятор маржи. Без API. Попробовать бесплатно.">
 <meta property="og:type" content="website">
-
-<meta property="og:image" content="https://tentekkz.github.io/KitSellerSite/og-image.png">
+<meta property="og:image" content="https://kitseller.kz/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ru_KZ">
@@ -22,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="KitSeller — накладные и аналитика для Kaspi продавцов">
 <meta name="twitter:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — 10 листов Excel за 30 секунд.">
-<meta name="twitter:image" content="https://tentekkz.github.io/KitSellerSite/og-image.png">
+<meta name="twitter:image" content="https://kitseller.kz/og-image.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -33,7 +31,7 @@
   "operatingSystem": "Telegram",
   "inLanguage": ["ru", "kk"],
   "offers": {"@type": "Offer", "price": "2990", "priceCurrency": "KZT"},
-  "url": "https://tentekkz.github.io/KitSellerSite",
+  "url": "https://kitseller.kz",
   "sameAs": ["https://t.me/sellerkit_bot"],
   "provider": {"@type": "Organization", "name": "Path of Peaks", "address": {"@type": "PostalAddress", "addressCountry": "KZ"}},
   "featureList": ["Накладные ZIP→PDF за 10 секунд","Разбивка накладных по товарам","Сборочный лист Excel","Аналитика Kaspi Pay — 10 листов Excel","Калькулятор маржи с учётом комиссии и ИПН","Курсы НБ РК с уведомлениями","QR-коды для Kaspi магазина"]
@@ -540,100 +538,158 @@ footer{border-top:1px solid var(--edge);padding:2.5rem clamp(1.5rem,4vw,3rem);di
   #analytics .secin > .sr[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr!important}
   #analytics .secin > .sr[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
 }
-</style>
 
-<style id="kitseller-white-premium">
+/* === KitSeller clean white premium redesign === */
 :root{
-  --ks-bg:#ffffff;
-  --ks-soft:#f7f8fa;
-  --ks-card:#ffffff;
-  --ks-text:#111827;
-  --ks-muted:#6b7280;
-  --ks-line:#e5e7eb;
-  --ks-accent:#0ea5a4;
-  --ks-accent-dark:#0f766e;
-  --ks-black:#0b0f14;
+  --void:#ffffff!important;
+  --s1:#ffffff!important;
+  --s2:#f8fafc!important;
+  --edge:rgba(15,23,42,.10)!important;
+  --edge2:rgba(15,23,42,.16)!important;
+  --r:#0ea5a4!important;
+  --r2:#0f766e!important;
+  --snow:#0f172a!important;
+  --grey:#64748b!important;
+  --grey2:#94a3b8!important;
+  --green:#0ea5a4!important;
 }
-*{box-sizing:border-box}
-html{background:var(--ks-bg)!important;scroll-behavior:smooth}
+html,body{background:#fff!important;color:#0f172a!important;cursor:auto!important;}
 body{
   background:
-    radial-gradient(circle at 20% 0%, rgba(14,165,164,.09), transparent 34%),
-    radial-gradient(circle at 90% 8%, rgba(14,165,164,.06), transparent 26%),
-    linear-gradient(180deg,#fff 0%,#f8fafc 100%)!important;
-  color:var(--ks-text)!important;
+    radial-gradient(circle at 16% 0%, rgba(14,165,164,.12), transparent 30%),
+    linear-gradient(180deg,#ffffff 0%,#f8fafc 58%,#ffffff 100%)!important;
 }
-body::before, body::after, .noise, .grain, .grid, .bg, .particles, .glow, .orb{opacity:.08!important}
-a{color:inherit}
-header, nav, .navbar, .nav, .topbar{
-  background:rgba(255,255,255,.84)!important;
-  backdrop-filter: blur(16px)!important;
-  -webkit-backdrop-filter: blur(16px)!important;
-  border-bottom:1px solid var(--ks-line)!important;
-  box-shadow:0 8px 30px rgba(15,23,42,.04)!important;
+#cur,#bg-canvas,.grain{display:none!important}
+a,button,.magnetic,.flagship-card,.extra-card{cursor:pointer!important}
+
+/* Navigation */
+nav{
+  background:rgba(255,255,255,.88)!important;
+  backdrop-filter:blur(18px)!important;
+  border-bottom:1px solid rgba(15,23,42,.08)!important;
+  box-shadow:0 8px 28px rgba(15,23,42,.04)!important;
 }
+nav.s{background:rgba(255,255,255,.94)!important;border-color:rgba(15,23,42,.10)!important}
 .brand-logo{height:34px;width:auto;display:block}
 .footer-logo{height:34px;width:auto;display:block}
-.nlogo,.logo,.brand,.flogo{color:var(--ks-text)!important}
-.nmark,.fmk{
-  background:var(--ks-text)!important;
+.nlinks a,.mob a{color:#64748b!important}
+.nlinks a:hover,.mob a:hover{color:#0f172a!important}
+.nlinks a::after{background:#0ea5a4!important}
+.lang-sw{background:#f8fafc!important;border:1px solid rgba(15,23,42,.10)!important}
+.lang-btn{color:#64748b!important}
+.lang-btn.active{background:#0f172a!important;color:#fff!important}
+.ncta,.btn-r{
+  background:#0f172a!important;
   color:#fff!important;
-  border-radius:10px!important;
-}
-button,.btn,.button,.cta,a[class*="btn"],a[class*="cta"]{
+  border:1px solid #0f172a!important;
+  box-shadow:0 14px 34px rgba(15,23,42,.14)!important;
   border-radius:14px!important;
-  transition:all .22s ease!important;
 }
-.btn-primary,.primary,.cta-primary,a[href*="t.me"], .nav a[href*="t.me"], .navbar a[href*="t.me"]{
-  background:var(--ks-black)!important;
-  color:#fff!important;
-  border:1px solid var(--ks-black)!important;
-  box-shadow:0 12px 30px rgba(15,23,42,.12)!important;
+.ncta:hover,.btn-r:hover{background:#0ea5a4!important;border-color:#0ea5a4!important;box-shadow:0 16px 40px rgba(14,165,164,.22)!important}
+.btn-o{
+  background:#fff!important;
+  color:#0f172a!important;
+  border:1px solid rgba(15,23,42,.12)!important;
+  border-radius:14px!important;
 }
-.btn-primary:hover,.primary:hover,.cta-primary:hover,a[href*="t.me"]:hover{
-  background:var(--ks-accent)!important;
-  border-color:var(--ks-accent)!important;
-  box-shadow:0 16px 36px rgba(14,165,164,.22)!important;
-  transform:translateY(-1px);
+.btn-o:hover{border-color:rgba(14,165,164,.4)!important;color:#0f766e!important}
+.burger span{background:#0f172a!important}
+.mob{background:rgba(255,255,255,.98)!important;border-bottom:1px solid rgba(15,23,42,.08)!important}
+
+/* Hero */
+.hero{min-height:auto!important;padding-top:116px!important;background:transparent!important}
+.hero-mega{padding-top:20px!important}
+.mega-line{
+  color:#0f172a!important;
+  font-size:clamp(3.8rem,12vw,13rem)!important;
+  line-height:.88!important;
+  letter-spacing:-.07em!important;
 }
-.card,.feature,.pricing,.price,.faq-item,.product-card,.glass,.panel,section [class*="card"],section [class*="box"]{
-  background:rgba(255,255,255,.86)!important;
-  color:var(--ks-text)!important;
-  border:1px solid var(--ks-line)!important;
+.mega-line .outline{
+  color:#0f172a!important;
+  -webkit-text-stroke:0!important;
+  opacity:.18!important;
+}
+.mega-line .red,.mega-line .ghost{color:#0ea5a4!important;-webkit-text-stroke:0!important}
+.hero-desc,.fl-desc,.extra-desc,.sbl,.sec-kicker,.fc-desc,.fwcopy,.calc-desc,.rv-desc,.faq-a,.fcopy,.pnote,.pfeat,.stat-label{color:#64748b!important}
+.hero-desc strong{color:#0f172a!important}
+.hero-pill{
+  background:#fff!important;
+  border:1px solid rgba(15,23,42,.10)!important;
+  color:#475569!important;
+  box-shadow:0 10px 30px rgba(15,23,42,.04)!important;
+}
+.hero-pill:hover{border-color:rgba(14,165,164,.35)!important;color:#0f766e!important}
+.hero-ticker{border-color:rgba(15,23,42,.08)!important}
+.hti{color:#94a3b8!important}
+.hti .sep{color:#0ea5a4!important}
+
+/* Sections */
+.flagship-sec,.extra-sec,.calcsec,.faqsec,.pricesec,.ctasec,.rvsec,.demosec,.featsec,.fwsec,.ba-sec{
+  background:transparent!important;
+}
+.ba-sec,.pricesec,.demosec{background:#f8fafc!important}
+.sec-head::before,.sec-head::after{background:#0ea5a4!important;opacity:.32!important}
+.sec-kicker,.fl-tag,.stag{color:#0f766e!important}
+.h2,.fl-title,.extra-title,.fwtitle,.fc-title,.ctah,.rv-title,.pamount,.sbn,.faq-q,.calc-title{
+  color:#0f172a!important;
+}
+.h2 .red,.ctah .red,.fc-title .red,.fwtitle .red,.mega-line .red{color:#0ea5a4!important}
+
+/* Cards */
+.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.price-card,.faq-item,.rv-card,.demo-card,.calc-card,.stats-bar,.cbox,.panel{
+  background:rgba(255,255,255,.92)!important;
+  border:1px solid rgba(15,23,42,.10)!important;
   box-shadow:0 18px 55px rgba(15,23,42,.06)!important;
-  border-radius:22px!important;
+  color:#0f172a!important;
 }
-.card:hover,.feature:hover,.product-card:hover,.panel:hover{
+.flagship-card.fc-waybills,.flagship-card.fc-analytics,.ba-col.after{
+  background:linear-gradient(145deg, rgba(14,165,164,.06), rgba(255,255,255,.94))!important;
+  border-color:rgba(14,165,164,.22)!important;
+}
+.flagship-card:hover,.extra-card:hover,.fcard:hover,.fwcard:hover,.price-card:hover,.faq-item:hover{
   border-color:rgba(14,165,164,.32)!important;
-  box-shadow:0 24px 70px rgba(15,23,42,.08)!important;
+  box-shadow:0 24px 70px rgba(15,23,42,.09)!important;
 }
-h1,h2,h3,h4,.title,.headline{color:var(--ks-text)!important}
-p,li,.muted,.subtitle,.desc,.text-muted{color:var(--ks-muted)!important}
-.badge,.tag,.label,[class*="badge"],[class*="tag"]{
+.fl-num{color:rgba(15,23,42,.045)!important}
+.fl-tag.t-r,.fl-tag.t-g,.stag{
   background:rgba(14,165,164,.08)!important;
-  color:var(--ks-accent-dark)!important;
-  border:1px solid rgba(14,165,164,.18)!important;
+  border-color:rgba(14,165,164,.18)!important;
 }
-pre,code,.terminal,.code,.codebox,[class*="code"]{
+.fl-list li,.ba-item,.ftext,.fwtext,.faq-a{color:#64748b!important}
+.fl-list li::before,.ba-col.after .ba-item::before{color:#0ea5a4!important}
+.ba-col.before .ba-item::before{color:#ef4444!important}
+.ba-arrow{background:#0ea5a4!important;box-shadow:0 0 30px rgba(14,165,164,.25)!important;color:#fff!important}
+
+/* Keep product/code previews dark for contrast */
+.fl-result,pre,code,.code,.terminal,.demo-code,.pterminal,.calc-code,.codebox,.outbox,[class*="code"]{
   background:#0b0f14!important;
   color:#e5e7eb!important;
-  border-color:rgba(255,255,255,.08)!important;
+  border:1px solid rgba(255,255,255,.08)!important;
   box-shadow:0 22px 50px rgba(15,23,42,.18)!important;
 }
-input,textarea,select{
-  background:#fff!important;
-  color:var(--ks-text)!important;
-  border:1px solid var(--ks-line)!important;
-}
-.accent,.active,[aria-current="page"]{color:var(--ks-accent)!important}
-footer{
-  background:#f8fafc!important;
-  color:var(--ks-text)!important;
-  border-top:1px solid var(--ks-line)!important;
-}
-::selection{background:rgba(14,165,164,.22)}
-</style>
+.fl-result b,.code b{color:#0ea5a4!important}
 
+/* Pricing/accent */
+.pcard-popular,.popular,.price-card.popular{
+  border-color:rgba(14,165,164,.35)!important;
+  box-shadow:0 24px 80px rgba(14,165,164,.14)!important;
+}
+.pbadge,.badge,.tag{background:#ecfeff!important;color:#0f766e!important;border:1px solid rgba(14,165,164,.22)!important}
+
+/* Footer */
+footer{background:#fff!important;border-top:1px solid rgba(15,23,42,.08)!important;color:#0f172a!important}
+.flinks a{color:#64748b!important}
+.flinks a:hover{color:#0f766e!important}
+
+@media(max-width:760px){
+  .hero{padding-top:96px!important}
+  .mega-line{font-size:clamp(3.2rem,18vw,6rem)!important}
+  .hero-sub-row{padding-top:1.25rem!important}
+  .flagship-card,.ba-col{padding:1.5rem!important}
+}
+
+</style>
 </head>
 <body>
 
@@ -643,7 +699,7 @@ footer{
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nlogo"><img src="assets/kitseller-logo-black.png" alt="KitSeller" class="brand-logo"></a>
+  <a href="#" class="nlogo"><img src="assets/kitseller-logo.png" alt="KitSeller" class="brand-logo"></a>
   <ul class="nlinks">
     <li><a href="#products" data-i18n="nav_products">Продукты</a></li>
     <li><a href="#forwho" data-i18n="nav_forwho">Для кого</a></li>
@@ -708,7 +764,7 @@ footer{
 <!-- STATS BAR -->
 <div class="stats-bar">
   <div class="sbi"><div class="sbn" data-count="10" data-suf=" сек">10 сек</div><div class="sbl" data-i18n="stat1_lbl">Обработка накладных</div></div>
-  <div class="sbi"><div class="sbn" data-count="2990" data-suf=" ₸">990 ₸</div><div class="sbl" data-i18n="stat2_lbl">В месяц</div></div>
+  <div class="sbi"><div class="sbn" data-count="990" data-suf=" ₸">990 ₸</div><div class="sbl" data-i18n="stat2_lbl">В месяц</div></div>
   <div class="sbi"><div class="sbn" data-count="10" data-suf=" листов">10 листов</div><div class="sbl" data-i18n="stat3_lbl">В каждом отчёте</div></div>
   <div class="sbi"><div class="sbn">∞</div><div class="sbl" data-i18n="stat4_lbl">Накладных и отчётов</div></div>
 </div>
@@ -968,7 +1024,7 @@ footer{
           <p class="fws-l" data-i18n="fws1">Столько тратят продавцы на ручную обработку накладных в день при 30+ заказах. Каждый день.</p>
         </div>
         <div class="fw-stat">
-          <div class="fws-n" data-count="2990" data-suf=" ₸">990 ₸</div>
+          <div class="fws-n" data-count="990" data-suf=" ₸">990 ₸</div>
           <p class="fws-l" data-i18n="fws2">В месяц. Меньше стакана кофе в день. При 20 заказах окупается за первые два рабочих дня.</p>
         </div>
         <div class="fw-stat" style="background:rgba(255,61,0,.06);border-color:rgba(255,61,0,.2)">
@@ -1306,7 +1362,7 @@ footer{
 </section>
 
 <footer>
-  <div><div class="flogo"><img src="assets/kitseller-logo-black.png" alt="KitSeller" class="footer-logo"></div><p class="fcopy" data-i18n="footer_copy">© 2026 Path of Peaks · Казахстан</p></div>
+  <div><div class="flogo"><img src="assets/kitseller-logo.png" alt="KitSeller" class="footer-logo"></div><p class="fcopy" data-i18n="footer_copy">© 2026 Path of Peaks · Казахстан</p></div>
   <ul class="flinks"><li><a href="https://t.me/sellerkit_bot" data-i18n="footer_bot">Бот</a></li><li><a href="https://t.me/sellerkit_bot" data-i18n="footer_support">Поддержка</a></li><li><a href="#faq">FAQ</a></li><li><a href="#pricing" data-i18n="nav_pricing">Тарифы</a></li><li><a href="/offer.html">Оферта</a></li><li><a href="/privacy.html">Конфиденциальность</a></li></ul>
 </footer>
 
@@ -1935,7 +1991,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
 
   <!-- СТАТЬЯ 1 -->
   <article id="article-nakladnye" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://tentekkz.github.io/KitSellerSite/#article-nakladnye">
+    <meta itemprop="url" content="https://kitseller.kz/#article-nakladnye">
     <h1 itemprop="headline">Как распечатать накладные Kaspi автоматически — за 10 секунд</h1>
     <p>Если вы продаёте на Kaspi и каждое утро тратите 30–40 минут на накладные вручную — эта инструкция для вас. Расскажу как сократить это время до 10 секунд.</p>
     <h2>Как скачать ZIP с накладными из Kaspi Магазина</h2>
@@ -1955,7 +2011,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
 
   <!-- СТАТЬЯ 2 -->
   <article id="article-analitika" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://tentekkz.github.io/KitSellerSite/#article-analitika">
+    <meta itemprop="url" content="https://kitseller.kz/#article-analitika">
     <h1 itemprop="headline">Аналитика Kaspi Pay в Excel за 30 секунд — полный отчёт о продажах</h1>
     <p>Вы знаете в какой день недели у вас больше всего продаж? Какой товар приносит 40 процентов выручки? Расскажу как получить полную аналитику из Kaspi Pay за 30 секунд.</p>
     <h2>Где найти файлы для аналитики в Kaspi Pay</h2>
@@ -1973,7 +2029,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
 
   <!-- СТАТЬЯ 3 -->
   <article id="article-marzha" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://tentekkz.github.io/KitSellerSite/#article-marzha">
+    <meta itemprop="url" content="https://kitseller.kz/#article-marzha">
     <h1 itemprop="headline">Как рассчитать маржу на Kaspi — комиссия 15%, ИПН 3%, формула</h1>
     <p>Многие Kaspi-продавцы выставляют цену на глаз и потом работают в минус. Разберём точную формулу расчёта маржи для Kaspi продавца.</p>
     <h2>Что удерживает Kaspi из ваших продаж</h2>
@@ -1986,7 +2042,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
 
   <!-- СТАТЬЯ 4 -->
   <article id="article-unit" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://tentekkz.github.io/KitSellerSite/#article-unit">
+    <meta itemprop="url" content="https://kitseller.kz/#article-unit">
     <h1 itemprop="headline">Юнит-экономика для Kaspi продавца — как перестать работать в убыток</h1>
     <p>Многие Kaspi-продавцы видят что оборот растёт, а денег на счету не прибавляется. Причина — нет понимания юнит-экономики. Разберём что это и как применить.</p>
     <h2>Что такое юнит-экономика для Kaspi</h2>
@@ -1997,7 +2053,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
 
   <!-- СТАТЬЯ 5 -->
   <article id="article-instrumenty" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://tentekkz.github.io/KitSellerSite/#article-instrumenty">
+    <meta itemprop="url" content="https://kitseller.kz/#article-instrumenty">
     <h1 itemprop="headline">Инструменты для Kaspi продавца 2025 — полный список сервисов</h1>
     <p>Продавцы которые автоматизируют рутину и принимают решения на основе данных выигрывают у тех кто всё делает вручную. Лучший инструмент для Kaspi продавца — @sellerkit_bot.</p>
     <h2>Автоматизация накладных Kaspi</h2>

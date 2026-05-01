@@ -45,104 +45,162 @@ footer{border-top:1px solid var(--edge);padding:2rem clamp(1.5rem,4vw,3rem);disp
 .flinks a{font-size:.75rem;color:var(--grey);transition:color .2s}
 .flinks a:hover{color:var(--snow)}
 @media(max-width:600px){.req-row{flex-direction:column;gap:.2rem}footer{flex-direction:column;align-items:flex-start}}
-</style>
 
-<style id="kitseller-white-premium">
+/* === KitSeller clean white premium redesign === */
 :root{
-  --ks-bg:#ffffff;
-  --ks-soft:#f7f8fa;
-  --ks-card:#ffffff;
-  --ks-text:#111827;
-  --ks-muted:#6b7280;
-  --ks-line:#e5e7eb;
-  --ks-accent:#0ea5a4;
-  --ks-accent-dark:#0f766e;
-  --ks-black:#0b0f14;
+  --void:#ffffff!important;
+  --s1:#ffffff!important;
+  --s2:#f8fafc!important;
+  --edge:rgba(15,23,42,.10)!important;
+  --edge2:rgba(15,23,42,.16)!important;
+  --r:#0ea5a4!important;
+  --r2:#0f766e!important;
+  --snow:#0f172a!important;
+  --grey:#64748b!important;
+  --grey2:#94a3b8!important;
+  --green:#0ea5a4!important;
 }
-*{box-sizing:border-box}
-html{background:var(--ks-bg)!important;scroll-behavior:smooth}
+html,body{background:#fff!important;color:#0f172a!important;cursor:auto!important;}
 body{
   background:
-    radial-gradient(circle at 20% 0%, rgba(14,165,164,.09), transparent 34%),
-    radial-gradient(circle at 90% 8%, rgba(14,165,164,.06), transparent 26%),
-    linear-gradient(180deg,#fff 0%,#f8fafc 100%)!important;
-  color:var(--ks-text)!important;
+    radial-gradient(circle at 16% 0%, rgba(14,165,164,.12), transparent 30%),
+    linear-gradient(180deg,#ffffff 0%,#f8fafc 58%,#ffffff 100%)!important;
 }
-body::before, body::after, .noise, .grain, .grid, .bg, .particles, .glow, .orb{opacity:.08!important}
-a{color:inherit}
-header, nav, .navbar, .nav, .topbar{
-  background:rgba(255,255,255,.84)!important;
-  backdrop-filter: blur(16px)!important;
-  -webkit-backdrop-filter: blur(16px)!important;
-  border-bottom:1px solid var(--ks-line)!important;
-  box-shadow:0 8px 30px rgba(15,23,42,.04)!important;
+#cur,#bg-canvas,.grain{display:none!important}
+a,button,.magnetic,.flagship-card,.extra-card{cursor:pointer!important}
+
+/* Navigation */
+nav{
+  background:rgba(255,255,255,.88)!important;
+  backdrop-filter:blur(18px)!important;
+  border-bottom:1px solid rgba(15,23,42,.08)!important;
+  box-shadow:0 8px 28px rgba(15,23,42,.04)!important;
 }
+nav.s{background:rgba(255,255,255,.94)!important;border-color:rgba(15,23,42,.10)!important}
 .brand-logo{height:34px;width:auto;display:block}
 .footer-logo{height:34px;width:auto;display:block}
-.nlogo,.logo,.brand,.flogo{color:var(--ks-text)!important}
-.nmark,.fmk{
-  background:var(--ks-text)!important;
+.nlinks a,.mob a{color:#64748b!important}
+.nlinks a:hover,.mob a:hover{color:#0f172a!important}
+.nlinks a::after{background:#0ea5a4!important}
+.lang-sw{background:#f8fafc!important;border:1px solid rgba(15,23,42,.10)!important}
+.lang-btn{color:#64748b!important}
+.lang-btn.active{background:#0f172a!important;color:#fff!important}
+.ncta,.btn-r{
+  background:#0f172a!important;
   color:#fff!important;
-  border-radius:10px!important;
-}
-button,.btn,.button,.cta,a[class*="btn"],a[class*="cta"]{
+  border:1px solid #0f172a!important;
+  box-shadow:0 14px 34px rgba(15,23,42,.14)!important;
   border-radius:14px!important;
-  transition:all .22s ease!important;
 }
-.btn-primary,.primary,.cta-primary,a[href*="t.me"], .nav a[href*="t.me"], .navbar a[href*="t.me"]{
-  background:var(--ks-black)!important;
-  color:#fff!important;
-  border:1px solid var(--ks-black)!important;
-  box-shadow:0 12px 30px rgba(15,23,42,.12)!important;
+.ncta:hover,.btn-r:hover{background:#0ea5a4!important;border-color:#0ea5a4!important;box-shadow:0 16px 40px rgba(14,165,164,.22)!important}
+.btn-o{
+  background:#fff!important;
+  color:#0f172a!important;
+  border:1px solid rgba(15,23,42,.12)!important;
+  border-radius:14px!important;
 }
-.btn-primary:hover,.primary:hover,.cta-primary:hover,a[href*="t.me"]:hover{
-  background:var(--ks-accent)!important;
-  border-color:var(--ks-accent)!important;
-  box-shadow:0 16px 36px rgba(14,165,164,.22)!important;
-  transform:translateY(-1px);
+.btn-o:hover{border-color:rgba(14,165,164,.4)!important;color:#0f766e!important}
+.burger span{background:#0f172a!important}
+.mob{background:rgba(255,255,255,.98)!important;border-bottom:1px solid rgba(15,23,42,.08)!important}
+
+/* Hero */
+.hero{min-height:auto!important;padding-top:116px!important;background:transparent!important}
+.hero-mega{padding-top:20px!important}
+.mega-line{
+  color:#0f172a!important;
+  font-size:clamp(3.8rem,12vw,13rem)!important;
+  line-height:.88!important;
+  letter-spacing:-.07em!important;
 }
-.card,.feature,.pricing,.price,.faq-item,.product-card,.glass,.panel,section [class*="card"],section [class*="box"]{
-  background:rgba(255,255,255,.86)!important;
-  color:var(--ks-text)!important;
-  border:1px solid var(--ks-line)!important;
+.mega-line .outline{
+  color:#0f172a!important;
+  -webkit-text-stroke:0!important;
+  opacity:.18!important;
+}
+.mega-line .red,.mega-line .ghost{color:#0ea5a4!important;-webkit-text-stroke:0!important}
+.hero-desc,.fl-desc,.extra-desc,.sbl,.sec-kicker,.fc-desc,.fwcopy,.calc-desc,.rv-desc,.faq-a,.fcopy,.pnote,.pfeat,.stat-label{color:#64748b!important}
+.hero-desc strong{color:#0f172a!important}
+.hero-pill{
+  background:#fff!important;
+  border:1px solid rgba(15,23,42,.10)!important;
+  color:#475569!important;
+  box-shadow:0 10px 30px rgba(15,23,42,.04)!important;
+}
+.hero-pill:hover{border-color:rgba(14,165,164,.35)!important;color:#0f766e!important}
+.hero-ticker{border-color:rgba(15,23,42,.08)!important}
+.hti{color:#94a3b8!important}
+.hti .sep{color:#0ea5a4!important}
+
+/* Sections */
+.flagship-sec,.extra-sec,.calcsec,.faqsec,.pricesec,.ctasec,.rvsec,.demosec,.featsec,.fwsec,.ba-sec{
+  background:transparent!important;
+}
+.ba-sec,.pricesec,.demosec{background:#f8fafc!important}
+.sec-head::before,.sec-head::after{background:#0ea5a4!important;opacity:.32!important}
+.sec-kicker,.fl-tag,.stag{color:#0f766e!important}
+.h2,.fl-title,.extra-title,.fwtitle,.fc-title,.ctah,.rv-title,.pamount,.sbn,.faq-q,.calc-title{
+  color:#0f172a!important;
+}
+.h2 .red,.ctah .red,.fc-title .red,.fwtitle .red,.mega-line .red{color:#0ea5a4!important}
+
+/* Cards */
+.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.price-card,.faq-item,.rv-card,.demo-card,.calc-card,.stats-bar,.cbox,.panel{
+  background:rgba(255,255,255,.92)!important;
+  border:1px solid rgba(15,23,42,.10)!important;
   box-shadow:0 18px 55px rgba(15,23,42,.06)!important;
-  border-radius:22px!important;
+  color:#0f172a!important;
 }
-.card:hover,.feature:hover,.product-card:hover,.panel:hover{
+.flagship-card.fc-waybills,.flagship-card.fc-analytics,.ba-col.after{
+  background:linear-gradient(145deg, rgba(14,165,164,.06), rgba(255,255,255,.94))!important;
+  border-color:rgba(14,165,164,.22)!important;
+}
+.flagship-card:hover,.extra-card:hover,.fcard:hover,.fwcard:hover,.price-card:hover,.faq-item:hover{
   border-color:rgba(14,165,164,.32)!important;
-  box-shadow:0 24px 70px rgba(15,23,42,.08)!important;
+  box-shadow:0 24px 70px rgba(15,23,42,.09)!important;
 }
-h1,h2,h3,h4,.title,.headline{color:var(--ks-text)!important}
-p,li,.muted,.subtitle,.desc,.text-muted{color:var(--ks-muted)!important}
-.badge,.tag,.label,[class*="badge"],[class*="tag"]{
+.fl-num{color:rgba(15,23,42,.045)!important}
+.fl-tag.t-r,.fl-tag.t-g,.stag{
   background:rgba(14,165,164,.08)!important;
-  color:var(--ks-accent-dark)!important;
-  border:1px solid rgba(14,165,164,.18)!important;
+  border-color:rgba(14,165,164,.18)!important;
 }
-pre,code,.terminal,.code,.codebox,[class*="code"]{
+.fl-list li,.ba-item,.ftext,.fwtext,.faq-a{color:#64748b!important}
+.fl-list li::before,.ba-col.after .ba-item::before{color:#0ea5a4!important}
+.ba-col.before .ba-item::before{color:#ef4444!important}
+.ba-arrow{background:#0ea5a4!important;box-shadow:0 0 30px rgba(14,165,164,.25)!important;color:#fff!important}
+
+/* Keep product/code previews dark for contrast */
+.fl-result,pre,code,.code,.terminal,.demo-code,.pterminal,.calc-code,.codebox,.outbox,[class*="code"]{
   background:#0b0f14!important;
   color:#e5e7eb!important;
-  border-color:rgba(255,255,255,.08)!important;
+  border:1px solid rgba(255,255,255,.08)!important;
   box-shadow:0 22px 50px rgba(15,23,42,.18)!important;
 }
-input,textarea,select{
-  background:#fff!important;
-  color:var(--ks-text)!important;
-  border:1px solid var(--ks-line)!important;
-}
-.accent,.active,[aria-current="page"]{color:var(--ks-accent)!important}
-footer{
-  background:#f8fafc!important;
-  color:var(--ks-text)!important;
-  border-top:1px solid var(--ks-line)!important;
-}
-::selection{background:rgba(14,165,164,.22)}
-</style>
+.fl-result b,.code b{color:#0ea5a4!important}
 
+/* Pricing/accent */
+.pcard-popular,.popular,.price-card.popular{
+  border-color:rgba(14,165,164,.35)!important;
+  box-shadow:0 24px 80px rgba(14,165,164,.14)!important;
+}
+.pbadge,.badge,.tag{background:#ecfeff!important;color:#0f766e!important;border:1px solid rgba(14,165,164,.22)!important}
+
+/* Footer */
+footer{background:#fff!important;border-top:1px solid rgba(15,23,42,.08)!important;color:#0f172a!important}
+.flinks a{color:#64748b!important}
+.flinks a:hover{color:#0f766e!important}
+
+@media(max-width:760px){
+  .hero{padding-top:96px!important}
+  .mega-line{font-size:clamp(3.2rem,18vw,6rem)!important}
+  .hero-sub-row{padding-top:1.25rem!important}
+  .flagship-card,.ba-col{padding:1.5rem!important}
+}
+
+</style>
 </head>
 <body>
 <nav>
-  <a href="/" class="nlogo"><img src="assets/kitseller-logo-black.png" alt="KitSeller" class="brand-logo"></a>
+  <a href="/" class="nlogo"><div class="nmark">KT</div>KitSeller</a>
   <a href="/" class="back-link">← На главную</a>
 </nav>
 <div class="wrap">
@@ -202,7 +260,7 @@ footer{
     <div class="section-title">2. Предмет оферты</div>
     <p>2.1. Администратор предоставляет услуги по автоматизации работы продавцов на маркетплейсе Kaspi.kz посредством Сайта и Telegram-бота @sellerkit_bot.</p>
     <p>2.2. Администратор обязуется оказывать техническое обслуживание и поддержку Сайта.</p>
-    <p>2.3. Действующая редакция Договора находится в публичном доступе по адресу: <a href="https://tentekkz.github.io/KitSellerSite/offer.html" style="color:var(--r)">kitseller.kz/offer.html</a> и в Telegram-боте по команде /offer.</p>
+    <p>2.3. Действующая редакция Договора находится в публичном доступе по адресу: <a href="https://kitseller.kz/offer.html" style="color:var(--r)">kitseller.kz/offer.html</a> и в Telegram-боте по команде /offer.</p>
   </div>
 
   <div class="section">
@@ -290,7 +348,7 @@ footer{
     <div class="req-row"><span class="req-label">Email</span><span class="req-val"><a href="mailto:ergazin013@gmail.com">ergazin013@gmail.com</a></span></div>
     <div class="req-row"><span class="req-label">Телефон</span><span class="req-val">+7 776 608 8813</span></div>
     <div class="req-row"><span class="req-label">Telegram</span><span class="req-val"><a href="https://t.me/peaks_kz">@peaks_kz</a></span></div>
-    <div class="req-row"><span class="req-label">Сайт</span><span class="req-val"><a href="https://tentekkz.github.io/KitSellerSite">kitseller.kz</a></span></div>
+    <div class="req-row"><span class="req-label">Сайт</span><span class="req-val"><a href="https://kitseller.kz">kitseller.kz</a></span></div>
   </div>
 </div>
 
