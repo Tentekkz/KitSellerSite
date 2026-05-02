@@ -3,41 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KitSeller — накладные Kaspi за 10 секунд | Аналитика Kaspi Pay в Excel</title>
+<title>KaspiTools — накладные Kaspi за 10 секунд | Аналитика Kaspi Pay в Excel</title>
 <meta name="description" content="Telegram-бот для Kaspi продавцов: накладные ZIP→PDF, аналитика Kaspi Pay — Excel за 30 секунд, калькулятор маржи. 14 дней бесплатно, потом 990 ₸/мес.">
 <meta name="keywords" content="накладные Kaspi, распечатать накладные Kaspi, аналитика Kaspi Pay, калькулятор маржи Kaspi, жүкқұжаттар Kaspi, юнит-экономика Kaspi, инструменты Kaspi продавец">
 <meta name="robots" content="index, follow">
-<meta name="author" content="KitSeller">
-<meta property="og:title" content="KitSeller — накладные и аналитика для Kaspi продавцов">
+<meta name="author" content="KaspiTools">
+<link rel="canonical" href="https://kaspitools.kz/">
+<meta property="og:title" content="KaspiTools — накладные и аналитика для Kaspi продавцов">
 <meta property="og:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — Excel за 30 секунд. Калькулятор маржи. 14 дней бесплатно, потом 990 ₸/мес.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://kitseller.kz/kitseller-logo.png">
+<meta property="og:url" content="https://kaspitools.kz/">
+<meta property="og:image" content="https://kaspitools.kz/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ru_KZ">
 <meta property="og:locale:alternate" content="kk_KZ">
-<meta property="og:site_name" content="KitSeller">
+<meta property="og:site_name" content="KaspiTools">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="KitSeller — накладные и аналитика для Kaspi продавцов">
+<meta name="twitter:title" content="KaspiTools — накладные и аналитика для Kaspi продавцов">
 <meta name="twitter:description" content="Накладные ZIP→PDF за 10 секунд. Аналитика Kaspi Pay — Excel за 30 секунд. 14 дней бесплатно.">
-<meta name="twitter:image" content="https://kitseller.kz/kitseller-logo.png">
+<meta name="twitter:image" content="https://kaspitools.kz/og-image.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "KitSeller",
+  "name": "KaspiTools",
   "description": "Telegram-бот для автоматизации работы Kaspi продавцов. Накладные ZIP→PDF за 10 секунд, аналитика Kaspi Pay в Excel, калькулятор маржи.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Telegram",
   "inLanguage": ["ru", "kk"],
   "offers": {"@type": "Offer", "price": "990", "priceCurrency": "KZT"},
-  "url": "https://kitseller.kz",
-  "sameAs": ["https://t.me/kitseller_bot"],
+  "url": "https://kaspitools.kz",
+  "sameAs": ["https://t.me/kaspitoolsbot"],
   "provider": {"@type": "Organization", "name": "Path of Peaks", "address": {"@type": "PostalAddress", "addressCountry": "KZ"}},
   "featureList": ["Накладные ZIP→PDF за 10 секунд","Разбивка накладных по товарам","Сборочный лист Excel","Аналитика Kaspi Pay — 17 листов Excel","Калькулятор маржи с учётом комиссии и ИПН","Курсы НБ РК с уведомлениями","QR-коды для Kaspi магазина"]
 }
 </script>
-<link rel="icon" href="kitseller-icon.png"><rect width='32' height='32' rx='8' fill='%230a0a0a'/><text y='23' x='5' font-size='20' font-family='sans-serif' font-weight='900' fill='%23ff3d00'>K</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230a0a0a'/><text y='23' x='5' font-size='20' font-family='sans-serif' font-weight='900' fill='%23ff3d00'>K</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;700;900&family=Nunito:wght@800;900&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
@@ -64,7 +66,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:var(--fb);background:var(--void);color:var(--snow);overflow-x:hidden;cursor:auto;line-height:1.6}
+body{font-family:var(--fb);background:var(--void);color:var(--snow);overflow-x:hidden;cursor:none;line-height:1.6}
 a{text-decoration:none;color:inherit}
 ::selection{background:var(--r);color:#fff}
 
@@ -94,7 +96,7 @@ body.lang-kz .stag { font-family: var(--fm) !important; }
   border-radius:20px;padding:3rem;position:relative;overflow:hidden;
   border:1px solid var(--edge);background:var(--s1);
   transition:border-color .3s,box-shadow .3s,transform .3s var(--e);
-  cursor:auto;
+  cursor:none;
 }
 .flagship-card:hover{transform:translateY(-6px);box-shadow:0 40px 80px rgba(0,0,0,.5)}
 .flagship-card.fc-waybills{border-color:rgba(255,61,0,.15);background:linear-gradient(145deg,rgba(255,61,0,.05),var(--s1))}
@@ -134,7 +136,7 @@ body.lang-kz .stag { font-family: var(--fm) !important; }
 /* ══ EXTRA TOOLS (secondary) ══ */
 .extra-sec{background:var(--void);padding:clamp(60px,8vw,100px) clamp(1.5rem,4vw,3rem)}
 .extra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
-.extra-card{background:var(--s2);border:1px solid var(--edge);border-radius:14px;padding:1.75rem;transition:border-color .3s,transform .2s;cursor:auto}
+.extra-card{background:var(--s2);border:1px solid var(--edge);border-radius:14px;padding:1.75rem;transition:border-color .3s,transform .2s;cursor:none}
 .extra-card:hover{border-color:rgba(255,61,0,.2);transform:translateY(-3px)}
 .extra-icon{font-size:1.6rem;margin-bottom:.75rem;display:block}
 .extra-title{font-family:var(--fh);font-size:.9rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
@@ -178,12 +180,12 @@ nav.s{background:rgba(6,6,8,.88);backdrop-filter:blur(28px) saturate(160%);borde
 .nlinks a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--r);transform:scaleX(0);transition:transform .3s var(--e)}
 .nlinks a:hover{color:var(--snow)}
 .nlinks a:hover::after{transform:scaleX(1)}
-.ncta{display:inline-flex;align-items:center;gap:.45rem;background:var(--r);color:#fff;font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:.52rem 1.35rem;border-radius:6px;cursor:auto;position:relative;overflow:hidden;transition:transform .2s,box-shadow .3s}
+.ncta{display:inline-flex;align-items:center;gap:.45rem;background:var(--r);color:#fff;font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:.52rem 1.35rem;border-radius:6px;cursor:none;position:relative;overflow:hidden;transition:transform .2s,box-shadow .3s}
 .ncta::before{content:'';position:absolute;inset:0;background:var(--r2);opacity:0;transition:opacity .3s}
 .ncta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,61,0,.4)}
 .ncta:hover::before{opacity:1}
 .ncta span{position:relative;z-index:1}
-.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:auto;padding:5px}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:none;padding:5px}
 .burger span{display:block;width:20px;height:1px;background:var(--snow);border-radius:1px;transition:all .3s}
 .mob{display:none;position:fixed;top:62px;left:0;right:0;background:rgba(6,6,8,.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--edge);padding:2rem clamp(1.5rem,4vw,3rem);flex-direction:column;gap:1rem;z-index:490}
 .mob.o{display:flex}
@@ -267,7 +269,7 @@ nav.s{background:rgba(6,6,8,.88);backdrop-filter:blur(28px) saturate(160%);borde
   font-family:var(--fh);font-size:.58rem;font-weight:700;
   letter-spacing:.08em;text-transform:uppercase;color:#fff;
   animation:spin-badge 12s linear infinite, fadein .8s .4s var(--e) both;
-  cursor:auto;
+  cursor:none;
   text-align:center;line-height:1.4;
   transition:transform .3s var(--e);
 }
@@ -277,12 +279,12 @@ nav.s{background:rgba(6,6,8,.88);backdrop-filter:blur(28px) saturate(160%);borde
 .hero-badge-inner{position:absolute;animation:spin-badge 12s linear infinite reverse;display:flex;flex-direction:column;align-items:center}
 
 /* Btns */
-.btn-r{display:inline-flex;align-items:center;gap:.5rem;background:var(--r);color:#fff;font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.04em;padding:.88rem 2.2rem;border-radius:8px;cursor:auto;position:relative;overflow:hidden;transition:transform .2s,box-shadow .3s}
+.btn-r{display:inline-flex;align-items:center;gap:.5rem;background:var(--r);color:#fff;font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.04em;padding:.88rem 2.2rem;border-radius:8px;cursor:none;position:relative;overflow:hidden;transition:transform .2s,box-shadow .3s}
 .btn-r::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--r2),var(--r));opacity:0;transition:opacity .3s}
 .btn-r:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(255,61,0,.4)}
 .btn-r:hover::before{opacity:1}
 .btn-r span{position:relative;z-index:1}
-.btn-o{display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:1px solid var(--edge2);color:var(--grey);font-family:var(--fh);font-size:.7rem;font-weight:600;padding:.85rem 2rem;border-radius:8px;cursor:auto;transition:all .2s}
+.btn-o{display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:1px solid var(--edge2);color:var(--grey);font-family:var(--fh);font-size:.7rem;font-weight:600;padding:.85rem 2rem;border-radius:8px;cursor:none;transition:all .2s}
 .btn-o:hover{border-color:var(--snow);color:var(--snow)}
 
 /* ══ STATS BAR ══ */
@@ -311,7 +313,7 @@ nav.s{background:rgba(6,6,8,.88);backdrop-filter:blur(28px) saturate(160%);borde
   position:relative;overflow:hidden;
   transition:border-color .3s,box-shadow .3s;
   transform-style:preserve-3d;
-  cursor:auto;
+  cursor:none;
 }
 .fcard::before{
   content:'';position:absolute;inset:0;
@@ -340,7 +342,7 @@ nav.s{background:rgba(6,6,8,.88);backdrop-filter:blur(28px) saturate(160%);borde
   padding:2rem 0;border-bottom:1px solid var(--edge);
   display:grid;grid-template-columns:auto 1fr;gap:2rem;
   align-items:start;position:relative;
-  transition:padding-left .35s var(--e);cursor:auto;
+  transition:padding-left .35s var(--e);cursor:none;
 }
 .fwitem::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--r);transition:width .35s var(--e)}
 .fwitem:hover{padding-left:1.5rem}
@@ -370,8 +372,8 @@ nav.s{background:rgba(6,6,8,.88);backdrop-filter:blur(28px) saturate(160%);borde
 .crow{display:flex;align-items:center;gap:2rem;margin-bottom:2rem}
 .clbl{font-size:.8rem;color:var(--grey);min-width:190px}
 .cslw{flex:1}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:linear-gradient(to right,var(--r) var(--v,30%),var(--edge) var(--v,30%));outline:none;cursor:auto;border-radius:2px}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--snow);border:2px solid var(--r);box-shadow:0 0 0 3px rgba(255,61,0,.2),0 0 16px rgba(255,61,0,.3);cursor:auto;transition:transform .2s,box-shadow .2s}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:linear-gradient(to right,var(--r) var(--v,30%),var(--edge) var(--v,30%));outline:none;cursor:none;border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--snow);border:2px solid var(--r);box-shadow:0 0 0 3px rgba(255,61,0,.2),0 0 16px rgba(255,61,0,.3);cursor:none;transition:transform .2s,box-shadow .2s}
 input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);box-shadow:0 0 0 5px rgba(255,61,0,.1),0 0 24px rgba(255,61,0,.5)}
 .cval{font-family:var(--fh);font-size:1.5rem;font-weight:900;color:var(--snow);min-width:60px;text-align:right;letter-spacing:-.03em}
 .cresults{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--edge);border:1px solid var(--edge);border-radius:12px;overflow:hidden;margin-top:.5rem}
@@ -387,7 +389,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);box-shadow:0 
 .demosec{background:var(--void);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
 .dlayout{display:grid;grid-template-columns:1fr 380px;gap:6rem;align-items:start;margin-top:4rem}
 .dtabs{display:flex;flex-direction:column;gap:.5rem}
-.dtab{display:flex;gap:1.25rem;padding:1.4rem 1.5rem;border:1px solid transparent;border-radius:12px;cursor:auto;transition:all .25s var(--e);align-items:flex-start}
+.dtab{display:flex;gap:1.25rem;padding:1.4rem 1.5rem;border:1px solid transparent;border-radius:12px;cursor:none;transition:all .25s var(--e);align-items:flex-start}
 .dtab:hover{background:var(--s2);border-color:var(--edge)}
 .dtab.a{background:rgba(255,61,0,.06);border-color:rgba(255,61,0,.25)}
 .dtab.a .dname{color:var(--snow)}
@@ -436,7 +438,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);box-shadow:0 
 .plist li::before{content:'—';color:var(--grey2);flex-shrink:0}
 .plist li.y{color:var(--snow)}
 .plist li.y::before{content:'✓';color:var(--green);font-weight:700}
-.pbtn{display:block;text-align:center;padding:.92rem;border-radius:10px;font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.04em;cursor:auto;transition:all .25s;position:relative;overflow:hidden}
+.pbtn{display:block;text-align:center;padding:.92rem;border-radius:10px;font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.04em;cursor:none;transition:all .25s;position:relative;overflow:hidden}
 .pbtn.ol{border:1px solid var(--edge2);color:var(--grey)}
 .pbtn.ol:hover{border-color:var(--snow);color:var(--snow)}
 .pbtn.fill{background:var(--r);color:#fff}
@@ -464,7 +466,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);box-shadow:0 
 .faqsec{background:var(--s1);padding:clamp(80px,10vw,140px) clamp(1.5rem,4vw,3rem)}
 .faqwrap{max-width:720px;margin:4rem auto 0}
 .fq{border-bottom:1px solid var(--edge)}
-.fqq{width:100%;background:none;border:none;color:var(--snow);font-family:var(--fh);font-size:.88rem;font-weight:700;text-align:left;padding:1.5rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:auto;transition:color .2s;letter-spacing:-.01em}
+.fqq{width:100%;background:none;border:none;color:var(--snow);font-family:var(--fh);font-size:.88rem;font-weight:700;text-align:left;padding:1.5rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:none;transition:color .2s;letter-spacing:-.01em}
 .fqq:hover{color:var(--r)}
 .fqico{width:24px;height:24px;border:1px solid var(--grey2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--grey2);flex-shrink:0;transition:all .3s}
 .fq.open .fqico{transform:rotate(135deg);border-color:var(--r);color:var(--r)}
@@ -538,367 +540,6 @@ footer{border-top:1px solid var(--edge);padding:2.5rem clamp(1.5rem,4vw,3rem);di
   #analytics .secin > .sr[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr!important}
   #analytics .secin > .sr[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
 }
-
-/* KitSeller minimal rebrand: keep original layout, lighten palette */
-:root{--void:#ffffff!important;--s1:#ffffff!important;--s2:#f7f8fa!important;--edge:rgba(17,24,39,.10)!important;--edge2:rgba(17,24,39,.16)!important;--snow:#111827!important;--grey:#667085!important;--grey2:#98a2b3!important;--r:#ff3b1f!important;--r2:#dc2f16!important;--green:#16a34a!important}
-html,body{background:#fff!important;color:#111827!important}
-body{background:linear-gradient(180deg,#ffffff 0%,#f7f8fa 58%,#ffffff 100%)!important}
-#cur,#bg-canvas,.grain{display:none!important}
-.brand-logo{height:48px;width:auto;display:block}.footer-logo{height:42px;width:auto;display:block}
-nav{background:rgba(255,255,255,.88)!important;border-bottom:1px solid rgba(17,24,39,.08)!important;backdrop-filter:blur(16px)!important;box-shadow:0 8px 30px rgba(17,24,39,.04)!important}
-.nlinks a,.mob a{color:#667085!important}.nlinks a:hover,.mob a:hover{color:#111827!important}.nlinks a::after{background:#ff3b1f!important}
-.lang-sw{background:#f7f8fa!important;border:1px solid rgba(17,24,39,.10)!important}.lang-btn{color:#667085!important}.lang-btn.active{background:#ff3b1f!important;color:#fff!important}
-.ncta,.btn-r{background:#ff3b1f!important;color:#fff!important;border-color:#ff3b1f!important;box-shadow:0 14px 34px rgba(255,59,31,.20)!important}.ncta:hover,.btn-r:hover{background:#dc2f16!important;border-color:#dc2f16!important}
-.btn-o{background:#fff!important;color:#111827!important;border:1px solid rgba(17,24,39,.12)!important}
-.hero,.flagship-sec,.extra-sec,.calcsec,.faqsec,.pricesec,.ctasec,.rvsec,.demosec,.featsec,.fwsec,.ba-sec{background:transparent!important}
-.card,.flagship-card,.extra-card,.ba-col,.fcard,.fwcard,.price-card,.faq-item,.rv-card,.demo-card,.calc-card,.stats-bar,.cbox,.panel,.pcard,.fq{background:#fff!important;color:#111827!important;border:1px solid rgba(17,24,39,.10)!important;box-shadow:0 18px 55px rgba(17,24,39,.06)!important}
-h1,h2,h3,h4,.title,.headline,.h2,.fl-title,.extra-title,.fwtitle,.fc-title,.ctah,.rv-title,.pamount,.sbn,.faq-q,.calc-title{color:#111827!important}
-p,li,.muted,.subtitle,.desc,.text-muted,.hero-desc,.fl-desc,.extra-desc,.sbl,.sec-kicker,.fc-desc,.fwcopy,.calc-desc,.rv-desc,.faq-a,.fcopy,.pnote,.pfeat,.stat-label{color:#667085!important}
-.red,.acc,.h2 .red,.ctah .red,.fc-title .red,.fwtitle .red,.mega-line .red{color:#ff3b1f!important}
-.badge,.tag,.label,.fl-tag,.stag{background:#fff1f0!important;color:#b42318!important;border:1px solid #ffd5d0!important}
-pre,code,.terminal,.code,.codebox,[class*="code"],.fl-result{background:#111827!important;color:#f9fafb!important;border-color:rgba(255,255,255,.08)!important}
-footer{background:#fff!important;color:#111827!important;border-top:1px solid rgba(17,24,39,.08)!important}
-footer a{color:#667085!important}footer a:hover{color:#ff3b1f!important}
-@media(max-width:760px){.brand-logo{height:38px}.footer-logo{height:36px}}
-
-
-/* Cursor fix: restore normal system cursor */
-html, body, *, a, button, input, textarea, select, label, .magnetic, .btn-r, .btn-o, .ncta {
-  cursor: auto !important;
-}
-a, button, .btn-r, .btn-o, .ncta, [role="button"], .lang-btn, .burger {
-  cursor: pointer !important;
-}
-#cur, .cursor, .custom-cursor, .cursor-dot, .cursor-ring {
-  display: none !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-
-/* === Final full finish: clean hero, spacing, clipping, cursor === */
-html{scroll-padding-top:110px!important}
-section,[id]{scroll-margin-top:110px!important}
-body{overflow-x:hidden!important}
-nav{z-index:999!important}
-.clean-hero{
-  background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%)!important;
-  padding:150px 20px 96px!important;
-  min-height:auto!important;
-  position:relative!important;
-  overflow:hidden!important;
-}
-.clean-hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(720px 420px at 80% 10%,rgba(255,59,31,.08),transparent 62%);
-  pointer-events:none;
-}
-.clean-hero-inner{
-  width:min(1120px,100%);
-  margin:0 auto;
-  position:relative;
-  z-index:1;
-}
-.clean-hero-kicker{
-  display:inline-flex;
-  align-items:center;
-  background:#fff1f0;
-  color:#b42318;
-  border:1px solid #ffd5d0;
-  border-radius:999px;
-  padding:9px 14px;
-  font-size:13px;
-  font-weight:900;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  margin-bottom:26px;
-}
-.clean-hero-title{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Arial,sans-serif!important;
-  color:#0b1220!important;
-  font-size:clamp(48px,7.1vw,96px)!important;
-  line-height:1.02!important;
-  letter-spacing:-.055em!important;
-  font-weight:850!important;
-  max-width:1060px!important;
-  text-shadow:0 2px 8px rgba(0,0,0,.035);
-}
-.clean-hero-title .accent{color:#ff3b1f!important}
-.clean-hero-subtitle{
-  margin:28px 0 0!important;
-  max-width:780px!important;
-  color:#667085!important;
-  font-size:clamp(18px,1.35vw,22px)!important;
-  line-height:1.65!important;
-  font-weight:500!important;
-}
-.clean-hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
-.clean-btn{
-  display:inline-flex;align-items:center;justify-content:center;min-height:54px;
-  padding:0 24px;border-radius:15px;font-weight:800;text-decoration:none;
-  transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
-}
-.clean-btn-primary{
-  background:#ff3b1f!important;color:#fff!important;border:1px solid #ff3b1f!important;
-  box-shadow:0 14px 34px rgba(255,59,31,.23)!important;
-}
-.clean-btn-primary:hover{background:#dc2f16!important;border-color:#dc2f16!important;transform:translateY(-2px)}
-.clean-btn-secondary{
-  background:#fff!important;color:#0b1220!important;border:1px solid rgba(17,24,39,.12)!important;
-  box-shadow:0 12px 30px rgba(17,24,39,.06)!important;
-}
-.clean-hero-badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.clean-hero-badges span{
-  background:#fff;border:1px solid #e5e7eb;color:#374151;border-radius:999px;
-  padding:10px 15px;font-size:14px;font-weight:800;box-shadow:0 10px 26px rgba(17,24,39,.04);
-}
-/* remove old hero artifacts */
-.hero-mega,.mega-line,.hero-ticker,.hero-pills,.hero-sub-row,.outline,.ghost{
-  display:none!important;opacity:0!important;text-shadow:none!important;
-}
-/* fix lower sections text clipping */
-section,.hero,.clean-hero,.flagship-sec,.extra-sec,.ba-sec,.fwsec,.demosec,.pricesec,.faqsec,.ctasec,footer{
-  overflow:visible!important;
-}
-section:not(.clean-hero):not(.hero){padding-top:96px!important;padding-bottom:96px!important}
-.sec-head,.h2,.ctah,.fwtitle,.fc-title,.rv-title,.calc-title{overflow:visible!important}
-.ctasec{padding-top:130px!important;padding-bottom:130px!important;min-height:auto!important}
-.ctabox,.cta-box,[class*="cta"]{overflow:visible!important}
-.ctah{line-height:1.02!important;padding-top:.08em!important;padding-bottom:.08em!important}
-footer{padding-top:48px!important;padding-bottom:48px!important}
-footer a[href="offer.html"],footer a[href="privacy.html"]{color:#667085!important;text-decoration:none!important}
-footer a[href="offer.html"]:hover,footer a[href="privacy.html"]:hover{color:#ff3b1f!important}
-/* cursor */
-#cur,.cursor,.custom-cursor,.cursor-dot,.cursor-ring{display:none!important;opacity:0!important;pointer-events:none!important}
-html,body,*{cursor:auto!important}
-a,button,.clean-btn,.ncta,.btn-r,.btn-o,.lang-btn,.burger,[role="button"]{cursor:pointer!important}
-@media(max-width:760px){
-  html{scroll-padding-top:86px!important}
-  section,[id]{scroll-margin-top:86px!important}
-  .clean-hero{padding:112px 18px 66px!important}
-  .clean-hero-title{font-size:clamp(38px,12vw,62px)!important;line-height:1.04!important;letter-spacing:-.045em!important}
-  .clean-hero-subtitle{font-size:16px!important;line-height:1.62!important}
-  .clean-btn{width:100%}
-  .clean-hero-badges span{width:100%;text-align:center}
-  section:not(.clean-hero):not(.hero){padding-top:72px!important;padding-bottom:72px!important}
-  .ctasec{padding-top:92px!important;padding-bottom:92px!important}
-  .ctah{font-size:clamp(38px,12vw,64px)!important;line-height:1.04!important}
-}
-
-
-/* === Code/example blocks contrast fix === */
-.fl-result,
-.code-block,
-.codebox,
-.terminal,
-pre,
-code,
-[class*="code"] {
-  background: #0b1220 !important;
-  color: #e6edf3 !important;
-  border: 1px solid rgba(255,255,255,.08) !important;
-}
-
-/* comments like // пример */
-.fl-result .muted,
-.fl-result .comment,
-.fl-result .label,
-.codebox .muted,
-.codebox .comment,
-.codebox .label,
-.terminal .muted,
-.terminal .comment,
-.terminal .label,
-pre .muted,
-pre .comment,
-pre .label {
-  color: #8b9bb5 !important;
-}
-
-/* keys: input/output/time/count */
-.fl-result b,
-.fl-result strong,
-.fl-result .key,
-.codebox b,
-.codebox strong,
-.codebox .key,
-.terminal b,
-.terminal strong,
-.terminal .key,
-pre b,
-pre strong,
-pre .key {
-  color: #7dd3fc !important;
-}
-
-/* values */
-.fl-result span,
-.fl-result em,
-.fl-result .value,
-.codebox span,
-.codebox em,
-.codebox .value,
-.terminal span,
-.terminal em,
-.terminal .value,
-pre span,
-pre em,
-pre .value {
-  color: #34d399 !important;
-}
-
-/* plain text inside dark example blocks */
-.fl-result *,
-.codebox *,
-.terminal *,
-pre * {
-  color: inherit;
-}
-
-/* fallback for lines without spans */
-.fl-result,
-.codebox,
-.terminal,
-pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace !important;
-  line-height: 1.7 !important;
-}
-
-/* make arrows/checks readable */
-.fl-result .ok,
-.codebox .ok,
-.terminal .ok,
-pre .ok {
-  color: #22c55e !important;
-}
-
-
-/* === Final polish: grey hero title + single CTA === */
-.clean-hero-title,
-.clean-hero-title span,
-.clean-hero-title .accent,
-.clean-hero-title strong,
-.hero h1,
-.hero h1 span,
-.hero h1 .accent,
-.hero h1 strong {
-  color: #374151 !important;
-  -webkit-text-fill-color: #374151 !important;
-  background: none !important;
-  text-shadow: none !important;
-}
-.clean-hero-title,
-.hero h1 {
-  font-weight: 820 !important;
-  letter-spacing: -0.052em !important;
-  line-height: 1.04 !important;
-}
-.clean-btn-secondary,
-.clean-hero-actions a[data-i18n="hero_demo"],
-a[href="#how"].clean-btn-secondary,
-a[href="#how"] {
-  display: none !important;
-}
-.clean-hero-actions {
-  margin-top: 32px !important;
-}
-.clean-btn-primary {
-  min-width: 210px !important;
-}
-.clean-hero {
-  padding-top: 138px !important;
-  padding-bottom: 88px !important;
-}
-.clean-hero-subtitle {
-  max-width: 760px !important;
-}
-@media(max-width:760px){
-  .clean-hero {
-    padding-top: 104px !important;
-    padding-bottom: 62px !important;
-  }
-  .clean-hero-title,
-  .hero h1 {
-    line-height: 1.06 !important;
-    letter-spacing: -0.042em !important;
-  }
-}
-
-
-/* === Final CTA red text fix === */
-.ctasec .ctah,
-.ctasec .ctah *,
-.ctabox .ctah,
-.ctabox .ctah *,
-[data-i18n="cta_title"],
-[data-i18n="cta_title"] * {
-  color: #ff3b1f !important;
-  -webkit-text-fill-color: #ff3b1f !important;
-  background: none !important;
-  text-shadow: 0 10px 34px rgba(255,59,31,.18) !important;
-}
-
-.ctasec .ctah,
-.ctabox .ctah,
-[data-i18n="cta_title"] {
-  line-height: .96 !important;
-  letter-spacing: -0.055em !important;
-  font-weight: 950 !important;
-  overflow: visible !important;
-}
-
-/* ensure final CTA block doesn't clip the top line */
-.ctasec,
-.ctabox,
-.cta-box {
-  overflow: visible !important;
-}
-
-.ctasec {
-  padding-top: 130px !important;
-  padding-bottom: 130px !important;
-}
-
-@media(max-width:760px){
-  .ctasec {
-    padding-top: 90px !important;
-    padding-bottom: 90px !important;
-  }
-  .ctasec .ctah,
-  .ctabox .ctah,
-  [data-i18n="cta_title"] {
-    line-height: 1.02 !important;
-  }
-}
-
-
-/* === Temporarily disable KZ language button; KZ code stays in source === */
-.lang-btn[data-lang="kz"],
-.lang-btn[data-l="kz"],
-button[data-lang="kz"],
-button[data-l="kz"],
-.lang-btn.kz,
-.lang-btn[data-i18n="kz"],
-#kz,
-.kz-btn {
-  display: none !important;
-}
-
-/* Fallback: if RU/KZ buttons are just second button in language switch */
-.lang-sw .lang-btn:nth-child(2),
-.lang-switch .lang-btn:nth-child(2) {
-  display: none !important;
-}
-
-.lang-sw,
-.lang-switch {
-  grid-template-columns: 1fr !important;
-  width: auto !important;
-}
-
 </style>
 </head>
 <body>
@@ -909,7 +550,7 @@ button[data-l="kz"],
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nlogo"><img src="kitseller-logo.png" alt="KitSeller" class="brand-logo"></a>
+  <a href="#" class="nlogo"><div class="nmark">KT</div>KaspiTools</a>
   <ul class="nlinks">
     <li><a href="#products" data-i18n="nav_products">Продукты</a></li>
     <li><a href="#forwho" data-i18n="nav_forwho">Для кого</a></li>
@@ -922,7 +563,7 @@ button[data-l="kz"],
       <button class="lang-btn active" onclick="setLang('ru')">RU</button>
       <button class="lang-btn" onclick="setLang('kz')">KZ</button>
     </div>
-    <a href="https://t.me/kitseller_bot" class="ncta magnetic"><span data-i18n="nav_cta">Попробовать →</span></a>
+    <a href="https://t.me/kaspitoolsbot" class="ncta magnetic"><span data-i18n="nav_cta">Попробовать →</span></a>
   </div>
   <button class="burger" id="burger" onclick="tmob()"><span></span><span></span><span></span></button>
 </nav>
@@ -932,38 +573,44 @@ button[data-l="kz"],
   <a href="#features" onclick="cmob()" data-i18n="nav_features">Как работает</a>
   <a href="#pricing" onclick="cmob()" data-i18n="nav_pricing">Тарифы</a>
   <a href="#faq" onclick="cmob()">FAQ</a>
-  <a href="https://t.me/kitseller_bot" data-i18n="mob_open">Открыть бота →</a>
+  <a href="https://t.me/kaspitoolsbot" data-i18n="mob_open">Открыть бота →</a>
 </div>
 
 <!-- ══ HERO ══ -->
+<section class="hero">
+  </div>
 
-<section class="hero clean-hero" id="top">
-  <div class="clean-hero-inner">
-    <div class="clean-hero-kicker">Бот KitSeller для продавцов Kaspi</div>
+  <div class="hero-mega">
+    <span class="mega-line"><span class="inner" data-i18n="hero_line1">Работай</span></span>
+    <span class="mega-line"><span class="inner outline" id="scramble-target" data-i18n="hero_line2">умнее</span></span>
+  </div>
 
-    <h1 class="clean-hero-title">
-      <span data-i18n="h1_a">Бот KitSeller</span><br>
-      <span data-i18n="h1_b">для продавцов Kaspi</span><br>
-      <span class="accent" data-i18n="h1_c">без рутины</span>
-    </h1>
-
-    <p class="clean-hero-subtitle" data-i18n="hero_desc">
-      Накладные, сборочный лист и Excel-отчёт на 17 страниц — в одном Telegram-боте.
-      Просто открой бот и отправь файл.
-    </p>
-
-    <div class="clean-hero-actions">
-      <a class="clean-btn clean-btn-primary" href="https://t.me/kitseller_bot" target="_blank" rel="noopener" data-i18n="hero_cta">Открыть бот</a>
+  <div class="hero-sub-row">
+    <div>
+      <p class="hero-desc" data-i18n="hero_desc">
+        <strong>Накладные, сборочный лист и глубокая Excel-аналитика</strong> в одном Telegram-боте.<br><br>
+        Собирайте заказы быстрее, снижайте хаос на упаковке и получайте понятные отчёты по бизнесу без ручной рутины.
+      </p>
+      <!-- Hero product pills -->
+      <div class="hero-pills" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem">
+        <div class="hero-pill"><span>📦</span> <span data-i18n="pill1">Накладные ZIP → PDF за 10 сек</span></div>
+        <div class="hero-pill"><span>📊</span> <span data-i18n="pill2">Excel-аналитика из Kaspi Pay</span></div>
+        <div class="hero-pill"><span>🗂</span> <span data-i18n="pill3">Разбивка по товарам</span></div>
+      </div>
     </div>
-
-    <div class="clean-hero-badges">
-      <span data-i18n="pill1">14 дней бесплатно</span>
-      <span data-i18n="pill2">990 ₸ / месяц</span>
-      <span data-i18n="pill3">17 страниц Excel</span>
+    <div class="hero-cta-wrap">
+      <a href="https://t.me/kaspitoolsbot" class="btn-r magnetic">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
+        <span data-i18n="hero_btn">Попробовать бесплатно</span>
+      </a>
+      <a href="https://t.me/kaspitoolsbot" class="btn-o magnetic"><span data-i18n="hero_btn2">Открыть бота →</span></a>
     </div>
   </div>
-</section>
 
+  <div class="hero-ticker">
+    <div class="htinner" id="htinner"></div>
+  </div>
+</section>
 
 <!-- STATS BAR -->
 <div class="stats-bar">
@@ -1006,7 +653,7 @@ button[data-l="kz"],
           <span style="color:var(--r)">time</span>: <span style="color:var(--snow)">12 сек</span> <span style="color:var(--green)">✓</span> <span style="color:var(--grey2)">раньше: 40 мин</span>
         </div>
         <div style="margin-top:1.5rem">
-          <a href="https://t.me/kitseller_bot" class="btn-r magnetic" style="font-size:.68rem;padding:.75rem 1.6rem">
+          <a href="https://t.me/kaspitoolsbot" class="btn-r magnetic" style="font-size:.68rem;padding:.75rem 1.6rem">
             <span data-i18n="fl1_cta">Сделать накладные за 10 секунд →</span>
           </a>
         </div>
@@ -1033,7 +680,7 @@ button[data-l="kz"],
           <span style="color:var(--green)">time</span>: <span style="color:var(--snow)">30 сек</span> <span style="color:var(--green)">✓</span>
         </div>
         <div style="margin-top:1.5rem">
-          <a href="https://t.me/kitseller_bot" class="btn-r magnetic" style="background:var(--green);font-size:.68rem;padding:.75rem 1.6rem;box-shadow:none">
+          <a href="https://t.me/kaspitoolsbot" class="btn-r magnetic" style="background:var(--green);font-size:.68rem;padding:.75rem 1.6rem;box-shadow:none">
             <span data-i18n="fl2_cta" style="color:#000">Получить отчёт из Kaspi Pay →</span>
           </a>
         </div>
@@ -1157,7 +804,7 @@ button[data-l="kz"],
           <div class="fc-tag" style="background:rgba(255,61,0,.15);border-color:rgba(255,61,0,.3)" data-i18n="fc4_tag">✦ Уникальная функция — нигде больше нет</div>
           <span class="fc-icon">🗂</span>
           <div class="fc-title" data-i18n="fc4_title">Разбивка по товарам + Сборочный лист</div>
-          <p class="fc-desc">Один ZIP → отдельный PDF на каждый товар и Excel-сборочный лист с количеством. Упаковщик берёт только свою пачку — никакой путаницы. Имя файла сразу говорит что внутри: <em style="color:var(--snow);font-style:normal">Nike_Air_Max_белый_3шт_термо.pdf</em><br><br>Другие боты просто объединяют накладные в один файл. KitSeller единственный кто разбивает по товарам и даёт сборочную ведомость — как на складе маркетплейса.</p>
+          <p class="fc-desc">Один ZIP → отдельный PDF на каждый товар и Excel-сборочный лист с количеством. Упаковщик берёт только свою пачку — никакой путаницы. Имя файла сразу говорит что внутри: <em style="color:var(--snow);font-style:normal">Nike_Air_Max_белый_3шт_термо.pdf</em><br><br>Другие боты просто объединяют накладные в один файл. KaspiTools единственный кто разбивает по товарам и даёт сборочную ведомость — как на складе маркетплейса.</p>
         </div>
         <div style="background:var(--void);border:1px solid var(--edge);border-radius:12px;padding:1.5rem;font-family:var(--fm);font-size:.72rem;line-height:1.9;color:var(--grey)">
           <span style="color:var(--grey2)">// 13 накладных → по товарам</span><br>
@@ -1282,7 +929,7 @@ button[data-l="kz"],
         <div class="dtab" onclick="sw('rates',this)"><span class="demoji">💱</span><div><div class="dname" data-i18n="demo_t4">Курсы валют</div><div class="dhint" data-i18n="demo_h4">Нацбанк + конвертация</div></div></div>
       </div>
       <div class="phone sr d1">
-        <div class="pbar"><div class="pc" style="background:#ff5f57"></div><div class="pc" style="background:#febc2e"></div><div class="pc" style="background:#28c840"></div><span class="pname">KitSeller</span><span class="pst">● онлайн</span></div>
+        <div class="pbar"><div class="pc" style="background:#ff5f57"></div><div class="pc" style="background:#febc2e"></div><div class="pc" style="background:#28c840"></div><span class="pname">KaspiTools</span><span class="pst">● онлайн</span></div>
         <div class="pbody" id="dc"><div class="ptyp" id="dt"><span></span><span></span><span></span></div></div>
       </div>
     </div>
@@ -1302,7 +949,7 @@ button[data-l="kz"],
         <div class="pamount" style="font-size:2.8rem;letter-spacing:-.03em">14 <span style="font-size:1.6rem;font-weight:700;opacity:.85" data-i18n="p1_days">ДНЕЙ</span></div>
         <p class="pctx" data-i18n="p1_ctx">Полный доступ ко всем инструментам. Без карты, без обязательств.</p>
         <ul class="plist" id="p1list"><li class="y" data-i18n="p1_li1">Накладные — безлимитно</li><li class="y" data-i18n="p1_li2">Аналитика — безлимитно</li><li class="y" data-i18n="p1_li3">Калькулятор — безлимитно</li><li class="y" data-i18n="p1_li4">Курсы валют — безлимитно</li><li class="y" data-i18n="p1_li5">QR-коды — безлимитно</li><li class="y" data-i18n="p1_li6">14 дней · карта не нужна</li></ul>
-        <a href="https://t.me/kitseller_bot" class="pbtn ol magnetic"><span data-i18n="p1_btn">Начать бесплатно</span></a>
+        <a href="https://t.me/kaspitoolsbot" class="pbtn ol magnetic"><span data-i18n="p1_btn">Начать бесплатно</span></a>
       </div>
       <div class="pcard hot sr d1">
         <div class="pline"></div>
@@ -1310,7 +957,7 @@ button[data-l="kz"],
         <div class="pamount"><span class="pcur">₸</span>990 <span class="pper" data-i18n="p2_per">/мес</span></div>
         <p class="pctx" data-i18n="p2_ctx">= <span class="hl">33 ₸ в день</span>. При 20 заказах в день окупается за первые два рабочих дня. Оплата онлайн — доступ открывается мгновенно.</p>
         <ul class="plist"><li class="y" data-i18n="p2_li1">Накладные — безлимитно</li><li class="y" data-i18n="p2_li2">Аналитика — безлимитно</li><li class="y" data-i18n="p2_li3">Калькулятор — безлимитно</li><li class="y" data-i18n="p2_li4">Курсы + уведомления</li><li class="y" data-i18n="p2_li5">QR-коды — безлимитно</li><li class="y" data-i18n="p2_li6">Поддержка в Telegram</li><li class="y" data-i18n="p2_li7">Новые функции без доплаты</li><li class="y" data-i18n="p2_li8">Возврат в течение 3 дней</li></ul>
-        <a href="https://t.me/kitseller_bot" class="pbtn fill magnetic"><span data-i18n="p2_btn">Попробовать 14 дней →</span></a>
+        <a href="https://t.me/kaspitoolsbot" class="pbtn fill magnetic"><span data-i18n="p2_btn">Попробовать 14 дней →</span></a>
       </div>
     </div>
   </div>
@@ -1555,19 +1202,19 @@ button[data-l="kz"],
     </h2>
     <p class="ctap" data-i18n="cta_p">Первые накладные и первый отчёт — бесплатно. Без карты, без регистрации.<br>Просто открой бот и отправь файл.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem">
-      <a href="https://t.me/kitseller_bot" class="btn-r magnetic">
+      <a href="https://t.me/kaspitoolsbot" class="btn-r magnetic">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
         <span data-i18n="cta_btn">Попробовать бесплатно</span>
       </a>
-      <a href="https://t.me/kitseller_bot" class="btn-o magnetic"><span data-i18n="cta_btn2">Проверить на своих файлах →</span></a>
+      <a href="https://t.me/kaspitoolsbot" class="btn-o magnetic"><span data-i18n="cta_btn2">Проверить на своих файлах →</span></a>
     </div>
     <p class="ctanote" data-i18n="cta_note">14 дней бесплатно · потом 990 ₸ / мес · Оплата онлайн · Доступ мгновенно</p>
   </div>
 </section>
 
 <footer>
-  <div><div class="flogo"><img src="kitseller-logo.png" alt="KitSeller" class="footer-logo"></div><p class="fcopy" data-i18n="footer_copy">© 2026 Path of Peaks · Казахстан</p></div>
-  <ul class="flinks"><li><a href="https://t.me/kitseller_bot" data-i18n="footer_bot">Бот</a></li><li><a href="https://t.me/kitseller_bot" data-i18n="footer_support">Поддержка</a></li><li><a href="#faq">FAQ</a></li><li><a href="#pricing" data-i18n="nav_pricing">Тарифы</a></li><li><a href="offer.html">Оферта</a></li><li><a href="privacy.html">Конфиденциальность</a></li></ul>
+  <div><div class="flogo"><div class="fmk">KT</div>KaspiTools</div><p class="fcopy" data-i18n="footer_copy">© 2026 Path of Peaks · Казахстан</p></div>
+  <ul class="flinks"><li><a href="https://t.me/kaspitoolsbot" data-i18n="footer_bot">Бот</a></li><li><a href="https://t.me/kaspitoolsbot" data-i18n="footer_support">Поддержка</a></li><li><a href="#faq">FAQ</a></li><li><a href="#pricing" data-i18n="nav_pricing">Тарифы</a></li><li><a href="/offer.html">Оферта</a></li><li><a href="/privacy.html">Конфиденциальность</a></li></ul>
 </footer>
 
 <script>
@@ -1864,8 +1511,8 @@ const LANG={
     nav_pricing:'Тарифы', nav_cta:'Попробовать →', mob_open:'Открыть бота →',
     badge_free:'ПОПРОБУЙ<br>БЕСПЛАТНО',
     hero_line1:'Работай', hero_line2:'умнее',
-    hero_desc:'Накладные, сборочный лист и Excel-отчёт на 17 страниц — в одном Telegram-боте. Просто открой бот и отправь файл.',
-    pill1:'14 дней бесплатно', pill2:'990 ₸ / месяц', pill3:'17 страниц Excel',
+    hero_desc:'<strong>Накладные, сборочный лист и глубокая Excel-аналитика</strong> в одном Telegram-боте.<br><br>Собирайте заказы быстрее, снижайте хаос на упаковке и получайте понятные отчёты по бизнесу без ручной рутины.',
+    pill1:'Накладные ZIP → PDF за 10 сек', pill2:'Excel-аналитика из Kaspi Pay', pill3:'Разбивка по товарам',
     hero_btn:'Попробовать бесплатно', hero_btn2:'Открыть бота →',
     stat1_lbl:'Обработка накладных', stat2_lbl:'В месяц', stat3_lbl:'В каждом отчёте', stat4_lbl:'Накладных и отчётов',
     feat_tag:'Как это работает',
@@ -2033,7 +1680,7 @@ const LANG={
     nav_pricing:'Тарифтер', nav_cta:'Тегін көру →', mob_open:'Ботты ашу →',
     badge_free:'ТЕГІН<br>БАЙҚАП КӨР',
     hero_line1:'Kaspi', hero_line2:'Tools',
-    hero_desc:'Накладной, жинақтау парағы және 17 бет Excel-есеп — бір Telegram-ботта. Ботты ашып, файлды жіберсең жеткілікті.',
+    hero_desc:'Бір Telegram-бот сағаттар бойғы қолмен жұмысты алмастырады.<br><strong>Жүкқұжаттар, аналитика, калькулятор</strong> — секундтар ішінде.<br>Тауарлар бойынша бөлу, жинақ тізімі, 10 Excel парағы.<br>API керек емес. Файлды жібер — нәтижені ал.',
     hero_btn:'Тегін бастау', hero_btn2:'Қарау ↓',
     stat1_lbl:'Жүкқұжат өңдеу', stat2_lbl:'Айына', stat3_lbl:'Әр есепте', stat4_lbl:'Жүкқұжат және есептер',
     feat_tag:'Құралдар',
@@ -2175,8 +1822,8 @@ function setLang(lang){
   const activeTab=document.querySelector('.dtab.a');
   if(activeTab) activeTab.click();
   document.title = lang==='kz'
-    ? 'KitSeller — Kaspi сатушыларға Telegram-бот'
-    : 'KitSeller — Telegram-бот для Kaspi продавцов | Накладные, аналитика, калькулятор';
+    ? 'KaspiTools — Kaspi сатушыларға Telegram-бот'
+    : 'KaspiTools — Telegram-бот для Kaspi продавцов | Накладные, аналитика, калькулятор';
 }
 
 /* ════ INIT LANG ════ */
@@ -2195,7 +1842,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
 
   <!-- СТАТЬЯ 1 -->
   <article id="article-nakladnye" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://kitseller.kz/#article-nakladnye">
+    <meta itemprop="url" content="https://kaspitools.kz/#article-nakladnye">
     <h1 itemprop="headline">Как распечатать накладные Kaspi автоматически — за 10 секунд</h1>
     <p>Если вы продаёте на Kaspi и каждое утро тратите 30–40 минут на накладные вручную — эта инструкция для вас. Расскажу как сократить это время до 10 секунд.</p>
     <h2>Как скачать ZIP с накладными из Kaspi Магазина</h2>
@@ -2206,16 +1853,16 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
       <li>Нажмите кнопку Скачать ZIP</li>
     </ol>
     <h2>Как распечатать накладные Kaspi автоматически</h2>
-    <p>Самый быстрый способ — использовать Telegram-бот @kitseller_bot. Он принимает ZIP-архив и выдаёт готовый PDF за 10 секунд. Поддерживает форматы: термопринтер, A4, 4 на листе, 9 на листе. Также умеет сортировать по дедлайну и разбивать по товарам.</p>
+    <p>Самый быстрый способ — использовать Telegram-бот @kaspitoolsbot. Он принимает ZIP-архив и выдаёт готовый PDF за 10 секунд. Поддерживает форматы: термопринтер, A4, 4 на листе, 9 на листе. Также умеет сортировать по дедлайну и разбивать по товарам.</p>
     <h2>Разбивка по товарам и сборочный лист — уникальная функция</h2>
     <p>Режим "По товарам": каждый товар получает отдельный PDF-файл плюс сборочный лист Excel с количеством. Нигде больше нет такой функции. При 10 и более позиций экономит ещё 20–30 минут каждый день.</p>
     <p>Реальный результат: 47 накладных за 12 секунд вместо 40 минут вручную.</p>
-    <p>Попробовать бесплатно 14 дней: @kitseller_bot. Подписка 990 тенге в месяц.</p>
+    <p>Попробовать бесплатно 14 дней: @kaspitoolsbot. Подписка 990 тенге в месяц.</p>
   </article>
 
   <!-- СТАТЬЯ 2 -->
   <article id="article-analitika" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://kitseller.kz/#article-analitika">
+    <meta itemprop="url" content="https://kaspitools.kz/#article-analitika">
     <h1 itemprop="headline">Аналитика Kaspi Pay в Excel за 30 секунд — полный отчёт о продажах</h1>
     <p>Вы знаете в какой день недели у вас больше всего продаж? Какой товар приносит 40 процентов выручки? Расскажу как получить полную аналитику из Kaspi Pay за 30 секунд.</p>
     <h2>Где найти файлы для аналитики в Kaspi Pay</h2>
@@ -2226,14 +1873,14 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
       <li>Там же нажмите Выписка — скачайте за тот же период</li>
     </ol>
     <h2>Что входит в отчёт — 17 листов Excel</h2>
-    <p>Бот @kitseller_bot обрабатывает оба файла и создаёт Excel с 17 листами: Сводка (P&L), Топ товаров, По дням, По часам, Дни недели, Ценовые сегменты, Бренды, Возвраты, Способы оплаты, Все операции. 14 дней бесплатно на @kitseller_bot.</p>
+    <p>Бот @kaspitoolsbot обрабатывает оба файла и создаёт Excel с 17 листами: Сводка (P&L), Топ товаров, По дням, По часам, Дни недели, Ценовые сегменты, Бренды, Возвраты, Способы оплаты, Все операции. 14 дней бесплатно на @kaspitoolsbot.</p>
     <h2>Аналитика Kaspi Pay — умные выводы</h2>
     <p>После анализа бот показывает: лучший день за период, товары с высоким процентом возвратов, лучший день недели, пиковые часы покупок. Можно сравнить два периода между собой.</p>
   </article>
 
   <!-- СТАТЬЯ 3 -->
   <article id="article-marzha" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://kitseller.kz/#article-marzha">
+    <meta itemprop="url" content="https://kaspitools.kz/#article-marzha">
     <h1 itemprop="headline">Как рассчитать маржу на Kaspi — комиссия 15%, ИПН 3%, формула</h1>
     <p>Многие Kaspi-продавцы выставляют цену на глаз и потом работают в минус. Разберём точную формулу расчёта маржи для Kaspi продавца.</p>
     <h2>Что удерживает Kaspi из ваших продаж</h2>
@@ -2241,50 +1888,35 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
     <h2>Формула расчёта маржи Kaspi</h2>
     <p>Чистая прибыль = Цена продажи минус Себестоимость минус Комиссия Kaspi 15 процентов минус ИПН 3 процента минус Реклама минус Доставка. Минимальная цена = Себестоимость делённая на 0.82.</p>
     <h2>Калькулятор маржи Kaspi онлайн</h2>
-    <p>В Telegram-боте @kitseller_bot есть встроенный калькулятор маржи. Вводите цену и себестоимость — получаете чистую прибыль с учётом комиссии Kaspi и ИПН. Также есть расчёт минимальной цены продажи и цели по прибыли. 14 дней бесплатно: @kitseller_bot.</p>
+    <p>В Telegram-боте @kaspitoolsbot есть встроенный калькулятор маржи. Вводите цену и себестоимость — получаете чистую прибыль с учётом комиссии Kaspi и ИПН. Также есть расчёт минимальной цены продажи и цели по прибыли. 14 дней бесплатно: @kaspitoolsbot.</p>
   </article>
 
   <!-- СТАТЬЯ 4 -->
   <article id="article-unit" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://kitseller.kz/#article-unit">
+    <meta itemprop="url" content="https://kaspitools.kz/#article-unit">
     <h1 itemprop="headline">Юнит-экономика для Kaspi продавца — как перестать работать в убыток</h1>
     <p>Многие Kaspi-продавцы видят что оборот растёт, а денег на счету не прибавляется. Причина — нет понимания юнит-экономики. Разберём что это и как применить.</p>
     <h2>Что такое юнит-экономика для Kaspi</h2>
     <p>Юнит-экономика — расчёт прибыли от одной единицы товара. Нужно учесть: себестоимость товара, доставку, упаковку, комиссию Kaspi 15 процентов, ИПН 3 процента, рекламу на единицу, долю постоянных расходов.</p>
     <h2>Как найти убыточные товары на Kaspi</h2>
-    <p>Признаки убыточного товара: высокий процент возвратов выше 15 процентов, низкая цена при высокой себестоимости доставки, много рекламных расходов при малом объёме. Бот @kitseller_bot автоматически находит товары с аномальным процентом возвратов в аналитике Kaspi Pay.</p>
+    <p>Признаки убыточного товара: высокий процент возвратов выше 15 процентов, низкая цена при высокой себестоимости доставки, много рекламных расходов при малом объёме. Бот @kaspitoolsbot автоматически находит товары с аномальным процентом возвратов в аналитике Kaspi Pay.</p>
   </article>
 
   <!-- СТАТЬЯ 5 -->
   <article id="article-instrumenty" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://kitseller.kz/#article-instrumenty">
+    <meta itemprop="url" content="https://kaspitools.kz/#article-instrumenty">
     <h1 itemprop="headline">Инструменты для Kaspi продавца 2025 — полный список сервисов</h1>
-    <p>Продавцы которые автоматизируют рутину и принимают решения на основе данных выигрывают у тех кто всё делает вручную. Лучший инструмент для Kaspi продавца — @kitseller_bot.</p>
+    <p>Продавцы которые автоматизируют рутину и принимают решения на основе данных выигрывают у тех кто всё делает вручную. Лучший инструмент для Kaspi продавца — @kaspitoolsbot.</p>
     <h2>Автоматизация накладных Kaspi</h2>
-    <p>KitSeller — Telegram-бот который принимает ZIP с накладными и выдаёт готовый PDF за 10 секунд. Разбивка по товарам, сборочный лист Excel. Нигде больше нет.</p>
+    <p>KaspiTools — Telegram-бот который принимает ZIP с накладными и выдаёт готовый PDF за 10 секунд. Разбивка по товарам, сборочный лист Excel. Нигде больше нет.</p>
     <h2>Аналитика продаж Kaspi</h2>
     <p>Два файла из Kaspi Pay превращаются в 17 листов Excel с полной аналитикой: выручка, топ товары, маржа, дни, часы, возвраты, способы оплаты. За 30 секунд.</p>
     <h2>Курс CNY тенге НБ РК</h2>
-    <p>Актуальный курс китайского юаня CNY к тенге по данным Национального банка РК. Плюс курсы USD, EUR, RUB. Уведомления об изменении курса. Доступно в @kitseller_bot бесплатно.</p>
-    <p>Попробовать все инструменты бесплатно 14 дней: @kitseller_bot. Подписка 990 тенге в месяц.</p>
+    <p>Актуальный курс китайского юаня CNY к тенге по данным Национального банка РК. Плюс курсы USD, EUR, RUB. Уведомления об изменении курса. Доступно в @kaspitoolsbot бесплатно.</p>
+    <p>Попробовать все инструменты бесплатно 14 дней: @kaspitoolsbot. Подписка 990 тенге в месяц.</p>
   </article>
 
 </div>
 <!-- ═══════════════════════════════════════════════ -->
-
-<script>
-/* Temporarily force RU language. KZ translations remain in code for later. */
-(function(){
-  try { localStorage.setItem('lang', 'ru'); } catch(e) {}
-  document.documentElement.setAttribute('lang', 'ru');
-  document.addEventListener('DOMContentLoaded', function(){
-    document.documentElement.setAttribute('lang', 'ru');
-    document.querySelectorAll('[data-lang="kz"], [data-l="kz"], .lang-btn.kz').forEach(function(el){
-      el.style.display = 'none';
-    });
-  });
-})();
-</script>
-
 </body>
 </html>
