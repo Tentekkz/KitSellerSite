@@ -1,156 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Политика конфиденциальности — KaspiTools</title>
-<meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{--void:#060608;--edge:rgba(255,255,255,.06);--r:#ff3d00;--snow:#f5f4f0;--grey:#7a7a8a;--fh:'Unbounded',sans-serif;--fb:'Instrument Sans',sans-serif}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:16px;scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--void);color:var(--snow);line-height:1.7;min-height:100vh}
-nav{position:sticky;top:0;z-index:100;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,4vw,3rem);background:rgba(6,6,8,.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--edge)}
-.nlogo{font-family:var(--fh);font-size:.9rem;font-weight:900;letter-spacing:-.03em;display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--snow)}
-.nmark{width:28px;height:28px;background:var(--r);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:#fff}
-.back-link{font-size:.78rem;color:var(--grey);text-decoration:none;transition:color .2s}
-.back-link:hover{color:var(--snow)}
-.wrap{max-width:780px;margin:0 auto;padding:3.5rem clamp(1.5rem,4vw,3rem) 6rem}
-.doc-tag{font-family:var(--fh);font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--r);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
-.doc-tag::before{content:'';width:20px;height:1px;background:var(--r)}
-h1{font-family:var(--fh);font-size:clamp(1.4rem,3vw,2rem);font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-bottom:.5rem}
-.doc-sub{color:var(--grey);font-size:.85rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--edge)}
-.section{margin-bottom:2.5rem}
-.section-title{font-family:var(--fh);font-size:.82rem;font-weight:700;color:var(--r);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--edge)}
-p{color:rgba(245,244,240,.8);font-size:.9rem;margin-bottom:.9rem}
-ul{padding-left:1.2rem;margin-bottom:.9rem}
-ul li{color:rgba(245,244,240,.8);font-size:.9rem;margin-bottom:.4rem}
-ul li::marker{color:var(--r)}
-b,strong{color:var(--snow);font-weight:600}
-.highlight-box{background:rgba(255,255,255,.03);border:1px solid var(--edge);border-radius:12px;padding:1.5rem;margin-bottom:2rem}
-.requisites{background:rgba(255,61,0,.04);border:1px solid rgba(255,61,0,.12);border-radius:12px;padding:1.8rem;margin-top:3rem}
-.req-title{font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--r);margin-bottom:1.2rem}
-.req-row{display:flex;gap:1rem;margin-bottom:.5rem;font-size:.85rem}
-.req-label{color:var(--grey);min-width:80px;flex-shrink:0}
-.req-val{color:var(--snow)}
-.req-val a{color:var(--r);text-decoration:none}
-.req-val a:hover{text-decoration:underline}
-footer{border-top:1px solid var(--edge);padding:2rem clamp(1.5rem,4vw,3rem);display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
-.fcopy{font-size:.75rem;color:var(--grey)}
-.flinks{display:flex;gap:1.5rem;list-style:none}
-.flinks a{font-size:.75rem;color:var(--grey);transition:color .2s}
-.flinks a:hover{color:var(--snow)}
-@media(max-width:600px){.req-row{flex-direction:column;gap:.2rem}footer{flex-direction:column;align-items:flex-start}}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Политика конфиденциальности KitSeller: какие данные обрабатываются, как защищаются файлы и персональные данные пользователей Telegram-бота.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://kitseller.kz/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KitSeller">
+  <meta property="og:title" content="Политика конфиденциальности KitSeller — обработка персональных данных">
+  <meta property="og:description" content="Политика конфиденциальности KitSeller: какие данные обрабатываются, как защищаются файлы и персональные данные пользователей Telegram-бота.">
+  <meta property="og:url" content="https://kitseller.kz/privacy.html">
+  <meta property="og:image" content="https://kitseller.kz/og-image.png">
+  <title>Политика конфиденциальности KitSeller — обработка персональных данных</title>
+  <link rel="icon" href="kitseller-icon.png">
+  <style>
+:root{
+  --bg:#ffffff;
+  --soft:#f7f8fa;
+  --ink:#111827;
+  --muted:#667085;
+  --line:#e5e7eb;
+  --red:#ff3b1f;
+  --red-dark:#dc2f16;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:linear-gradient(180deg,#ffffff 0%,#f7f8fa 55%,#ffffff 100%);
+}
+.nav{
+  height:86px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:0 clamp(18px,4vw,64px);
+  background:rgba(255,255,255,.88);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 8px 30px rgba(17,24,39,.04);
+}
+.logo{
+  height:52px;
+  width:auto;
+  max-width:220px;
+  object-fit:contain;
+  display:block;
+}
+.back{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 18px;
+  border-radius:14px;
+  background:var(--red);
+  color:#fff;
+  text-decoration:none;
+  font-weight:900;
+  box-shadow:0 14px 34px rgba(255,59,31,.20);
+  transition:.22s ease;
+}
+.back:hover{background:var(--red-dark);transform:translateY(-2px)}
+.wrap{
+  width:min(1060px,calc(100% - 36px));
+  margin:0 auto;
+  padding:46px 0 90px;
+}
+.card{
+  background:#fff;
+  border:1px solid rgba(17,24,39,.10);
+  border-radius:28px;
+  box-shadow:0 24px 70px rgba(17,24,39,.08);
+  padding:clamp(24px,4.5vw,60px);
+}
+.badge{
+  display:inline-flex;
+  color:#b42318;
+  background:#fff1f0;
+  border:1px solid #ffd5d0;
+  border-radius:999px;
+  padding:8px 14px;
+  font-size:13px;
+  font-weight:950;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+h1{
+  font-size:clamp(30px,5.2vw,58px);
+  line-height:1.02;
+  letter-spacing:-.055em;
+  margin:18px 0 24px;
+  color:var(--ink);
+}
+h2{
+  font-size:clamp(22px,2.9vw,32px);
+  line-height:1.15;
+  letter-spacing:-.04em;
+  margin:38px 0 14px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+  color:var(--ink);
+}
+p{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.75;
+}
+p.clause{color:#475467}
+.footer-note{
+  margin-top:34px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  color:#98a2b3;
+  font-size:14px;
+}
+@media(max-width:760px){
+  .nav{height:76px;padding:0 18px}
+  .logo{height:40px;max-width:165px}
+  .back{min-height:42px;padding:0 14px;font-size:14px}
+  .wrap{padding:28px 0 70px}
+  .card{border-radius:22px}
+  p{font-size:16px;line-height:1.72}
+}
 </style>
 </head>
 <body>
-<nav>
-  <a href="/" class="nlogo"><div class="nmark">KT</div>KaspiTools</a>
-  <a href="/" class="back-link">← На главную</a>
-</nav>
-<div class="wrap">
-  <div class="doc-tag">Юридический документ</div>
-  <h1>Политика конфиденциальности</h1>
-  <p class="doc-sub">и обработки персональных данных сайта KaspiTools (kaspitools.kz) · Дата: 01.04.2026</p>
-
-  <div class="highlight-box">
-    <p style="margin:0;font-size:.88rem">🔒 <strong>Мы не продаём и не передаём ваши данные третьим лицам в коммерческих целях.</strong> Загружаемые файлы обрабатываются только в памяти сервера и удаляются сразу после обработки.</p>
-  </div>
-
-  <p>Настоящая политика конфиденциальности и обработки персональных данных регулирует порядок обработки и использования персональных и иных данных сайта KaspiTools (далее — Оператор). Действующая редакция настоящей Политики конфиденциальности постоянно доступна для ознакомления и размещена в сети Интернет по адресу: <a href="https://kaspitools.kz/privacy.html" style="color:var(--r)">kaspitools.kz/privacy.html</a>, а также в Telegram-боте по команде /privacy.</p>
-  <p>Передавая Оператору персональные и иные данные посредством Сайта и Telegram-бота, Пользователь подтверждает своё согласие на использование указанных данных на условиях, изложенных в настоящей Политике конфиденциальности.</p>
-  <p>Если Пользователь не согласен с условиями настоящей Политики конфиденциальности, он обязан прекратить использование Сайта и Telegram-бота.</p>
-  <p>Безусловным акцептом настоящей Политики конфиденциальности является начало использования Сайта или Telegram-бота Пользователем.</p>
-
-  <div class="section">
-    <div class="section-title">1. Термины</div>
-    <p>1.1. <strong>Сайт</strong> — kaspitools.kz и Telegram-бот @kaspitoolsbot. Все исключительные права на Сайт и его отдельные элементы (включая программное обеспечение, дизайн) принадлежат Оператору в полном объёме. Передача исключительных прав Пользователю не является предметом настоящей Политики конфиденциальности.</p>
-    <p>1.2. <strong>Оператор</strong> — ИП Path of Peaks, собственник Сайта kaspitools.kz и Telegram-бота @kaspitoolsbot.</p>
-    <p>1.3. <strong>Пользователь</strong> — лицо, использующее Сайт или Telegram-бот.</p>
-    <p>1.4. <strong>Законодательство</strong> — действующее законодательство Республики Казахстан.</p>
-    <p>1.5. <strong>Персональные данные</strong> — персональные данные Пользователя, которые Пользователь предоставляет самостоятельно при использовании функционала Сайта или Telegram-бота.</p>
-    <p>1.6. <strong>Данные</strong> — иные данные о Пользователе (не входящие в понятие Персональных данных).</p>
-    <p>1.7. <strong>Услуги</strong> — автоматизация работы продавцов на Kaspi.kz: накладные, аналитика, калькулятор, курсы валют, QR-коды.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-title">2. Сбор и обработка персональных данных</div>
-    <p>2.1. Оператор собирает и хранит только те Персональные данные, которые необходимы для оказания Услуг Оператором и взаимодействия с Пользователем.</p>
-    <p>2.2. Персональные данные могут использоваться в следующих целях:</p>
-    <ul>
-      <li>оказание Услуг Пользователю;</li>
-      <li>идентификация Пользователя;</li>
-      <li>взаимодействие с Пользователем;</li>
-      <li>направление Пользователю уведомлений о подписке и изменениях сервиса;</li>
-      <li>проведение статистических и иных исследований (без личных данных).</li>
-    </ul>
-    <p>2.3. Оператор в том числе обрабатывает следующие данные:</p>
-    <ul>
-      <li>Telegram ID и имя пользователя (для идентификации);</li>
-      <li>дата регистрации и статус подписки (для управления доступом);</li>
-      <li>статистика использования инструментов без привязки к личным данным (для улучшения качества).</li>
-    </ul>
-    <p>2.4. <strong>Загружаемые файлы</strong> (ZIP, XLSX) обрабатываются исключительно в оперативной памяти и удаляются сразу после обработки. На серверах не сохраняются.</p>
-    <p>2.5. Пользователю запрещается указывать на Сайте персональные данные третьих лиц (за исключением условия представления интересов этих лиц при наличии документального подтверждения).</p>
-  </div>
-
-  <div class="section">
-    <div class="section-title">3. Порядок обработки персональных и иных данных</div>
-    <p>3.1. Оператор обязуется использовать Персональные данные в соответствии с Законом «О персональных данных и их защите» Республики Казахстан и внутренними документами Оператора.</p>
-    <p>3.2. В отношении Персональных данных и иных Данных Пользователя сохраняется их конфиденциальность, кроме случаев, когда указанные данные являются общедоступными.</p>
-    <p>3.3. Оператор имеет право сохранять архивную копию Персональных данных. Оператор имеет право хранить Персональные данные и Данные на серверах вне территории Республики Казахстан.</p>
-    <p>3.4. Оператор имеет право передавать Персональные данные и Данные Пользователя без согласия Пользователя следующим лицам:</p>
-    <ul>
-      <li>государственным органам, в том числе органам дознания и следствия, и органам местного самоуправления по их мотивированному запросу;</li>
-      <li>в иных случаях, прямо предусмотренных действующим законодательством Республики Казахстан.</li>
-    </ul>
-    <p>3.5. Оператор имеет право передавать Персональные данные и Данные третьим лицам, не указанным в п. 3.4, в следующих случаях:</p>
-    <ul>
-      <li>Пользователь выразил своё согласие на такие действия;</li>
-      <li>передача необходима в рамках использования Пользователем Сайта или оказания Услуг Пользователю.</li>
-    </ul>
-    <p>3.6. Оператор осуществляет автоматизированную обработку Персональных данных и Данных.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-title">4. Защита персональных данных</div>
-    <p>4.1. Оператор осуществляет надлежащую защиту Персональных и иных данных в соответствии с Законодательством и принимает необходимые и достаточные организационные и технические меры для защиты Персональных данных.</p>
-    <p>4.2. Применяемые меры защиты позволяют защитить Персональные данные от неправомерного или случайного доступа, уничтожения, изменения, блокирования, копирования, распространения, а также от иных неправомерных действий с ними третьих лиц.</p>
-    <p>4.3. Доступ к персональным данным имеет только Оператор.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-title">5. Права пользователя и иные положения</div>
-    <p>5.1. Пользователь вправе запросить <strong>удаление всех своих данных</strong> — обратитесь на <a href="https://t.me/peaks_kz" style="color:var(--r)">@peaks_kz</a> или по email. Данные будут удалены в течение <strong>7 рабочих дней</strong>.</p>
-    <p>5.2. Пользователь вправе запросить информацию о составе хранимых данных.</p>
-    <p>5.3. Если по тем или иным причинам одно или несколько положений Политики конфиденциальности будут признаны недействительными или не имеющими юридической силы, это не оказывает влияния на действительность или применимость остальных положений Политики конфиденциальности.</p>
-    <p>5.4. К настоящей Политике конфиденциальности и отношениям между Пользователем и Оператором подлежит применению право Республики Казахстан. Все возможные споры подлежат разрешению в соответствии с действующим законодательством по месту регистрации Оператора. Досудебный порядок обязателен — срок ответа на претензию 30 (тридцать) рабочих дней.</p>
-    <p>5.5. Оператор имеет право в любой момент изменять Политику конфиденциальности (полностью или в части) в одностороннем порядке без предварительного согласования с Пользователем. Все изменения вступают в силу с момента их размещения на Сайте и в Telegram-боте. Пользователь обязуется самостоятельно следить за изменениями Политики конфиденциальности путём ознакомления с актуальной редакцией.</p>
-    <p>5.6. Все предложения или вопросы по настоящей Политике следует сообщать по электронной почте <a href="mailto:ergazin013@gmail.com" style="color:var(--r)">ergazin013@gmail.com</a> или по адресу <a href="https://t.me/peaks_kz" style="color:var(--r)">@peaks_kz</a>.</p>
-  </div>
-
-  <div class="requisites">
-    <div class="req-title">Реквизиты Оператора</div>
-    <div class="req-row"><span class="req-label">Компания</span><span class="req-val"><strong>ИП Path of Peaks</strong></span></div>
-    <div class="req-row"><span class="req-label">ИИН</span><span class="req-val">950313300415</span></div>
-    <div class="req-row"><span class="req-label">Адрес</span><span class="req-val">040400, РК, Алматинская обл., г. Есик, 1 мкр., д. 6</span></div>
-    <div class="req-row"><span class="req-label">Email</span><span class="req-val"><a href="mailto:ergazin013@gmail.com">ergazin013@gmail.com</a></span></div>
-    <div class="req-row"><span class="req-label">Телефон</span><span class="req-val">+7 776 608 8813</span></div>
-    <div class="req-row"><span class="req-label">Telegram</span><span class="req-val"><a href="https://t.me/peaks_kz">@peaks_kz</a></span></div>
-    <div class="req-row"><span class="req-label">Сайт</span><span class="req-val"><a href="https://kaspitools.kz">kaspitools.kz</a></span></div>
-  </div>
-</div>
-
-<footer>
-  <p class="fcopy">© 2026 Path of Peaks · Казахстан</p>
-  <ul class="flinks">
-    <li><a href="/privacy.html">Конфиденциальность</a></li>
-    <li><a href="/offer.html">Оферта</a></li>
-    <li><a href="https://t.me/kaspitoolsbot">Бот</a></li>
-  </ul>
-</footer>
+  <nav class="nav">
+    <a href="index.html" aria-label="KitSeller"><img src="kitseller-logo.png" class="logo" alt="KitSeller"></a>
+    <a class="back" href="index.html">На главную</a>
+  </nav>
+  <main class="wrap">
+    <article class="card">
+      <div class="badge">Конфиденциальность</div>
+      <h1>ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</h1>
+<h1>И ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
+<p>Telegram-бота KitSeller (@kitseller_bot)</p>
+<p>Настоящая Политика конфиденциальности и обработки персональных данных регулирует порядок обработки и использования персональных и иных данных Telegram-бота @kitseller_bot (далее — Оператор). Действующая редакция настоящей Политики постоянно доступна в Telegram-боте по команде /privacy, а также на сайте kitseller.kz</p>
+<p>Передавая Оператору персональные данные посредством Telegram-бота, Пользователь подтверждает своё согласие на использование указанных данных на условиях, изложенных в настоящей Политике.</p>
+<p>Если Пользователь не согласен с условиями настоящей Политики, он обязан прекратить использование Telegram-бота. Безусловным акцептом настоящей Политики является начало использования Telegram-бота.</p>
+<h1>1. ТЕРМИНЫ</h1>
+<p class='clause'>1.1. Telegram-бот — бот, расположенный в сети Интернет по адресу @kitseller_bot. Все исключительные права на Telegram-бот принадлежат Оператору в полном объёме.</p>
+<p class='clause'>1.2. Оператор — ИП Path of Peaks, собственник Telegram-бота @kitseller_bot.</p>
+<p class='clause'>1.3. Пользователь — лицо, использующее Telegram-бот.</p>
+<p class='clause'>1.4. Законодательство — действующее законодательство Республики Казахстан.</p>
+<p class='clause'>1.5. Персональные данные — данные Пользователя, которые Пользователь предоставляет самостоятельно при использовании функционала Telegram-бота.</p>
+<p class='clause'>1.6. Услуги — автоматизация работы продавцов на маркетплейсе Kaspi.kz: обработка накладных, аналитика продаж, калькулятор юнит-экономики, курсы валют, QR-коды.</p>
+<h1>2. СБОР И ОБРАБОТКА ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
+<p class='clause'>2.1. Оператор собирает и хранит только те данные, которые необходимы для оказания Услуг и взаимодействия с Пользователем.</p>
+<p class='clause'>2.2. Персональные данные используются в следующих целях:</p>
+<p>оказание Услуг Пользователю;</p>
+<p>идентификация Пользователя;</p>
+<p>взаимодействие с Пользователем (уведомления о подписке);</p>
+<p>проведение статистических исследований для улучшения сервиса.</p>
+<p class='clause'>2.3. Оператор обрабатывает следующие данные:</p>
+<p>Telegram ID и имя пользователя — для идентификации;</p>
+<p>дата и статус подписки — для управления доступом;</p>
+<p>статистика использования инструментов (без личных данных) — для улучшения качества.</p>
+<p class='clause'>2.4. Загружаемые Пользователем файлы (ZIP-архивы накладных, Excel-файлы из Kaspi Pay) обрабатываются исключительно в оперативной памяти сервера и удаляются сразу после обработки. Данные файлы не сохраняются на серверах Оператора.</p>
+<p class='clause'>2.5. Пользователю запрещается передавать через Telegram-бот персональные данные третьих лиц без их согласия.</p>
+<h1>3. ПОРЯДОК ОБРАБОТКИ ДАННЫХ</h1>
+<p class='clause'>3.1. Оператор обязуется использовать персональные данные в соответствии с Законом «О персональных данных и их защите» Республики Казахстан.</p>
+<p class='clause'>3.2. В отношении персональных данных Пользователя сохраняется их конфиденциальность, кроме случаев, когда данные являются общедоступными.</p>
+<p class='clause'>3.4. Оператор вправе передавать персональные данные без согласия Пользователя только:</p>
+<p>государственным органам по их мотивированному запросу в соответствии с законодательством;</p>
+<p>в иных случаях, прямо предусмотренных действующим законодательством РК.</p>
+<p class='clause'>3.5. Данные не передаются третьим лицам в коммерческих целях и не используются для рекламных рассылок без согласия Пользователя.</p>
+<h1>4. ЗАЩИТА ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
+<p class='clause'>4.1. Оператор принимает необходимые организационные и технические меры для защиты персональных данных от неправомерного доступа, уничтожения, изменения, блокирования и иных неправомерных действий.</p>
+<p class='clause'>4.2. Доступ к персональным данным имеет только Оператор. Данные хранятся на защищённых серверах.</p>
+<h1>5. ПРАВА ПОЛЬЗОВАТЕЛЯ</h1>
+<p class='clause'>5.1. Пользователь вправе запросить удаление всех своих данных из системы, направив обращение на @peaks_kz или по email Оператора. Данные будут удалены в течение 7 рабочих дней.</p>
+<p class='clause'>5.2. Пользователь вправе запросить информацию о составе хранимых данных.</p>
+<h1>6. ИНЫЕ ПОЛОЖЕНИЯ</h1>
+<p class='clause'>6.1. К настоящей Политике и отношениям между Пользователем и Оператором применяется право Республики Казахстан.</p>
+<p class='clause'>6.2. Все споры разрешаются в соответствии с законодательством по месту регистрации Оператора. Обязательный досудебный порядок: претензия в письменном виде, срок ответа — 30 рабочих дней.</p>
+<p class='clause'>6.3. Оператор вправе в любой момент изменить настоящую Политику в одностороннем порядке. Изменения вступают в силу с момента их публикации в Telegram-боте. Продолжение использования бота означает согласие с изменениями.</p>
+<p class='clause'>6.4. Если отдельные положения Политики будут признаны недействительными, это не влияет на действительность остальных положений.</p>
+<h2>Реквизиты Оператора</h2>
+<p>ИП Path of Peaks</p>
+<h1>ИИН: 950313300415</h1>
+<p>Адрес: 040400 РК, Алматинская обл., г. Есик, 1 мкр., д. 6</p>
+<p>Email: ergazin013@gmail.com</p>
+<p>Телефон: +7 776 608 8813</p>
+<p>Telegram: @peaks_kz</p>
+<p>Сайт: kitseller.kz</p>
+      <p class="footer-note">KitSeller • @kitseller_bot</p>
+    </article>
+  </main>
 </body>
 </html>

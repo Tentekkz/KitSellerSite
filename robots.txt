@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://kaspitools.kz/sitemap.xml
+
+Sitemap: https://kitseller.kz/sitemap.xml
