@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KitSeller — бот для продавцов Kaspi: накладные, сборочный лист и Excel-аналитика</title>
 <meta name="description" content="KitSeller — Telegram-бот для продавцов Kaspi. Делает накладные из ZIP за 10 секунд, сборочный лист и Excel-аналитику Kaspi Pay на 17 листов. 14 дней бесплатно, далее 990 ₸/мес.">
-<meta name="keywords" content="бот для продавцов Kaspi, накладные Kaspi, распечатать накладные Kaspi, автоматизация Kaspi, аналитика Kaspi Pay, Excel аналитика Kaspi, сборочный лист Kaspi, калькулятор маржи Kaspi, инструменты для Kaspi продавца, Telegram бот Kaspi продавцов">
+<meta name="keywords" content="бот для продавцов Kaspi, накладные Kaspi, распечатать накладные Kaspi, автоматизация Kaspi, аналитика Kaspi Pay, Excel аналитика Kaspi, сборочный лист Kaspi, Telegram бот Kaspi продавцов">
 <meta name="robots" content="index, follow">
 <meta name="author" content="KitSeller">
 <link rel="canonical" href="https://kitseller.kz/">
@@ -27,64 +27,19 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://kitseller.kz/#organization",
-      "name": "KitSeller",
-      "url": "https://kitseller.kz/",
-      "logo": "https://kitseller.kz/kitseller-logo.png",
-      "sameAs": ["https://t.me/kitseller_bot"]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://kitseller.kz/#website",
-      "url": "https://kitseller.kz/",
-      "name": "KitSeller",
-      "inLanguage": "ru-KZ",
-      "publisher": {"@id": "https://kitseller.kz/#organization"}
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://kitseller.kz/#app",
-      "name": "KitSeller",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Telegram",
-      "url": "https://kitseller.kz/",
-      "description": "Telegram-бот для продавцов Kaspi: накладные ZIP→PDF за 10 секунд, сборочный лист, Excel-аналитика Kaspi Pay на 17 листов и калькулятор маржи.",
-      "inLanguage": ["ru-KZ", "kk-KZ"],
-      "provider": {"@id": "https://kitseller.kz/#organization"},
-      "offers": {
-        "@type": "Offer",
-        "price": "990",
-        "priceCurrency": "KZT",
-        "availability": "https://schema.org/InStock"
-      },
-      "featureList": [
-        "Накладные Kaspi из ZIP в готовый PDF",
-        "Разбивка накладных по товарам",
-        "Сборочный лист Excel",
-        "Excel-аналитика Kaspi Pay на 17 листов",
-        "Калькулятор маржи с учётом комиссии и ИПН",
-        "Курсы валют НБ РК и уведомления",
-        "QR-коды для Kaspi магазина"
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://kitseller.kz/#faq-schema",
-      "mainEntity": [
-        {"@type":"Question","name":"Нужен ли API ключ или доступ к аккаунту?","acceptedAnswer":{"@type":"Answer","text":"Нет. Бот работает только с файлами, которые продавец сам скачивает из Kaspi Pay и Kaspi Магазина. Файлы обрабатываются и удаляются после отправки результата."}},
-        {"@type":"Question","name":"Где найти нужные файлы в Kaspi Pay?","acceptedAnswer":{"@type":"Answer","text":"Для аналитики нужны Отчёт по продажам и Выписка за одинаковый период из Kaspi Pay. Для накладных нужен ZIP-файл из раздела Заказы → Накладные в Kaspi Магазине."}},
-        {"@type":"Question","name":"Сколько стоит KitSeller?","acceptedAnswer":{"@type":"Answer","text":"Первые 14 дней доступны бесплатно. После пробного периода подписка стоит 990 тенге в месяц."}},
-        {"@type":"Question","name":"Работает ли бот на iPhone и Android?","acceptedAnswer":{"@type":"Answer","text":"Да, KitSeller работает на любом устройстве, где установлен Telegram."}}
-      ]
-    }
-  ]
+  "@type": "SoftwareApplication",
+  "name": "KitSeller",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Telegram",
+  "url": "https://kitseller.kz/",
+  "description": "Telegram-бот для продавцов Kaspi: накладные ZIP→PDF за 10 секунд, сборочный лист и Excel-аналитика Kaspi Pay.",
+  "inLanguage": ["ru-KZ", "kk-KZ"],
+  "offers": {"@type": "Offer", "price": "990", "priceCurrency": "KZT"},
+  "sameAs": ["https://t.me/kitseller_bot"]
 }
 </script>
-<link rel="icon" href="/kitseller-icon.png">
-<link rel="apple-touch-icon" href="/kitseller-icon.png">
+<link rel="icon" href="kitseller-icon.png">
+<link rel="apple-touch-icon" href="kitseller-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;700;900&family=Nunito:wght@800;900&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
@@ -946,25 +901,6 @@ button[data-l="kz"],
   width: auto !important;
 }
 
-
-/* SEO CONTENT */
-.seo-articles{
-  background:#fff;
-  color:#111827;
-  padding:clamp(70px,8vw,110px) clamp(1.5rem,4vw,3rem);
-  position:relative;
-  z-index:1;
-}
-.seo-articles .seo-wrap{max-width:980px;margin:0 auto;display:grid;gap:1.2rem}
-.seo-articles .seo-head{margin-bottom:1rem;text-align:left}
-.seo-articles .seo-kicker{font-family:var(--fm);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--r);font-weight:700;margin-bottom:.7rem}
-.seo-articles h2{font-family:var(--fh);font-size:clamp(1.5rem,2.6vw,2.5rem);line-height:1.12;letter-spacing:-.04em;color:#111827!important;margin:0 0 .7rem}
-.seo-articles h3{font-family:var(--fh);font-size:clamp(1.05rem,1.6vw,1.35rem);line-height:1.25;color:#111827!important;margin:0 0 .6rem}
-.seo-articles p,.seo-articles li{color:#667085!important;font-size:.95rem;line-height:1.75}
-.seo-articles article{background:#f7f8fa;border:1px solid rgba(17,24,39,.08);border-radius:22px;padding:clamp(1.1rem,2.5vw,2rem);box-shadow:0 18px 40px rgba(17,24,39,.04)}
-.seo-articles ol{padding-left:1.2rem;margin:.6rem 0 1rem}
-.seo-articles a{color:var(--r);font-weight:700}
-
 </style>
 </head>
 <body>
@@ -1593,98 +1529,6 @@ button[data-l="kz"],
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════════════════
-     SEO BLOG ARTICLES — индексируются Google
-     Скрыты визуально, но читаются поисковиками
-════════════════════════════════════════════════ -->
-<section id="seo-articles" class="seo-articles" aria-label="Полезные материалы для продавцов Kaspi">
-  <div class="seo-wrap">
-    <div class="seo-head">
-      <div class="seo-kicker">SEO / полезные материалы</div>
-      <h2>KitSeller для продавцов Kaspi: накладные, аналитика и расчёт маржи</h2>
-      <p>Ниже — короткие инструкции по главным задачам продавца: как быстрее печатать накладные Kaspi, собирать заказы, анализировать Kaspi Pay и считать прибыльность товаров.</p>
-    </div>
-
-  <!-- СТАТЬЯ 1 -->
-  <article id="article-nakladnye" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://kitseller.kz/#article-nakladnye">
-    <h3 itemprop="headline">Как распечатать накладные Kaspi автоматически — за 10 секунд</h3>
-    <p>Если вы продаёте на Kaspi и каждое утро тратите 30–40 минут на накладные вручную — эта инструкция для вас. Расскажу как сократить это время до 10 секунд.</p>
-    <h2>Как скачать ZIP с накладными из Kaspi Магазина</h2>
-    <ol>
-      <li>Войдите в Kaspi Магазин (магазин.kaspi.kz)</li>
-      <li>В меню слева выберите Заказы</li>
-      <li>Нажмите Накладные</li>
-      <li>Нажмите кнопку Скачать ZIP</li>
-    </ol>
-    <h2>Как распечатать накладные Kaspi автоматически</h2>
-    <p>Самый быстрый способ — использовать Telegram-бот @kitseller_bot. Он принимает ZIP-архив и выдаёт готовый PDF за 10 секунд. Поддерживает форматы: термопринтер, A4, 4 на листе, 9 на листе. Также умеет сортировать по дедлайну и разбивать по товарам.</p>
-    <h2>Разбивка по товарам и сборочный лист — уникальная функция</h2>
-    <p>Режим "По товарам": каждый товар получает отдельный PDF-файл плюс сборочный лист Excel с количеством. Нигде больше нет такой функции. При 10 и более позиций экономит ещё 20–30 минут каждый день.</p>
-    <p>Реальный результат: 47 накладных за 12 секунд вместо 40 минут вручную.</p>
-    <p>Попробовать бесплатно 14 дней: @kitseller_bot. Подписка 990 тенге в месяц.</p>
-  </article>
-
-  <!-- СТАТЬЯ 2 -->
-  <article id="article-analitika" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://kitseller.kz/#article-analitika">
-    <h3 itemprop="headline">Аналитика Kaspi Pay в Excel за 30 секунд — полный отчёт о продажах</h3>
-    <p>Вы знаете в какой день недели у вас больше всего продаж? Какой товар приносит 40 процентов выручки? Расскажу как получить полную аналитику из Kaspi Pay за 30 секунд.</p>
-    <h2>Где найти файлы для аналитики в Kaspi Pay</h2>
-    <ol>
-      <li>Откройте приложение Kaspi Pay</li>
-      <li>Перейдите: Мой банк → Текущий счёт → Инфо</li>
-      <li>Нажмите Отчёт по продажам — скачайте за нужный период</li>
-      <li>Там же нажмите Выписка — скачайте за тот же период</li>
-    </ol>
-    <h2>Что входит в отчёт — 17 листов Excel</h2>
-    <p>Бот @kitseller_bot обрабатывает оба файла и создаёт Excel с 17 листами: Сводка (P&L), Топ товаров, По дням, По часам, Дни недели, Ценовые сегменты, Бренды, Возвраты, Способы оплаты, Все операции. 14 дней бесплатно на @kitseller_bot.</p>
-    <h2>Аналитика Kaspi Pay — умные выводы</h2>
-    <p>После анализа бот показывает: лучший день за период, товары с высоким процентом возвратов, лучший день недели, пиковые часы покупок. Можно сравнить два периода между собой.</p>
-  </article>
-
-  <!-- СТАТЬЯ 3 -->
-  <article id="article-marzha" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://kitseller.kz/#article-marzha">
-    <h3 itemprop="headline">Как рассчитать маржу на Kaspi — комиссия 15%, ИПН 3%, формула</h3>
-    <p>Многие Kaspi-продавцы выставляют цену на глаз и потом работают в минус. Разберём точную формулу расчёта маржи для Kaspi продавца.</p>
-    <h2>Что удерживает Kaspi из ваших продаж</h2>
-    <p>Комиссия Kaspi Магазин 15 процентов от суммы продажи. ИПН 3 процента для ИП на упрощённом режиме. Реклама и Boost. Kaspi Pay комиссия около 0.5-1 процента. Бонусы покупателям.</p>
-    <h2>Формула расчёта маржи Kaspi</h2>
-    <p>Чистая прибыль = Цена продажи минус Себестоимость минус Комиссия Kaspi 15 процентов минус ИПН 3 процента минус Реклама минус Доставка. Минимальная цена = Себестоимость делённая на 0.82.</p>
-    <h2>Калькулятор маржи Kaspi онлайн</h2>
-    <p>В Telegram-боте @kitseller_bot есть встроенный калькулятор маржи. Вводите цену и себестоимость — получаете чистую прибыль с учётом комиссии Kaspi и ИПН. Также есть расчёт минимальной цены продажи и цели по прибыли. 14 дней бесплатно: @kitseller_bot.</p>
-  </article>
-
-  <!-- СТАТЬЯ 4 -->
-  <article id="article-unit" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://kitseller.kz/#article-unit">
-    <h3 itemprop="headline">Юнит-экономика для Kaspi продавца — как перестать работать в убыток</h3>
-    <p>Многие Kaspi-продавцы видят что оборот растёт, а денег на счету не прибавляется. Причина — нет понимания юнит-экономики. Разберём что это и как применить.</p>
-    <h2>Что такое юнит-экономика для Kaspi</h2>
-    <p>Юнит-экономика — расчёт прибыли от одной единицы товара. Нужно учесть: себестоимость товара, доставку, упаковку, комиссию Kaspi 15 процентов, ИПН 3 процента, рекламу на единицу, долю постоянных расходов.</p>
-    <h2>Как найти убыточные товары на Kaspi</h2>
-    <p>Признаки убыточного товара: высокий процент возвратов выше 15 процентов, низкая цена при высокой себестоимости доставки, много рекламных расходов при малом объёме. Бот @kitseller_bot автоматически находит товары с аномальным процентом возвратов в аналитике Kaspi Pay.</p>
-  </article>
-
-  <!-- СТАТЬЯ 5 -->
-  <article id="article-instrumenty" itemscope itemtype="https://schema.org/Article">
-    <meta itemprop="url" content="https://kitseller.kz/#article-instrumenty">
-    <h3 itemprop="headline">Инструменты для Kaspi продавца 2025 — полный список сервисов</h3>
-    <p>Продавцы которые автоматизируют рутину и принимают решения на основе данных выигрывают у тех кто всё делает вручную. Лучший инструмент для Kaspi продавца — @kitseller_bot.</p>
-    <h2>Автоматизация накладных Kaspi</h2>
-    <p>KitSeller — Telegram-бот который принимает ZIP с накладными и выдаёт готовый PDF за 10 секунд. Разбивка по товарам, сборочный лист Excel. Нигде больше нет.</p>
-    <h2>Аналитика продаж Kaspi</h2>
-    <p>Два файла из Kaspi Pay превращаются в 17 листов Excel с полной аналитикой: выручка, топ товары, маржа, дни, часы, возвраты, способы оплаты. За 30 секунд.</p>
-    <h2>Курс CNY тенге НБ РК</h2>
-    <p>Актуальный курс китайского юаня CNY к тенге по данным Национального банка РК. Плюс курсы USD, EUR, RUB. Уведомления об изменении курса. Доступно в @kitseller_bot бесплатно.</p>
-    <p>Попробовать все инструменты бесплатно 14 дней: @kitseller_bot. Подписка 990 тенге в месяц.</p>
-  </article>
-
-  </div>
-</section>
-<!-- ═══════════════════════════════════════════════ -->
 
 <!-- ══ FAQ ══ -->
 <section class="faqsec" id="faq">
@@ -2345,7 +2189,90 @@ const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.
 document.querySelectorAll('.sr').forEach(el=>io.observe(el));
 </script>
 
+<!-- ═══════════════════════════════════════════════
+     SEO BLOG ARTICLES — индексируются Google
+     Скрыты визуально, но читаются поисковиками
+════════════════════════════════════════════════ -->
+<div id="seo-articles" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
 
+  <!-- СТАТЬЯ 1 -->
+  <article id="article-nakladnye" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="url" content="https://kitseller.kz/#article-nakladnye">
+    <h1 itemprop="headline">Как распечатать накладные Kaspi автоматически — за 10 секунд</h1>
+    <p>Если вы продаёте на Kaspi и каждое утро тратите 30–40 минут на накладные вручную — эта инструкция для вас. Расскажу как сократить это время до 10 секунд.</p>
+    <h2>Как скачать ZIP с накладными из Kaspi Магазина</h2>
+    <ol>
+      <li>Войдите в Kaspi Магазин (магазин.kaspi.kz)</li>
+      <li>В меню слева выберите Заказы</li>
+      <li>Нажмите Накладные</li>
+      <li>Нажмите кнопку Скачать ZIP</li>
+    </ol>
+    <h2>Как распечатать накладные Kaspi автоматически</h2>
+    <p>Самый быстрый способ — использовать Telegram-бот @kitseller_bot. Он принимает ZIP-архив и выдаёт готовый PDF за 10 секунд. Поддерживает форматы: термопринтер, A4, 4 на листе, 9 на листе. Также умеет сортировать по дедлайну и разбивать по товарам.</p>
+    <h2>Разбивка по товарам и сборочный лист — уникальная функция</h2>
+    <p>Режим "По товарам": каждый товар получает отдельный PDF-файл плюс сборочный лист Excel с количеством. Нигде больше нет такой функции. При 10 и более позиций экономит ещё 20–30 минут каждый день.</p>
+    <p>Реальный результат: 47 накладных за 12 секунд вместо 40 минут вручную.</p>
+    <p>Попробовать бесплатно 14 дней: @kitseller_bot. Подписка 990 тенге в месяц.</p>
+  </article>
+
+  <!-- СТАТЬЯ 2 -->
+  <article id="article-analitika" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="url" content="https://kitseller.kz/#article-analitika">
+    <h1 itemprop="headline">Аналитика Kaspi Pay в Excel за 30 секунд — полный отчёт о продажах</h1>
+    <p>Вы знаете в какой день недели у вас больше всего продаж? Какой товар приносит 40 процентов выручки? Расскажу как получить полную аналитику из Kaspi Pay за 30 секунд.</p>
+    <h2>Где найти файлы для аналитики в Kaspi Pay</h2>
+    <ol>
+      <li>Откройте приложение Kaspi Pay</li>
+      <li>Перейдите: Мой банк → Текущий счёт → Инфо</li>
+      <li>Нажмите Отчёт по продажам — скачайте за нужный период</li>
+      <li>Там же нажмите Выписка — скачайте за тот же период</li>
+    </ol>
+    <h2>Что входит в отчёт — 17 листов Excel</h2>
+    <p>Бот @kitseller_bot обрабатывает оба файла и создаёт Excel с 17 листами: Сводка (P&L), Топ товаров, По дням, По часам, Дни недели, Ценовые сегменты, Бренды, Возвраты, Способы оплаты, Все операции. 14 дней бесплатно на @kitseller_bot.</p>
+    <h2>Аналитика Kaspi Pay — умные выводы</h2>
+    <p>После анализа бот показывает: лучший день за период, товары с высоким процентом возвратов, лучший день недели, пиковые часы покупок. Можно сравнить два периода между собой.</p>
+  </article>
+
+  <!-- СТАТЬЯ 3 -->
+  <article id="article-marzha" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="url" content="https://kitseller.kz/#article-marzha">
+    <h1 itemprop="headline">Как рассчитать маржу на Kaspi — комиссия 15%, ИПН 3%, формула</h1>
+    <p>Многие Kaspi-продавцы выставляют цену на глаз и потом работают в минус. Разберём точную формулу расчёта маржи для Kaspi продавца.</p>
+    <h2>Что удерживает Kaspi из ваших продаж</h2>
+    <p>Комиссия Kaspi Магазин 15 процентов от суммы продажи. ИПН 3 процента для ИП на упрощённом режиме. Реклама и Boost. Kaspi Pay комиссия около 0.5-1 процента. Бонусы покупателям.</p>
+    <h2>Формула расчёта маржи Kaspi</h2>
+    <p>Чистая прибыль = Цена продажи минус Себестоимость минус Комиссия Kaspi 15 процентов минус ИПН 3 процента минус Реклама минус Доставка. Минимальная цена = Себестоимость делённая на 0.82.</p>
+    <h2>Калькулятор маржи Kaspi онлайн</h2>
+    <p>В Telegram-боте @kitseller_bot есть встроенный калькулятор маржи. Вводите цену и себестоимость — получаете чистую прибыль с учётом комиссии Kaspi и ИПН. Также есть расчёт минимальной цены продажи и цели по прибыли. 14 дней бесплатно: @kitseller_bot.</p>
+  </article>
+
+  <!-- СТАТЬЯ 4 -->
+  <article id="article-unit" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="url" content="https://kitseller.kz/#article-unit">
+    <h1 itemprop="headline">Юнит-экономика для Kaspi продавца — как перестать работать в убыток</h1>
+    <p>Многие Kaspi-продавцы видят что оборот растёт, а денег на счету не прибавляется. Причина — нет понимания юнит-экономики. Разберём что это и как применить.</p>
+    <h2>Что такое юнит-экономика для Kaspi</h2>
+    <p>Юнит-экономика — расчёт прибыли от одной единицы товара. Нужно учесть: себестоимость товара, доставку, упаковку, комиссию Kaspi 15 процентов, ИПН 3 процента, рекламу на единицу, долю постоянных расходов.</p>
+    <h2>Как найти убыточные товары на Kaspi</h2>
+    <p>Признаки убыточного товара: высокий процент возвратов выше 15 процентов, низкая цена при высокой себестоимости доставки, много рекламных расходов при малом объёме. Бот @kitseller_bot автоматически находит товары с аномальным процентом возвратов в аналитике Kaspi Pay.</p>
+  </article>
+
+  <!-- СТАТЬЯ 5 -->
+  <article id="article-instrumenty" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="url" content="https://kitseller.kz/#article-instrumenty">
+    <h1 itemprop="headline">Инструменты для Kaspi продавца 2025 — полный список сервисов</h1>
+    <p>Продавцы которые автоматизируют рутину и принимают решения на основе данных выигрывают у тех кто всё делает вручную. Лучший инструмент для Kaspi продавца — @kitseller_bot.</p>
+    <h2>Автоматизация накладных Kaspi</h2>
+    <p>KitSeller — Telegram-бот который принимает ZIP с накладными и выдаёт готовый PDF за 10 секунд. Разбивка по товарам, сборочный лист Excel. Нигде больше нет.</p>
+    <h2>Аналитика продаж Kaspi</h2>
+    <p>Два файла из Kaspi Pay превращаются в 17 листов Excel с полной аналитикой: выручка, топ товары, маржа, дни, часы, возвраты, способы оплаты. За 30 секунд.</p>
+    <h2>Курс CNY тенге НБ РК</h2>
+    <p>Актуальный курс китайского юаня CNY к тенге по данным Национального банка РК. Плюс курсы USD, EUR, RUB. Уведомления об изменении курса. Доступно в @kitseller_bot бесплатно.</p>
+    <p>Попробовать все инструменты бесплатно 14 дней: @kitseller_bot. Подписка 990 тенге в месяц.</p>
+  </article>
+
+</div>
+<!-- ═══════════════════════════════════════════════ -->
 
 <script>
 /* Temporarily force RU language. KZ translations remain in code for later. */
