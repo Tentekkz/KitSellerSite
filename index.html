@@ -15,11 +15,13 @@
   <meta property="og:locale" content="ru_KZ">
   <!-- Абсолютный адрес обязателен: по относительному пути Telegram и WhatsApp
        превью не подтягивают, ссылка уходит голой. -->
-  <meta property="og:image" content="https://kitseller.kz/logo.png">
+  <meta property="og:image" content="https://kitseller.kz/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="KitSeller — Рабочее место продавца Kaspi">
   <meta name="twitter:description" content="Вся операционка Kaspi на автопилоте: печать накладных, отчёт 18 листов, репрайсер.">
-  <meta name="twitter:image" content="https://kitseller.kz/logo.png">
+  <meta name="twitter:image" content="https://kitseller.kz/og-preview.png">
 
   <link rel="canonical" href="https://kitseller.kz/">
   <meta name="robots" content="index, follow">
@@ -85,23 +87,12 @@
   <!-- Header -->
   <header class="header" id="header">
     <div class="container header-container">
-      <!-- Логотип встроен в разметку, а не подключён картинкой: в файле
-           logo.svg кит был залит тёмно-синим наглухо и на тёмной теме почти
-           пропадал. Здесь он берёт currentColor и переворачивается вместе с
-           темой, а название набрано текстом — оно чётче любого SVG-шрифта. -->
+      <!-- Настоящий логотип из assets бота. Тут лежал не он: logo.svg был
+           перерисован от руки, а logo.png оказался скриншотом старого лендинга.
+           Два файла — тёмный кит для светлой темы и белый для тёмной. -->
       <a href="#" class="logo" aria-label="KitSeller — на главную">
-        <span class="logo-mark">
-          <svg viewBox="0 0 108 62" fill="currentColor" aria-hidden="true" focusable="false">
-            <g transform="translate(4, 5)">
-              <path d="M 22 6 C 15 -1 4 5 8 19 C 12 29 25 35 33 41 C 23 35 13 31 7 21 C 3 13 13 7 22 6 Z"/>
-              <path d="M 27 37 C 42 17 73 13 93 21 C 103 25 103 35 95 41 C 81 51 48 57 29 49 C 19 43 21 35 27 37 Z"/>
-              <circle cx="85" cy="31" r="2.5" class="logo-cutout"/>
-              <path d="M 43 49 C 59 53 75 47 85 39 C 73 44 57 47 43 44 Z" class="logo-cutout"/>
-              <path d="M 53 52 C 65 55 77 51 83 45 C 75 48 63 51 53 49 Z" class="logo-cutout"/>
-            </g>
-          </svg>
-        </span>
-        <span class="logo-word">KitSeller</span>
+        <img src="/logo-light.png" width="440" height="123" alt="KitSeller" class="logo-image logo-image-light">
+        <img src="/logo-dark.png" width="440" height="123" alt="" aria-hidden="true" class="logo-image logo-image-dark">
       </a>
 
       <!-- Меню из шести пунктов переносилось в две строки и ничего не решало:
@@ -770,84 +761,6 @@
     </div>
   </section>
 
-  <!-- How to Start Section -->
-  <section class="section bg-darker">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Три шага к началу работы</h2>
-        <p class="section-description">
-          Без заполнения анкет. Вход в сервис — через Telegram, доступ к магазину — вашим собственным ключом Kaspi.
-        </p>
-      </div>
-
-      <div class="steps-grid">
-        <div class="studio-card step-card">
-          <div class="step-number">01</div>
-          <h3 class="step-title">Откройте бота</h3>
-          <p class="step-desc">Перейдите в Telegram и запустите бота KitSeller нажатием кнопки «Старт».</p>
-        </div>
-
-        <div class="studio-card step-card">
-          <div class="step-number">02</div>
-          <h3 class="step-title">Подключите Kaspi</h3>
-          <p class="step-desc">Основной способ — ключ Shop API: вы создаёте его в своём кабинете Kaspi и там же отзываете в любой момент. Ни программ, ни расширений ставить не нужно.</p>
-          <p class="step-note">
-            Ключ и рабочие cookies хранятся зашифрованными и используются только для запросов к Kaspi от вашего имени. Доступ снимается кнопкой «Отключить кабинет» — ключи при этом удаляются. Подробности — в <a href="/privacy.html">политике конфиденциальности</a>.
-          </p>
-        </div>
-
-        <div class="studio-card step-card">
-          <div class="step-number">03</div>
-          <h3 class="step-title">Начните работать</h3>
-          <p class="step-desc">Печатайте накладные пачкой, скачивайте аналитику и настраивайте правила репрайсера.</p>
-        </div>
-      </div>
-
-      <!-- Quick Launch QR & CTA Card -->
-      <div class="steps-qr-card studio-card reveal-on-scroll">
-        <div class="steps-qr-left">
-          <div class="steps-qr-wrapper">
-            <svg class="steps-qr-svg" width="90" height="90" viewBox="0 0 100 100" fill="currentColor">
-              <rect x="8" y="8" width="28" height="28" fill="none" stroke="currentColor" stroke-width="4" rx="3"/>
-              <rect x="16" y="16" width="12" height="12" fill="currentColor" rx="2"/>
-              <rect x="64" y="8" width="28" height="28" fill="none" stroke="currentColor" stroke-width="4" rx="3"/>
-              <rect x="72" y="16" width="12" height="12" fill="currentColor" rx="2"/>
-              <rect x="8" y="64" width="28" height="28" fill="none" stroke="currentColor" stroke-width="4" rx="3"/>
-              <rect x="16" y="72" width="12" height="12" fill="currentColor" rx="2"/>
-              <rect x="42" y="10" width="14" height="8"/>
-              <rect x="42" y="24" width="8" height="14"/>
-              <rect x="10" y="42" width="14" height="8"/>
-              <rect x="28" y="42" width="8" height="8"/>
-              <rect x="42" y="42" width="16" height="16" fill="#4F46E5" rx="3"/>
-              <rect x="64" y="42" width="8" height="14"/>
-              <rect x="76" y="42" width="14" height="8"/>
-              <rect x="42" y="64" width="14" height="8"/>
-              <rect x="42" y="76" width="8" height="14"/>
-              <rect x="64" y="64" width="14" height="12"/>
-              <rect x="82" y="64" width="10" height="8"/>
-              <rect x="64" y="80" width="8" height="10"/>
-              <rect x="76" y="80" width="16" height="10"/>
-            </svg>
-            <div class="steps-tg-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
-            </div>
-          </div>
-          <div class="steps-qr-text">
-            <span class="steps-qr-heading">Наведите камеру смартфона</span>
-            <p class="steps-qr-sub">Откройте Telegram-бота <strong>@kitseller_bot</strong> в 1 клик со своего телефона</p>
-          </div>
-        </div>
-
-        <div class="steps-qr-cta">
-          <a href="https://t.me/KitSeller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
-            Запустить бота в Telegram
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- QR Login Modal (Simulated Passwordless Entry) -->
   <div class="modal-overlay" id="qr-modal">
     <div class="studio-card modal-box">
@@ -905,18 +818,8 @@
     <div class="container footer-container">
       <div class="footer-col">
         <a href="#" class="logo" aria-label="KitSeller — наверх">
-          <span class="logo-mark">
-            <svg viewBox="0 0 108 62" fill="currentColor" aria-hidden="true" focusable="false">
-              <g transform="translate(4, 5)">
-                <path d="M 22 6 C 15 -1 4 5 8 19 C 12 29 25 35 33 41 C 23 35 13 31 7 21 C 3 13 13 7 22 6 Z"/>
-                <path d="M 27 37 C 42 17 73 13 93 21 C 103 25 103 35 95 41 C 81 51 48 57 29 49 C 19 43 21 35 27 37 Z"/>
-                <circle cx="85" cy="31" r="2.5" class="logo-cutout"/>
-                <path d="M 43 49 C 59 53 75 47 85 39 C 73 44 57 47 43 44 Z" class="logo-cutout"/>
-                <path d="M 53 52 C 65 55 77 51 83 45 C 75 48 63 51 53 49 Z" class="logo-cutout"/>
-              </g>
-            </svg>
-          </span>
-          <span class="logo-word">KitSeller</span>
+          <img src="/logo-light.png" width="440" height="123" alt="KitSeller" class="logo-image logo-image-light">
+          <img src="/logo-dark.png" width="440" height="123" alt="" aria-hidden="true" class="logo-image logo-image-dark">
         </a>
         <p class="footer-text">
           Рабочее место продавца Kaspi: печать накладных, аналитика чистой прибыли и репрайсер цен.

@@ -396,33 +396,29 @@ h1, h2, h3, h4, h5, h6 {
   gap: 10px;
 }
 
-.logo-mark {
+/* Два файла логотипа: тёмный кит для светлой темы, белый для тёмной.
+   Переключаются показом, а не фильтром — фильтр по-разному врёт с цветом. */
+.logo-image {
   display: block;
-  width: 40px;
-  color: var(--text-primary);
+  height: 32px;
+  width: auto;
 }
 
-.logo-mark svg {
+.logo-image-dark {
+  display: none;
+}
+
+[data-theme="dark"] .logo-image-light {
+  display: none;
+}
+
+[data-theme="dark"] .logo-image-dark {
   display: block;
-  width: 100%;
-  height: auto;
 }
 
-/* Прорези в теле кита — глаз и складки на брюхе. Это не белый цвет, а «дырка»
-   до фона страницы, иначе на тёмной теме получались белые точки. */
-.logo-cutout {
-  fill: var(--bg-canvas);
+.footer .logo-image {
+  height: 30px;
 }
-
-.logo-word {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.375rem;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-}
-
-.header .logo-mark { width: 34px; }
 
 .nav-menu {
   display: flex;
