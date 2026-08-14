@@ -70,13 +70,15 @@
 }
 
 /* Dark Theme Overrides */
+/* Тёмная тема почти чёрная, без синевы. Оттенки идут лесенкой: холст самый
+   тёмный, карточка светлее его на шаг, вложенный блок — между ними. */
 [data-theme="dark"] {
-  --bg-canvas: #0F172A;
-  --bg-section: #1E293B;
-  --bg-card: #1E293B;
-  --bg-card-sub: #0F172A;
-  --bg-card-hover: #334155;
-  --bg-overlay: rgba(15, 23, 42, 0.92);
+  --bg-canvas: #0A0A0C;
+  --bg-section: #101013;
+  --bg-card: #141418;
+  --bg-card-sub: #0E0E11;
+  --bg-card-hover: #1E1E24;
+  --bg-overlay: rgba(10, 10, 12, 0.92);
 
   --border-subtle: rgba(255, 255, 255, 0.1);
   --border-strong: rgba(255, 255, 255, 0.2);
@@ -505,12 +507,11 @@ h1, h2, h3, h4, h5, h6 {
   color: #FCD34D;
 }
 
-[data-theme="dark"] .header {
-  background: rgba(15, 23, 42, 0.85);
-}
-
+/* Шапка и верхняя полоса берут те же токены, что и остальная страница:
+   раньше здесь стояли отдельные синие значения и после смены палитры
+   остались бы синими полосами поверх чёрного. */
 [data-theme="dark"] .top-bar {
-  background: #0F172A;
+  background: var(--bg-section);
 }
 
 /* Mobile Hamburger Menu Toggle */
