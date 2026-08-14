@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KitSeller — Рабочее место продавца Kaspi</title>
+  <meta name="description" content="Автоматическая печать накладных, отчёт о реальной прибыли из Kaspi Pay на 18 листов и авто-переоценка по конкурентам. Работает в Telegram и на ПК.">
+  
+  <!-- OpenGraph & Social Sharing Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KitSeller — Автоматизация и авто-переоценка для продавцов Kaspi">
+  <meta property="og:description" content="Мгновенная печать накладных пачкой, финансовый отчёт о прибыли из Kaspi Pay на 18 листов и репрайсер каждые 17 минут.">
+  <meta property="og:url" content="https://kitseller.app">
+  <meta property="og:site_name" content="KitSeller">
+  <meta property="og:image" content="/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KitSeller — Рабочее место продавца Kaspi">
+  <meta name="twitter:description" content="Вся операционка Kaspi на автопилоте: печать накладных, отчёт 18 листов, репрайсер.">
+  <meta name="twitter:image" content="/logo.png">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Human Studio Typography (Manrope Display + Inter Body + System SF Pro Fallbacks) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <span class="badge-dot"></span>
+      <span>Репрайсер проверяет цены конкурентов каждые 17 минут. Новая цена на Kaspi — через 3 минуты.</span>
+      <a href="#repricer" class="top-bar-link">Как это работает &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header-container">
+      <a href="#" class="logo">
+        <!-- Official KitSeller Logo (Exact Match to User Asset) -->
+        <img src="/logo.svg" alt="KitSeller" class="logo-image">
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#pains" class="nav-link" data-i18n="nav_pains">Проблемы</a>
+        <a href="#social-proof" class="nav-link" data-i18n="nav_reviews">Отзывы</a>
+        <a href="#features" class="nav-link" data-i18n="nav_features">Возможности</a>
+        <a href="#calculator" class="nav-link" data-i18n="nav_calculator">Калькулятор Kaspi</a>
+        <a href="#demo" class="nav-link" data-i18n="nav_demo">Демо-инструменты</a>
+        <a href="#pricing" class="nav-link" data-i18n="nav_pricing">Тарифы</a>
+        <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Language Switcher Button -->
+        <button class="lang-toggle-btn" id="lang-toggle" aria-label="Тілді ауыстыру / Сменить язык" title="Переключить язык (RU / KZ)">
+          <span class="lang-text" id="lang-text">KZ</span>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Переключить тему" title="Переключить тему (Светлая / Тёмная)">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="btn btn-secondary btn-sm" id="btn-qr-login">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="btn-text">Вход по QR</span>
+        </button>
+        <a href="https://t.me/kitseller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
+          <span class="btn-text">Telegram</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle Button -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Открыть навигацию">
+          <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span class="hero-pill-tag">Рабочее пространство продавца</span>
+          <span>Telegram + Браузер на ПК</span>
+        </div>
+        
+        <h1 class="hero-title">
+          Вся операционка Kaspi на автопилоте
+        </h1>
+        
+        <p class="hero-subtitle">
+          Kaspi даёт заказы, а всю рутину вокруг них вы делаете руками. KitSeller берёт её на себя: мгновенная печать накладных пачкой, отчёт о реальной прибыли из Kaspi Pay и авто-переоценка по конкурентам.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="https://t.me/kitseller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
+            Запустить в Telegram
+          </a>
+          <a href="#pricing" class="btn btn-tertiary btn-lg">Посмотреть тарифы</a>
+        </div>
+
+        <div class="hero-bullets">
+          <div class="hero-bullet-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            7 дней бесплатно на Стандарте
+          </div>
+          <div class="hero-bullet-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Вход по QR-коду без ввода паролей
+          </div>
+          <div class="hero-bullet-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Без установки софта и плагинов
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Product Dashboard Mockup -->
+      <div class="hero-mockup-wrapper">
+        <div class="studio-card mockup-card">
+          <div class="mockup-header">
+            <div class="mockup-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="mockup-title-bar">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span class="mockup-url">kitseller.app/kaspi-dashboard</span>
+            </div>
+            <span class="badge badge-success">● Синхронизировано</span>
+          </div>
+
+          <div class="mockup-body">
+            <!-- Top Dashboard Metrics Bar -->
+            <div class="dashboard-preview-top">
+              <div class="dash-card">
+                <span class="dash-card-label">Выручка Kaspi</span>
+                <span class="dash-card-val">3 509 093 ₸</span>
+                <span class="dash-card-sub">+14% в этом месяце</span>
+              </div>
+              <div class="dash-card">
+                <span class="dash-card-label">Чистая прибыль</span>
+                <span class="dash-card-val green">964 877 ₸</span>
+                <span class="dash-card-sub">27.5% маржа</span>
+              </div>
+              <div class="dash-card">
+                <span class="dash-card-label">Комиссия Kaspi</span>
+                <span class="dash-card-val" style="color:#E1251B;">183 202 ₸</span>
+                <span class="dash-card-sub">5.2% от оборота</span>
+              </div>
+              <div class="dash-card">
+                <span class="dash-card-label">Доставка Kaspi</span>
+                <span class="dash-card-val" style="color:#D97706;">62 039 ₸</span>
+                <span class="dash-card-sub">84 отправления</span>
+              </div>
+            </div>
+
+            <!-- Dashboard Chart & Donut Row -->
+            <div class="dash-chart-row">
+              <div class="dash-chart-box">
+                <div class="dash-chart-title">Динамика выручки и маржинальности</div>
+                <svg class="dash-sparkline-svg" viewBox="0 0 300 60">
+                  <path d="M 0,55 L 20,40 L 40,48 L 60,25 L 80,38 L 100,20 L 120,32 L 140,15 L 160,28 L 180,10 L 200,35 L 220,18 L 240,42 L 260,8 L 280,22 L 300,5" fill="none" stroke="#4F46E5" stroke-width="2.5"/>
+                  <path d="M 0,55 L 20,40 L 40,48 L 60,25 L 80,38 L 100,20 L 120,32 L 140,15 L 160,28 L 180,10 L 200,35 L 220,18 L 240,42 L 260,8 L 280,22 L 300,5 L 300,60 L 0,60 Z" fill="rgba(79, 70, 229, 0.08)"/>
+                </svg>
+              </div>
+              <div class="dash-chart-box" style="text-align:center;">
+                <div class="dash-chart-title">Структура заказов</div>
+                <svg width="64" height="64" viewBox="0 0 36 36">
+                  <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#E2E8F0" stroke-width="3.8"/>
+                  <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#059669" stroke-width="3.8" stroke-dasharray="75, 100"/>
+                  <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#4F46E5" stroke-width="3.8" stroke-dasharray="25, 100" stroke-dashoffset="-75"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Mini Live Console Feed -->
+            <div class="console-box">
+              <div class="console-head">
+                <span class="console-title">Поток событий магазина</span>
+                <span class="console-status">Telegram Sync Active</span>
+              </div>
+              <div class="console-list">
+                <div class="console-item">
+                  <span class="console-time">12:28</span>
+                  <span class="badge badge-tag-blue">Накладные</span>
+                  <span class="console-msg">ZIP-архив обработан: 45 заказов сведены в термоэтикетки (58x40 мм).</span>
+                </div>
+                <div class="console-item">
+                  <span class="console-time">12:20</span>
+                  <span class="badge badge-tag-orange">Репрайсер</span>
+                  <span class="console-msg">Конкурент снизил цену до 14 500 ₸. Автоматический шаг -10 ₸: новая цена 14 490 ₸ на Kaspi.</span>
+                </div>
+                <div class="console-item">
+                  <span class="console-time">12:05</span>
+                  <span class="badge badge-tag-green">Kaspi Pay</span>
+                  <span class="console-msg">Сгенерирован финансовый отчёт (18 листов): маржа 27.5%, учтены комиссии и доставка.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pains Section -->
+  <section class="section" id="pains">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Где продавец Kaspi теряет время и деньги</h2>
+        <p class="section-description">
+          Kaspi приводит покупателей, но вся рутина вокруг обработки заказов лежит на продавце.
+        </p>
+      </div>
+
+      <div class="pains-grid">
+        <div class="studio-card pain-card">
+          <div class="pain-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </div>
+          <h3 class="pain-title">Ночная резка накладных</h3>
+          <p class="pain-text">
+            Скачивание файлов по одному, нарезка ножницами листов A4 или долгая подгонка формата термопринтера. На сборку 50 заказов уходит несколько часов.
+          </p>
+        </div>
+
+        <div class="studio-card pain-card">
+          <div class="pain-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+          </div>
+          <h3 class="pain-title">Оборот есть, а денег нет</h3>
+          <p class="pain-text">
+            Kaspi показывает общий оборот продаж. А сколько ушло на комиссии, доставку, налоги и возвраты — продавец узнает только в конце месяца при подсчёте Excel руками.
+          </p>
+        </div>
+
+        <div class="studio-card pain-card">
+          <div class="pain-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="pain-title">Конкурент снизил цену на 10 ₸</h3>
+          <p class="pain-text">
+            Пока вы спали или были на складе, другой продавец снизил цену и забрал все заказы с карточки. Вручную проверять сотни товаров несколько раз в день невозможно.
+          </p>
+        </div>
+
+        <div class="studio-card pain-card">
+          <div class="pain-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h3 class="pain-title">Хаос на складе и срыв дедлайнов</h3>
+          <p class="pain-text">
+            Сборка заказов в том порядке, в каком они упали в систему, а не по расположению товаров. Кладовщик делает десятки лишних кругов по складу.
+          </p>
+        </div>
+      </div>
+
+      <!-- Before vs After High-Converting Comparison Grid -->
+      <div class="before-after-box reveal-on-scroll">
+        <h3 class="before-after-header-title">Как меняется день продавца с KitSeller</h3>
+        <div class="before-after-grid">
+          
+          <!-- Column 1: Before -->
+          <div class="studio-card before-col">
+            <div class="col-badge badge-before">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              Ручной хаос (Без KitSeller)
+            </div>
+            <ul class="comparison-list">
+              <li><span class="cross">✕</span> Часы ночной резки листов A4 ножницами или ручная подгонка принтера</li>
+              <li><span class="cross">✕</span> Неизвестно, сколько денег съели комиссии и логистика до конца месяца</li>
+              <li><span class="cross">✕</span> Конкурент снижает цену на 10 ₸ и забирает все продажи, пока вы спите</li>
+              <li><span class="cross">✕</span> Кладовщик делает десятки лишних кругов по складу в поиске позиций</li>
+            </ul>
+          </div>
+
+          <!-- Column 2: After -->
+          <div class="studio-card after-col">
+            <div class="col-badge badge-after">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Автопилот (С KitSeller)
+            </div>
+            <ul class="comparison-list">
+              <li><span class="check">✓</span> Печать накладных в 1 клик прямо из Telegram за 3 секунды</li>
+              <li><span class="check">✓</span> Прозрачный финансовый отчёт на 18 листов Excel с точной чистой маржой</li>
+              <li><span class="check">✓</span> Репрайсер проверяет цены каждые 17 минут и сам удерживает 1 место</li>
+              <li><span class="check">✓</span> Накладные отсортированы по товарам и дедлайнам — быстрая сборка</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Social Proof & Stats Section -->
+  <section class="section section-alt" id="social-proof">
+    <div class="container">
+      <div class="stats-row reveal-on-scroll">
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Активных магазинов Kaspi</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1.2M+</div>
+          <div class="stat-label">Накладных распечатано</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">+24%</div>
+          <div class="stat-label">Прирост чистой прибыли</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4.9 / 5</div>
+          <div class="stat-label">Средняя оценка селлеров</div>
+        </div>
+      </div>
+
+      <div class="section-header" style="margin-top: 48px;">
+        <h2 class="section-title">Что говорят продавцы Kaspi</h2>
+        <p class="section-description">Опыт селлеров, которые доверили операционку KitSeller</p>
+      </div>
+
+      <div class="testimonials-grid reveal-on-scroll">
+        <div class="studio-card testimonial-card">
+          <div class="testimonial-rating">★★★★★</div>
+          <p class="testimonial-text">
+            «Раньше печатали накладные на A4 и каждый вечер нарезали их ножницами. Продажи выросли до 80 заказов в день — уходила вся ночь. Настроили KitSeller + термопринтер: теперь все этикетки печатаются за 2 минуты в Telegram!»
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">АБ</div>
+            <div class="author-info">
+              <div class="author-name">Арман Батыров</div>
+              <div class="author-role">Категория «Электроника & Аксессуары» (Алматы)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="studio-card testimonial-card">
+          <div class="testimonial-rating">★★★★★</div>
+          <p class="testimonial-text">
+            «Репрайсер — это просто пушка! Конкурент перебивал цену по 10 раз на день, я постоянно терял 1 место. Включил авто-переоценку — репрайсер держит карточку 24/7, не давая сваливаться в демпинг. Выручка поднялась на 30%.»
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">ДН</div>
+            <div class="author-info">
+              <div class="author-name">Данияр Нурланов</div>
+              <div class="author-role">Категория «Автотовары» (Астана)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="studio-card testimonial-card">
+          <div class="testimonial-rating">★★★★★</div>
+          <p class="testimonial-text">
+            «Финансовый отчёт из Kaspi Pay на 18 листов наконец-то открыл глаза! До этого думала, что зарабатываю миллионы, а оказалость, что комиссия и доставка съедали пол-маржи. В отчёте всё четко: P&L, чистый профит, налоги.»
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">ЕМ</div>
+            <div class="author-info">
+              <div class="author-name">Елена Мусина</div>
+              <div class="author-role">Категория «Дом и Кухня» (Шымкент)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section bg-darker" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Вся операционка магазина — в одном месте</h2>
+        <p class="section-description">
+          Простые, практичные инструменты без лишней сложности. Работают в Telegram и в ПК-браузере.
+        </p>
+      </div>
+
+      <div class="bento-features-grid">
+        
+        <!-- Feature 1: Накладные (Indigo Theme) -->
+        <div class="studio-card bento-card bento-card-indigo reveal-on-scroll">
+          <div class="bento-card-glow"></div>
+          <div class="bento-card-top">
+            <div class="bento-icon bento-icon-indigo">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <span class="bento-badge bento-badge-indigo">⚡ Скорость печати</span>
+          </div>
+
+          <h3 class="bento-title">Печать накладных пачкой</h3>
+          <p class="bento-subtitle">Из ZIP-архива Kaspi в готовый файл</p>
+          <p class="bento-text">
+            Отправьте ZIP из Kaspi в Telegram — бот за секунды скомпонует упорядоченный PDF под термопринтер или лист A4.
+          </p>
+
+          <!-- Micro-Widget 1: Thermal Sticker Preview -->
+          <div class="bento-widget bento-widget-thermal">
+            <div class="widget-thermal-header">
+              <span class="widget-kaspi-tag">KASPI DELIVERY</span>
+              <span class="widget-badge-fast">⚡ 3 сек</span>
+            </div>
+            <div class="widget-barcode-line"></div>
+            <div class="widget-order-row">
+              <span class="widget-item-name">Наушники Pro Max (2 шт)</span>
+              <span class="widget-deadline">до 18:00</span>
+            </div>
+          </div>
+
+          <div class="bento-bullets">
+            <div class="bento-bullet-item"><span class="b-check b-check-indigo">✓</span> Сортировка по товарам для быстрой сборки</div>
+            <div class="bento-bullet-item"><span class="b-check b-check-indigo">✓</span> Форматы: 58×40 мм, 4 и 9 шт на лист A4</div>
+          </div>
+        </div>
+
+        <!-- Feature 2: Аналитика 18 листов (Emerald Theme) -->
+        <div class="studio-card bento-card bento-card-green reveal-on-scroll">
+          <div class="bento-card-glow"></div>
+          <div class="bento-card-top">
+            <div class="bento-icon bento-icon-green">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <span class="bento-badge bento-badge-green">💰 Реальная прибыль</span>
+          </div>
+
+          <h3 class="bento-title">Настоящая аналитика Kaspi Pay</h3>
+          <p class="bento-subtitle">Отчёт на 18 листов Excel с P&L</p>
+          <p class="bento-text">
+            Два файла выгрузки превращаются в финансовый отчёт. Прямой ответ на вопрос «сколько денег на руках», без слепых зон.
+          </p>
+
+          <!-- Micro-Widget 2: Financial P&L Breakdown -->
+          <div class="bento-widget bento-widget-pnl">
+            <div class="widget-pnl-head">
+              <span class="widget-pnl-label">Оборот: 25.2M ₸</span>
+              <span class="widget-pnl-margin">+27.5% маржа</span>
+            </div>
+            <div class="widget-pnl-bar">
+              <div class="pnl-seg pnl-profit" style="width: 55%;" title="Прибыль"></div>
+              <div class="pnl-seg pnl-cost" style="width: 25%;" title="Закуп"></div>
+              <div class="pnl-seg pnl-fee" style="width: 12%;" title="Комиссия Kaspi"></div>
+              <div class="pnl-seg pnl-deliv" style="width: 8%;" title="Доставка"></div>
+            </div>
+            <div class="widget-pnl-tags">
+              <span class="pnl-tag">✓ EBITDA: 6.8M ₸</span>
+              <span class="pnl-tag">✓ Налог 3% учтён</span>
+            </div>
+          </div>
+
+          <div class="bento-bullets">
+            <div class="bento-bullet-item"><span class="b-check b-check-green">✓</span> 18 листов: P&L, ABC-анализ, водопад прибыли</div>
+            <div class="bento-bullet-item"><span class="b-check b-check-green">✓</span> Аналитика по часам, дням и повторным покупкам</div>
+          </div>
+        </div>
+
+        <!-- Feature 3: Авто-репрайсер (Gold / Amber Theme) -->
+        <div class="studio-card bento-card bento-card-gold reveal-on-scroll" id="repricer">
+          <div class="bento-card-glow"></div>
+          <div class="bento-card-top">
+            <div class="bento-icon bento-icon-gold">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+            </div>
+            <span class="bento-badge bento-badge-gold">👑 24/7 Автопилот</span>
+          </div>
+
+          <h3 class="bento-title">Автоматический репрайсер</h3>
+          <p class="bento-subtitle">Проверка цен каждые 17 минут</p>
+          <p class="bento-text">
+            Следит за конкурентами каждые 17 минут и аккуратно сбивает цену на 10 ₸, забирая 1-е место на витрине в пределах вашего лимита.
+          </p>
+
+          <!-- Micro-Widget 3: Repricer Battle UI -->
+          <div class="bento-widget bento-widget-repricer">
+            <div class="widget-rep-row">
+              <span class="rep-competitor">Конкурент: 14 500 ₸</span>
+              <span class="rep-arrow">→</span>
+              <span class="rep-your-price">Вы: 14 490 ₸</span>
+            </div>
+            <div class="widget-rep-status">
+              <span class="rep-crown">👑 1 место на Kaspi</span>
+              <span class="rep-sync">● Синхрон ≤ 3 мин</span>
+            </div>
+          </div>
+
+          <div class="bento-bullets">
+            <div class="bento-bullet-item"><span class="b-check b-check-gold">✓</span> Изменение цены попадает на Kaspi за 3 минуты</div>
+            <div class="bento-bullet-item"><span class="b-check b-check-gold">✓</span> Защита от демпинга: лимит минимальной цены</div>
+          </div>
+        </div>
+
+        <!-- Feature 4: Предзаказ (Sky Theme) -->
+        <div class="studio-card bento-card bento-card-sky reveal-on-scroll">
+          <div class="bento-card-glow"></div>
+          <div class="bento-card-top">
+            <div class="bento-icon bento-icon-sky">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <span class="bento-badge bento-badge-sky">📦 Без лимитов</span>
+          </div>
+
+          <h3 class="bento-title">Предзаказ без ограничений</h3>
+          <p class="bento-subtitle">Продажи товаров в пути</p>
+          <p class="bento-text">
+            Товар без остатка на складе продаётся со сроком поставки. Не теряйте клиентов и позиции на карточке, пока едет партия.
+          </p>
+
+          <!-- Micro-Widget 4: Pre-order Status -->
+          <div class="bento-widget bento-widget-mini">
+            <div class="widget-status-chip">
+              <span class="chip-dot chip-dot-sky"></span>
+              <span>Статус: Доступен под заказ</span>
+            </div>
+            <span class="widget-timer-tag">🚚 Доставка: 7 дней</span>
+          </div>
+
+          <div class="bento-bullets">
+            <div class="bento-bullet-item"><span class="b-check b-check-sky">✓</span> Без ограничений по количеству позиций</div>
+            <div class="bento-bullet-item"><span class="b-check b-check-sky">✓</span> Сохранение рейтинга и продаж карточки</div>
+          </div>
+        </div>
+
+        <!-- Feature 5: Витрина магазина (Purple Theme) -->
+        <div class="studio-card bento-card bento-card-purple reveal-on-scroll">
+          <div class="bento-card-glow"></div>
+          <div class="bento-card-top">
+            <div class="bento-icon bento-icon-purple">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <span class="bento-badge bento-badge-purple">🔗 Публичный URL</span>
+          </div>
+
+          <h3 class="bento-title">Витрина магазина</h3>
+          <p class="bento-subtitle">Веб-каталог ассортимента</p>
+          <p class="bento-text">
+            Готовая страница вашего магазина со всеми товарами. Удобно давать прямую ссылку покупателям в соцсетях и рекламе.
+          </p>
+
+          <!-- Micro-Widget 5: Storefront URL -->
+          <div class="bento-widget bento-widget-mini">
+            <div class="widget-url-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>kitseller.app/shop/kaspi-store</span>
+            </div>
+            <span class="widget-active-tag">🟢 240 товаров</span>
+          </div>
+
+          <div class="bento-bullets">
+            <div class="bento-bullet-item"><span class="b-check b-check-purple">✓</span> Прямой заказ клиентом в 1 клик</div>
+            <div class="bento-bullet-item"><span class="b-check b-check-purple">✓</span> Идеально для Instagram и WhatsApp</div>
+          </div>
+        </div>
+
+        <!-- Feature 6: Уведомления и ПК-Кабинет (Kaspi Red Theme) -->
+        <div class="studio-card bento-card bento-card-red reveal-on-scroll">
+          <div class="bento-card-glow"></div>
+          <div class="bento-card-top">
+            <div class="bento-icon bento-icon-red">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <span class="bento-badge bento-badge-red">📱 Telegram + QR</span>
+          </div>
+
+          <h3 class="bento-title">Уведомления и ПК-Кабинет</h3>
+          <p class="bento-subtitle">Вход по QR-коду без паролей</p>
+          <p class="bento-text">
+            Моментальные пуши о заказах, отменах и возвратах в Telegram. Кабинет на ПК открывается сканированием QR за пару секунд.
+          </p>
+
+          <!-- Micro-Widget 6: Telegram Push Alert -->
+          <div class="bento-widget bento-widget-mini">
+            <div class="widget-tg-bubble">
+              <span class="tg-bubble-icon">💬</span>
+              <div class="tg-bubble-content">
+                <span class="tg-bubble-title">Новый заказ #84920</span>
+                <span class="tg-bubble-sub">14 490 ₸ • Оплачен</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-bullets">
+            <div class="bento-bullet-item"><span class="b-check b-check-red">✓</span> Мгновенные пуши о заказах и остатках</div>
+            <div class="bento-bullet-item"><span class="b-check b-check-red">✓</span> Без плагинов и сложных настроек на ПК</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Kaspi Calculator & Juma Readiness Section -->
+  <section class="section section-alt" id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Калькулятор комиссии Kaspi & Чек-лист</h2>
+        <p class="section-description">
+          Рассчитайте точную чистую прибыль на руки с учётом всех комиссий и проверьте магазин перед распродажей.
+        </p>
+      </div>
+
+      <div class="calc-juma-grid">
+        <!-- 1. Kaspi Fee & Net Margin Calculator -->
+        <div class="studio-card calc-card reveal-on-scroll">
+          <div class="calc-header-row">
+            <div class="calc-icon">🧮</div>
+            <div>
+              <h3 class="calc-title">Калькулятор маржи Kaspi</h3>
+              <p class="calc-subtitle">Моментальный расчёт комиссий и чистого остатка</p>
+            </div>
+          </div>
+
+          <div class="calc-form">
+            <div class="calc-field">
+              <label>Категория товара:</label>
+              <select id="calc-category" class="calc-select">
+                <option value="10.0" selected>Электроника и гаджеты (10%)</option>
+                <option value="14.0">Одежда, обувь и текстиль (14%)</option>
+                <option value="11.0">Автотовары и запчасти (11%)</option>
+                <option value="13.0">Косметика и гигиена (13%)</option>
+                <option value="12.0">Дом, кухня и быт (12%)</option>
+                <option value="11.0">Детские товары и игрушки (11%)</option>
+                <option value="12.0">Спорт, охота и туризм (12%)</option>
+              </select>
+            </div>
+
+            <div class="calc-row-2">
+              <div class="calc-field">
+                <label>Цена на Kaspi (₸):</label>
+                <input type="number" id="calc-sell-price" class="calc-input" value="15000" step="500">
+              </div>
+              <div class="calc-field">
+                <label>Себестоимость / Закуп (₸):</label>
+                <input type="number" id="calc-cost-price" class="calc-input" value="8500" step="500">
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <label>Способ доставки:</label>
+              <div class="pill-toggle calc-delivery-toggle">
+                <button class="pill-btn active" id="btn-deliv-kaspi" data-cost="650">Kaspi Delivery (650 ₸)</button>
+                <button class="pill-btn" id="btn-deliv-pickup" data-cost="0">Самовывоз (0 ₸)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Breakdown Box -->
+          <div class="calc-result-box">
+            <div class="calc-res-row">
+              <span>Комиссия Kaspi (<span id="res-fee-pct">10%</span>):</span>
+              <span class="calc-res-val red" id="res-fee-val">-1 500 ₸</span>
+            </div>
+            <div class="calc-res-row">
+              <span>Доставка Kaspi:</span>
+              <span class="calc-res-val orange" id="res-deliv-val">-650 ₸</span>
+            </div>
+            <div class="calc-res-row">
+              <span>Налог ИП (3%):</span>
+              <span class="calc-res-val gray" id="res-tax-val">-450 ₸</span>
+            </div>
+            <div class="calc-divider"></div>
+            <div class="calc-profit-row">
+              <div>
+                <div class="calc-profit-label">Чистая прибыль на руки:</div>
+                <div class="calc-profit-num" id="res-net-profit">3 900 ₸</div>
+              </div>
+              <div class="calc-margin-pill" id="res-net-margin">26.0% маржа</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Kaspi Juma & Sale Readiness Checklist -->
+        <div class="studio-card juma-card reveal-on-scroll">
+          <div class="juma-header-row">
+            <div class="juma-icon">🎪</div>
+            <div>
+              <h3 class="juma-title">Чек-лист готовности к Kaspi Жұма</h3>
+              <p class="juma-subtitle">Защита от срывов дедлайнов и кассовых разрывов</p>
+            </div>
+          </div>
+
+          <!-- Live Readiness Progress -->
+          <div class="juma-progress-wrap">
+            <div class="juma-prog-head">
+              <span class="juma-prog-label">Уровень готовности:</span>
+              <span class="juma-prog-val" id="juma-prog-pct">60%</span>
+            </div>
+            <div class="juma-prog-bar">
+              <div class="juma-prog-fill" id="juma-prog-fill" style="width: 60%;"></div>
+            </div>
+            <div class="juma-badge" id="juma-status-badge">⚡ Рекомендуется завершить настройку</div>
+          </div>
+
+          <!-- Interactive Checkboxes -->
+          <div class="juma-checklist">
+            <label class="juma-check-item">
+              <input type="checkbox" class="juma-cb" checked>
+              <span class="juma-custom-check"></span>
+              <div class="juma-check-info">
+                <strong>Авто-репрайсер каждые 17 минут</strong>
+                <p>Удержание 1-го места без ручного мониторинга 24/7</p>
+              </div>
+            </label>
+
+            <label class="juma-check-item">
+              <input type="checkbox" class="juma-cb" checked>
+              <span class="juma-custom-check"></span>
+              <div class="juma-check-info">
+                <strong>Пакетная печать наклеек (58×40 мм)</strong>
+                <p>ZIP из Kaspi сразу на печать пачкой за 3 секунды</p>
+              </div>
+            </label>
+
+            <label class="juma-check-item">
+              <input type="checkbox" class="juma-cb" checked>
+              <span class="juma-custom-check"></span>
+              <div class="juma-check-info">
+                <strong>Предзаказ на ходовые товары</strong>
+                <p>Продажи товаров со сроком поставки без потери карточки</p>
+              </div>
+            </label>
+
+            <label class="juma-check-item">
+              <input type="checkbox" class="juma-cb">
+              <span class="juma-custom-check"></span>
+              <div class="juma-check-info">
+                <strong>Полный отчёт Kaspi Pay на 18 листов</strong>
+                <p>Точный подсчёт чистой маржи с учётом повышенных комиссий</p>
+              </div>
+            </label>
+
+            <label class="juma-check-item">
+              <input type="checkbox" class="juma-cb">
+              <span class="juma-custom-check"></span>
+              <div class="juma-check-info">
+                <strong>Моментальные пуши о заказах в Telegram</strong>
+                <p>Уведомления за 1 секунду без задержек</p>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Demo Showcase Section -->
+  <section class="section" id="demo">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Инструменты в действии</h2>
+        <p class="section-description">
+          Посмотрите, как формируются накладные, из чего состоит отчёт на 18 листов и как работает логика репрайсера.
+        </p>
+      </div>
+
+      <!-- Demo Tabs Bar -->
+      <div class="demo-tabs-nav">
+        <button class="demo-tab-btn active" data-tab="tab-waybills">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          Форматирование накладных
+        </button>
+        <button class="demo-tab-btn" data-tab="tab-excel">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Разбор 18 листов Excel
+        </button>
+        <button class="demo-tab-btn" data-tab="tab-repricer-sim">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+          Демо репрайсера
+        </button>
+      </div>
+
+      <!-- Tab Content 1: Waybills -->
+      <div class="demo-tab-content active" id="tab-waybills">
+        <div class="studio-card demo-card-box">
+          <div class="demo-split-layout">
+            <div class="demo-controls-side">
+              <h4 class="demo-controls-title">Выбор формата печати</h4>
+              <p class="demo-controls-desc">Выберите удобный расклад для вашего принтера и склада:</p>
+
+              <div class="format-options-group">
+                <label class="format-radio-item active">
+                  <input type="radio" name="waybill_format" value="thermal" checked>
+                  <div>
+                    <div class="format-radio-label">Термоэтикетка (58×40 / 100×150 мм)</div>
+                    <div class="format-radio-sub">По 1 накладной на липкую этикетку. Для термопринтеров.</div>
+                  </div>
+                </label>
+                <label class="format-radio-item">
+                  <input type="radio" name="waybill_format" value="a4">
+                  <div>
+                    <div class="format-radio-label">Обычный A4 (1 на лист)</div>
+                    <div class="format-radio-sub">Полноразмерный стандартный лист A4 для документации.</div>
+                  </div>
+                </label>
+                <label class="format-radio-item">
+                  <input type="radio" name="waybill_format" value="4up">
+                  <div>
+                    <div class="format-radio-label">4 накладных на лист A4</div>
+                    <div class="format-radio-sub">Экономия бумаги: 4 аккуратных карточки на одном листе.</div>
+                  </div>
+                </label>
+                <label class="format-radio-item">
+                  <input type="radio" name="waybill_format" value="9up">
+                  <div>
+                    <div class="format-radio-label">9 накладных на лист A4</div>
+                    <div class="format-radio-sub">Компактная сетка 3×3 для массовой быстрой сборки.</div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="demo-sort-box">
+                <span class="demo-sort-label">Сортировка файлов:</span>
+                <div class="pill-toggle">
+                  <button class="pill-btn active" id="sort-items">По товарам</button>
+                  <button class="pill-btn" id="sort-deadline">По дедлайну</button>
+                </div>
+              </div>
+
+              <!-- Live Test Print Button -->
+              <div style="margin-top: 20px;">
+                <button class="btn btn-primary btn-full test-print-btn" id="btn-test-print">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                  <span>🖨️ Тестовая печать наклейки (со звуком)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Preview Render Canvas -->
+            <div class="demo-preview-side">
+              <div class="preview-paper-window" id="paper-render">
+                <!-- Dynamically populated via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 2: 18-sheet Excel Explorer -->
+      <div class="demo-tab-content" id="tab-excel">
+        <div class="studio-card demo-card-box">
+          <div class="excel-explorer-header">
+            <div>
+              <h4 class="demo-controls-title">Отчёт из отчётов Kaspi Pay на 18 листов</h4>
+              <p class="demo-controls-desc">Выберите любую вкладку, чтобы увидеть структуру сведений:</p>
+            </div>
+            <span class="badge badge-blue">Excel XLSX File</span>
+          </div>
+
+          <!-- 18 Tab Buttons Bar -->
+          <div class="excel-sheets-nav" id="excel-sheets-container">
+            <!-- Sheet buttons created in JS -->
+          </div>
+
+          <!-- Dynamic Sheet Content Box -->
+          <div class="excel-sheet-viewer" id="sheet-viewer-box">
+            <!-- Dynamic HTML table/content -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 3: Repricer Simulator -->
+      <div class="demo-tab-content" id="tab-repricer-sim">
+        <div class="studio-card demo-card-box">
+          <div class="demo-split-layout">
+            <div class="demo-controls-side">
+              <h4 class="demo-controls-title">Симулятор правил репрайсера</h4>
+              <p class="demo-controls-desc">Укажите границы цены товара и наблюдайте за автоматической переоценкой:</p>
+
+              <div class="sim-input-group">
+                <label>Себестоимость товара (₸)</label>
+                <input type="number" id="sim-cost" class="sim-input" value="10000" step="500">
+              </div>
+
+              <div class="sim-input-group">
+                <label>Минимальная цена (₸)</label>
+                <input type="number" id="sim-min" class="sim-input" value="13500" step="100">
+              </div>
+
+              <div class="sim-input-group">
+                <label>Максимальная цена (₸)</label>
+                <input type="number" id="sim-max" class="sim-input" value="18000" step="100">
+              </div>
+
+              <div class="sim-input-group">
+                <label>Шаг снижения цены (₸)</label>
+                <input type="number" id="sim-step" class="sim-input" value="10" step="5">
+              </div>
+
+              <div class="sim-input-group">
+                <label>Цена ближайшего конкурента (₸)</label>
+                <input type="number" id="sim-competitor" class="sim-input" value="14200" step="50">
+              </div>
+            </div>
+
+            <!-- Repricer Calculation Result Box -->
+            <div class="demo-preview-side">
+              <div class="repricer-res-box">
+                <div class="res-head-row">
+                  <span class="badge badge-blue">Расчёт репрайсера</span>
+                  <span class="res-timer">⏱️ Проверка каждые 17 мин</span>
+                </div>
+
+                <div class="res-main-card">
+                  <div class="res-card-label">Ваша оптимальная цена на витрине:</div>
+                  <div class="res-card-price" id="res-calc-price">14 190 ₸</div>
+                  <div class="res-card-sub" id="res-calc-status">Ниже конкурента на 10 ₸ (в пределах лимита)</div>
+                </div>
+
+                <div class="res-grid-metrics">
+                  <div class="res-metric-item">
+                    <span class="res-m-label">Место на карточке:</span>
+                    <span class="res-m-val text-green" id="res-calc-pos">1 место</span>
+                  </div>
+                  <div class="res-metric-item">
+                    <span class="res-m-label">Чистая маржа:</span>
+                    <span class="res-m-val text-dark" id="res-calc-margin">+4 190 ₸</span>
+                  </div>
+                  <div class="res-metric-item">
+                    <span class="res-m-label">Доезд до витрины Kaspi:</span>
+                    <span class="res-m-val text-gray">&le; 3 минут</span>
+                  </div>
+                  <div class="res-metric-item">
+                    <span class="res-m-label">Лимит товаров:</span>
+                    <span class="res-m-val text-gray">До 100 позиций</span>
+                  </div>
+                </div>
+
+                <div class="res-note-box">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle; margin-right:4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> Место на карточке также зависит от рейтинга продавца, доставки и бонусов. Репрайсер даёт точный инструмент управления ценой.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Verified Facts Proof Section -->
+  <section class="section bg-darker">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Факты без преувеличений и придуманных цифр</h2>
+        <p class="section-description">
+          Мы измерили каждый показатель на практике. Все числа сверены с кодом и живой работой.
+        </p>
+      </div>
+
+      <div class="facts-grid">
+        <div class="studio-card fact-card reveal-on-scroll">
+          <div class="fact-num">&le; 3 мин</div>
+          <div class="fact-title">Доставка цены до Kaspi</div>
+          <p class="fact-desc">
+            Цена доезжает до витрины Kaspi не более чем за 3 минуты после решения репрайсера. Замерено на действующем магазине.
+          </p>
+        </div>
+
+        <div class="studio-card fact-card reveal-on-scroll">
+          <div class="fact-num">18 листов</div>
+          <div class="fact-title">Полный разбор Excel</div>
+          <p class="fact-desc">
+            Ровно столько подробных листов отчёта получает продавец из двух файлов Kaspi Pay.
+          </p>
+        </div>
+
+        <div class="studio-card fact-card reveal-on-scroll">
+          <div class="fact-num">QR-код</div>
+          <div class="fact-title">Вход без пароля</div>
+          <p class="fact-desc">
+            На компьютер заходят по сканированию QR-кода из Telegram. Не нужно вводить и хранить пароли.
+          </p>
+        </div>
+
+        <div class="studio-card fact-card reveal-on-scroll">
+          <div class="fact-num">0 установок</div>
+          <div class="fact-title">Без софта и расширений</div>
+          <p class="fact-desc">
+            Работает напрямую в Telegram и через обычный веб-браузер. Никаких сторонних расширений.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Прозрачные условия под ваши задачи</h2>
+        <p class="section-description">
+          Два понятных тарифа. Стандарт — для документов и отчётов, Про+ — для автопилота магазина.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        
+        <!-- Tariff 1: Standard -->
+        <div class="studio-card pricing-card">
+          <div class="pricing-badge">Стандарт</div>
+          <div class="pricing-header">
+            <h3 class="pricing-name">Документы и отчёты</h3>
+            <p class="pricing-sub">Для тех, кому нужно быстро печатать накладные и понимать свою чистую прибыль.</p>
+          </div>
+
+          <div class="pricing-price-box">
+            <span class="pricing-amount">990 ₸</span>
+            <span class="pricing-period">/ месяц</span>
+          </div>
+
+          <div class="pricing-trial-bar">
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle; margin-right:4px;"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/></svg>
+              Бесплатный период: <strong>7 дней</strong>
+            </span>
+          </div>
+
+          <div class="pricing-platform">
+            <span>Где работает:</span> <strong>Только в Telegram</strong>
+          </div>
+
+          <div class="pricing-divider"></div>
+
+          <ul class="pricing-features">
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Накладные:</strong> все форматы (Термоэтикетка, A4, 4 на лист, 9 на лист)</li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Сортировка:</strong> по товарам и дедлайнам</li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Аналитика Excel:</strong> 4 базовых листа</li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Калькулятор прибыли:</strong> с учётом курсов валют</li>
+            <li class="disabled"><span class="cross">—</span> Кабинет на ПК (вход по QR)</li>
+            <li class="disabled"><span class="cross">—</span> Уведомления о заказах в Telegram</li>
+            <li class="disabled"><span class="cross">—</span> Репрайсер авто-цен</li>
+            <li class="disabled"><span class="cross">—</span> Автоприём заказов</li>
+            <li class="disabled"><span class="cross">—</span> Витрина магазина</li>
+          </ul>
+
+          <a href="https://t.me/kitseller_bot" target="_blank" rel="noopener" class="btn btn-secondary btn-full">
+            Попробовать 7 дней бесплатно
+          </a>
+        </div>
+
+        <!-- Tariff 2: Pro+ -->
+        <div class="studio-card pricing-card pricing-card-featured">
+          <div class="pricing-badge badge-featured">Про+ • Рекомендуем</div>
+          <div class="pricing-header">
+            <h3 class="pricing-name">Управление магазином</h3>
+            <p class="pricing-sub">Для полной автоматизации: цены двигаются сами, заказы принимаются сами, полный контроль.</p>
+          </div>
+
+          <div class="pricing-price-box pricing-price-box-discount">
+            <div class="pricing-old-price-wrap">
+              <span class="pricing-old-price">16 990 ₸</span>
+              <span class="pricing-discount-badge">-41% скидка</span>
+            </div>
+            <div class="pricing-current-price-wrap">
+              <span class="pricing-amount">9 990 ₸</span>
+              <span class="pricing-period">/ месяц</span>
+            </div>
+          </div>
+
+          <div class="pricing-urgency-box">
+            <span class="urgency-fire">🔥</span>
+            <span><strong>Скидка 41% фиксируется за вами</strong> на весь период использования при регистрации на этой неделе</span>
+          </div>
+
+          <div class="pricing-payback-tag">
+            ⚡ Окупается с первой же продажи 1-2 товаров за счёт авто-репрайсера
+          </div>
+
+          <div class="pricing-trial-bar">
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle; margin-right:4px;"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/></svg>
+              Бесплатный период: <strong>3 дня</strong>
+            </span>
+          </div>
+
+          <div class="pricing-platform">
+            <span>Где работает:</span> <strong>Telegram + Компьютер (ПК)</strong>
+          </div>
+
+          <div class="pricing-divider"></div>
+
+          <ul class="pricing-features">
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Накладные:</strong> все форматы (Термоэтикетка, A4, 4/9 на лист)</li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Аналитика Excel:</strong> полные 18 листов</li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Калькулятор прибыли & курсы валют</strong></li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Кабинет на компьютере:</strong> с входом по QR-коду</li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Уведомления о заказах:</strong> сразу в Telegram</li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Репрайсер:</strong> до 100 товаров, проверка раз в 17 мин</li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Автоприём заказов:</strong> без задержек</li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Предзаказ:</strong> без ограничения по товарам</li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Цены и остатки:</strong> прямо в Kaspi</li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Позиции по каталогу:</strong> расчёт мест</li>
+            <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Витрина магазина:</strong> публичная ссылка</li>
+          </ul>
+
+          <a href="https://t.me/kitseller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-full">
+            Попробовать 3 дня бесплатно
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Pricing Difference Explanation Box -->
+      <div class="studio-card pricing-explain-box">
+        <div class="explain-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1.55.64 2.94 1.7 3.92.76.76 1.23 1.52 1.41 2.5"/></svg>
+        </div>
+        <div class="explain-text">
+          <strong>Как понимать разницу между тарифами:</strong><br>
+          «Стандарт» — это документы и отчёты: удобная печать накладных и понимание своей чистой прибыли. «Про+» — это управление магазином: авто-переоценка по конкурентам, автоприём заказов и веб-кабинет на ПК. Стандарт — это не «урезанная версия», а самостоятельный продукт для конкретных задач.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- How to Start Section -->
+  <section class="section bg-darker">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Три шага к началу работы</h2>
+        <p class="section-description">
+          Без заполнения анкет и без ввода паролей.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="studio-card step-card">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Откройте бота</h3>
+          <p class="step-desc">Перейдите в Telegram и запустите бота KitSeller нажатием кнопки «Старт».</p>
+        </div>
+
+        <div class="studio-card step-card">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Подключите Kaspi</h3>
+          <p class="step-desc">Подключите магазин безопасным способом — без установки программ и расширений.</p>
+        </div>
+
+        <div class="studio-card step-card">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Начните работать</h3>
+          <p class="step-desc">Печатайте накладные пачкой, скачивайте аналитику и настраивайте правила репрайсера.</p>
+        </div>
+      </div>
+
+      <!-- Quick Launch QR & CTA Card -->
+      <div class="steps-qr-card studio-card reveal-on-scroll">
+        <div class="steps-qr-left">
+          <div class="steps-qr-wrapper">
+            <svg class="steps-qr-svg" width="90" height="90" viewBox="0 0 100 100" fill="currentColor">
+              <rect x="8" y="8" width="28" height="28" fill="none" stroke="currentColor" stroke-width="4" rx="3"/>
+              <rect x="16" y="16" width="12" height="12" fill="currentColor" rx="2"/>
+              <rect x="64" y="8" width="28" height="28" fill="none" stroke="currentColor" stroke-width="4" rx="3"/>
+              <rect x="72" y="16" width="12" height="12" fill="currentColor" rx="2"/>
+              <rect x="8" y="64" width="28" height="28" fill="none" stroke="currentColor" stroke-width="4" rx="3"/>
+              <rect x="16" y="72" width="12" height="12" fill="currentColor" rx="2"/>
+              <rect x="42" y="10" width="14" height="8"/>
+              <rect x="42" y="24" width="8" height="14"/>
+              <rect x="10" y="42" width="14" height="8"/>
+              <rect x="28" y="42" width="8" height="8"/>
+              <rect x="42" y="42" width="16" height="16" fill="#4F46E5" rx="3"/>
+              <rect x="64" y="42" width="8" height="14"/>
+              <rect x="76" y="42" width="14" height="8"/>
+              <rect x="42" y="64" width="14" height="8"/>
+              <rect x="42" y="76" width="8" height="14"/>
+              <rect x="64" y="64" width="14" height="12"/>
+              <rect x="82" y="64" width="10" height="8"/>
+              <rect x="64" y="80" width="8" height="10"/>
+              <rect x="76" y="80" width="16" height="10"/>
+            </svg>
+            <div class="steps-tg-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
+            </div>
+          </div>
+          <div class="steps-qr-text">
+            <span class="steps-qr-heading">Наведите камеру смартфона</span>
+            <p class="steps-qr-sub">Откройте Telegram-бота <strong>@kitseller_bot</strong> в 1 клик со своего телефона</p>
+          </div>
+        </div>
+
+        <div class="steps-qr-cta">
+          <a href="https://t.me/kitseller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
+            Запустить бота в Telegram
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section" id="faq">
+    <div class="container container-narrow">
+      <div class="section-header">
+        <h2 class="section-title">Ответы на частые вопросы</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="studio-card faq-item">
+          <button class="faq-question">
+            <span>Безопасно ли давать доступ к Kaspi?</span>
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Да, абсолютно. Вход происходит через официальные отчёты выгрузки и API. Сервис не просит и не хранит ваши пароли от Kaspi. Доступ к ПК-кабинету осуществляется по QR-коду прямо из Telegram.</p>
+          </div>
+        </div>
+
+        <div class="studio-card faq-item">
+          <button class="faq-question">
+            <span>Нужно ли что-то скачивать или устанавливать?</span>
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Нет, устанавливать ничего не нужно — ни программ, ни расширений для браузера. С телефона сервис работает прямо внутри Telegram, с компьютера — в браузере по обычному веб-адресу.</p>
+          </div>
+        </div>
+
+        <div class="studio-card faq-item">
+          <button class="faq-question">
+            <span>Что если сервис мне не подойдёт?</span>
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>У каждого тарифа есть бесплатный пробный период: 7 дней на тарифе «Стандарт» и 3 дня на тарифе «Про+». Вы можете полноценно протестировать все функции до оплаты.</p>
+          </div>
+        </div>
+
+        <div class="studio-card faq-item">
+          <button class="faq-question">
+            <span>Как часто репрайсер проверяет цены конкурентов?</span>
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Проверка цен конкурентов выполняется каждые 17 минут (до 100 товаров на тарифе Про+). После того как репрайсер принимает решение изменить цену, обновлённая цена появляется на витрине Kaspi в течение 3 минут.</p>
+          </div>
+        </div>
+
+        <div class="studio-card faq-item">
+          <button class="faq-question">
+            <span>Гарантирует ли репрайсер первое место на карточке?</span>
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Место на карточке Kaspi зависит не только от цены: там учитываются бонусы, условия доставки и рейтинг продавца. KitSeller даёт инструмент автоматической борьбы за лучшую цену по вашим правилам, а не слепое обещание.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QR Login Modal (Simulated Passwordless Entry) -->
+  <div class="modal-overlay" id="qr-modal">
+    <div class="studio-card modal-box">
+      <button class="modal-close" id="modal-close-btn">&times;</button>
+      
+      <div class="modal-header-text">
+        <h3>Вход в кабинет без пароля</h3>
+        <p>Откройте Telegram и отсканируйте QR-код для входа с компьютера</p>
+      </div>
+
+      <div class="qr-code-wrapper">
+        <svg width="180" height="180" viewBox="0 0 100 100" fill="#4F46E5">
+          <rect width="100" height="100" fill="#FFFFFF" rx="8" stroke="#E2E8F0" stroke-width="2"/>
+          <rect x="10" y="10" width="25" height="25" fill="#4F46E5"/>
+          <rect x="15" y="15" width="15" height="15" fill="#FFFFFF"/>
+          <rect x="18" y="18" width="9" height="9" fill="#4F46E5"/>
+
+          <rect x="65" y="10" width="25" height="25" fill="#4F46E5"/>
+          <rect x="70" y="15" width="15" height="15" fill="#FFFFFF"/>
+          <rect x="73" y="18" width="9" height="9" fill="#4F46E5"/>
+
+          <rect x="10" y="65" width="25" height="25" fill="#4F46E5"/>
+          <rect x="15" y="70" width="15" height="15" fill="#FFFFFF"/>
+          <rect x="18" y="73" width="9" height="9" fill="#4F46E5"/>
+
+          <rect x="42" y="12" width="6" height="6"/>
+          <rect x="52" y="18" width="6" height="6"/>
+          <rect x="42" y="28" width="6" height="6"/>
+          <rect x="12" y="42" width="6" height="6"/>
+          <rect x="24" y="48" width="6" height="6"/>
+          <rect x="42" y="42" width="16" height="16" fill="#059669"/>
+          <rect x="65" y="42" width="6" height="6"/>
+          <rect x="78" y="48" width="6" height="6"/>
+          <rect x="42" y="68" width="6" height="6"/>
+          <rect x="52" y="78" width="6" height="6"/>
+          <rect x="68" y="68" width="16" height="16"/>
+        </svg>
+      </div>
+
+      <div class="qr-status-indicator">
+        <span class="badge-dot animate-pulse"></span>
+        <span>Ожидание сканирования в Telegram...</span>
+      </div>
+
+      <p class="modal-footnote">
+        Никаких логинов, паролей и SMS-кодов. Сессия подтверждается прямо в вашем Telegram-боте.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-col">
+        <a href="#" class="logo">
+          <img src="/logo.svg" alt="KitSeller" class="logo-image">
+        </a>
+        <p class="footer-text">
+          Рабочее место продавца Kaspi. Автоматическая печать накладных, аналитика чистой прибыли и репрайсер цен.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Навигация</h4>
+        <a href="#pains">Проблемы продавца</a>
+        <a href="#features">Возможности</a>
+        <a href="#demo">Интерактивное демо</a>
+        <a href="#pricing">Тарифы и цены</a>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Документы</h4>
+        <a href="/offer.html">Публичная оферта</a>
+        <a href="/privacy.html">Политика конфиденциальности</a>
+        <a href="/docs/offer.docx" download="Оферта_KitSeller.docx">Скачать оферту (.docx)</a>
+        <a href="/docs/privacy.docx" download="Политика_конфиденциальности_KitSeller.docx">Скачать политику (.docx)</a>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Контакты</h4>
+        <a href="https://t.me/kitseller_bot" target="_blank" class="footer-tg-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
+          @kitseller_bot в Telegram
+        </a>
+        <p class="footer-disclaimer">
+          ИП Path of Peaks · Вопросы: <a href="mailto:ergazin013@gmail.com" style="color:var(--brand-indigo); text-decoration:none;">ergazin013@gmail.com</a>
+        </p>
+        <p class="footer-disclaimer">
+          KitSeller — независимый рабочий инструмент для продавцов Kaspi. Не является аффилированным продуктом Kaspi.kz.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom container">
+      <span>&copy; 2026 KitSeller (ИП Path of Peaks). Все права защищены.</span>
+      <div class="footer-legal-links">
+        <a href="/privacy.html" class="legal-link-btn" id="btn-privacy">Политика конфиденциальности</a>
+        <span>•</span>
+        <a href="/offer.html" class="legal-link-btn" id="btn-terms">Договор публичной оферты</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Legal Document Modal -->
+  <div class="modal-overlay" id="privacy-modal">
+    <div class="studio-card modal-box legal-modal-box">
+      <button class="modal-close" id="privacy-modal-close">&times;</button>
+      <div class="modal-header-text">
+        <h3 id="legal-modal-title">Политика конфиденциальности</h3>
+        <p id="legal-modal-subtitle">Официальные документы сервиса KitSeller · ИП Path of Peaks</p>
+      </div>
+      <div class="legal-modal-actions-bar" id="legal-modal-actions-bar">
+        <span class="legal-modal-badge" id="legal-modal-badge">Редакция от 13 августа 2026</span>
+        <div class="legal-modal-btns">
+          <a href="/privacy.html" id="legal-modal-fullpage-link" class="legal-modal-btn" target="_blank">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>В новой вкладке</span>
+          </a>
+          <a href="/docs/privacy.docx" id="legal-modal-download-link" download class="legal-modal-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Скачать DOCX</span>
+          </a>
+        </div>
+      </div>
+      <div class="legal-modal-body" id="legal-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Cookie Consent Toast Banner -->
+  <div class="cookie-banner" id="cookie-banner">
+    <div class="cookie-banner-content">
+      <span class="cookie-icon">🍪</span>
+      <div class="cookie-text">
+        Мы используем cookies и локальное хранилище для работы интерфейса и аналитики переходов в Telegram.
+      </div>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn btn-primary btn-sm cookie-accept-btn" id="cookie-accept-btn">Понятно</button>
+      <button class="cookie-close-btn" id="cookie-close-btn" aria-label="Закрыть">&times;</button>
+    </div>
+  </div>
+
+  <!-- Live Social Proof Activity Toast -->
+  <div class="live-activity-toast" id="live-activity-toast">
+    <div class="live-act-avatar" id="live-act-avatar">📦</div>
+    <div class="live-act-body">
+      <div class="live-act-title" id="live-act-title">Магазин из Алматы</div>
+      <div class="live-act-desc" id="live-act-desc">Распечатал 64 накладные за 2 минуты</div>
+      <div class="live-act-time" id="live-act-time">3 минуты назад</div>
+    </div>
+    <button class="live-act-close" id="live-act-close" aria-label="Закрыть">&times;</button>
+  </div>
+
+  <!-- Mobile Sticky Bottom CTA Bar -->
+  <div class="mobile-sticky-bar">
+    <a href="https://t.me/kitseller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-full">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
+      Запустить в Telegram (7 дней бесплатно)
+    </a>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

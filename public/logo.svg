@@ -1,0 +1,17 @@
+<svg width="260" height="70" viewBox="0 0 260 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Official KitSeller Whale Icon Emblem -->
+  <g transform="translate(4, 5)">
+    <!-- Tail Fin (Fluke) curving high top-left -->
+    <path d="M 22 6 C 15 -1 4 5 8 19 C 12 29 25 35 33 41 C 23 35 13 31 7 21 C 3 13 13 7 22 6 Z" fill="#0F172A"/>
+    <!-- Main Body Curve -->
+    <path d="M 27 37 C 42 17 73 13 93 21 C 103 25 103 35 95 41 C 81 51 48 57 29 49 C 19 43 21 35 27 37 Z" fill="#0F172A"/>
+    <!-- Eye Dot -->
+    <circle cx="85" cy="31" r="2.5" fill="#FFFFFF"/>
+    <!-- Underbelly Cutout Grooves -->
+    <path d="M 43 49 C 59 53 75 47 85 39 C 73 44 57 47 43 44 Z" fill="#FFFFFF"/>
+    <path d="M 53 52 C 65 55 77 51 83 45 C 75 48 63 51 53 49 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Wordmark "KitSeller" -->
+  <text x="98" y="47" font-family="'Manrope', -apple-system, system-ui, sans-serif" font-weight="800" font-size="34" fill="#0F172A" letter-spacing="-0.02em">KitSeller</text>
+</svg>

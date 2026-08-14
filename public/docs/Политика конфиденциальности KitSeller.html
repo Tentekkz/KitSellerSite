@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Политика конфиденциальности KitSeller</title>
+  <meta name="description" content="Политика конфиденциальности KitSeller. Редакция от 13 августа 2026.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>    (function () {
+      var saved = localStorage.getItem('ks_portal_theme');
+      document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
+    })();
+</script>
+
+  <style>
+    :root {
+      --bg-page: #f6f8fc;
+      --bg-card: #ffffff;
+      --card-border: #e2e8f0;
+      --card-shadow: 0 20px 45px rgba(15, 23, 42, 0.08), 0 4px 16px rgba(15, 23, 42, 0.04);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #4f46e5;
+      --rule: #eef2f7;
+      --chip-bg: rgba(79, 70, 229, 0.08);
+    }
+
+    html[data-theme="dark"] {
+      --bg-page: #080c14;
+      --bg-card: #0b0f19;
+      --card-border: rgba(255, 255, 255, 0.14);
+      --card-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #818cf8;
+      --rule: rgba(255, 255, 255, 0.08);
+      --chip-bg: rgba(129, 140, 248, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 32px 16px 64px;
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { max-width: 760px; margin: 0 auto; }
+
+    .top {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; margin-bottom: 20px;
+    }
+
+    .brand {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-weight: 700; font-size: 17px; color: var(--text-main);
+      text-decoration: none; letter-spacing: -0.01em;
+    }
+
+    .theme-btn {
+      width: 38px; height: 38px; flex-shrink: 0;
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid var(--card-border); border-radius: 50%;
+      background: var(--bg-card); color: var(--text-muted);
+      cursor: pointer; font-size: 16px; line-height: 1;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      box-shadow: var(--card-shadow);
+      padding: 36px 34px 40px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 26px; font-weight: 700; line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .meta {
+      display: inline-block;
+      padding: 5px 12px; border-radius: 999px;
+      background: var(--chip-bg); color: var(--accent);
+      font-size: 12.5px; font-weight: 600;
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      margin: 30px 0 10px;
+      font-size: 17px; font-weight: 700; line-height: 1.35;
+      letter-spacing: -0.01em;
+      padding-top: 22px;
+      border-top: 1px solid var(--rule);
+    }
+    h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+    p { margin: 0 0 12px; }
+
+    ul { margin: 0 0 14px; padding-left: 0; list-style: none; }
+
+    li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 7px;
+    }
+
+    li::before {
+      content: '';
+      position: absolute;
+      left: 4px; top: 10px;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent);
+    }
+
+    strong { font-weight: 600; }
+
+    a { color: var(--accent); }
+
+    .foot {
+      margin-top: 34px; padding-top: 22px;
+      border-top: 1px solid var(--rule);
+      display: flex; flex-wrap: wrap; gap: 10px 20px;
+      align-items: center;
+      font-size: 13.5px; color: var(--text-muted);
+    }
+
+    .foot a { text-decoration: none; font-weight: 600; }
+    .foot a:hover { text-decoration: underline; }
+
+    @media (max-width: 560px) {
+      body { padding: 20px 12px 48px; font-size: 14.5px; }
+      .card { padding: 26px 20px 30px; border-radius: 16px; }
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="/">🐳 KitSeller</a>
+      <button class="theme-btn" id="theme-btn" type="button" title="Сменить тему">🌙</button>
+    </div>
+
+    <div class="card">
+      <h1>Политика конфиденциальности KitSeller</h1>
+      <div class="meta">Редакция от 13 августа 2026</div>
+
+      <h2>1. О чём этот документ</h2>
+<p>KitSeller — сервис для продавцов Kaspi: бот в Telegram и личный кабинет на сайте. Оператор сервиса — <strong>ИП Path of Peaks</strong>, Республика Казахстан.</p>
+<p>Документ описывает, какие данные сервис получает, зачем они нужны, сколько хранятся и как их удалить.</p>
+<p>Редакция от 13 августа 2026 года.</p>
+<h2>2. Данные продавца и данные его покупателей — разные вещи</h2>
+<p>Через сервис проходят данные двух видов, и отношение к ним разное.</p>
+<ul>
+<li><strong>Данные продавца</strong> — того, кто пользуется сервисом. Здесь оператором выступает ИП Path of Peaks, а основанием обработки — согласие продавца, которое он даёт при первом входе.</li>
+<li><strong>Данные покупателей продавца</strong> — имена, телефоны и адреса доставки из его магазина на Kaspi. Оператором этих данных остаётся сам продавец: они собраны его магазином и принадлежат его отношениям с покупателем. Сервис обрабатывает их по поручению продавца и только для того, чтобы показать ему его же заказы.</li>
+</ul>
+<h2>3. Какие данные продавца обрабатываются</h2>
+<ul>
+<li>Telegram ID, имя и username — чтобы узнавать пользователя и писать ему</li>
+<li>Выбранный язык интерфейса и настройки разделов</li>
+<li>Тариф, даты начала и окончания подписки, признак пробного периода</li>
+<li>Сведения об оплатах: сумма, дата, номер счёта, статус платежа</li>
+<li>Пароль от личного кабинета на сайте — в защищённом виде, прочитать его нельзя</li>
+<li>Журнал действий в сервисе: какими разделами и когда пользовались</li>
+</ul>
+<h2>4. Доступ к кабинету Kaspi</h2>
+<p>Часть возможностей — работа с ценами, остатками, заказами и отзывами — требует доступа к кабинету продавца на Kaspi. Продавец подключает его сам, и тогда сервис хранит:</p>
+<ul>
+<li>токен Kaspi Shop API, который продавец создаёт в своём кабинете</li>
+<li>логин и пароль от кабинета Kaspi — если продавец выбрал вход по паролю</li>
+<li>служебные cookies рабочей сессии с Kaspi</li>
+</ul>
+<p>Всё перечисленное хранится в зашифрованном виде и используется только для запросов к Kaspi от имени этого продавца.</p>
+<p>Отключить доступ можно в любой момент кнопкой «Отключить кабинет» — ключи и cookies при этом удаляются.</p>
+<h2>5. Данные покупателей</h2>
+<p>Из кабинета Kaspi сервис получает заказы продавца. В них попадают имя покупателя, номер заказа, состав и сумма, адрес доставки или пункт выдачи.</p>
+<p>Эти сведения используются только для того, чтобы показать продавцу его заказы, напомнить о сроках и собрать статистику продаж. Они не передаются другим продавцам, не используются в рекламе и не продаются.</p>
+<p>Переписку покупателей с магазином сервис не ведёт и не хранит: отвечает покупателю сам продавец в кабинете Kaspi.</p>
+<p>Ответственность за законность сбора данных своих покупателей несёт продавец — как владелец магазина на Kaspi.</p>
+<h2>6. Файлы, которые загружает продавец</h2>
+<p>Отчёты и накладные из Kaspi (ZIP, XLSX, PDF) разбираются в памяти сервера и не сохраняются файлами. В базе остаётся результат разбора — суммы, количество заказов, себестоимость товаров, — то есть то, из чего строятся отчёты.</p>
+<h2>7. Зачем всё это нужно</h2>
+<ul>
+<li>предоставить оплаченные возможности сервиса</li>
+<li>управлять доступом и продлением подписки</li>
+<li>присылать уведомления о заказах, отзывах и окончании подписки</li>
+<li>отвечать на обращения в поддержку</li>
+<li>считать нагрузку и находить ошибки в работе сервиса</li>
+</ul>
+<h2>8. Кому данные доступны</h2>
+<p>Сервис не продаёт и не передаёт данные третьим лицам в коммерческих целях. Данные проходят через инфраструктуру, без которой сервис не работает: Telegram — доставка сообщений; Kaspi — источник данных магазина; хостинг-провайдер — сервер, на котором работает сервис и его база.</p>
+<p>Данные могут быть переданы государственным органам, если этого требует законодательство Республики Казахстан.</p>
+<h2>9. Сколько хранится и как удалить</h2>
+<p>Данные хранятся, пока продавец пользуется сервисом.</p>
+<p>Удалить их можно самому: в личном кабинете, раздел «Опасная зона». Удаление стирает настройки, ключи доступа к Kaspi, товары, заказы, историю отчётов и подписку.</p>
+<p>После удаления сохраняются сведения об оплатах — сумма, дата, номер счёта — и отметка о принятии этих документов: дата и редакция. Первое требует бухгалтерский и налоговый учёт, второе подтверждает, что договор был заключён. Отказаться от их хранения нельзя.</p>
+<p>Удаление можно запросить и письмом на ergazin013@gmail.com.</p>
+<h2>10. Как данные защищены</h2>
+<ul>
+<li>Пароли и ключи доступа к Kaspi хранятся зашифрованными</li>
+<li>Пароль от личного кабинета хранится в защищённом виде</li>
+<li>Соединение с сайтом защищено сертификатом (HTTPS)</li>
+<li>Вход в кабинет — по одноразовому QR-коду или паролю, сессия ограничена по времени</li>
+</ul>
+<p>Ни один сервис не даёт полной гарантии, но перечисленное закрывает самые вероятные пути утечки.</p>
+<h2>11. Права продавца</h2>
+<p>Продавец вправе узнать, какие его данные обрабатываются, потребовать их исправления или удаления и отозвать согласие. Отзыв согласия означает прекращение работы с сервисом: без данных он не работает.</p>
+<h2>12. Изменения</h2>
+<p>Новая редакция публикуется на этой странице и в боте. Если изменения существенные, сервис попросит подтвердить согласие заново.</p>
+<h2>13. Контакты</h2>
+<p>ИП Path of Peaks, Республика Казахстан</p>
+<p>Почта: ergazin013@gmail.com · Telegram: @peaks_kz</p>
+
+      <div class="foot">
+        <a href="https://app.kitseller.kz/legal/offer">Договор оферты</a>
+        <span>Вопросы: <a href="mailto:ergazin013@gmail.com">ergazin013@gmail.com</a></span>
+      </div>
+    </div>
+  </div>
+
+  <script>    (function () {
+      var btn = document.getElementById('theme-btn');
+      function paint() {
+        var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+        btn.textContent = dark ? '☀️' : '🌙';
+      }
+      btn.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('ks_portal_theme', next);
+        paint();
+      });
+      paint();
+    })();
+</script>
+</body>
+</html>
