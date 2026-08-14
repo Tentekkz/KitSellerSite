@@ -797,54 +797,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 15. Kazakh / Russian Language Switcher (RU / KZ) ---
-  const langToggleBtn = document.getElementById('lang-toggle');
-  const langText = document.getElementById('lang-text');
-
-  const i18n = {
-    ru: {
-      nav_pains: 'Проблемы',
-      nav_features: 'Возможности',
-      nav_calculator: 'Калькулятор Kaspi',
-      nav_demo: 'Демо-инструменты',
-      nav_pricing: 'Тарифы',
-      nav_faq: 'FAQ'
-    },
-    kz: {
-      nav_pains: 'Мәселелер',
-      nav_features: 'Мүмкіндіктер',
-      nav_calculator: 'Kaspi Калькуляторы',
-      nav_demo: 'Демо-құралдар',
-      nav_pricing: 'Тарифтер',
-      nav_faq: 'Сұрақ-жауап'
-    }
-  };
-
-  let currentLang = localStorage.getItem('kitseller-lang') || 'ru';
-
-  const applyLanguage = (lang) => {
-    currentLang = lang;
-    localStorage.setItem('kitseller-lang', lang);
-    if (langText) langText.textContent = lang === 'ru' ? 'KZ' : 'RU';
-
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (i18n[lang] && i18n[lang][key]) {
-        el.textContent = i18n[lang][key];
-      }
-    });
-  };
-
-  if (langToggleBtn) {
-    langToggleBtn.addEventListener('click', () => {
-      const nextLang = currentLang === 'ru' ? 'kz' : 'ru';
-      applyLanguage(nextLang);
-    });
-  }
-
-  if (currentLang !== 'ru') {
-    applyLanguage(currentLang);
-  }
+  // Переключатель RU/KZ снят вместе с кнопкой в шапке: он переводил только
+  // пункты меню, а страница оставалась русской. Атрибуты data-i18n в разметке
+  // оставлены — они пригодятся, когда появится полный казахский перевод.
 
 });
 
