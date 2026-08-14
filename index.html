@@ -20,6 +20,22 @@
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
+  <!-- Тема ставится до первой отрисовки: иначе тёмная страница успевает мигнуть белым.
+       Здесь же взводится класс `js` — без него блоки с анимацией появления
+       не прячутся, и страница остаётся читаемой при выключенном JavaScript. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var stored = null;
+      try { stored = localStorage.getItem('kitseller-theme'); } catch (e) {}
+      var dark = stored
+        ? stored === 'dark'
+        : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      root.setAttribute('data-theme', dark ? 'dark' : 'light');
+      root.classList.add('js');
+    })();
+  </script>
+
   <!-- Human Studio Typography (Manrope Display + Inter Body + System SF Pro Fallbacks) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +64,6 @@
 
       <nav class="nav-menu" id="nav-menu">
         <a href="#pains" class="nav-link" data-i18n="nav_pains">Проблемы</a>
-        <a href="#social-proof" class="nav-link" data-i18n="nav_reviews">Отзывы</a>
         <a href="#features" class="nav-link" data-i18n="nav_features">Возможности</a>
         <a href="#calculator" class="nav-link" data-i18n="nav_calculator">Калькулятор Kaspi</a>
         <a href="#demo" class="nav-link" data-i18n="nav_demo">Демо-инструменты</a>
@@ -308,78 +323,6 @@
     </div>
   </section>
 
-  <!-- Social Proof & Stats Section -->
-  <section class="section section-alt" id="social-proof">
-    <div class="container">
-      <div class="stats-row reveal-on-scroll">
-        <div class="stat-card">
-          <div class="stat-number">500+</div>
-          <div class="stat-label">Активных магазинов Kaspi</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">1.2M+</div>
-          <div class="stat-label">Накладных распечатано</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">+24%</div>
-          <div class="stat-label">Прирост чистой прибыли</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">4.9 / 5</div>
-          <div class="stat-label">Средняя оценка селлеров</div>
-        </div>
-      </div>
-
-      <div class="section-header" style="margin-top: 48px;">
-        <h2 class="section-title">Что говорят продавцы Kaspi</h2>
-        <p class="section-description">Опыт селлеров, которые доверили операционку KitSeller</p>
-      </div>
-
-      <div class="testimonials-grid reveal-on-scroll">
-        <div class="studio-card testimonial-card">
-          <div class="testimonial-rating">★★★★★</div>
-          <p class="testimonial-text">
-            «Раньше печатали накладные на A4 и каждый вечер нарезали их ножницами. Продажи выросли до 80 заказов в день — уходила вся ночь. Настроили KitSeller + термопринтер: теперь все этикетки печатаются за 2 минуты в Telegram!»
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">АБ</div>
-            <div class="author-info">
-              <div class="author-name">Арман Батыров</div>
-              <div class="author-role">Категория «Электроника & Аксессуары» (Алматы)</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="studio-card testimonial-card">
-          <div class="testimonial-rating">★★★★★</div>
-          <p class="testimonial-text">
-            «Репрайсер — это просто пушка! Конкурент перебивал цену по 10 раз на день, я постоянно терял 1 место. Включил авто-переоценку — репрайсер держит карточку 24/7, не давая сваливаться в демпинг. Выручка поднялась на 30%.»
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">ДН</div>
-            <div class="author-info">
-              <div class="author-name">Данияр Нурланов</div>
-              <div class="author-role">Категория «Автотовары» (Астана)</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="studio-card testimonial-card">
-          <div class="testimonial-rating">★★★★★</div>
-          <p class="testimonial-text">
-            «Финансовый отчёт из Kaspi Pay на 18 листов наконец-то открыл глаза! До этого думала, что зарабатываю миллионы, а оказалость, что комиссия и доставка съедали пол-маржи. В отчёте всё четко: P&L, чистый профит, налоги.»
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">ЕМ</div>
-            <div class="author-info">
-              <div class="author-name">Елена Мусина</div>
-              <div class="author-role">Категория «Дом и Кухня» (Шымкент)</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Features Section -->
   <section class="section bg-darker" id="features">
@@ -680,6 +623,10 @@
               <div class="calc-margin-pill" id="res-net-margin">26.0% маржа</div>
             </div>
           </div>
+
+          <p class="calc-disclaimer">
+            Проценты комиссий и стоимость доставки взяты ориентировочные: у Kaspi они зависят от категории, договора продавца, веса и города. Точные цифры по вашему магазину KitSeller берёт из ваших же отчётов Kaspi Pay.
+          </p>
         </div>
 
         <!-- 2. Kaspi Juma & Sale Readiness Checklist -->
@@ -925,7 +872,7 @@
                     <span class="res-m-val text-green" id="res-calc-pos">1 место</span>
                   </div>
                   <div class="res-metric-item">
-                    <span class="res-m-label">Чистая маржа:</span>
+                    <span class="res-m-label">Наценка к закупу:</span>
                     <span class="res-m-val text-dark" id="res-calc-margin">+4 190 ₸</span>
                   </div>
                   <div class="res-metric-item">
@@ -939,7 +886,7 @@
                 </div>
 
                 <div class="res-note-box">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle; margin-right:4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> Место на карточке также зависит от рейтинга продавца, доставки и бонусов. Репрайсер даёт точный инструмент управления ценой.
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle; margin-right:4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> Наценка показана до комиссии, доставки и налога — что останется на руки, считает <a href="#calculator">калькулятор выше</a>. Место на карточке зависит ещё от рейтинга продавца, доставки и бонусов: репрайсер даёт инструмент управления ценой, а не обещание первого места.
                 </div>
               </div>
             </div>
@@ -1059,24 +1006,9 @@
             <p class="pricing-sub">Для полной автоматизации: цены двигаются сами, заказы принимаются сами, полный контроль.</p>
           </div>
 
-          <div class="pricing-price-box pricing-price-box-discount">
-            <div class="pricing-old-price-wrap">
-              <span class="pricing-old-price">16 990 ₸</span>
-              <span class="pricing-discount-badge">-41% скидка</span>
-            </div>
-            <div class="pricing-current-price-wrap">
-              <span class="pricing-amount">9 990 ₸</span>
-              <span class="pricing-period">/ месяц</span>
-            </div>
-          </div>
-
-          <div class="pricing-urgency-box">
-            <span class="urgency-fire">🔥</span>
-            <span><strong>Скидка 41% фиксируется за вами</strong> на весь период использования при регистрации на этой неделе</span>
-          </div>
-
-          <div class="pricing-payback-tag">
-            ⚡ Окупается с первой же продажи 1-2 товаров за счёт авто-репрайсера
+          <div class="pricing-price-box">
+            <span class="pricing-amount">9 990 ₸</span>
+            <span class="pricing-period">/ месяц</span>
           </div>
 
           <div class="pricing-trial-bar">
@@ -1403,17 +1335,6 @@
       <button class="btn btn-primary btn-sm cookie-accept-btn" id="cookie-accept-btn">Понятно</button>
       <button class="cookie-close-btn" id="cookie-close-btn" aria-label="Закрыть">&times;</button>
     </div>
-  </div>
-
-  <!-- Live Social Proof Activity Toast -->
-  <div class="live-activity-toast" id="live-activity-toast">
-    <div class="live-act-avatar" id="live-act-avatar">📦</div>
-    <div class="live-act-body">
-      <div class="live-act-title" id="live-act-title">Магазин из Алматы</div>
-      <div class="live-act-desc" id="live-act-desc">Распечатал 64 накладные за 2 минуты</div>
-      <div class="live-act-time" id="live-act-time">3 минуты назад</div>
-    </div>
-    <button class="live-act-close" id="live-act-close" aria-label="Закрыть">&times;</button>
   </div>
 
   <!-- Mobile Sticky Bottom CTA Bar -->

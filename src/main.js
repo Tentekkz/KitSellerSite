@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).join('');
 
     sheetViewerBox.innerHTML = `
-      <div style="font-weight: bold; font-size: 0.9375rem; color: #fff; margin-bottom: 12px; font-family: var(--font-mono);">
+      <div style="font-weight: bold; font-size: 0.9375rem; color: var(--text-primary); margin-bottom: 12px; font-family: var(--font-mono);">
         📄 Sheet: ${sheet.name}
       </div>
       <table class="excel-table">
@@ -323,6 +323,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 5. FAQ Accordion Logic ---
   const faqItems = document.querySelectorAll('.faq-item');
+
+  // Экранный диктор должен знать, раскрыт ответ или нет: одного класса ему мало.
+  const syncFaqAria = () => {
+    faqItems.forEach(i => {
+      const q = i.querySelector('.faq-question');
+      if (q) q.setAttribute('aria-expanded', i.classList.contains('active') ? 'true' : 'false');
+    });
+  };
+
   faqItems.forEach(item => {
     const question = item.querySelector('.faq-question');
     question.addEventListener('click', () => {
@@ -331,7 +340,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!isActive) {
         item.classList.add('active');
       }
+      syncFaqAria();
     });
+  });
+  syncFaqAria();
+
+  // --- 5-бис. Закрытие любого модального окна по Esc ---
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
   });
 
   // --- 6. QR Login Modal Simulator ---
@@ -358,15 +375,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- 7. Theme Switcher Engine ---
+  // Тему уже поставил встроенный скрипт в <head> — здесь только переключатель.
   const themeToggleBtn = document.getElementById('theme-toggle');
-  const storedTheme = localStorage.getItem('kitseller-theme');
-  const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  if (storedTheme === 'dark' || (!storedTheme && systemPrefersDark)) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  } else {
-    document.documentElement.setAttribute('data-theme', 'light');
-  }
 
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
@@ -787,63 +797,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 15. Live Social Proof Activity Toaster ---
-  const liveActivityToast = document.getElementById('live-activity-toast');
-  const liveActAvatar = document.getElementById('live-act-avatar');
-  const liveActTitle = document.getElementById('live-act-title');
-  const liveActDesc = document.getElementById('live-act-desc');
-  const liveActTime = document.getElementById('live-act-time');
-  const liveActClose = document.getElementById('live-act-close');
-
-  const liveEvents = [
-    { avatar: '📦', title: 'Магазин из Алматы', desc: 'Распечатал 64 накладные на термопринтере', time: '2 минуты назад' },
-    { avatar: '👑', title: 'Селлер из Астаны', desc: 'Репрайсер вернул 1-е место на карточке Kaspi', time: '4 минуты назад' },
-    { avatar: '📊', title: 'Магазин из Шымкента', desc: 'Сформировал финансовый P&L отчёт Kaspi Pay', time: '7 минут назад' },
-    { avatar: '🚀', title: 'Продавец из Караганды', desc: 'Подключил тариф «Про+» и настроил автоприём', time: '11 минут назад' },
-    { avatar: '🚚', title: 'Магазин из Актобе', desc: 'Включил предзаказ на дефицитную партию товаров', time: '15 минут назад' }
-  ];
-
-  let currentLiveIndex = 0;
-  let liveToastInterval = null;
-
-  if (liveActivityToast) {
-    const showNextLiveToast = () => {
-      const ev = liveEvents[currentLiveIndex];
-      if (liveActAvatar) liveActAvatar.textContent = ev.avatar;
-      if (liveActTitle) liveActTitle.textContent = ev.title;
-      if (liveActDesc) liveActDesc.textContent = ev.desc;
-      if (liveActTime) liveActTime.textContent = ev.time;
-
-      liveActivityToast.classList.add('show');
-      currentLiveIndex = (currentLiveIndex + 1) % liveEvents.length;
-
-      setTimeout(() => {
-        liveActivityToast.classList.remove('show');
-      }, 5500);
-    };
-
-    // First appearance after 4 seconds
-    setTimeout(() => {
-      showNextLiveToast();
-      liveToastInterval = setInterval(showNextLiveToast, 18000);
-    }, 4000);
-
-    if (liveActClose) {
-      liveActClose.addEventListener('click', () => {
-        liveActivityToast.classList.remove('show');
-        if (liveToastInterval) clearInterval(liveToastInterval);
-      });
-    }
-  }
-
-  // --- 16. Kazakh / Russian Language Switcher (RU / KZ) ---
+  // --- 15. Kazakh / Russian Language Switcher (RU / KZ) ---
   const langToggleBtn = document.getElementById('lang-toggle');
   const langText = document.getElementById('lang-text');
 
   const i18n = {
     ru: {
       nav_pains: 'Проблемы',
-      nav_reviews: 'Отзывы',
       nav_features: 'Возможности',
       nav_calculator: 'Калькулятор Kaspi',
       nav_demo: 'Демо-инструменты',
@@ -852,7 +812,6 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     kz: {
       nav_pains: 'Мәселелер',
-      nav_reviews: 'Пікірлер',
       nav_features: 'Мүмкіндіктер',
       nav_calculator: 'Kaspi Калькуляторы',
       nav_demo: 'Демо-құралдар',
