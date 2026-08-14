@@ -958,6 +958,39 @@ h1, h2, h3, h4, h5, h6 {
   gap: 24px;
 }
 
+/* Карточка во всю ширину сетки: строка текста растянулась бы на весь экран
+   и стала нечитаемой, поэтому содержимое остаётся в двух колонках. */
+.bento-card.bento-card-wide {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 1025px) {
+  .bento-card.bento-card-wide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    align-items: start;
+  }
+
+  .bento-card.bento-card-wide .bento-card-top,
+  .bento-card.bento-card-wide .bento-title,
+  .bento-card.bento-card-wide .bento-subtitle,
+  .bento-card.bento-card-wide .bento-text {
+    grid-column: 1;
+  }
+
+  .bento-card.bento-card-wide .bento-widget {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    align-self: center;
+    margin-top: 0;
+  }
+
+  .bento-card.bento-card-wide .bento-bullets {
+    grid-column: 2;
+  }
+}
+
 .bento-card {
   position: relative;
   overflow: hidden;
