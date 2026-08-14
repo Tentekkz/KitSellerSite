@@ -10,13 +10,21 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="KitSeller — Автоматизация и авто-переоценка для продавцов Kaspi">
   <meta property="og:description" content="Мгновенная печать накладных пачкой, финансовый отчёт о прибыли из Kaspi Pay на 18 листов и репрайсер каждые 17 минут.">
-  <meta property="og:url" content="https://kitseller.app">
+  <meta property="og:url" content="https://kitseller.kz/">
   <meta property="og:site_name" content="KitSeller">
-  <meta property="og:image" content="/logo.png">
+  <meta property="og:locale" content="ru_KZ">
+  <!-- Абсолютный адрес обязателен: по относительному пути Telegram и WhatsApp
+       превью не подтягивают, ссылка уходит голой. -->
+  <meta property="og:image" content="https://kitseller.kz/logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="KitSeller — Рабочее место продавца Kaspi">
   <meta name="twitter:description" content="Вся операционка Kaspi на автопилоте: печать накладных, отчёт 18 листов, репрайсер.">
-  <meta name="twitter:image" content="/logo.png">
+  <meta name="twitter:image" content="https://kitseller.kz/logo.png">
+
+  <link rel="canonical" href="https://kitseller.kz/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)">
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
@@ -42,6 +50,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/src/style.css">
+
+  <!-- Разметка для поиска: цены и ответы FAQ берутся отсюда в выдачу.
+       Числа обязаны совпадать с тарифами в config.py бота. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "KitSeller",
+    "description": "Рабочее место продавца Kaspi: печать накладных пачкой, отчёт о чистой прибыли из Kaspi Pay на 18 листов, автоматическая переоценка по конкурентам.",
+    "url": "https://kitseller.kz/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Telegram",
+    "inLanguage": "ru",
+    "author": { "@type": "Organization", "name": "ИП Path of Peaks", "email": "ergazin013@gmail.com" },
+    "offers": [
+      { "@type": "Offer", "name": "Стандарт", "price": "990", "priceCurrency": "KZT", "description": "Накладные во всех форматах, аналитика на 4 листах, калькулятор прибыли. 7 дней бесплатно." },
+      { "@type": "Offer", "name": "Про+", "price": "9990", "priceCurrency": "KZT", "description": "Кабинет на ПК, репрайсер до 100 товаров с проверкой раз в 17 минут, уведомления о заказах, предзаказ, витрина. 3 дня бесплатно." }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Безопасно ли давать доступ к Kaspi?", "acceptedAnswer": { "@type": "Answer", "text": "Вход происходит через официальные отчёты выгрузки и API Kaspi. Сервис не просит и не хранит пароли от Kaspi, а доступ к кабинету на ПК открывается по QR-коду из Telegram." } },
+      { "@type": "Question", "name": "Нужно ли что-то скачивать или устанавливать?", "acceptedAnswer": { "@type": "Answer", "text": "Нет. Ни программ, ни расширений для браузера. С телефона сервис работает внутри Telegram, с компьютера — в обычном браузере." } },
+      { "@type": "Question", "name": "Что если сервис не подойдёт?", "acceptedAnswer": { "@type": "Answer", "text": "У каждого тарифа есть бесплатный период: 7 дней на «Стандарте» и 3 дня на «Про+». Все возможности можно проверить до оплаты." } },
+      { "@type": "Question", "name": "Как часто репрайсер проверяет цены конкурентов?", "acceptedAnswer": { "@type": "Answer", "text": "Каждые 17 минут, до 100 товаров на тарифе Про+. Новая цена появляется на витрине Kaspi в течение 3 минут после решения репрайсера." } },
+      { "@type": "Question", "name": "Гарантирует ли репрайсер первое место на карточке?", "acceptedAnswer": { "@type": "Answer", "text": "Нет. Место на карточке Kaspi зависит ещё от бонусов, условий доставки и рейтинга продавца. KitSeller даёт инструмент автоматической борьбы за цену по вашим правилам." } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -153,7 +195,7 @@
             </div>
             <div class="mockup-title-bar">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span class="mockup-url">kitseller.app/kaspi-dashboard</span>
+              <span class="mockup-url">app.kitseller.kz/web</span>
             </div>
             <span class="badge badge-success">● Синхронизировано</span>
           </div>
@@ -497,7 +539,7 @@
           <div class="bento-widget bento-widget-mini">
             <div class="widget-url-pill">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span>kitseller.app/shop/kaspi-store</span>
+              <span>app.kitseller.kz/store/my-shop</span>
             </div>
             <span class="widget-active-tag">🟢 240 товаров</span>
           </div>
@@ -1234,13 +1276,12 @@
         </svg>
       </div>
 
-      <div class="qr-status-indicator">
-        <span class="badge-dot animate-pulse"></span>
-        <span>Ожидание сканирования в Telegram...</span>
-      </div>
+      <a href="https://app.kitseller.kz/web" target="_blank" rel="noopener" class="btn btn-primary btn-full">
+        Открыть кабинет и получить QR-код
+      </a>
 
       <p class="modal-footnote">
-        Никаких логинов, паролей и SMS-кодов. Сессия подтверждается прямо в вашем Telegram-боте.
+        Кабинет откроется на <strong>app.kitseller.kz/web</strong> и покажет живой QR-код — отсканируйте его камерой телефона, и Telegram подтвердит вход. Никаких логинов, паролей и SMS-кодов.
       </p>
     </div>
   </div>
@@ -1275,12 +1316,12 @@
 
       <div class="footer-col">
         <h4 class="footer-heading">Контакты</h4>
-        <a href="https://t.me/kitseller_bot" target="_blank" class="footer-tg-link">
+        <a href="https://t.me/KitSeller_bot" target="_blank" rel="noopener" class="footer-tg-link">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
           @kitseller_bot в Telegram
         </a>
         <p class="footer-disclaimer">
-          ИП Path of Peaks · Вопросы: <a href="mailto:ergazin013@gmail.com" style="color:var(--brand-indigo); text-decoration:none;">ergazin013@gmail.com</a>
+          ИП Path of Peaks · Поддержка: <a href="https://t.me/peaks_kz" target="_blank" rel="noopener" style="color:var(--brand-indigo); text-decoration:none;">@peaks_kz</a> · <a href="mailto:ergazin013@gmail.com" style="color:var(--brand-indigo); text-decoration:none;">ergazin013@gmail.com</a>
         </p>
         <p class="footer-disclaimer">
           KitSeller — независимый рабочий инструмент для продавцов Kaspi. Не является аффилированным продуктом Kaspi.kz.
@@ -1309,7 +1350,7 @@
       <div class="legal-modal-actions-bar" id="legal-modal-actions-bar">
         <span class="legal-modal-badge" id="legal-modal-badge">Редакция от 13 августа 2026</span>
         <div class="legal-modal-btns">
-          <a href="/privacy.html" id="legal-modal-fullpage-link" class="legal-modal-btn" target="_blank">
+          <a href="/privacy.html" id="legal-modal-fullpage-link" class="legal-modal-btn" target="_blank" rel="noopener">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             <span>В новой вкладке</span>
           </a>
@@ -1328,7 +1369,7 @@
     <div class="cookie-banner-content">
       <span class="cookie-icon">🍪</span>
       <div class="cookie-text">
-        Мы используем cookies и локальное хранилище для работы интерфейса и аналитики переходов в Telegram.
+        Сайт хранит в браузере только выбранную тему и язык. Счётчиков и рекламных трекеров здесь нет.
       </div>
     </div>
     <div class="cookie-actions">
