@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sheetViewerBox.innerHTML = `
       <div style="font-weight: bold; font-size: 0.9375rem; color: var(--text-primary); margin-bottom: 12px; font-family: var(--font-mono);">
-        📄 Sheet: ${sheet.name}
+        Лист: ${sheet.name}
       </div>
       <table class="excel-table">
         ${tableRows}
@@ -680,7 +680,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (resNetProfit) {
       resNetProfit.textContent = `${netProfit.toLocaleString('ru-RU')} ₸`;
       if (netProfit < 0) {
-        resNetProfit.style.color = '#E1251B';
+        resNetProfit.style.color = '#DC2626';
       } else {
         resNetProfit.style.color = '#059669';
       }
@@ -690,7 +690,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resNetMargin.textContent = `${netMargin}% маржа`;
       if (netMargin < 10) {
         resNetMargin.style.background = 'rgba(225, 37, 27, 0.1)';
-        resNetMargin.style.color = '#E1251B';
+        resNetMargin.style.color = '#DC2626';
       } else {
         resNetMargin.style.background = 'rgba(5, 150, 105, 0.1)';
         resNetMargin.style.color = '#059669';
@@ -722,14 +722,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (jumaStatusBadge) {
       if (pct === 100) {
-        jumaStatusBadge.textContent = '🎉 100% — Ваш магазин полностью готов к рекордным продажам!';
+        jumaStatusBadge.textContent = '100% — магазин готов к распродаже';
         jumaStatusBadge.style.color = '#059669';
       } else if (pct >= 60) {
-        jumaStatusBadge.textContent = '⚡ Рекомендуется завершить настройку оставшихся пунктов';
+        jumaStatusBadge.textContent = 'Рекомендуется завершить настройку оставшихся пунктов';
         jumaStatusBadge.style.color = 'var(--brand-indigo)';
       } else {
-        jumaStatusBadge.textContent = '⚠️ Высокий риск потери заказов и задержки отправок';
-        jumaStatusBadge.style.color = '#E1251B';
+        jumaStatusBadge.textContent = 'Высокий риск потери заказов и задержки отправок';
+        jumaStatusBadge.style.color = '#DC2626';
       }
     }
   };
@@ -787,11 +787,11 @@ document.addEventListener('DOMContentLoaded', () => {
       paperRenderWindow.classList.add('printing-active');
       playThermalPrinterAudio();
 
-      btnTestPrint.innerHTML = '<span>⚡ Печать выполнена!</span>';
+      btnTestPrint.innerHTML = '<span>Печать выполнена</span>';
       setTimeout(() => {
         btnTestPrint.innerHTML = `
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          <span>🖨️ Тестовая печать наклейки (со звуком)</span>
+          <span>Тестовая печать наклейки (со звуком)</span>
         `;
       }, 2000);
     });
