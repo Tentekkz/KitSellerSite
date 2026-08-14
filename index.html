@@ -99,19 +99,27 @@
   <!-- Header -->
   <header class="header" id="header">
     <div class="container header-container">
-      <a href="#" class="logo">
-        <!-- Official KitSeller Logo (Exact Match to User Asset) -->
-        <img src="/logo.svg" alt="KitSeller" class="logo-image">
+      <!-- Логотип встроен в разметку, а не подключён картинкой: в файле
+           logo.svg кит был залит тёмно-синим наглухо и на тёмной теме почти
+           пропадал. Здесь он берёт currentColor и переворачивается вместе с
+           темой, а название набрано текстом — оно чётче любого SVG-шрифта. -->
+      <a href="#" class="logo" aria-label="KitSeller — на главную">
+        <span class="logo-mark">
+          <svg viewBox="0 0 108 62" fill="currentColor" aria-hidden="true" focusable="false">
+            <g transform="translate(4, 5)">
+              <path d="M 22 6 C 15 -1 4 5 8 19 C 12 29 25 35 33 41 C 23 35 13 31 7 21 C 3 13 13 7 22 6 Z"/>
+              <path d="M 27 37 C 42 17 73 13 93 21 C 103 25 103 35 95 41 C 81 51 48 57 29 49 C 19 43 21 35 27 37 Z"/>
+              <circle cx="85" cy="31" r="2.5" class="logo-cutout"/>
+              <path d="M 43 49 C 59 53 75 47 85 39 C 73 44 57 47 43 44 Z" class="logo-cutout"/>
+              <path d="M 53 52 C 65 55 77 51 83 45 C 75 48 63 51 53 49 Z" class="logo-cutout"/>
+            </g>
+          </svg>
+        </span>
+        <span class="logo-word">KitSeller</span>
       </a>
 
-      <nav class="nav-menu" id="nav-menu">
-        <a href="#pains" class="nav-link" data-i18n="nav_pains">Проблемы</a>
-        <a href="#features" class="nav-link" data-i18n="nav_features">Возможности</a>
-        <a href="#calculator" class="nav-link" data-i18n="nav_calculator">Калькулятор Kaspi</a>
-        <a href="#demo" class="nav-link" data-i18n="nav_demo">Демо-инструменты</a>
-        <a href="#pricing" class="nav-link" data-i18n="nav_pricing">Тарифы</a>
-        <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
-      </nav>
+      <!-- Меню из шести пунктов переносилось в две строки и ничего не решало:
+           до тарифов ведёт кнопка на первом экране, до остального — прокрутка. -->
 
       <div class="header-actions">
         <!-- Переключатель языка снят: он переводил семь пунктов меню, а вся
@@ -128,16 +136,10 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
           <span class="btn-text">Вход по QR</span>
         </button>
-        <a href="https://t.me/kitseller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+        <a href="https://t.me/KitSeller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
           <span class="btn-text">Telegram</span>
         </a>
-
-        <!-- Mobile Hamburger Toggle Button -->
-        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Открыть навигацию">
-          <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-          <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
       </div>
     </div>
   </header>
@@ -160,7 +162,7 @@
         </p>
 
         <div class="hero-cta-group">
-          <a href="https://t.me/kitseller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+          <a href="https://t.me/KitSeller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
             Запустить в Telegram
           </a>
@@ -1071,7 +1073,7 @@
             <li class="disabled"><span class="cross">—</span> Витрина магазина</li>
           </ul>
 
-          <a href="https://t.me/kitseller_bot" target="_blank" rel="noopener" class="btn btn-secondary btn-full">
+          <a href="https://t.me/KitSeller_bot" target="_blank" rel="noopener" class="btn btn-secondary btn-full">
             Попробовать 7 дней бесплатно
           </a>
         </div>
@@ -1117,7 +1119,7 @@
             <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Вопросы покупателей:</strong> напоминание о неотвеченных</li>
           </ul>
 
-          <a href="https://t.me/kitseller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-full">
+          <a href="https://t.me/KitSeller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-full">
             Попробовать 3 дня бесплатно
           </a>
         </div>
@@ -1204,7 +1206,7 @@
         </div>
 
         <div class="steps-qr-cta">
-          <a href="https://t.me/kitseller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+          <a href="https://t.me/KitSeller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
             Запустить бота в Telegram
           </a>
@@ -1324,55 +1326,51 @@
   </div>
 
   <!-- Footer -->
+  <!-- Колонок было четыре, и оферта с политикой стояли в них дважды, плюс
+       ещё раз внизу — шесть ссылок на два документа. Осталось три колонки
+       и по одной ссылке на документ. -->
   <footer class="footer">
     <div class="container footer-container">
       <div class="footer-col">
-        <a href="#" class="logo">
-          <img src="/logo.svg" alt="KitSeller" class="logo-image">
+        <a href="#" class="logo" aria-label="KitSeller — наверх">
+          <span class="logo-mark">
+            <svg viewBox="0 0 108 62" fill="currentColor" aria-hidden="true" focusable="false">
+              <g transform="translate(4, 5)">
+                <path d="M 22 6 C 15 -1 4 5 8 19 C 12 29 25 35 33 41 C 23 35 13 31 7 21 C 3 13 13 7 22 6 Z"/>
+                <path d="M 27 37 C 42 17 73 13 93 21 C 103 25 103 35 95 41 C 81 51 48 57 29 49 C 19 43 21 35 27 37 Z"/>
+                <circle cx="85" cy="31" r="2.5" class="logo-cutout"/>
+                <path d="M 43 49 C 59 53 75 47 85 39 C 73 44 57 47 43 44 Z" class="logo-cutout"/>
+                <path d="M 53 52 C 65 55 77 51 83 45 C 75 48 63 51 53 49 Z" class="logo-cutout"/>
+              </g>
+            </svg>
+          </span>
+          <span class="logo-word">KitSeller</span>
         </a>
         <p class="footer-text">
-          Рабочее место продавца Kaspi. Автоматическая печать накладных, аналитика чистой прибыли и репрайсер цен.
+          Рабочее место продавца Kaspi: печать накладных, аналитика чистой прибыли и репрайсер цен.
         </p>
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">Навигация</h4>
-        <a href="#pains">Проблемы продавца</a>
-        <a href="#features">Возможности</a>
-        <a href="#demo">Интерактивное демо</a>
-        <a href="#pricing">Тарифы и цены</a>
+        <h4 class="footer-heading">Связаться</h4>
+        <a href="https://t.me/KitSeller_bot" target="_blank" rel="noopener" class="footer-tg-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
+          @KitSeller_bot
+        </a>
+        <a href="https://t.me/peaks_kz" target="_blank" rel="noopener">Поддержка: @peaks_kz</a>
+        <a href="mailto:ergazin013@gmail.com">ergazin013@gmail.com</a>
       </div>
 
       <div class="footer-col">
         <h4 class="footer-heading">Документы</h4>
-        <a href="/offer.html">Публичная оферта</a>
-        <a href="/privacy.html">Политика конфиденциальности</a>
-        <a href="/docs/offer.docx" download="Оферта_KitSeller.docx">Скачать оферту (.docx)</a>
-        <a href="/docs/privacy.docx" download="Политика_конфиденциальности_KitSeller.docx">Скачать политику (.docx)</a>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-heading">Контакты</h4>
-        <a href="https://t.me/KitSeller_bot" target="_blank" rel="noopener" class="footer-tg-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
-          @kitseller_bot в Telegram
-        </a>
-        <p class="footer-disclaimer">
-          ИП Path of Peaks · Поддержка: <a href="https://t.me/peaks_kz" target="_blank" rel="noopener" style="color:var(--brand-indigo); text-decoration:none;">@peaks_kz</a> · <a href="mailto:ergazin013@gmail.com" style="color:var(--brand-indigo); text-decoration:none;">ergazin013@gmail.com</a>
-        </p>
-        <p class="footer-disclaimer">
-          KitSeller — независимый рабочий инструмент для продавцов Kaspi. Не является аффилированным продуктом Kaspi.kz.
-        </p>
+        <a href="/offer.html" id="btn-terms">Публичная оферта</a>
+        <a href="/privacy.html" id="btn-privacy">Политика конфиденциальности</a>
       </div>
     </div>
 
     <div class="footer-bottom container">
-      <span>&copy; 2026 KitSeller (ИП Path of Peaks). Все права защищены.</span>
-      <div class="footer-legal-links">
-        <a href="/privacy.html" class="legal-link-btn" id="btn-privacy">Политика конфиденциальности</a>
-        <span>•</span>
-        <a href="/offer.html" class="legal-link-btn" id="btn-terms">Договор публичной оферты</a>
-      </div>
+      <span>&copy; 2026 KitSeller · ИП Path of Peaks</span>
+      <span class="footer-independent">Независимый инструмент для продавцов Kaspi. Не аффилирован с Kaspi.kz</span>
     </div>
   </footer>
 
@@ -1416,7 +1414,7 @@
 
   <!-- Mobile Sticky Bottom CTA Bar -->
   <div class="mobile-sticky-bar">
-    <a href="https://t.me/kitseller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-full">
+    <a href="https://t.me/KitSeller_bot" target="_blank" rel="noopener" class="btn btn-primary btn-full">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
       Запустить в Telegram (7 дней бесплатно)
     </a>

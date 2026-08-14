@@ -19,6 +19,9 @@
   /* Primary Brand Accent */
   --brand-indigo: #4F46E5;
   --brand-indigo-hover: #4338CA;
+  /* Индиго для текста и иконок. В светлой теме совпадает с основным, в тёмной
+     осветляется: #4F46E5 на тёмном фоне даёт контраст 1.9 и читается плохо. */
+  --brand-indigo-text: #4F46E5;
   --brand-indigo-light: #EEF2FF;
   --brand-indigo-border: #C7D2FE;
   --brand-indigo-glow: rgba(79, 70, 229, 0.08);
@@ -28,10 +31,12 @@
      свои минусы при дисклеймере «не аффилированы» не стоит. */
   --loss-red: #DC2626;
   --loss-red-light: #FEF2F2;
+  --loss-red-text: #DC2626;
 
   /* Profit Emerald Green */
   --accent-green: #059669;
   --accent-green-hover: #047857;
+  --accent-green-text: #059669;
   --accent-green-light: #ECFDF5;
   --accent-green-border: #A7F3D0;
 
@@ -85,9 +90,12 @@
   --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.5);
 
   --loss-red-light: rgba(220, 38, 38, 0.15);
+  --loss-red-text: #FCA5A5;
+  --accent-green-text: #6EE7B7;
   --accent-green-light: rgba(5, 150, 105, 0.15);
   --brand-indigo-light: rgba(79, 70, 229, 0.25);
   --brand-indigo-border: rgba(99, 102, 241, 0.4);
+  --brand-indigo-text: #A5B4FC;
 }
 
 /* Smooth Scroll Reveal Utility Classes */
@@ -220,7 +228,7 @@ h1, h2, h3, h4, h5, h6 {
 .text-gray { color: var(--text-secondary); }
 .text-green { color: var(--accent-green); }
 .text-accent { color: var(--loss-red); }
-.text-indigo { color: var(--brand-indigo); }
+.text-indigo { color: var(--brand-indigo-text); }
 .text-gold { color: var(--accent-gold); }
 
 /* Badges & Pills */
@@ -237,7 +245,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .badge-blue {
   background: var(--brand-indigo-light);
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
 }
 
 .badge-success {
@@ -252,7 +260,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .badge-tag-blue {
   background: var(--brand-indigo-light);
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
 }
 
 .badge-tag-orange {
@@ -269,7 +277,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--brand-indigo);
+  background-color: var(--brand-indigo-text);
   display: inline-block;
 }
 
@@ -300,7 +308,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-strong);
   color: var(--text-primary);
 }
@@ -337,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Top Announcement Bar */
 .top-bar {
-  background: #F5F5F7;
+  background: var(--bg-section);
   border-bottom: 1px solid var(--border-subtle);
   padding: 10px 0;
   font-size: 0.84375rem;
@@ -354,7 +362,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-bar-link {
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
   font-weight: 600;
 }
 
@@ -367,7 +375,7 @@ h1, h2, h3, h4, h5, h6 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--bg-overlay);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid var(--border-subtle);
@@ -386,11 +394,33 @@ h1, h2, h3, h4, h5, h6 {
   gap: 10px;
 }
 
-.logo-image {
-  height: 34px;
-  width: auto;
+.logo-mark {
   display: block;
+  width: 40px;
+  color: var(--text-primary);
 }
+
+.logo-mark svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Прорези в теле кита — глаз и складки на брюхе. Это не белый цвет, а «дырка»
+   до фона страницы, иначе на тёмной теме получались белые точки. */
+.logo-cutout {
+  fill: var(--bg-canvas);
+}
+
+.logo-word {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.375rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.header .logo-mark { width: 34px; }
 
 .nav-menu {
   display: flex;
@@ -436,7 +466,7 @@ h1, h2, h3, h4, h5, h6 {
 .lang-toggle-btn:hover {
   background: var(--brand-indigo-light);
   border-color: var(--brand-indigo-border);
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
 }
 
 /* Theme Toggle Button */
@@ -457,7 +487,7 @@ h1, h2, h3, h4, h5, h6 {
 .theme-toggle-btn:hover {
   background: var(--brand-indigo-light);
   border-color: var(--brand-indigo-border);
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
 }
 
 .sun-icon {
@@ -537,7 +567,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-pill-tag {
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
   font-weight: 700;
 }
 
@@ -598,7 +628,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mockup-header {
-  background: #F5F5F7;
+  background: var(--bg-card-sub);
   padding: 12px 18px;
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
@@ -624,7 +654,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   padding: 4px 14px;
   border-radius: var(--radius-pill);
@@ -664,7 +694,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
   font-weight: 700;
   font-family: var(--font-mono);
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
 }
 
 .dash-card-val.green {
@@ -686,7 +716,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dash-chart-box {
-  background: #F5F5F7;
+  background: var(--bg-card-sub);
   border-radius: var(--radius-md);
   padding: 14px;
 }
@@ -723,7 +753,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .console-status {
   font-size: 0.75rem;
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
   font-family: var(--font-mono);
   font-weight: 600;
 }
@@ -811,7 +841,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
 }
 
 .pain-title {
@@ -852,13 +882,13 @@ h1, h2, h3, h4, h5, h6 {
 .before-col {
   padding: 32px;
   border: 1px solid rgba(225, 37, 27, 0.2);
-  background: #FFFFFF;
+  background: var(--bg-card);
 }
 
 .after-col {
   padding: 32px;
   border: 2px solid var(--accent-green);
-  background: #FFFFFF;
+  background: var(--bg-card);
   box-shadow: 0 8px 24px rgba(5, 150, 105, 0.08);
 }
 
@@ -876,12 +906,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .badge-before {
   background: var(--loss-red-light);
-  color: var(--loss-red);
+  color: var(--loss-red-text);
 }
 
 .badge-after {
   background: var(--accent-green-light);
-  color: var(--accent-green);
+  color: var(--accent-green-text);
 }
 
 .comparison-list {
@@ -1030,8 +1060,8 @@ h1, h2, h3, h4, h5, h6 {
 .bento-card-indigo .bento-card-glow { background: rgba(79, 70, 229, 0.2); }
 .bento-card-indigo:hover { border-color: rgba(79, 70, 229, 0.4); }
 
-.bento-card-green .bento-card-glow { background: rgba(5, 150, 105, 0.2); }
-.bento-card-green:hover { border-color: rgba(5, 150, 105, 0.4); }
+.bento-card-green .bento-card-glow { background: var(--brand-indigo-glow); }
+.bento-card-green:hover { border-color: var(--border-accent); }
 
 .bento-card-gold .bento-card-glow { background: rgba(217, 119, 6, 0.2); }
 .bento-card-gold:hover { border-color: rgba(217, 119, 6, 0.4); }
@@ -1067,12 +1097,12 @@ h1, h2, h3, h4, h5, h6 {
   flex-shrink: 0;
 }
 
-.bento-icon-indigo { background: rgba(79, 70, 229, 0.1); color: #4F46E5; }
-.bento-icon-green  { background: rgba(5, 150, 105, 0.1); color: #059669; }
+.bento-icon-indigo { background: var(--brand-indigo-light); color: var(--brand-indigo-text); }
+.bento-icon-green  { background: var(--brand-indigo-light); color: var(--brand-indigo-text); }
 .bento-icon-gold   { background: rgba(217, 119, 6, 0.1); color: #D97706; }
-.bento-icon-sky    { background: var(--brand-indigo-light); color: var(--brand-indigo); }
-.bento-icon-purple { background: var(--brand-indigo-light); color: var(--brand-indigo); }
-.bento-icon-red    { background: var(--brand-indigo-light); color: var(--brand-indigo); }
+.bento-icon-sky    { background: var(--brand-indigo-light); color: var(--brand-indigo-text); }
+.bento-icon-purple { background: var(--brand-indigo-light); color: var(--brand-indigo-text); }
+.bento-icon-red    { background: var(--brand-indigo-light); color: var(--brand-indigo-text); }
 
 .bento-badge {
   font-size: 0.75rem;
@@ -1082,12 +1112,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
 
-.bento-badge-indigo { background: rgba(79, 70, 229, 0.08); color: #4F46E5; }
-.bento-badge-green  { background: rgba(5, 150, 105, 0.08); color: #059669; }
+.bento-badge-indigo { background: var(--brand-indigo-light); color: var(--brand-indigo-text); }
+.bento-badge-green  { background: var(--brand-indigo-light); color: var(--brand-indigo-text); }
 .bento-badge-gold   { background: rgba(217, 119, 6, 0.08); color: #D97706; }
-.bento-badge-sky    { background: var(--brand-indigo-light); color: var(--brand-indigo); }
-.bento-badge-purple { background: var(--brand-indigo-light); color: var(--brand-indigo); }
-.bento-badge-red    { background: var(--brand-indigo-light); color: var(--brand-indigo); }
+.bento-badge-sky    { background: var(--brand-indigo-light); color: var(--brand-indigo-text); }
+.bento-badge-purple { background: var(--brand-indigo-light); color: var(--brand-indigo-text); }
+.bento-badge-red    { background: var(--brand-indigo-light); color: var(--brand-indigo-text); }
 
 /* Bento Typography */
 .bento-title {
@@ -1306,7 +1336,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .tg-bubble-icon {
   display: inline-flex;
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
 }
 
 .tg-bubble-content {
@@ -1351,12 +1381,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-.b-check-indigo { color: #4F46E5; }
-.b-check-green  { color: #059669; }
+.b-check-indigo { color: var(--brand-indigo-text); }
+.b-check-green  { color: var(--brand-indigo-text); }
 .b-check-gold   { color: #D97706; }
-.b-check-sky    { color: var(--brand-indigo); }
-.b-check-purple { color: var(--brand-indigo); }
-.b-check-red    { color: var(--brand-indigo); }
+.b-check-sky    { color: var(--brand-indigo-text); }
+.b-check-purple { color: var(--brand-indigo-text); }
+.b-check-red    { color: var(--brand-indigo-text); }
 
 /* Interactive Demo Showcase */
 .demo-tabs-nav {
@@ -1491,8 +1521,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pill-btn.active {
-  background: #FFFFFF;
-  color: var(--brand-indigo);
+  background: var(--bg-card);
+  color: var(--brand-indigo-text);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -1613,7 +1643,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .excel-table th {
   background: var(--bg-section);
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
   font-weight: 700;
 }
 
@@ -1644,8 +1674,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .sim-input:focus {
   outline: none;
-  background: #FFFFFF;
-  border-color: var(--brand-indigo);
+  background: var(--bg-card);
+  border-color: var(--brand-indigo-text);
 }
 
 .repricer-res-box {
@@ -1668,7 +1698,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .res-main-card {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   padding: 20px;
   border-radius: var(--radius-md);
@@ -1685,7 +1715,7 @@ h1, h2, h3, h4, h5, h6 {
 .res-card-price {
   font-size: 2.25rem;
   font-weight: 800;
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
   font-family: var(--font-mono);
 }
 
@@ -1704,7 +1734,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .res-metric-item {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   padding: 12px;
   border-radius: var(--radius-sm);
@@ -1725,7 +1755,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .res-note-box {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   padding: 12px;
   border-radius: var(--radius-sm);
@@ -1749,7 +1779,7 @@ h1, h2, h3, h4, h5, h6 {
 .fact-num {
   font-size: 2.25rem;
   font-weight: 800;
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
   font-family: var(--font-mono);
   margin-bottom: 8px;
 }
@@ -1995,7 +2025,7 @@ h1, h2, h3, h4, h5, h6 {
 .step-number {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
   font-family: var(--font-mono);
   margin-bottom: 16px;
 }
@@ -2040,7 +2070,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .steps-qr-wrapper {
   position: relative;
-  background: #FFFFFF;
+  background: var(--bg-card);
   padding: 10px;
   border-radius: var(--radius-md);
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -2136,7 +2166,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .faq-chevron {
   font-size: 1.5rem;
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
   transition: transform 0.2s ease;
 }
 
@@ -2236,16 +2266,23 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Footer */
 .footer {
-  background: #FFFFFF;
+  background: var(--bg-canvas);
   border-top: 1px solid var(--border-subtle);
   padding: 64px 0 32px;
 }
 
 .footer-container {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 40px;
   margin-bottom: 40px;
+}
+
+.footer-independent {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  text-align: right;
+  max-width: 420px;
 }
 
 .footer-text {
@@ -2277,14 +2314,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-col a:hover {
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
 }
 
 .footer-tg-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--brand-indigo) !important;
+  color: var(--brand-indigo-text) !important;
   font-weight: 700;
 }
 
@@ -2323,7 +2360,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .legal-link-btn:hover {
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
 }
 
 /* Legal Modal */
@@ -2359,7 +2396,7 @@ h1, h2, h3, h4, h5, h6 {
 .legal-modal-badge {
   font-size: 0.78125rem;
   font-weight: 700;
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
 }
 
 .legal-modal-btns {
@@ -2385,7 +2422,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .legal-modal-btn:hover {
   border-color: var(--brand-indigo-border);
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
 }
 
 .legal-modal-body {
@@ -2560,7 +2597,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-size: 2.25rem;
   font-weight: 800;
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
   line-height: 1.1;
   margin-bottom: 8px;
 }
@@ -2648,7 +2685,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 48px;
   height: 48px;
   background: var(--brand-indigo-light);
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -2701,7 +2738,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .calc-select:focus, .calc-input:focus {
   outline: none;
-  border-color: var(--brand-indigo);
+  border-color: var(--brand-indigo-text);
   background: var(--bg-canvas);
 }
 
@@ -2793,7 +2830,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .juma-prog-label { color: var(--text-primary); }
-.juma-prog-val { color: var(--brand-indigo); font-family: var(--font-mono); font-size: 1.125rem; }
+.juma-prog-val { color: var(--brand-indigo-text); font-family: var(--font-mono); font-size: 1.125rem; }
 
 .juma-prog-bar {
   height: 8px;
@@ -2812,7 +2849,7 @@ h1, h2, h3, h4, h5, h6 {
 .juma-badge {
   font-size: 0.78125rem;
   font-weight: 700;
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
 }
 
 .juma-checklist {
@@ -2948,7 +2985,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .live-act-time {
   font-size: 0.6875rem;
-  color: var(--brand-indigo);
+  color: var(--brand-indigo-text);
   font-weight: 600;
   margin-top: 2px;
 }

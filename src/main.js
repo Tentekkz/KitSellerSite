@@ -387,30 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 8. Mobile Navigation Drawer ---
-  const mobileMenuToggleBtn = document.getElementById('mobile-menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
-
-  if (mobileMenuToggleBtn && navMenu) {
-    mobileMenuToggleBtn.addEventListener('click', () => {
-      const isActive = navMenu.classList.contains('active');
-      if (isActive) {
-        navMenu.classList.remove('active');
-        mobileMenuToggleBtn.classList.remove('active');
-      } else {
-        navMenu.classList.add('active');
-        mobileMenuToggleBtn.classList.add('active');
-      }
-    });
-
-    // Close menu when clicking on any navigation link
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileMenuToggleBtn.classList.remove('active');
-      });
-    });
-  }
+  // --- 8. Мобильное меню убрано вместе с навигацией в шапке ---
 
   // --- 9. Smooth IntersectionObserver Scroll Reveal ---
   const revealElements = document.querySelectorAll('.pain-card, .feature-card, .step-card, .pricing-card, .stat-card, .testimonial-card, .reveal-on-scroll');
