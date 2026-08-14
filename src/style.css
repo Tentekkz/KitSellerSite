@@ -2043,6 +2043,23 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-secondary);
 }
 
+/* Мелкая приписка под шагом — то, что снимает опасение, но не должно
+   перебивать сам шаг. Отделена чертой, а не просто уменьшена. */
+.step-note {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--text-tertiary);
+}
+
+.step-note a {
+  color: var(--brand-indigo-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* Steps QR & Fast Launch Card */
 .steps-qr-card {
   margin-top: 40px;
