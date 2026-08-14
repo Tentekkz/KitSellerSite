@@ -2292,11 +2292,21 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 40px;
 }
 
+/* Строка про независимость от Kaspi держится в одну строку: ограничение
+   ширины разбивало её надвое и превращало в абзац. На узких экранах
+   переносится обычным образом — nowrap там вылез бы за край. */
 .footer-independent {
   font-size: 0.75rem;
   color: var(--text-tertiary);
   text-align: right;
-  max-width: 420px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .footer-independent {
+    white-space: normal;
+    text-align: left;
+  }
 }
 
 .footer-text {
