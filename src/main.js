@@ -4,34 +4,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Демо-блоки (вкладки, предпросмотр накладных, разбор Excel,
-  // симулятор репрайсера и звук термопринтера) удалены вместе с секцией.
+  // Демо-блоки (вкладки, предпросмотр накладных, разбор Excel, симулятор
+  // репрайсера, звук термопринтера) и аккордеон FAQ удалены вместе со своими
+  // секциями. Разметка FAQPage для поиска убрана там же: держать её без
+  // видимых на странице вопросов нельзя — поисковики считают это обманом.
 
-  // --- 5. FAQ Accordion Logic ---
-  const faqItems = document.querySelectorAll('.faq-item');
-
-  // Экранный диктор должен знать, раскрыт ответ или нет: одного класса ему мало.
-  const syncFaqAria = () => {
-    faqItems.forEach(i => {
-      const q = i.querySelector('.faq-question');
-      if (q) q.setAttribute('aria-expanded', i.classList.contains('active') ? 'true' : 'false');
-    });
-  };
-
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    question.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      faqItems.forEach(i => i.classList.remove('active'));
-      if (!isActive) {
-        item.classList.add('active');
-      }
-      syncFaqAria();
-    });
-  });
-  syncFaqAria();
-
-  // --- 5-бис. Закрытие любого модального окна по Esc ---
+  // --- Закрытие любого модального окна по Esc ---
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
     document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
