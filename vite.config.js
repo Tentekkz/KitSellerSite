@@ -12,7 +12,8 @@ export default defineConfig({
         repraiser: resolve(__dirname, 'repraiser-kaspi.html'),
         pribyl: resolve(__dirname, 'pribyl-kaspi-pay.html'),
         nkt: resolve(__dirname, 'nkt-ntin-kaspi.html'),
-        vozmozhnosti: resolve(__dirname, 'vozmozhnosti.html')
+        vozmozhnosti: resolve(__dirname, 'vozmozhnosti.html'),
+        kalkulyator: resolve(__dirname, 'kalkulyator-kaspi.html')
       }
     }
   }

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор прибыли продавца Kaspi — KitSeller</title>
+<link rel="canonical" href="https://kitseller.kz/kalkulyator-kaspi.html">
+<meta name="description" content="Бесплатный расчёт без регистрации: сколько останется с продажи на Kaspi после комиссии, доставки и налога — и какую цену поставить, чтобы получить нужную прибыль.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KitSeller">
+<meta property="og:locale" content="ru_KZ">
+<meta property="og:url" content="https://kitseller.kz/kalkulyator-kaspi.html">
+<meta property="og:title" content="Калькулятор прибыли продавца Kaspi">
+<meta property="og:description" content="Сколько останется с продажи после комиссии, доставки и налога. Без регистрации.">
+<meta property="og:image" content="https://kitseller.kz/og-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Калькулятор прибыли продавца Kaspi">
+<meta name="twitter:description" content="Сколько останется с продажи после комиссии, доставки и налога. Без регистрации.">
+<meta name="twitter:image" content="https://kitseller.kz/og-preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/article.css">
+<style>
+  .calc{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;
+    border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--card);
+  }
+  .calc-in{padding:24px;display:flex;flex-direction:column;gap:18px;border-right:1px solid var(--border)}
+  .calc-out{padding:24px;display:flex;flex-direction:column;gap:16px;background:var(--soft)}
+
+  .modes{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:10px}
+  .modes button{
+    flex:1;border:0;background:transparent;cursor:pointer;
+    font:600 13.5px/1 'Golos Text',sans-serif;color:var(--muted);
+    padding:10px 8px;border-radius:7px;
+  }
+  .modes button[aria-pressed="true"]{background:var(--card);color:var(--text);box-shadow:0 1px 2px rgba(22,32,46,0.08)}
+
+  .fields{display:flex;flex-direction:column;gap:12px}
+  .field{display:flex;flex-direction:column;gap:5px}
+  .field label{font-size:13.5px;color:var(--muted);font-weight:500}
+  .field .row{position:relative;display:flex;align-items:center}
+  .field input{
+    width:100%;height:44px;padding:0 40px 0 13px;
+    border:1px solid var(--border-strong);border-radius:10px;background:var(--card);
+    font:600 16px/1 'Golos Text',sans-serif;color:var(--text);
+    font-variant-numeric:tabular-nums;
+  }
+  .field input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+  .field .unit{position:absolute;right:13px;font-size:14px;color:var(--text-light);pointer-events:none}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+  .out-main{display:flex;flex-direction:column;gap:4px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+  .out-main .cap{font-size:13.5px;color:var(--muted)}
+  .out-main .val{
+    font:800 34px/1.1 'Manrope',sans-serif;letter-spacing:-0.03em;
+    font-variant-numeric:tabular-nums;
+  }
+  .val.minus{color:#b3261e}
+  .val.plus{color:var(--green)}
+  .out-main .sub{font-size:13.5px;color:var(--muted)}
+
+  .breakdown{display:flex;flex-direction:column;gap:9px;font-size:14.5px}
+  .breakdown div{display:flex;justify-content:space-between;gap:12px}
+  .breakdown dt{color:var(--muted)}
+  .breakdown dd{margin:0;font-variant-numeric:tabular-nums;font-weight:600}
+  .breakdown .total{border-top:1px solid var(--border);padding-top:9px;margin-top:2px}
+
+  .warn{
+    font-size:14px;color:#8a5a06;background:#fbf0dc;
+    border-radius:9px;padding:11px 13px;line-height:1.45;
+  }
+
+  @media (max-width:760px){
+    .calc{grid-template-columns:1fr}
+    .calc-in{border-right:0;border-bottom:1px solid var(--border)}
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "KitSeller", "item": "https://kitseller.kz/" },
+        { "@type": "ListItem", "position": 2, "name": "Калькулятор прибыли Kaspi", "item": "https://kitseller.kz/kalkulyator-kaspi.html" }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Калькулятор прибыли продавца Kaspi",
+      "url": "https://kitseller.kz/kalkulyator-kaspi.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "ru",
+      "description": "Расчёт прибыли с продажи на Kaspi: комиссия, доставка, упаковка и налог вычитаются из цены. Второй режим считает цену под желаемую прибыль.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KZT" },
+      "publisher": { "@type": "Organization", "name": "KitSeller", "url": "https://kitseller.kz/" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какая комиссия у Kaspi для продавца?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Она разная по категориям товаров, поэтому в калькуляторе это поле, а не константа. Свою ставку продавец видит в договоре и в отчёте о продажах Kaspi Pay. По умолчанию в расчёте стоит 15 % — то же значение, что в кабинете KitSeller."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "От чего считается комиссия — от цены или от прибыли?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "От цены продажи. Так её считает Kaspi, поэтому и в расчёте комиссия и налог берутся процентом от цены, а не от того, что осталось."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему нельзя просто прибавить нужную прибыль к себестоимости?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Потому что комиссия и налог считаются от итоговой цены: подняли цену — выросли и они. Цена под нужную прибыль получается делением суммы расходов на долю, которая остаётся продавцу после процентов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Учитывается ли доставка Kaspi в расчёте?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, отдельным полем в тенге. Стоимость зависит от способа отгрузки и веса, поэтому её вписывают из своих последних заказов, а не берут средней по рынку."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Расчёт бесплатный?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, регистрация не нужна и данные никуда не отправляются — всё считается прямо в браузере."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px;flex-wrap:wrap">
+  <a href="/"><img src="/logo-light.png" alt="KitSeller" style="height:32px;width:auto;display:block"></a>
+  <nav style="display:flex;align-items:center;gap:28px;font-size:14px;color:var(--muted)">
+    <a href="/vozmozhnosti.html" style="color:var(--muted)">Возможности</a>
+    <a href="/#pricing" style="color:var(--muted)">Тарифы</a>
+    <a href="/#start" style="color:var(--muted)">Как начать</a>
+  </nav>
+  <div style="display:flex;gap:10px;flex:none">
+    <a href="https://app.kitseller.kz/web" class="btn btn-ghost" style="height:40px">Войти в кабинет</a>
+    <a href="https://t.me/KitSeller_bot" class="btn btn-primary" style="height:40px">Telegram</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="article-head reading">
+    <p class="crumbs"><a href="/">KitSeller</a> <span>/</span> <span>Калькулятор</span></p>
+    <h1>Калькулятор прибыли продавца Kaspi</h1>
+    <p class="lede">
+      Сколько останется с продажи после комиссии, доставки и налога — и какую цену поставить,
+      чтобы получить нужную прибыль. Без регистрации, считается прямо в браузере.
+    </p>
+  </div>
+
+  <div style="padding:28px 0 0">
+    <div class="calc">
+      <div class="calc-in">
+        <div class="modes" role="group" aria-label="Что считаем">
+          <button type="button" id="mode-profit" aria-pressed="true">Что останется</button>
+          <button type="button" id="mode-price" aria-pressed="false">Какую цену ставить</button>
+        </div>
+
+        <div class="fields">
+          <div class="field" id="wrap-price">
+            <label for="in-price">Цена продажи</label>
+            <div class="row"><input id="in-price" type="number" inputmode="decimal" min="0" step="100" value="12000"><span class="unit">₸</span></div>
+          </div>
+
+          <div class="field" id="wrap-want" hidden>
+            <label for="in-want">Желаемая прибыль с продажи</label>
+            <div class="row"><input id="in-want" type="number" inputmode="decimal" min="0" step="100" value="2000"><span class="unit">₸</span></div>
+          </div>
+
+          <div class="field">
+            <label for="in-cost">Себестоимость товара</label>
+            <div class="row"><input id="in-cost" type="number" inputmode="decimal" min="0" step="100" value="6000"><span class="unit">₸</span></div>
+          </div>
+
+          <div class="pair">
+            <div class="field">
+              <label for="in-delivery">Доставка</label>
+              <div class="row"><input id="in-delivery" type="number" inputmode="decimal" min="0" step="50" value="1000"><span class="unit">₸</span></div>
+            </div>
+            <div class="field">
+              <label for="in-pack">Упаковка</label>
+              <div class="row"><input id="in-pack" type="number" inputmode="decimal" min="0" step="50" value="0"><span class="unit">₸</span></div>
+            </div>
+          </div>
+
+          <div class="pair">
+            <div class="field">
+              <label for="in-comm">Комиссия Kaspi</label>
+              <div class="row"><input id="in-comm" type="number" inputmode="decimal" min="0" max="100" step="0.5" value="15"><span class="unit">%</span></div>
+            </div>
+            <div class="field">
+              <label for="in-tax">Налог</label>
+              <div class="row"><input id="in-tax" type="number" inputmode="decimal" min="0" max="100" step="0.5" value="3"><span class="unit">%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-out">
+        <div class="out-main">
+          <p class="cap" id="out-cap">Останется с продажи</p>
+          <p class="val" id="out-val">—</p>
+          <p class="sub" id="out-sub"></p>
+        </div>
+
+        <dl class="breakdown" id="out-rows">
+          <div><dt>Цена продажи</dt><dd id="r-price">—</dd></div>
+          <div><dt>Себестоимость</dt><dd id="r-cost">—</dd></div>
+          <div><dt>Доставка</dt><dd id="r-delivery">—</dd></div>
+          <div><dt>Упаковка</dt><dd id="r-pack">—</dd></div>
+          <div><dt id="r-comm-label">Комиссия Kaspi</dt><dd id="r-comm">—</dd></div>
+          <div><dt id="r-tax-label">Налог</dt><dd id="r-tax">—</dd></div>
+          <div class="total"><dt>Прибыль</dt><dd id="r-profit">—</dd></div>
+        </dl>
+
+        <p class="warn" id="out-warn" hidden></p>
+      </div>
+    </div>
+  </div>
+
+  <article class="reading">
+
+    <section>
+      <h2>Как это считается</h2>
+      <p>
+        Комиссия и налог берутся процентом <strong>от цены продажи</strong>, а не от того, что
+        осталось: так их считает Kaspi. Себестоимость, доставка и упаковка вычитаются суммой.
+        Остальное — ваша прибыль.
+      </p>
+      <p>
+        Обратный расчёт устроен сложнее, чем кажется. Прибавить желаемую прибыль к
+        себестоимости нельзя: подняли цену — выросли и комиссия с налогом, потому что они
+        считаются от неё же. Поэтому расходы делятся на долю, которая остаётся продавцу после
+        процентов. Если комиссия с налогом в сумме доходят до ста процентов, продавать нельзя
+        ни за сколько — калькулятор так и скажет, вместо того чтобы показать несуществующее число.
+      </p>
+      <div class="note">
+        <strong>Про ставку комиссии</strong>
+        <p style="margin:0">
+          У Kaspi она разная по категориям товаров, поэтому это поле, а не готовая цифра.
+          Свою ставку смотрите в договоре и в отчёте о продажах Kaspi Pay. Значения по умолчанию
+          — 15 % комиссии и 3 % налога — те же, что стоят в кабинете KitSeller.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Чего этот расчёт не покрывает</h2>
+      <p>
+        Он показывает одну продажу при заданных ставках. В настоящем магазине к этому
+        добавляются возвраты, реклама, абонплата и то, что комиссия отличается по категориям —
+        и всё это видно только в отчётах Kaspi Pay за период.
+      </p>
+      <p>
+        Если нужна не прикидка, а факт — <a href="/pribyl-kaspi-pay.html">разбор отчёта о продажах и выписки</a>
+        превращает их в P&amp;L по каждому товару.
+      </p>
+    </section>
+
+    <section>
+      <h2>Частые вопросы</h2>
+      <div class="faq">
+        <details>
+          <summary>Какая комиссия у Kaspi?</summary>
+          <p>Разная по категориям, поэтому в калькуляторе это поле. Свою ставку смотрите в договоре и в отчёте о продажах Kaspi Pay.</p>
+        </details>
+        <details>
+          <summary>Комиссия считается от цены или от прибыли?</summary>
+          <p>От цены продажи — так её считает Kaspi. Налог здесь тоже берётся от цены.</p>
+        </details>
+        <details>
+          <summary>Почему нельзя прибавить нужную прибыль к себестоимости?</summary>
+          <p>Потому что комиссия и налог зависят от итоговой цены: подняли цену — выросли и они. Нужна цена, которая покрывает расходы уже после процентов.</p>
+        </details>
+        <details>
+          <summary>Доставка учитывается?</summary>
+          <p>Да, отдельным полем. Она зависит от способа отгрузки и веса — вписывайте из своих последних заказов.</p>
+        </details>
+        <details>
+          <summary>Данные куда-то отправляются?</summary>
+          <p>Нет. Расчёт идёт прямо в браузере, ничего не сохраняется и никуда не уходит.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Считать не по одному товару, а по всему магазину</h2>
+      <p>
+        Тот же расчёт живёт в боте вместе с закупочными ценами, а отчёт по продажам
+        превращается в прибыль по каждой позиции. Семь дней бесплатно, карта не нужна.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://t.me/KitSeller_bot?start=calc">Открыть в Telegram</a>
+        <a class="btn btn-ghost" href="/vozmozhnosti.html">Что ещё умеет</a>
+      </div>
+    </section>
+
+    <div class="next">
+      <h2>Читать дальше</h2>
+      <ul>
+        <li><a href="/pribyl-kaspi-pay.html">Оборот есть, а денег нет: как считать прибыль</a></li>
+        <li><a href="/repraiser-kaspi.html">Репрайсер для Kaspi: как часто проверять цену</a></li>
+        <li><a href="/nakladnye-kaspi.html">Как печатать накладные Kaspi пачкой</a></li>
+      </ul>
+    </div>
+
+  </article>
+</div>
+
+<footer class="wrap" style="border-top:1px solid var(--border);padding-top:48px;padding-bottom:44px;margin-top:48px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:28px">
+    <div>
+      <img src="/logo-light.png" alt="KitSeller" style="height:30px;width:auto;display:block;margin-bottom:12px">
+      <p style="font-size:13.5px;color:var(--muted);max-width:280px;margin:0">Рабочее место продавца Kaspi: накладные, настоящая прибыль и авто-репрайсер.</p>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:13.5px">
+      <a href="https://t.me/KitSeller_bot?start=help">Поддержка</a>·
+      <a href="https://kitseller.kz/offer.html">Оферта</a>·
+      <a href="https://kitseller.kz/privacy.html">Конфиденциальность</a>·
+      <a href="https://app.kitseller.kz/web">Войти</a>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:20px;font-size:12.5px;color:var(--text-light)">KitSeller — для продавцов Kaspi.kz · ИП Path of Peaks</div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // Арифметика перенесена из domain/unit_economics.py один в один, включая
+  // защиту от деления на пылинку: при комиссии с налогом под сто процентов
+  // (100 - 70 - 30) / 100 даёт в двоичных дробях не ноль, а 5.6e-17, и цена
+  // выходила в девятнадцать знаков вместо честного «продавать не за сколько».
+  var EPS = 1e-9;
+
+  function profitAtPrice(price, cost, delivery, commPct, taxPct, packaging) {
+    var commission = price * commPct / 100;
+    var tax = price * taxPct / 100;
+    var profit = price - cost - delivery - packaging - commission - tax;
+    return {
+      price: price, cost: cost, delivery: delivery, packaging: packaging,
+      commission: commission, tax: tax, profit: profit,
+      marginPct: price ? (profit / price * 100) : 0
+    };
+  }
+
+  function priceForProfit(want, cost, delivery, commPct, taxPct, packaging) {
+    var share = (100 - commPct - taxPct) / 100;
+    if (share <= EPS) return null;
+    var price = (cost + delivery + packaging + want) / share;
+    return profitAtPrice(price, cost, delivery, commPct, taxPct, packaging);
+  }
+
+  var money = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 });
+  // Intl отдаёт обычный дефис, а в строках разбора стоит типографский минус.
+  // Рядом это выглядит как две разные вёрстки в одном столбце.
+  function fmt(v) {
+    return money.format(Math.round(v)).replace(/^-/, "−") + " ₸";
+  }
+  function num(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return isFinite(v) && v > 0 ? v : 0;
+  }
+
+  var el = {};
+  ["mode-profit","mode-price","wrap-price","wrap-want","out-cap","out-val","out-sub",
+   "r-price","r-cost","r-delivery","r-pack","r-comm","r-tax","r-profit",
+   "r-comm-label","r-tax-label","out-warn"].forEach(function (id) {
+    el[id] = document.getElementById(id);
+  });
+
+  var mode = "profit";
+
+  function setMode(next) {
+    mode = next;
+    var isProfit = mode === "profit";
+    el["mode-profit"].setAttribute("aria-pressed", String(isProfit));
+    el["mode-price"].setAttribute("aria-pressed", String(!isProfit));
+    el["wrap-price"].hidden = !isProfit;
+    el["wrap-want"].hidden = isProfit;
+    el["out-cap"].textContent = isProfit ? "Останется с продажи" : "Ставить цену";
+    calc();
+  }
+
+  function calc() {
+    var cost = num("in-cost"), delivery = num("in-delivery"), pack = num("in-pack");
+    var comm = num("in-comm"), tax = num("in-tax");
+
+    var u = mode === "profit"
+      ? profitAtPrice(num("in-price"), cost, delivery, comm, tax, pack)
+      : priceForProfit(num("in-want"), cost, delivery, comm, tax, pack);
+
+    if (!u) {
+      el["out-val"].textContent = "Не за сколько";
+      el["out-val"].className = "val minus";
+      el["out-sub"].textContent = "Комиссия и налог вместе съедают всю цену.";
+      ["r-price","r-cost","r-delivery","r-pack","r-comm","r-tax","r-profit"].forEach(function (id) {
+        el[id].textContent = "—";
+      });
+      el["out-warn"].hidden = false;
+      el["out-warn"].textContent = "При таких ставках продавать нельзя ни за какую цену: "
+        + "сколько ни поставь, проценты заберут её целиком.";
+      return;
+    }
+
+    var main = mode === "profit" ? u.profit : u.price;
+    el["out-val"].textContent = fmt(main);
+    el["out-val"].className = "val " + (mode === "profit" ? (u.profit < 0 ? "minus" : "plus") : "");
+    el["out-sub"].textContent = mode === "profit"
+      ? "Маржа " + u.marginPct.toFixed(1) + " % от цены"
+      : "Прибыль " + fmt(u.profit) + " · маржа " + u.marginPct.toFixed(1) + " %";
+
+    el["r-price"].textContent = fmt(u.price);
+    el["r-cost"].textContent = "−" + fmt(u.cost);
+    el["r-delivery"].textContent = "−" + fmt(u.delivery);
+    el["r-pack"].textContent = "−" + fmt(u.packaging);
+    el["r-comm"].textContent = "−" + fmt(u.commission);
+    el["r-tax"].textContent = "−" + fmt(u.tax);
+    el["r-comm-label"].textContent = "Комиссия Kaspi, " + comm + " %";
+    el["r-tax-label"].textContent = "Налог, " + tax + " %";
+    el["r-profit"].textContent = fmt(u.profit);
+
+    // Убыток — обычный ответ, а не поломка: ради него калькулятор и открывают.
+    el["out-warn"].hidden = u.profit >= 0;
+    if (u.profit < 0) {
+      el["out-warn"].textContent = "По этой цене товар продаётся в убыток: "
+        + fmt(Math.abs(u.profit)) + " с каждой продажи.";
+    }
+  }
+
+  el["mode-profit"].addEventListener("click", function () { setMode("profit"); });
+  el["mode-price"].addEventListener("click", function () { setMode("price"); });
+  Array.prototype.forEach.call(document.querySelectorAll(".fields input"), function (i) {
+    i.addEventListener("input", calc);
+  });
+
+  calc();
+})();
+</script>
+
+</body>
+</html>
