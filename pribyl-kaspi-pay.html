@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Оборот есть, а денег нет: прибыль продавца Kaspi — KitSeller</title>
+<link rel="canonical" href="https://kitseller.kz/pribyl-kaspi-pay.html">
+<meta name="description" content="Kaspi показывает оборот, а не прибыль. Что вычитается из выручки — комиссия, доставка, реклама, абонплата и налог, — и как посчитать настоящий заработок по отчёту о продажах и выписке Kaspi Pay.">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="KitSeller">
+<meta property="og:locale" content="ru_KZ">
+<meta property="og:url" content="https://kitseller.kz/pribyl-kaspi-pay.html">
+<meta property="og:title" content="Оборот есть, а денег нет: прибыль продавца Kaspi">
+<meta property="og:description" content="Что вычитается из выручки продавца Kaspi и как посчитать настоящую прибыль по отчётам Kaspi Pay.">
+<meta property="og:image" content="https://kitseller.kz/og-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Оборот есть, а денег нет: прибыль продавца Kaspi">
+<meta name="twitter:description" content="Что вычитается из выручки продавца Kaspi и как посчитать настоящую прибыль.">
+<meta name="twitter:image" content="https://kitseller.kz/og-preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/article.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "KitSeller", "item": "https://kitseller.kz/" },
+        { "@type": "ListItem", "position": 2, "name": "Прибыль по Kaspi Pay", "item": "https://kitseller.kz/pribyl-kaspi-pay.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Оборот есть, а денег нет: как считать прибыль продавца Kaspi",
+      "description": "Что вычитается из выручки продавца Kaspi — комиссия, доставка, реклама, абонплата и налог — и как посчитать настоящую прибыль по отчёту о продажах и выписке Kaspi Pay.",
+      "inLanguage": "ru",
+      "datePublished": "2026-08-21",
+      "dateModified": "2026-08-21",
+      "mainEntityOfPage": "https://kitseller.kz/pribyl-kaspi-pay.html",
+      "author": { "@type": "Organization", "name": "KitSeller", "url": "https://kitseller.kz/" },
+      "publisher": { "@type": "Organization", "name": "KitSeller", "url": "https://kitseller.kz/", "logo": "https://kitseller.kz/logo.png" },
+      "about": "Расчёт прибыли продавца на маркетплейсе Kaspi"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Почему в кабинете Kaspi большой оборот, а денег на счёте мало?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Кабинет показывает оборот — сумму заказов. До счёта продавца доходит меньше: удерживаются комиссия Kaspi, стоимость доставки, расходы на рекламу и абонплата, а с оставшегося платится налог. Разницу видно только в отчётах Kaspi Pay."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где взять данные для расчёта прибыли?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нужны два документа из Kaspi Pay: отчёт о продажах и выписка по счёту. Первый показывает заказы и удержания, второй — что реально пришло на счёт. Вместе они дают настоящий P&L."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как понять прибыль по каждому товару, а не в целом по магазину?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нужна закупочная цена. Без себестоимости считается только выручка за вычетом удержаний Kaspi; с ней получается маржа по каждому товару и видно, какие позиции работают в минус."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое ABC-анализ товаров и зачем он продавцу Kaspi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это разделение ассортимента по вкладу в прибыль: небольшая группа товаров обычно даёт большую часть заработка. ABC показывает, что стоит держать в наличии и продвигать, а что занимает деньги и место на складе."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли считать прибыль Kaspi в Excel вручную?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Можно, и многие так делают раз в месяц. Ручной разбор занимает часы и повторяется каждый период, поэтому его обычно автоматизируют: файлы из Kaspi Pay разбираются в готовый отчёт."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px;flex-wrap:wrap">
+  <a href="/"><img src="/logo-light.png" alt="KitSeller" style="height:32px;width:auto;display:block"></a>
+  <nav style="display:flex;align-items:center;gap:28px;font-size:14px;color:var(--muted)">
+    <a href="/#features" style="color:var(--muted)">Что делает</a>
+    <a href="/#pricing" style="color:var(--muted)">Тарифы</a>
+    <a href="/#start" style="color:var(--muted)">Как начать</a>
+  </nav>
+  <div style="display:flex;gap:10px;flex:none">
+    <a href="https://app.kitseller.kz/web" class="btn btn-ghost" style="height:40px">Войти в кабинет</a>
+    <a href="https://t.me/KitSeller_bot" class="btn btn-primary" style="height:40px">Telegram</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="article-head reading">
+    <p class="crumbs"><a href="/">KitSeller</a> <span>/</span> <span>Прибыль по Kaspi Pay</span></p>
+    <h1>Оборот есть, а денег нет</h1>
+    <p class="lede">
+      Кабинет Kaspi показывает сумму заказов. Сколько из неё забрали комиссия, доставка,
+      реклама и налог, продавец обычно узнаёт в конце месяца — руками, в Excel. Разбираем,
+      из чего складывается настоящая прибыль и где взять цифры.
+    </p>
+    <p class="stamp">Обновлено 21 августа 2026</p>
+  </div>
+
+  <article class="reading">
+
+    <section>
+      <h2>Короткий ответ</h2>
+      <p>
+        Оборот — это не заработок. Между суммой заказов и деньгами на счёте стоят пять
+        вычетов: <strong>комиссия Kaspi, доставка, реклама, абонплата и налог</strong>.
+        А если считать прибыль по каждому товару, к ним добавляется шестой — закупочная
+        цена, которой в отчётах Kaspi нет вовсе: её знает только продавец.
+      </p>
+      <p>
+        Считается всё это по двум документам из Kaspi Pay: <strong>отчёту о продажах</strong>
+        и <strong>выписке по счёту</strong>. Первый показывает заказы и удержания, второй —
+        что реально пришло.
+      </p>
+    </section>
+
+    <section>
+      <h2>Куда уходит разница</h2>
+      <ul>
+        <li><strong>Комиссия Kaspi</strong> — процент с каждого заказа, разный по категориям.</li>
+        <li><strong>Доставка</strong> — считается по заказу и зависит от способа: со склада Kaspi, своей доставкой или самовывозом.</li>
+        <li><strong>Реклама</strong> — продвижение карточек, если продавец им пользуется.</li>
+        <li><strong>Абонплата</strong> — регулярные списания за подключённые сервисы Kaspi.</li>
+        <li><strong>Налог</strong> — платится с оборота или дохода в зависимости от режима, и вычитать его нужно до того, как считать заработок.</li>
+        <li><strong>Возвраты</strong> — заказ отменяется или возвращается уже после того, как попал в оборот, и уменьшает его задним числом.</li>
+      </ul>
+      <div class="note">
+        <strong>Почему «примерно 10 %» не работает</strong>
+        <p style="margin:0">
+          Комиссия и доставка меняются по категориям и способам отгрузки, а возвраты
+          приходят с задержкой. Прикидка в уме даёт ошибку как раз там, где решается,
+          продавать товар дальше или снимать его с продажи.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Прибыль по каждому товару</h2>
+      <p>
+        Отчёты Kaspi ничего не знают о вашей закупке, поэтому маржа по товару без неё
+        не считается. Как только закупочные цены проставлены, становится видно то,
+        ради чего всё и затевалось: какие позиции держат магазин, а какие продаются
+        много и в минус.
+      </p>
+      <p>
+        Дальше подключается <strong>ABC-анализ</strong> — разделение ассортимента по вкладу
+        в прибыль. Обычно небольшая группа товаров даёт большую часть заработка, а длинный
+        хвост занимает деньги и место на складе.
+      </p>
+    </section>
+
+    <section>
+      <h2>Как это устроено в KitSeller</h2>
+      <p>
+        Отчёт о продажах и выписка по счёту загружаются в бот, а на выходе — готовый
+        файл Excel: <strong>18 листов</strong> на платных тарифах и 4 на Стандарте.
+      </p>
+      <div class="figures">
+        <div><dt>Листов в отчёте</dt><dd>18</dd></div>
+        <div><dt>Документа из Kaspi Pay</dt><dd>2</dd></div>
+        <div><dt>Стандарт</dt><dd>990 ₸/мес</dd></div>
+      </div>
+      <p>
+        Внутри — дашборд, сводка для руководителя, топ товаров, ABC, P&amp;L, доставка,
+        разбивки по дням, часам и дням недели, сегменты, бренды, возвраты, оплаты,
+        все операции и входящие. Закупочные цены проставляются один раз: в следующих
+        отчётах они подставляются сами, и прибыль сразу считается настоящей.
+      </p>
+      <p>
+        Аналитика входит в тариф за 990 ₸ в месяц, первые семь дней бесплатны.
+        На платных тарифах те же цифры видны живьём — прямо из заказов, без загрузки файлов.
+      </p>
+    </section>
+
+    <section>
+      <h2>Частые вопросы</h2>
+      <div class="faq">
+        <details>
+          <summary>Почему оборот большой, а денег мало?</summary>
+          <p>Кабинет показывает сумму заказов. До счёта доходит меньше: комиссия, доставка, реклама и абонплата удержаны, а с оставшегося платится налог.</p>
+        </details>
+        <details>
+          <summary>Где взять данные для расчёта?</summary>
+          <p>В Kaspi Pay: отчёт о продажах и выписка по счёту. Первый — заказы и удержания, второй — что реально пришло на счёт.</p>
+        </details>
+        <details>
+          <summary>Как узнать прибыль по конкретному товару?</summary>
+          <p>Нужна закупочная цена — в отчётах Kaspi её нет. С ней считается маржа по каждой позиции.</p>
+        </details>
+        <details>
+          <summary>Что такое ABC-анализ?</summary>
+          <p>Разделение ассортимента по вкладу в прибыль: видно, что держать в наличии, а что занимает деньги и место.</p>
+        </details>
+        <details>
+          <summary>Можно ли считать вручную в Excel?</summary>
+          <p>Можно, но это часы работы каждый месяц. Обычно разбор файлов автоматизируют.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Посчитать по своим отчётам</h2>
+      <p>Загрузите отчёт о продажах и выписку — получите готовый разбор. Семь дней бесплатно, карта не нужна.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://t.me/KitSeller_bot?start=pribyl">Открыть в Telegram</a>
+        <a class="btn btn-ghost" href="/#pricing">Посмотреть тарифы</a>
+      </div>
+    </section>
+
+    <div class="next">
+      <h2>Читать дальше</h2>
+      <ul>
+        <li><a href="/nakladnye-kaspi.html">Как печатать накладные Kaspi пачкой</a></li>
+        <li><a href="/repraiser-kaspi.html">Репрайсер для Kaspi: как часто проверять цену</a></li>
+      </ul>
+    </div>
+
+  </article>
+</div>
+
+<footer class="wrap" style="border-top:1px solid var(--border);padding-top:48px;padding-bottom:44px;margin-top:48px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:28px">
+    <div>
+      <img src="/logo-light.png" alt="KitSeller" style="height:30px;width:auto;display:block;margin-bottom:12px">
+      <p style="font-size:13.5px;color:var(--muted);max-width:280px;margin:0">Рабочее место продавца Kaspi: накладные, настоящая прибыль и авто-репрайсер.</p>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:13.5px">
+      <a href="https://t.me/KitSeller_bot?start=help">Поддержка</a>·
+      <a href="https://kitseller.kz/offer.html">Оферта</a>·
+      <a href="https://kitseller.kz/privacy.html">Конфиденциальность</a>·
+      <a href="https://app.kitseller.kz/web">Войти</a>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:20px;font-size:12.5px;color:var(--text-light)">KitSeller — для продавцов Kaspi.kz · ИП Path of Peaks</div>
+</footer>
+
+</body>
+</html>

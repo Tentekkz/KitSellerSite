@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Репрайсер для Kaspi: как часто проверять цену — KitSeller</title>
+<link rel="canonical" href="https://kitseller.kz/repraiser-kaspi.html">
+<meta name="description" content="Как работает автоматическая переоценка на Kaspi: почему важен интервал проверки, зачем нижний порог цены и подъём при отсутствии конкурентов, и как не снижать цену из-за случайного продавца.">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="KitSeller">
+<meta property="og:locale" content="ru_KZ">
+<meta property="og:url" content="https://kitseller.kz/repraiser-kaspi.html">
+<meta property="og:title" content="Репрайсер для Kaspi: как часто проверять цену">
+<meta property="og:description" content="Интервал проверки, нижний порог, подъём цены при отсутствии конкурентов и чёрный список продавцов — из чего складывается работающая автопереоценка.">
+<meta property="og:image" content="https://kitseller.kz/og-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Репрайсер для Kaspi: как часто проверять цену">
+<meta name="twitter:description" content="Из чего складывается работающая автоматическая переоценка на Kaspi.">
+<meta name="twitter:image" content="https://kitseller.kz/og-preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/article.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "KitSeller", "item": "https://kitseller.kz/" },
+        { "@type": "ListItem", "position": 2, "name": "Репрайсер Kaspi", "item": "https://kitseller.kz/repraiser-kaspi.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Репрайсер для Kaspi: как часто проверять цену",
+      "description": "Интервал проверки, нижний порог цены, подъём при отсутствии конкурентов и чёрный список продавцов — из чего складывается работающая автоматическая переоценка на Kaspi.",
+      "inLanguage": "ru",
+      "datePublished": "2026-08-21",
+      "dateModified": "2026-08-21",
+      "mainEntityOfPage": "https://kitseller.kz/repraiser-kaspi.html",
+      "author": { "@type": "Organization", "name": "KitSeller", "url": "https://kitseller.kz/" },
+      "publisher": { "@type": "Organization", "name": "KitSeller", "url": "https://kitseller.kz/", "logo": "https://kitseller.kz/logo.png" },
+      "about": "Автоматическая переоценка товаров на маркетплейсе Kaspi"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как часто репрайсер должен проверять цену на Kaspi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Чем чаще, тем меньше времени карточка стоит проигранной. В KitSeller шаг проверки — 17 минут на тарифе Про+ и 40 минут на Про. Разница видна не в скорости реакции на одно снижение, а в сумме за сутки: при шаге в час карточка может простоять внизу почти час."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "За сколько новая цена доезжает до Kaspi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "До трёх минут, если цены уходят в кабинет напрямую. Через прайс-лист дольше: файл нужно собрать, загрузить и дождаться обработки на стороне Kaspi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Может ли репрайсер увести цену в убыток?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет, если задан нижний порог по каждому товару. Порог — обязательная часть настройки: ниже него цена не опускается, даже когда конкурент демпингует."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если конкурент демпингует в убыток?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Исключить его из расчёта. В KitSeller есть поимённый список игнорируемых продавцов и отсечка по доверию: продавцы без отзывов или с плохим рейтингом не считаются поводом снижать цену."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Поднимется ли цена обратно, когда конкуренты уйдут?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, если включён подъём цены. Без него товар остаётся внизу и продаётся дешевле, чем мог бы, — это самая частая потеря на автопереоценке."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px;flex-wrap:wrap">
+  <a href="/"><img src="/logo-light.png" alt="KitSeller" style="height:32px;width:auto;display:block"></a>
+  <nav style="display:flex;align-items:center;gap:28px;font-size:14px;color:var(--muted)">
+    <a href="/#features" style="color:var(--muted)">Что делает</a>
+    <a href="/#pricing" style="color:var(--muted)">Тарифы</a>
+    <a href="/#start" style="color:var(--muted)">Как начать</a>
+  </nav>
+  <div style="display:flex;gap:10px;flex:none">
+    <a href="https://app.kitseller.kz/web" class="btn btn-ghost" style="height:40px">Войти в кабинет</a>
+    <a href="https://t.me/KitSeller_bot" class="btn btn-primary" style="height:40px">Telegram</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="article-head reading">
+    <p class="crumbs"><a href="/">KitSeller</a> <span>/</span> <span>Репрайсер Kaspi</span></p>
+    <h1>Репрайсер для Kaspi: как часто проверять цену</h1>
+    <p class="lede">
+      Пока продавец спал или был на складе, сосед снизил цену и забрал заказы с карточки.
+      Автопереоценка эту дыру закрывает — но только если настроена целиком, а не одной
+      галочкой «включить».
+    </p>
+    <p class="stamp">Обновлено 21 августа 2026</p>
+  </div>
+
+  <article class="reading">
+
+    <section>
+      <h2>Короткий ответ</h2>
+      <p>
+        Репрайсер — это программа, которая следит за ценами конкурентов на карточке и
+        двигает вашу так, чтобы товар оставался первым в списке продавцов. Главный
+        параметр — <strong>шаг проверки</strong>: сколько времени карточка может простоять
+        проигранной, прежде чем сервис заметит.
+      </p>
+      <div class="figures">
+        <div><dt>Шаг проверки, Про+</dt><dd>17 мин</dd></div>
+        <div><dt>Шаг проверки, Про</dt><dd>40 мин</dd></div>
+        <div><dt>Цена доезжает до Kaspi</dt><dd>≤ 3 мин</dd></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Почему интервал решает больше, чем кажется</h2>
+      <p>
+        Разница между 17 минутами и часом видна не в скорости реакции на одно снижение,
+        а в сумме за сутки. При часовом шаге карточка после чужого снижения может стоять
+        внизу почти час — и так каждый раз. За день набегают часы, в которые заказы уходят
+        соседу.
+      </p>
+      <p>
+        Вторая половина — как быстро новая цена доезжает до Kaspi. Через прайс-лист дольше:
+        файл нужно собрать, загрузить и дождаться обработки. Когда цены уходят в кабинет
+        напрямую, счёт идёт на минуты — <strong>до трёх</strong>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Четыре настройки, без которых репрайсер вредит</h2>
+      <ul>
+        <li><strong>Нижний порог по каждому товару.</strong> Граница, ниже которой цена не опускается никогда. Без неё автопереоценка честно доводит товар до убытка вслед за демпингующим соседом.</li>
+        <li><strong>Подъём цены, когда конкурентов нет.</strong> Соперники ушли — цена должна вернуться к потолку, а не остаться внизу. Это самая частая потеря: товар продаётся дешевле, чем мог бы, и никто этого не замечает.</li>
+        <li><strong>Отсечка по доверию.</strong> Продавец без отзывов или с плохим рейтингом — не повод обрушивать свою цену: заказ он, скорее всего, не выполнит, а цену вы уже отдали.</li>
+        <li><strong>Чёрный список продавцов.</strong> Поимённое исключение тех, кто торгует в убыток осознанно.</li>
+      </ul>
+      <div class="note">
+        <strong>Ночная пауза</strong>
+        <p style="margin:0">
+          Ночью торги замирают, и гонять цену бессмысленно. Пауза бережёт не только нервы:
+          лишние движения цены ночью ничего не приносят, а утренний старт с нормальной
+          цены выглядит для покупателя честнее.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Сколько товаров держать в переоценке</h2>
+      <p>
+        Осмысленно ставить в репрайсер не весь каталог, а то, что действительно продаётся
+        и где есть конкуренты. В KitSeller ограничение — <strong>100 товаров</strong> на
+        Про+ и 50 на Про. Позиции по остальному каталогу на Про+ всё равно видны:
+        место в выдаче считается по всем товарам магазина, а не только по тем, что в
+        переоценке.
+      </p>
+      <p>
+        На тарифе Стандарт репрайсера нет вовсе — это накладные и аналитика за 990 ₸.
+        Автопереоценка начинается с Про+ за 9 990 ₸ в месяц, первые три дня бесплатны.
+      </p>
+    </section>
+
+    <section>
+      <h2>Частые вопросы</h2>
+      <div class="faq">
+        <details>
+          <summary>Как часто репрайсер должен проверять цену?</summary>
+          <p>Чем чаще, тем меньше времени карточка стоит проигранной. У нас шаг 17 минут на Про+ и 40 минут на Про.</p>
+        </details>
+        <details>
+          <summary>За сколько новая цена доезжает до Kaspi?</summary>
+          <p>До трёх минут, когда цены уходят в кабинет напрямую. Через прайс-лист дольше — файл нужно собрать, загрузить и дождаться обработки.</p>
+        </details>
+        <details>
+          <summary>Может ли репрайсер увести цену в убыток?</summary>
+          <p>Нет, если задан нижний порог по каждому товару. Ниже него цена не опускается, даже когда сосед демпингует.</p>
+        </details>
+        <details>
+          <summary>Что делать с продавцом, который торгует в минус?</summary>
+          <p>Исключить из расчёта — поимённо или отсечкой по доверию: продавцы без отзывов и с плохим рейтингом не учитываются.</p>
+        </details>
+        <details>
+          <summary>Цена поднимется обратно, когда конкуренты уйдут?</summary>
+          <p>Да, если включён подъём. Без него товар так и остаётся внизу.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Посмотреть на своих товарах</h2>
+      <p>Три дня бесплатно, карта не нужна. Подключается к вашему кабинету Kaspi, магазин остаётся вашим.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://t.me/KitSeller_bot?start=repricer">Открыть в Telegram</a>
+        <a class="btn btn-ghost" href="/#pricing">Посмотреть тарифы</a>
+      </div>
+    </section>
+
+    <div class="next">
+      <h2>Читать дальше</h2>
+      <ul>
+        <li><a href="/nakladnye-kaspi.html">Как печатать накладные Kaspi пачкой</a></li>
+        <li><a href="/#features">Что ещё делает KitSeller</a></li>
+      </ul>
+    </div>
+
+  </article>
+</div>
+
+<footer class="wrap" style="border-top:1px solid var(--border);padding-top:48px;padding-bottom:44px;margin-top:48px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:28px">
+    <div>
+      <img src="/logo-light.png" alt="KitSeller" style="height:30px;width:auto;display:block;margin-bottom:12px">
+      <p style="font-size:13.5px;color:var(--muted);max-width:280px;margin:0">Рабочее место продавца Kaspi: накладные, настоящая прибыль и авто-репрайсер.</p>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:13.5px">
+      <a href="https://t.me/KitSeller_bot?start=help">Поддержка</a>·
+      <a href="https://kitseller.kz/offer.html">Оферта</a>·
+      <a href="https://kitseller.kz/privacy.html">Конфиденциальность</a>·
+      <a href="https://app.kitseller.kz/web">Войти</a>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:20px;font-size:12.5px;color:var(--text-light)">KitSeller — для продавцов Kaspi.kz · ИП Path of Peaks</div>
+</footer>
+
+</body>
+</html>
