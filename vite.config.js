@@ -7,7 +7,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         offer: resolve(__dirname, 'offer.html'),
-        privacy: resolve(__dirname, 'privacy.html')
+        privacy: resolve(__dirname, 'privacy.html'),
+        nakladnye: resolve(__dirname, 'nakladnye-kaspi.html')
       }
     }
   }

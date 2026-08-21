@@ -1,0 +1,193 @@
+/*
+  Оформление страниц-ответов: одна страница — один вопрос продавца.
+
+  Токены те же, что на главной, и повторены здесь намеренно: главная держит
+  своё оформление внутри себя, а тащить её стострочный <style> в каждую статью
+  или разбирать её ради общего файла — работа, которая к тексту отношения не
+  имеет. Расходиться им негде: цвета сайта меняются раз в год, и меняются в
+  двух местах разом.
+*/
+:root{
+  --bg:#ffffff; --card:#ffffff; --soft:#f6f7f9;
+  --text:#16202e; --muted:#5b6779; --text-light:#7a8497;
+  --accent:#4b5bd6; --accent-strong:#4b5bd6; --on-accent:#ffffff;
+  --green:#12855c; --border:#e6e9ee; --border-strong:#d3d8e0;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Golos Text','Segoe UI',system-ui,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{
+  margin:0;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  font-family:'Manrope','Golos Text',sans-serif;
+  text-wrap:balance;
+}
+
+p{margin:0}
+a{color:var(--text)}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* Колонка чтения уже общей сетки: длинная строка читается тяжело, а статью
+   читают подряд, а не сканируют, как главную. */
+.reading{max-width:720px}
+
+/* ---------- шапка статьи ---------- */
+.crumbs{
+  font-size:13px;
+  color:var(--text-light);
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.crumbs a{color:var(--text-light)}
+
+.article-head{
+  padding:40px 0 32px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.article-head h1{font-size:clamp(28px,4vw,40px);line-height:1.15}
+.article-head .lede{font-size:18px;color:var(--muted)}
+.article-head .stamp{font-size:13px;color:var(--text-light)}
+
+/* ---------- тело статьи ---------- */
+article{
+  padding:36px 0 8px;
+  display:flex;
+  flex-direction:column;
+  gap:34px;
+}
+article section{display:flex;flex-direction:column;gap:14px}
+article h2{font-size:24px}
+article h3{font-size:18px}
+article p{font-size:16.5px;color:var(--text)}
+article ul,article ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:9px;font-size:16.5px}
+article li strong{font-weight:600}
+
+.note{
+  background:var(--soft);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px 20px;
+  font-size:15.5px;
+  color:var(--muted);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.note strong{color:var(--text);font-weight:600}
+
+/* Числа, которые продавцу нужно унести с собой */
+.figures{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+.figures div{background:var(--card);padding:16px 18px;display:flex;flex-direction:column;gap:3px}
+.figures dt{font-size:13px;color:var(--muted)}
+.figures dd{
+  margin:0;
+  font-family:'Manrope','Golos Text',sans-serif;
+  font-weight:800;
+  font-size:22px;
+  letter-spacing:-0.02em;
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- вопросы и ответы ---------- */
+.faq{display:flex;flex-direction:column;gap:10px}
+.faq details{
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--card);
+  padding:0 20px;
+}
+.faq summary{
+  cursor:pointer;
+  list-style:none;
+  padding:16px 0;
+  font-weight:600;
+  font-size:16px;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:center;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:'+';
+  font-family:'Manrope',sans-serif;
+  font-size:20px;
+  color:var(--text-light);
+  flex:none;
+  line-height:1;
+}
+.faq details[open] summary::after{content:'–'}
+.faq details p{padding:0 0 18px;font-size:15.5px;color:var(--muted)}
+
+/* ---------- переход в продукт ---------- */
+.cta{
+  margin:8px 0 0;
+  background:var(--soft);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:26px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.cta h2{font-size:20px}
+.cta p{font-size:15.5px;color:var(--muted)}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  height:44px;
+  padding:0 20px;
+  border-radius:10px;
+  font-size:14.5px;
+  font-weight:600;
+  white-space:nowrap;
+  text-decoration:none;
+}
+.btn:hover{text-decoration:none}
+.btn-primary{background:var(--text);color:#fff}
+.btn-ghost{border:1px solid var(--border-strong);color:var(--text)}
+
+/* ---------- соседние страницы ---------- */
+.next{
+  border-top:1px solid var(--border);
+  margin-top:36px;
+  padding-top:26px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.next h2{font-size:17px}
+.next ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15.5px}
+.next a{color:var(--accent)}
+
+@media (max-width:640px){
+  article{gap:28px}
+  .article-head{padding:28px 0 24px}
+}
