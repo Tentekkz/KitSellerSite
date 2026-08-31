@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Kaspi сатушысының пайда калькуляторы — KitSeller</title>
+<link rel="canonical" href="https://kitseller.kz/kz/kalkulyator-kaspi.html">
+<link rel="alternate" hreflang="ru" href="https://kitseller.kz/kalkulyator-kaspi.html">
+<link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/kalkulyator-kaspi.html">
+<link rel="alternate" hreflang="x-default" href="https://kitseller.kz/kalkulyator-kaspi.html">
+<meta name="description" content="Тіркелусіз тегін есептеу: комиссия, жеткізу және салықтан кейін Kaspi сатылымынан қанша қалады — және қалаған пайданы алу үшін қандай баға қою керек.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KitSeller">
+<meta property="og:locale" content="kk_KZ">
+<meta property="og:url" content="https://kitseller.kz/kz/kalkulyator-kaspi.html">
+<meta property="og:title" content="Kaspi сатушысының пайда калькуляторы">
+<meta property="og:description" content="Комиссия, жеткізу және салықтан кейін сатылымнан қанша қалады. Тіркелусіз.">
+<meta property="og:image" content="https://kitseller.kz/og-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kaspi сатушысының пайда калькуляторы">
+<meta name="twitter:description" content="Комиссия, жеткізу және салықтан кейін сатылымнан қанша қалады. Тіркелусіз.">
+<meta name="twitter:image" content="https://kitseller.kz/og-preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/article.css">
+<style>
+  .calc{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;
+    border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--card);
+  }
+  .calc-in{padding:24px;display:flex;flex-direction:column;gap:18px;border-right:1px solid var(--border)}
+  .calc-out{padding:24px;display:flex;flex-direction:column;gap:16px;background:var(--soft)}
+
+  .modes{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:10px}
+  .modes button{
+    flex:1;border:0;background:transparent;cursor:pointer;
+    font:600 13.5px/1 'Onest','Inter',sans-serif;color:var(--muted);
+    padding:10px 8px;border-radius:7px;
+  }
+  .modes button[aria-pressed="true"]{background:var(--card);color:var(--text);box-shadow:0 1px 2px rgba(22,32,46,0.08)}
+
+  .fields{display:flex;flex-direction:column;gap:12px}
+  .field{display:flex;flex-direction:column;gap:5px}
+  .field label{font-size:13.5px;color:var(--muted);font-weight:500}
+  .field .row{position:relative;display:flex;align-items:center}
+  .field input{
+    width:100%;height:44px;padding:0 40px 0 13px;
+    border:1px solid var(--border-strong);border-radius:10px;background:var(--card);
+    font:600 16px/1 'Onest','Inter',sans-serif;color:var(--text);
+    font-variant-numeric:tabular-nums;
+  }
+  .field input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+  .field .unit{position:absolute;right:13px;font-size:14px;color:var(--text-light);pointer-events:none}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+  .out-main{display:flex;flex-direction:column;gap:4px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+  .out-main .cap{font-size:13.5px;color:var(--muted)}
+  .out-main .val{
+    font:800 34px/1.1 'Onest','Inter',sans-serif;letter-spacing:-0.03em;
+    font-variant-numeric:tabular-nums;
+  }
+  .val.minus{color:#b3261e}
+  .val.plus{color:var(--green)}
+  .out-main .sub{font-size:13.5px;color:var(--muted)}
+
+  .breakdown{display:flex;flex-direction:column;gap:9px;font-size:14.5px}
+  .breakdown div{display:flex;justify-content:space-between;gap:12px}
+  .breakdown dt{color:var(--muted)}
+  .breakdown dd{margin:0;font-variant-numeric:tabular-nums;font-weight:600}
+  .breakdown .total{border-top:1px solid var(--border);padding-top:9px;margin-top:2px}
+
+  .warn{
+    font-size:14px;color:#8a5a06;background:#fbf0dc;
+    border-radius:9px;padding:11px 13px;line-height:1.45;
+  }
+
+  @media (max-width:760px){
+    .calc{grid-template-columns:1fr}
+    .calc-in{border-right:0;border-bottom:1px solid var(--border)}
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "KitSeller", "item": "https://kitseller.kz/kz/" },
+        { "@type": "ListItem", "position": 2, "name": "Kaspi пайда калькуляторы", "item": "https://kitseller.kz/kz/kalkulyator-kaspi.html" }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Kaspi сатушысының пайда калькуляторы",
+      "url": "https://kitseller.kz/kz/kalkulyator-kaspi.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "kk",
+      "description": "Kaspi-дегі сатылымнан түсетін пайданы есептеу: бағадан комиссия, жеткізу, қаптама және салық шегеріледі. Екінші режим қалаған пайдаға сәйкес бағаны есептейді.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KZT" },
+      "publisher": { "@type": "Organization", "name": "KitSeller", "url": "https://kitseller.kz/kz/" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kaspi сатушы үшін қандай комиссия алады?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ол тауар санаттарына қарай әртүрлі болады, сондықтан калькуляторда бұл тұрақты сан емес, өзгеретін өріс. Сатушы өз мөлшерлемесін шарттан және Kaspi Pay сатылымдар есебінен көре алады. Әдепкі бойынша 15 % қойылған — KitSeller кабинетіндегі сияқты мән."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Комиссия неден есептеледі — бағадан ба, әлде пайдадан ба?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сату бағасынан. Kaspi оны осылай есептейді, сондықтан калькуляторда да комиссия мен салық қалған ақшадан емес, бағаның пайызы ретінде алынады."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Неге өзіндік құнға қалаған пайданы жай ғана қоса салуға болмайды?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Себебі комиссия мен салық соңғы бағадан есептеледі: бағаны көтерсеңіз — олар да өседі. Қалаған пайдаға сәйкес баға шығындар сомасын пайыздардан кейін сатушыға қалатын үлеске бөлу арқылы есептеледі."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Есептеуде Kaspi жеткізуі ескеріле ме?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Иә, теңгемен бөлек өрісте. Құны жөнелту тәсілі мен салмаққа байланысты, сондықтан оны нарықтағы орташа мәннен емес, соңғы тапсырыстарыңыздан жазасыз."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Есептеу тегін бе?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Иә, тіркелу қажет емес және деректер ешқайда жіберілмейді — барлығы тікелей браузерде есептеледі."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px;flex-wrap:wrap">
+  <a href="/kz/"><img src="/logo-light.png" alt="KitSeller" style="height:32px;width:auto;display:block"></a>
+  <nav style="display:flex;align-items:center;gap:28px;font-size:14px;color:var(--muted)">
+    <a href="/kz/vozmozhnosti.html" style="color:var(--muted)">Мүмкіндіктер</a>
+    <a href="/kz/#pricing" style="color:var(--muted)">Тарифтер</a>
+    <a href="/kz/#start" style="color:var(--muted)">Қалай бастау керек</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:10px;flex:none">
+    <div class="lang-switcher" aria-label="Тілді таңдау / Выбор языка">
+      <a href="/kalkulyator-kaspi.html" class="lang-btn">RU</a>
+      <a href="/kz/kalkulyator-kaspi.html" class="lang-btn active">KZ</a>
+    </div>
+    <a href="https://app.kitseller.kz/web" class="btn btn-ghost" style="height:40px">Кабинетке кіру</a>
+    <a href="https://t.me/KitSeller_bot" class="btn btn-primary" style="height:40px">Telegram</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="article-head reading">
+    <p class="crumbs"><a href="/kz/">KitSeller</a> <span>/</span> <span>Калькулятор</span></p>
+    <h1>Kaspi сатушысының пайда калькуляторы</h1>
+    <p class="lede">
+      Комиссия, жеткізу және салықтан кейін сатылымнан қанша қалады — және қалаған пайданы алу үшін
+      қандай баға қою керек. Тіркелусіз, тікелей браузерде есептеледі.
+    </p>
+  </div>
+
+  <div style="padding:28px 0 0">
+    <div class="calc">
+      <div class="calc-in">
+        <div class="modes" role="group" aria-label="Нені есептейміз">
+          <button type="button" id="mode-profit" aria-pressed="true">Қанша қалады</button>
+          <button type="button" id="mode-price" aria-pressed="false">Қандай баға қою керек</button>
+        </div>
+
+        <div class="fields">
+          <div class="field" id="wrap-price">
+            <label for="in-price">Сату бағасы</label>
+            <div class="row"><input id="in-price" type="number" inputmode="decimal" min="0" step="100" value="12000"><span class="unit">₸</span></div>
+          </div>
+
+          <div class="field" id="wrap-want" hidden>
+            <label for="in-want">Сатылымнан қалаған пайда</label>
+            <div class="row"><input id="in-want" type="number" inputmode="decimal" min="0" step="100" value="2000"><span class="unit">₸</span></div>
+          </div>
+
+          <div class="field">
+            <label for="in-cost">Тауардың өзіндік құны (себестоимость)</label>
+            <div class="row"><input id="in-cost" type="number" inputmode="decimal" min="0" step="100" value="6000"><span class="unit">₸</span></div>
+          </div>
+
+          <div class="pair">
+            <div class="field">
+              <label for="in-delivery">Kaspi жеткізуі</label>
+              <div class="row"><input id="in-delivery" type="number" inputmode="decimal" min="0" step="50" value="950"><span class="unit">₸</span></div>
+            </div>
+            <div class="field">
+              <label for="in-pack">Қаптама</label>
+              <div class="row"><input id="in-pack" type="number" inputmode="decimal" min="0" step="50" value="200"><span class="unit">₸</span></div>
+            </div>
+          </div>
+
+          <div class="pair">
+            <div class="field">
+              <label for="in-comm">Kaspi комиссиясы</label>
+              <div class="row"><input id="in-comm" type="number" inputmode="decimal" min="0" max="99" step="0.5" value="15"><span class="unit">%</span></div>
+            </div>
+            <div class="field">
+              <label for="in-tax">Салық (ЖТС / КТС)</label>
+              <div class="row"><input id="in-tax" type="number" inputmode="decimal" min="0" max="99" step="0.5" value="3"><span class="unit">%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-out">
+        <div class="out-main">
+          <div class="cap" id="out-cap">Сатылымнан қалады</div>
+          <div class="val plus" id="out-val">3 010 ₸</div>
+          <div class="sub" id="out-sub">Маржа 25.1 % бағадан</div>
+        </div>
+
+        <dl class="breakdown">
+          <div><dt>Сату бағасы</dt><dd id="r-price">12 000 ₸</dd></div>
+          <div><dt>Өзіндік құны</dt><dd id="r-cost">−6 000 ₸</dd></div>
+          <div><dt>Kaspi жеткізуі</dt><dd id="r-delivery">−950 ₸</dd></div>
+          <div><dt>Қаптама</dt><dd id="r-pack">−200 ₸</dd></div>
+          <div><dt id="r-comm-label">Kaspi комиссиясы, 15 %</dt><dd id="r-comm">−1 800 ₸</dd></div>
+          <div><dt id="r-tax-label">Салық, 3 %</dt><dd id="r-tax">−360 ₸</dd></div>
+          <div class="total"><dt>Таза пайда</dt><dd id="r-profit">3 010 ₸</dd></div>
+        </dl>
+
+        <div class="warn" id="out-warn" hidden></div>
+      </div>
+    </div>
+  </div>
+
+  <article class="reading">
+
+    <section>
+      <h2>Бұл қалай есептеледі</h2>
+      <p>
+        Kaspi-дегі сатылымнан екі түрлі шығын алынады: <strong>нақты сомамен</strong> (тауардың өзіндік құны,
+        жеткізу және қаптама) және <strong>бағаның пайызымен</strong> (Kaspi комиссиясы мен салық).
+      </p>
+      <p>
+        Пайыздар сатушыға қалған пайдадан емес, сатып алушы төлейтін толық бағадан алынады. Сондықтан
+        бағаны көтергенде пайдамен бірге комиссия мен салық сомасы да пропорционалды түрде өседі.
+      </p>
+    </section>
+
+    <section>
+      <h2>«Қандай баға қою керек» қалай жұмыс істейді</h2>
+      <p>
+        Егер өзіндік құны 6 000 ₸ болатын тауардан 2 000 ₸ пайда алғыңыз келсе, жай ғана 8 000 ₸ қоюға
+        болмайды: 15 % комиссия мен 3 % салықтан кейін қолыңызға 4 600 ₸ қалып, тауар 1 400 ₸ шығынға кетеді.
+      </p>
+      <p>
+        Дұрыс баға шығындар мен қалаған пайданы пайыздардан кейін сатушыға қалатын үлеске бөлу арқылы табылады:
+      </p>
+      <div class="note">
+        <strong>Баға формуласы:</strong>
+        <code>Баға = (Өзіндік құн + Жеткізу + Қаптама + Пайда) / (1 − (Комиссия + Салық) / 100)</code>
+      </div>
+    </section>
+
+    <section>
+      <h2>Жиі қойылатын сұрақтар</h2>
+      <div class="faq">
+        <details>
+          <summary>Kaspi сатушы үшін қандай комиссия алады?</summary>
+          <p>
+            Ол тауар санаттарына қарай әртүрлі, сондықтан калькуляторда бұл тұрақты сан емес, өзгертілетін өріс.
+            Өз мөлшерлемеңізді шарттан және Kaspi Pay сатылымдар есебінен көре аласыз. Әдепкі бойынша 15 % тұр.
+          </p>
+        </details>
+        <details>
+          <summary>Комиссия неден есептеледі — бағадан ба, әлде пайдадан ба?</summary>
+          <p>
+            Сату бағасынан. Kaspi оны осылай есептейді, сондықтан есептеуде де комиссия мен салық толық бағаның
+            пайызы ретінде шегеріледі.
+          </p>
+        </details>
+        <details>
+          <summary>Неге өзіндік құнға қалаған пайданы жай қоса салуға болмайды?</summary>
+          <p>
+            Себебі комиссия мен салық соңғы бағадан алынады: баға көтерілсе — олар да өседі. Қалаған пайдаға баға
+            шығындар сомасын сатушының үлесіне бөлу арқылы шығады.
+          </p>
+        </details>
+        <details>
+          <summary>Kaspi жеткізуі есептеуде ескеріле ме?</summary>
+          <p>
+            Иә, теңгемен жеке өрісте. Құны жөнелту әдісі мен салмаққа байланысты, сондықтан оны соңғы тапсырыстарыңызға
+            қарап жазасыз.
+          </p>
+        </details>
+        <details>
+          <summary>Бұл есептеу тегін бе?</summary>
+          <p>
+            Иә, тіркелу қажет емес және деректер ешқайда жіберілмейді — барлығы құрылғыңызда тікелей есептеледі.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Бүкіл дүкеннің нақты пайдасын білгіңіз келе ме?</h2>
+      <p>
+        KitSeller Kaspi Pay-ден сатылымдар есебі мен шот үзіндісін жүктейді және әрбір тауар мен тапсырыс бойынша
+        нақты пайданы, комиссияны, жарнаманы және қайтаруларды есептеп береді.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://t.me/KitSeller_bot?start=calc">Telegram-да бастау</a>
+        <a class="btn btn-ghost" href="/kz/pribyl-kaspi-pay.html">Kaspi Pay есебі туралы толығырақ</a>
+      </div>
+    </section>
+
+    <div class="next">
+      <h2>Басқа пайдалы мақалалар</h2>
+      <ul>
+        <li><a href="/kz/pribyl-kaspi-pay.html">Айналым бар, бірақ ақша жоқ: Kaspi Pay бойынша нақты пайда</a></li>
+        <li><a href="/kz/repraiser-kaspi.html">Kaspi үшін репрайсер: бағаны қаншалықты жиі тексеру керек</a></li>
+        <li><a href="/kz/nakladnye-kaspi.html">Kaspi жүкқұжаттарын бір файлмен басып шығару</a></li>
+      </ul>
+    </div>
+
+  </article>
+</div>
+
+<footer class="wrap" style="border-top:1px solid var(--border);padding-top:48px;padding-bottom:44px;margin-top:48px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:28px">
+    <div>
+      <a href="/kz/"><img src="/logo-light.png" alt="KitSeller" style="height:30px;width:auto;display:block;margin-bottom:12px"></a>
+      <p style="font-size:13.5px;color:var(--muted);max-width:280px;margin:0">Kaspi сатушысының жұмыс орны: жүкқұжаттар, нақты таза пайда және авто-репрайсер.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end">
+      <div class="lang-switcher" aria-label="Тілді таңдау / Выбор языка">
+        <a href="/kalkulyator-kaspi.html" class="lang-btn">RU</a>
+        <a href="/kz/kalkulyator-kaspi.html" class="lang-btn active">KZ</a>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:13.5px">
+        <a href="https://t.me/KitSeller_bot?start=help">Қолдау қызметі</a>·
+        <a href="/kz/offer.html">Оферта</a>·
+        <a href="/kz/privacy.html">Құпиялылық</a>·
+        <a href="https://app.kitseller.kz/web">Кіру</a>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:20px;font-size:12.5px;color:var(--text-light)">KitSeller — Kaspi.kz сатушылары үшін · «Path of Peaks» ЖК</div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var EPS = 1e-9;
+
+  function profitAtPrice(price, cost, delivery, commPct, taxPct, packaging) {
+    var commission = price * commPct / 100;
+    var tax = price * taxPct / 100;
+    var profit = price - cost - delivery - packaging - commission - tax;
+    return {
+      price: price, cost: cost, delivery: delivery, packaging: packaging,
+      commission: commission, tax: tax, profit: profit,
+      marginPct: price ? (profit / price * 100) : 0
+    };
+  }
+
+  function priceForProfit(want, cost, delivery, commPct, taxPct, packaging) {
+    var share = (100 - commPct - taxPct) / 100;
+    if (share <= EPS) return null;
+    var price = (cost + delivery + packaging + want) / share;
+    return profitAtPrice(price, cost, delivery, commPct, taxPct, packaging);
+  }
+
+  var money = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 });
+  function fmt(v) {
+    return money.format(Math.round(v)).replace(/^-/, "−") + " ₸";
+  }
+  function num(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return isFinite(v) && v > 0 ? v : 0;
+  }
+
+  var el = {};
+  ["mode-profit","mode-price","wrap-price","wrap-want","out-cap","out-val","out-sub",
+   "r-price","r-cost","r-delivery","r-pack","r-comm","r-tax","r-profit",
+   "r-comm-label","r-tax-label","out-warn"].forEach(function (id) {
+    el[id] = document.getElementById(id);
+  });
+
+  var mode = "profit";
+
+  function setMode(next) {
+    mode = next;
+    var isProfit = mode === "profit";
+    el["mode-profit"].setAttribute("aria-pressed", String(isProfit));
+    el["mode-price"].setAttribute("aria-pressed", String(!isProfit));
+    el["wrap-price"].hidden = !isProfit;
+    el["wrap-want"].hidden = isProfit;
+    el["out-cap"].textContent = isProfit ? "Сатылымнан қалады" : "Қойылатын баға";
+    calc();
+  }
+
+  function calc() {
+    var cost = num("in-cost"), delivery = num("in-delivery"), pack = num("in-pack");
+    var comm = num("in-comm"), tax = num("in-tax");
+
+    var u = mode === "profit"
+      ? profitAtPrice(num("in-price"), cost, delivery, comm, tax, pack)
+      : priceForProfit(num("in-want"), cost, delivery, comm, tax, pack);
+
+    if (!u) {
+      el["out-val"].textContent = "Мүмкін емес";
+      el["out-val"].className = "val minus";
+      el["out-sub"].textContent = "Комиссия мен салық бағаны түгел алып қояды.";
+      ["r-price","r-cost","r-delivery","r-pack","r-comm","r-tax","r-profit"].forEach(function (id) {
+        el[id].textContent = "—";
+      });
+      el["out-warn"].hidden = false;
+      el["out-warn"].textContent = "Мұндай мөлшерлемелерде ешқандай бағамен сатуға болмайды: "
+        + "қанша қойсаңыз да, пайыздар оны түгел жеп қояды.";
+      return;
+    }
+
+    var main = mode === "profit" ? u.profit : u.price;
+    el["out-val"].textContent = fmt(main);
+    el["out-val"].className = "val " + (mode === "profit" ? (u.profit < 0 ? "minus" : "plus") : "");
+    el["out-sub"].textContent = mode === "profit"
+      ? "Маржа " + u.marginPct.toFixed(1) + " % бағадан"
+      : "Пайда " + fmt(u.profit) + " · маржа " + u.marginPct.toFixed(1) + " %";
+
+    el["r-price"].textContent = fmt(u.price);
+    el["r-cost"].textContent = "−" + fmt(u.cost);
+    el["r-delivery"].textContent = "−" + fmt(u.delivery);
+    el["r-pack"].textContent = "−" + fmt(u.packaging);
+    el["r-comm"].textContent = "−" + fmt(u.commission);
+    el["r-tax"].textContent = "−" + fmt(u.tax);
+    el["r-comm-label"].textContent = "Kaspi комиссиясы, " + comm + " %";
+    el["r-tax-label"].textContent = "Салық, " + tax + " %";
+    el["r-profit"].textContent = fmt(u.profit);
+
+    el["out-warn"].hidden = u.profit >= 0;
+    if (u.profit < 0) {
+      el["out-warn"].textContent = "Бұл бағада тауар шығынмен (убыток) сатылады: "
+        + "әр сатылымнан " + fmt(Math.abs(u.profit)) + ".";
+    }
+  }
+
+  el["mode-profit"].addEventListener("click", function () { setMode("profit"); });
+  el["mode-price"].addEventListener("click", function () { setMode("price"); });
+  Array.prototype.forEach.call(document.querySelectorAll(".fields input"), function (i) {
+    i.addEventListener("input", calc);
+  });
+
+  calc();
+})();
+</script>
+
+</body>
+</html>

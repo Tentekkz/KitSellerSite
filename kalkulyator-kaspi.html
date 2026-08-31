@@ -3,8 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Калькулятор прибыли продавца Kaspi — KitSeller</title>
 <link rel="canonical" href="https://kitseller.kz/kalkulyator-kaspi.html">
+<link rel="alternate" hreflang="ru" href="https://kitseller.kz/kalkulyator-kaspi.html">
+<link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/kalkulyator-kaspi.html">
+<link rel="alternate" hreflang="x-default" href="https://kitseller.kz/kalkulyator-kaspi.html">
 <meta name="description" content="Бесплатный расчёт без регистрации: сколько останется с продажи на Kaspi после комиссии, доставки и налога — и какую цену поставить, чтобы получить нужную прибыль.">
 
 <meta property="og:type" content="website">
@@ -21,7 +27,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/src/article.css">
 <style>
   .calc{
@@ -34,7 +40,7 @@
   .modes{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:10px}
   .modes button{
     flex:1;border:0;background:transparent;cursor:pointer;
-    font:600 13.5px/1 'Golos Text',sans-serif;color:var(--muted);
+    font:600 13.5px/1 'Onest','Inter',sans-serif;color:var(--muted);
     padding:10px 8px;border-radius:7px;
   }
   .modes button[aria-pressed="true"]{background:var(--card);color:var(--text);box-shadow:0 1px 2px rgba(22,32,46,0.08)}
@@ -46,7 +52,7 @@
   .field input{
     width:100%;height:44px;padding:0 40px 0 13px;
     border:1px solid var(--border-strong);border-radius:10px;background:var(--card);
-    font:600 16px/1 'Golos Text',sans-serif;color:var(--text);
+    font:600 16px/1 'Onest','Inter',sans-serif;color:var(--text);
     font-variant-numeric:tabular-nums;
   }
   .field input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
@@ -56,7 +62,7 @@
   .out-main{display:flex;flex-direction:column;gap:4px;padding-bottom:14px;border-bottom:1px solid var(--border)}
   .out-main .cap{font-size:13.5px;color:var(--muted)}
   .out-main .val{
-    font:800 34px/1.1 'Manrope',sans-serif;letter-spacing:-0.03em;
+    font:800 34px/1.1 'Onest','Inter',sans-serif;letter-spacing:-0.03em;
     font-variant-numeric:tabular-nums;
   }
   .val.minus{color:#b3261e}
@@ -160,7 +166,11 @@
     <a href="/#pricing" style="color:var(--muted)">Тарифы</a>
     <a href="/#start" style="color:var(--muted)">Как начать</a>
   </nav>
-  <div style="display:flex;gap:10px;flex:none">
+  <div style="display:flex;align-items:center;gap:10px;flex:none">
+    <div class="lang-switcher" aria-label="Тілді таңдау / Выбор языка">
+      <a href="/kalkulyator-kaspi.html" class="lang-btn active">RU</a>
+      <a href="/kz/kalkulyator-kaspi.html" class="lang-btn">KZ</a>
+    </div>
     <a href="https://app.kitseller.kz/web" class="btn btn-ghost" style="height:40px">Войти в кабинет</a>
     <a href="https://t.me/KitSeller_bot" class="btn btn-primary" style="height:40px">Telegram</a>
   </div>
@@ -341,11 +351,17 @@
       <img src="/logo-light.png" alt="KitSeller" style="height:30px;width:auto;display:block;margin-bottom:12px">
       <p style="font-size:13.5px;color:var(--muted);max-width:280px;margin:0">Рабочее место продавца Kaspi: накладные, настоящая прибыль и авто-репрайсер.</p>
     </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:13.5px">
-      <a href="https://t.me/KitSeller_bot?start=help">Поддержка</a>·
-      <a href="https://kitseller.kz/offer.html">Оферта</a>·
-      <a href="https://kitseller.kz/privacy.html">Конфиденциальность</a>·
-      <a href="https://app.kitseller.kz/web">Войти</a>
+    <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end">
+      <div class="lang-switcher" aria-label="Тілді таңдау / Выбор языка">
+        <a href="/kalkulyator-kaspi.html" class="lang-btn active">RU</a>
+        <a href="/kz/kalkulyator-kaspi.html" class="lang-btn">KZ</a>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:13.5px">
+        <a href="https://t.me/KitSeller_bot?start=help">Поддержка</a>·
+        <a href="https://kitseller.kz/offer.html">Оферта</a>·
+        <a href="https://kitseller.kz/privacy.html">Конфиденциальность</a>·
+        <a href="https://app.kitseller.kz/web">Войти</a>
+      </div>
     </div>
   </div>
   <div style="border-top:1px solid var(--border);padding-top:20px;font-size:12.5px;color:var(--text-light)">KitSeller — для продавцов Kaspi.kz · ИП Path of Peaks</div>

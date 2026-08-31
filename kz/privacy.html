@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>Құпиялылық саясаты — KitSeller</title>
+  <meta name="description" content="KitSeller сервисінің құпиялылық саясаты. 2026 жылғы 13 тамыздағы редакция. «Path of Peaks» ЖК.">
+  <meta name="robots" content="index, follow">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Құпиялылық саясаты — KitSeller">
+  <meta property="og:description" content="KitSeller сервисінің құпиялылық саясаты. 2026 жылғы 13 тамыздағы редакция.">
+  <meta property="og:image" content="https://kitseller.kz/og-preview.png">
+  <link rel="canonical" href="https://kitseller.kz/kz/privacy.html">
+  <link rel="alternate" hreflang="ru" href="https://kitseller.kz/privacy.html">
+  <link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/privacy.html">
+  <link rel="alternate" hreflang="x-default" href="https://kitseller.kz/privacy.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Onest:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    (function () {
+      var saved = localStorage.getItem('kitseller-theme') || localStorage.getItem('ks_portal_theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <style>
+    :root {
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --card-border: #e2e8f0;
+      --card-shadow: 0 10px 30px rgba(15, 23, 42, 0.06), 0 2px 8px rgba(15, 23, 42, 0.04);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #4f46e5;
+      --accent-hover: #4338ca;
+      --rule: #e2e8f0;
+      --chip-bg: rgba(79, 70, 229, 0.08);
+      --btn-bg: #f1f5f9;
+      --btn-hover: #e2e8f0;
+    }
+
+    html[data-theme="dark"] {
+      --bg-page: #0b0f19;
+      --bg-card: #111827;
+      --card-border: rgba(255, 255, 255, 0.1);
+      --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --rule: rgba(255, 255, 255, 0.08);
+      --chip-bg: rgba(99, 102, 241, 0.15);
+      --btn-bg: rgba(255, 255, 255, 0.06);
+      --btn-hover: rgba(255, 255, 255, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px 16px 64px;
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-family: 'Onest', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { max-width: 800px; margin: 0 auto; }
+
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      height: 28px;
+      width: auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: var(--btn-bg);
+      transition: all 0.2s;
+    }
+    .back-link:hover {
+      color: var(--text-main);
+      background: var(--btn-hover);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 38px;
+      padding: 0 14px;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .action-btn:hover {
+      background: var(--btn-hover);
+      border-color: var(--text-muted);
+    }
+
+    .theme-toggle-btn {
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--card-border);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+    .theme-toggle-btn:hover {
+      color: var(--text-main);
+      background: var(--btn-hover);
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      display: inline-flex;
+      align-self: flex-start;
+      align-items: center;
+      width: fit-content;
+      max-width: max-content;
+      background: var(--btn-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 3px;
+      gap: 2px;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      box-sizing: border-box;
+    }
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 34px;
+      height: 28px;
+      padding: 0 6px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      text-decoration: none !important;
+      transition: all 0.15s ease;
+      line-height: 1;
+    }
+    .lang-btn:hover {
+      color: var(--text-main);
+    }
+    .lang-btn.active {
+      background: var(--bg-card);
+      color: var(--text-main);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      box-shadow: var(--card-shadow);
+      padding: 40px 36px 48px;
+    }
+
+    .doc-header {
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-family: 'Onest', 'Inter', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .header-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .meta-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      color: var(--accent);
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin: 32px 0 12px;
+      font-family: 'Onest', 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+    }
+    h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+    p { margin: 0 0 14px; }
+
+    ul { margin: 0 0 16px; padding-left: 0; list-style: none; }
+
+    li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 8px;
+    }
+
+    li::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    strong { font-weight: 600; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .foot {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .foot a { font-weight: 600; }
+
+    @media (max-width: 640px) {
+      body { padding: 16px 12px 48px; font-size: 14.5px; }
+      .card { padding: 24px 18px 32px; border-radius: 16px; }
+      h1 { font-size: 22px; }
+      .top-nav { flex-direction: column; align-items: stretch; }
+      .nav-left, .nav-actions { justify-content: space-between; }
+    }
+
+    @media print {
+      body { background: #fff; color: #000; padding: 0; }
+      .top-nav, .theme-toggle-btn, .foot { display: none !important; }
+      .card { border: none; box-shadow: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top-nav">
+      <div class="nav-left">
+        <a class="brand" href="/kz/">
+          <img src="/logo-light.png" alt="KitSeller" class="brand-logo">
+        </a>
+        <a href="/kz/" class="back-link">&larr; Басты бетке</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-switcher" aria-label="Тілді таңдау / Выбор языка">
+          <a href="/privacy.html" class="lang-btn">RU</a>
+          <a href="/kz/privacy.html" class="lang-btn active">KZ</a>
+        </div>
+        <a href="https://t.me/KitSeller_bot" target="_blank" rel="noopener" class="action-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.66-2.89 8.01-3.45 3.81-1.59 4.6-.1.01.05z"/></svg>
+          <span>Telegram-бот</span>
+        </a>
+        <button class="theme-toggle-btn" id="theme-toggle" type="button" title="Тақырыпты ауыстыру">🌙</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="doc-header">
+        <h1>KitSeller құпиялылық саясаты</h1>
+        <div class="header-meta-row">
+          <div class="meta-tag">2026 жылғы 13 тамыздағы редакция</div>
+        </div>
+      </div>
+
+      <h2>1. Бұл құжат не туралы</h2>
+      <p>KitSeller — Kaspi сатушыларына арналған сервис: Telegram-дағы бот және сайттағы жеке кабинет. Сервис операторы — <strong>«Path of Peaks» ЖК</strong>, Қазақстан Республикасы.</p>
+      <p>Құжат сервистің қандай деректерді алатынын, олар не үшін қажет екенін, қанша уақыт сақталатынын және оларды қалай жоюға болатынын сипаттайды.</p>
+      <p>2026 жылғы 13 тамыздағы редакция.</p>
+
+      <h2>2. Сатушының деректері мен сатып алушылардың деректері — екі бөлек нәрсе</h2>
+      <p>Сервис арқылы екі түрлі деректер өтеді және оларға деген көзқарас та әртүрлі.</p>
+      <ul>
+        <li><strong>Сатушының деректері</strong> — сервисті пайдаланушының деректері. Мұнда «Path of Peaks» ЖК оператор болып табылады, ал өңдеу негізі — сатушының алғашқы кіру кезінде беретін келісімі.</li>
+        <li><strong>Сатушының сатып алушыларының деректері</strong> — оның Kaspi-дегі дүкенінен алынған есімдер, телефон нөмірлері және жеткізу мекенжайлары. Бұл деректердің операторы сатушының өзі болып қалады: олар оның дүкені арқылы жиналған және сатып алушымен қарым-қатынасына тиесілі. Сервис оларды тек сатушыға өз тапсырыстарын көрсету үшін ғана тапсырма бойынша өңдейді.</li>
+      </ul>
+
+      <h2>3. Сатушының қандай деректері өңделеді</h2>
+      <ul>
+        <li>Telegram ID, есімі және username — пайдаланушыны тану және оған жазу үшін</li>
+        <li>Интерфейстің таңдалған тілі және бөлімдердің баптаулары</li>
+        <li>Тариф, жазылымның басталу және аяқталу күндері, сынақ мерзімі белгісі</li>
+        <li>Төлемдер туралы мәліметтер: сомасы, күні, шот нөмірі, төлем мәртебесі</li>
+        <li>Сайттағы жеке кабинеттің құпиясөзі — шифрланған түрде, оны оқу мүмкін емес</li>
+        <li>Сервистегі әрекеттер журналы: қандай бөлімдер қашан пайдаланылды</li>
+      </ul>
+
+      <h2>4. Kaspi кабинетіне қолжетімділік</h2>
+      <p>Мүмкіндіктердің бір бөлігі — бағалармен, қалдықтармен, тапсырыстармен және пікірлермен жұмыс — Kaspi сатушы кабинетіне кіруді талап етеді. Сатушы оны өзі қосады және сол кезде сервис мыналарды сақтайды:</p>
+      <ul>
+        <li>сатушы өз кабинетінде жасайтын Kaspi Shop API токені</li>
+        <li>Kaspi кабинетінің логині мен құпиясөзі — егер сатушы құпиясөзбен кіруді таңдаса</li>
+        <li>Kaspi-мен жұмыс сессиясының қызметтік cookie файлдары</li>
+      </ul>
+      <p>Аталған деректердің барлығы шифрланған түрде сақталады және тек осы сатушының атынан Kaspi-ге сұрау салу үшін пайдаланылады.</p>
+      <p>Қолжетімділікті кез келген уақытта «Кабинетті өшіру» батырмасы арқылы ажыратуға болады — бұл кезде кілттер мен cookie файлдары бірден жойылады.</p>
+
+      <h2>5. Сатып алушылардың деректері</h2>
+      <p>Kaspi кабинетінен сервис сатушының тапсырыстарын алады. Оларға сатып алушының есімі, тапсырыс нөмірі, құрамы мен сомасы, жеткізу мекенжайы немесе беру пункті кіреді.</p>
+      <p>Бұл мәліметтер тек сатушыға өз тапсырыстарын көрсету, мерзімдерді ескерту және сатылым статистикасын жинау үшін ғана қолданылады. Олар басқа сатушыларға берілмейді, жарнамада қолданылмайды және сатылмайды.</p>
+      <p>Сервис сатып алушылардың дүкенмен хат алмасуын жүргізбейді және сақтамайды: сатушы Kaspi кабинетінде сатып алушыға өзі жауап береді.</p>
+      <p>Өз сатып алушыларының деректерін жинаудың заңдылығына Kaspi дүкенінің иесі ретінде сатушы жауап береді.</p>
+
+      <h2>6. Сатушы жүктейтін файлдар</h2>
+      <p>Kaspi-ден жүктелген есептер мен жүкқұжаттар (ZIP, XLSX, PDF) сервердің жедел жадында өңделеді және файл ретінде сақталмайды. Дерекқорда тек өңдеу нәтижесі — сомалар, тапсырыстар саны, тауарлардың өзіндік құны қалады, яғни есептер құралатын мәліметтер сақталады.</p>
+
+      <h2>7. Бұл не үшін қажет</h2>
+      <ul>
+        <li>сервистің төленген мүмкіндіктерін қамтамасыз ету</li>
+        <li>қолжетімділікті және жазылымды ұзартуды басқару</li>
+        <li>тапсырыстар, пікірлер және жазылымның аяқталуы туралы хабарламалар жіберу</li>
+        <li>қолдау қызметіне түскен өтініштерге жауап беру</li>
+        <li>жүйеге түсетін жүктемені есептеу және қателіктерді табу</li>
+      </ul>
+
+      <h2>8. Деректер кімге қолжетімді</h2>
+      <p>Сервис деректерді коммерциялық мақсатта үшінші тұлғаларға сатпайды және бермейді. Деректер сервис жұмыс істей алмайтын инфрақұрылым арқылы өтеді: Telegram — хабарламаларды жеткізу; Kaspi — дүкен деректерінің көзі; хостинг-провайдер — сервис және оның дерекқоры орналасқан сервер.</p>
+      <p>Деректер Қазақстан Республикасының заңнамасы талап еткен жағдайда мемлекеттік органдарға берілуі мүмкін.</p>
+
+      <h2>9. Қанша уақыт сақталады және қалай жойылады</h2>
+      <p>Деректер сатушы сервисті пайдаланып жүрген уақытта сақталады.</p>
+      <p>Оларды жеке кабинеттегі «Қауіпті аймақ» бөлімінде өзіңіз жоя аласыз. Жою баптауларды, Kaspi-ге кіру кілттерін, тауарларды, тапсырыстарды, есептер тарихын және жазылымды толық өшіреді.</p>
+      <p>Жойылғаннан кейін төлемдер туралы мәліметтер — сомасы, күні, шот нөмірі — және осы құжаттарды қабылдау туралы белгі (күні мен редакциясы) сақталады. Біріншісі бухгалтерлік және салықтық есепке қажет, екіншісі шарттың жасалғанын растайды. Оларды сақтаудан бас тартуға болмайды.</p>
+      <p>Жою туралы өтінішті <a href="mailto:ergazin013@gmail.com">ergazin013@gmail.com</a> поштасына да жіберуге болады.</p>
+
+      <h2>10. Деректер қалай қорғалған</h2>
+      <ul>
+        <li>Құпиясөздер мен Kaspi кіру кілттері шифрланған күйде сақталады</li>
+        <li>Жеке кабинеттің құпиясөзі қауіпсіз хэш түрінде сақталады</li>
+        <li>Сайтпен байланыс сертификатпен (HTTPS) қорғалған</li>
+        <li>Кабинетке кіру — бір реттік QR-код немесе құпиясөз арқылы, сессия уақыты шектелген</li>
+      </ul>
+      <p>Ешбір сервис 100% кепілдік бермейді, бірақ жоғарыда аталған шаралар деректердің таралып кетуінің ең ықтимал жолдарын жабады.</p>
+
+      <h2>11. Сатушының құқықтары</h2>
+      <p>Сатушы өзінің қандай деректері өңделіп жатқанын білуге, оларды түзетуді немесе жоюды талап етуге және келісімін кері қайтарып алуға құқылы. Келісімді кері қайтарып алу сервисті пайдалануды тоқтатуды білдіреді: деректерсіз ол жұмыс істей алмайды.</p>
+
+      <h2>12. Өзгерістер</h2>
+      <p>Жаңа редакция осы бетте және ботта жарияланады. Егер өзгерістер маңызды болса, сервис келісімді қайта растауды сұрайды.</p>
+
+      <h2>13. Байланыс</h2>
+      <p><strong>«Path of Peaks» ЖК</strong>, Қазақстан Республикасы</p>
+      <p>Пошта: <a href="mailto:ergazin013@gmail.com">ergazin013@gmail.com</a> · Telegram: <a href="https://t.me/peaks_kz" target="_blank" rel="noopener">@peaks_kz</a></p>
+
+      <div class="foot">
+        <div>
+          Ілеспе құжат: <a href="/kz/offer.html">Оферта шарты</a>
+        </div>
+        <div>
+          Сұрақтар мен қолдау: <a href="mailto:ergazin013@gmail.com">ergazin013@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('theme-toggle');
+      function paint() {
+        var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (btn) btn.textContent = dark ? '☀️' : '🌙';
+      }
+      if (btn) {
+        btn.addEventListener('click', function () {
+          var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('kitseller-theme', next);
+          localStorage.setItem('ks_portal_theme', next);
+          paint();
+        });
+      }
+      paint();
+    })();
+  </script>
+</body>
+</html>
