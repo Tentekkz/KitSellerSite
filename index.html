@@ -394,11 +394,15 @@ a {
 }
 
 .hero-h1 {
-  font-size: clamp(32px, 4.4vw, 54px);
+  font-size: clamp(28px, 3.6vw, 48px);
   letter-spacing: -0.04em;
-  line-height: 1.15;
-  max-width: 980px;
+  line-height: 1.2;
+  max-width: 1120px;
   margin: 0 auto 20px;
+}
+
+.hero-line {
+  display: block;
 }
 
 .hero-h1 .highlight {
@@ -1632,8 +1636,8 @@ a {
 <section class="hero">
   <div class="container">
     <h1 class="hero-h1">
-      Операционная система для Kaspi магазина,<br>
-      <span class="highlight">в которой виден каждый тенге прибыли</span>
+      <span class="hero-line">Операционная система для Kaspi магазина,</span>
+      <span class="hero-line highlight">в которой виден каждый тенге прибыли</span>
     </h1>
 
     <p class="hero-sub">
@@ -1852,12 +1856,12 @@ a {
         <span class="vs-badge-old">Как продают на рынке</span>
         <h2 class="vs-title">Куча разрозненных сервисов</h2>
         <ul class="vs-list">
-          <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Отдельный сервис репрайсера: ~15 000 ₸/мес</li>
+          <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Отдельный сервис репрайсера: ~12 000 ₸/мес</li>
           <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Отдельный складской сервис: ~15 000 ₸/мес</li>
-          <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Отдельный сервис аналитики: ~15 000 ₸/мес</li>
-          <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Доплата за наклейки или резка бумаги ножницами</li>
+          <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Сервис отчетов денег и выписок Kaspi: ~18 000 ₸/мес</li>
+          <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Модуль пакетной печати наклеек: ~5 000 ₸/мес</li>
         </ul>
-        <div class="vs-price-old">45 000+ ₸ в месяц</div>
+        <div class="vs-price-old">50 000 ₸ в месяц</div>
         <p style="font-size:12px;color:#94a3b8;margin-top:6px;">Слишком дорого для малого и растущего магазина</p>
       </div>
 
@@ -1869,11 +1873,11 @@ a {
           <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Аудит списаний Kaspi</b>: контроль переплат за доставку</li>
           <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Репрайсер с Турбо-режимом</b> (быстрый перехват 1 места)</li>
           <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Домашний склад</b> (ячейки, сверка остатков с Kaspi)</li>
-          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Печать в 1 клик</b>: термоэтикетки и бумага А4</li>
-          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Витрина и предзаказы</b> + быстрый импорт карточек</li>
+          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Печать в 1 клик</b>: термоэтикетки и бумага А4 прямо со смартфона</li>
+          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Kaspi Предзаказ</b> + быстрый импорт карточек</li>
         </ul>
         <div class="vs-price-new">9 990 ₸ / месяц</div>
-        <p style="font-size:12px;color:#86efac;margin-top:6px;">Даем небольшим продавцам возможности миллионных магазинов</p>
+        <p style="font-size:12px;color:#86efac;margin-top:6px;">Экономия до 480 000 ₸ в год при возможностях крупных магазинов</p>
       </div>
     </div>
   </div>
@@ -2267,8 +2271,8 @@ a {
       <div class="auto-item">
         <span class="auto-pulse"></span>
         <div>
-          <div class="auto-name">Мониторинг позиций карточки в поиске</div>
-          <div class="auto-cadence">Каждые 30 минут • Отслеживание видимости товара в категориях Kaspi и алерт при проседании позиций</div>
+          <div class="auto-name">Контроль и напоминания по предзаказам</div>
+          <div class="auto-cadence">Каждые 30 минут • Отслеживание заказов со статусом «Предзаказ»: уведомление в Telegram, сколько дней осталось до поставки и отгрузки клиенту</div>
         </div>
       </div>
 
@@ -2347,14 +2351,14 @@ a {
         </div>
 
         <ul class="p-features">
-          <li><i data-lucide="check"></i> <b>Всё из тарифа Стандарт</b></li>
-          <li><i data-lucide="check"></i> <b>Детальный P&L и Unit-экономика по каждому SKU</b></li>
-          <li><i data-lucide="check"></i> <b>Аудит списаний Kaspi (контроль переплат за доставку)</b></li>
-          <li><i data-lucide="check"></i> <b>Авто-репрайсер (Обычный + Турбо-режим)</b></li>
-          <li><i data-lucide="check"></i> <b>Склад дома/в гараже с автосверкой остатков Kaspi</b></li>
-          <li><i data-lucide="check"></i> <b>Витрина товаров и сбор предзаказов</b></li>
-          <li><i data-lucide="check"></i> Быстрый импорт карточек с WB, Uzum, Flip, Technodom</li>
-          <li><i data-lucide="check"></i> 33 фоновых автопилота 24/7</li>
+          <li><i data-lucide="check"></i> <b>Всё из тарифа Стандарт</b> (печать накладных термо/А4, Telegram-бот)</li>
+          <li><i data-lucide="check"></i> <b>Турбо-репрайсер цен</b> (мгновенный перехват 1-го места и борьба с демпингом)</li>
+          <li><i data-lucide="check"></i> <b>Умный склад дома/в гараже</b> (адресное хранение, ячейки, автосверка остатков)</li>
+          <li><i data-lucide="check"></i> <b>Управление предзаказами (Kaspi Предзаказ)</b></li>
+          <li><i data-lucide="check"></i> <b>Отдельный Excel Pro: глубокая аналитика</b> (отчеты по деньгам, выпискам и чистой прибыли)</li>
+          <li><i data-lucide="check"></i> <b>Реальный P&L и Unit-экономика</b> (разбор каждого тенге прибыли и налога 3%)</li>
+          <li><i data-lucide="check"></i> <b>Аудит списаний Kaspi</b> (контроль переплат за доставку и габариты)</li>
+          <li><i data-lucide="check"></i> <b>Быстрый импорт карточек</b> с WB, Uzum, Flip, Technodom</li>
         </ul>
 
         <a href="https://t.me/KitSeller_bot?start=pro" class="btn-plan primary" target="_blank" rel="noopener">
@@ -2463,7 +2467,7 @@ a {
         </summary>
         <div class="faq-a">
           <b>Тариф «Стандарт» (990 ₸/мес, 7 дней теста)</b> — решение для быстрой пакетной печати накладных (на термоэтикетках и обычной бумаге формата А4), разбора выписок и базовых заказов через Telegram-бота.<br><br>
-          <b>Тариф «Про+» (9 990 ₸/мес, 3 дня теста)</b> — полноценная операционная система селлера: реальный P&L и Unit-экономика по выписке Kaspi Pay, аудит переплат за доставку Kaspi, турбо-репрайсер цен, домашний ячеистый склад с автосверкой остатков Kaspi, витрина с предзаказами, импорт карточек в 1 клик и 33 фоновых автопилота 24/7.
+          <b>Тариф «Про+» (9 990 ₸/мес, 3 дня теста)</b> — полноценная операционная система селлера: турбо-репрайсер цен, домашний ячеистый склад с автосверкой остатков Kaspi, контроль предзаказов, отдельная Excel Pro-аналитика отчетов денег и выписок, реальный P&L и Unit-экономика по Kaspi Pay, аудит переплат за доставку и импорт карточек в 1 клик.
         </div>
       </details>
 

@@ -394,11 +394,15 @@ a {
 }
 
 .hero-h1 {
-  font-size: clamp(32px, 4.4vw, 54px);
+  font-size: clamp(28px, 3.6vw, 48px);
   letter-spacing: -0.04em;
-  line-height: 1.15;
-  max-width: 980px;
+  line-height: 1.2;
+  max-width: 1120px;
   margin: 0 auto 20px;
+}
+
+.hero-line {
+  display: block;
 }
 
 .hero-h1 .highlight {
@@ -1614,9 +1618,9 @@ a {
     </nav>
     
     <div class="header-actions">
-      <div class="lang-switch" aria-label="Выбор языка">
-        <a href="/" class="lang-link active">RU</a>
-        <a href="/kz/" class="lang-link">KZ</a>
+      <div class="lang-switch" aria-label="Тілді таңдау">
+        <a href="/" class="lang-link">RU</a>
+        <a href="/kz/" class="lang-link active">KZ</a>
       </div>
       <a href="https://app.kitseller.kz/web" class="btn-qr-login">
         <i data-lucide="qr-code" style="width:14px;height:14px;"></i>QR арқылы кіру
@@ -1632,8 +1636,8 @@ a {
 <section class="hero">
   <div class="container">
     <h1 class="hero-h1">
-      Kaspi дүкеніне арналған операциялық жүйе,<br>
-      <span class="highlight">онда пайданың әрбір теңгесі анық көрінеді</span>
+      <span class="hero-line">Kaspi дүкеніне арналған операциялық жүйе,</span>
+      <span class="hero-line highlight">онда пайданың әрбір теңгесі анық көрінеді</span>
     </h1>
 
     <p class="hero-sub">
@@ -1852,28 +1856,28 @@ a {
         <span class="vs-badge-old">Нарықта қалай сатады</span>
         <h2 class="vs-title">Бөлек-бөлек сервистер</h2>
         <ul class="vs-list">
-          <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Бөлек репрайсер сервисі: ~15 000 ₸/ай</li>
+          <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Бөлек репрайсер сервисі: ~12 000 ₸/ай</li>
           <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Бөлек қойма сервисі: ~15 000 ₸/ай</li>
-          <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Бөлек аналитика сервисі: ~15 000 ₸/ай</li>
-          <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Наклейка үшін қосымша төлем немесе қайшымен қию</li>
+          <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Ақша мен Kaspi түсімдерінің есеп сервисі: ~18 000 ₸/ай</li>
+          <li><i data-lucide="x-circle" style="color:#f87171;width:18px;height:18px;"></i> Жапсырмаларды басып шығару модульі: ~5 000 ₸/ай</li>
         </ul>
-        <div class="vs-price-old">45 000+ ₸ ай сайын</div>
+        <div class="vs-price-old">50 000 ₸ ай сайын</div>
         <p style="font-size:12px;color:#94a3b8;margin-top:6px;">Шағын және өсіп келе жатқан дүкен үшін тым қымбат</p>
       </div>
 
       <div class="vs-col-new">
-        <span class="vs-badge-new">Подход KitSeller Про+</span>
-        <h2 class="vs-title">Всё включено в одном окне</h2>
+        <span class="vs-badge-new">KitSeller Про+ тәсілі</span>
+        <h2 class="vs-title">Барлығы бір терезеде</h2>
         <ul class="vs-list">
-          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> Настоящий P&L и Unit-экономика по Kaspi Pay</li>
-          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Аудит списаний Kaspi</b>: контроль переплат за доставку</li>
-          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Репрайсер с Турбо-режимом</b> (быстрый перехват 1 места)</li>
-          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Домашний склад</b> (ячейки, сверка остатков с Kaspi)</li>
-          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Печать в 1 клик</b>: термоэтикетки и бумага А4</li>
-          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Витрина и предзаказы</b> + быстрый импорт карточек</li>
+          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> Kaspi Pay бойынша нақты P&L және Unit-экономика</li>
+          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Kaspi ұсталымдарының аудиті</b>: жеткізу үшін артық төлемді бақылау</li>
+          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Турбо-режимі бар репрайсер</b> (1-орынды жылдам басып алу)</li>
+          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Үй қоймасы</b> (ұяшықтар, Kaspi-мен қалдықтарды салыстыру)</li>
+          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>1 басумен басып шығару</b>: смартфоннан термоэтикеткалар және А4</li>
+          <li><i data-lucide="check-circle" style="color:#34d399;width:18px;height:18px;"></i> <b>Kaspi Предзаказ</b> + карточкаларды жылдам импорттау</li>
         </ul>
-        <div class="vs-price-new">9 990 ₸ / месяц</div>
-        <p style="font-size:12px;color:#86efac;margin-top:6px;">Даем небольшим продавцам возможности миллионных магазинов</p>
+        <div class="vs-price-new">9 990 ₸ / айына</div>
+        <p style="font-size:12px;color:#86efac;margin-top:6px;">Жылына 480 000 ₸ үнемдей отырып, ірі дүкендердің мүмкіндіктерін пайдаланыңыз</p>
       </div>
     </div>
   </div>
@@ -2267,8 +2271,8 @@ a {
       <div class="auto-item">
         <span class="auto-pulse"></span>
         <div>
-          <div class="auto-name">Тауар карточкасының іздеудегі орнын бақылау</div>
-          <div class="auto-cadence">Әрбір 30 минут сайын • Kaspi санаттарындағы тауардың көрінуін бақылау және орын төмендегенде ескерту</div>
+          <div class="auto-name">Алдын ала тапсырыстарды (Предзаказ) бақылау</div>
+          <div class="auto-cadence">Әрбір 30 минут сайын • «Алдын ала тапсырыс» мәртебесін бақылау: тауарды жеткізуге және жөнелтуге дейінгі мерзімді Telegram-да ескерту</div>
         </div>
       </div>
 
@@ -2314,47 +2318,47 @@ a {
         </div>
 
         <div class="p-trial-tag">
-          <i data-lucide="check" style="width:14px;height:14px;"></i> Бесплатный тест 7 дней
+          <i data-lucide="check" style="width:14px;height:14px;"></i> 7 күн тегін сынақ
         </div>
 
         <ul class="p-features">
-          <li><i data-lucide="check"></i> Пакетная печать накладных (термоэтикетки и бумага А4)</li>
-          <li><i data-lucide="check"></i> Базовая аналитика заказов</li>
-          <li><i data-lucide="check"></i> Разбор Excel-выписок Kaspi</li>
-          <li><i data-lucide="check"></i> Telegram-бот и вход по QR</li>
-          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i> Без репрайсера цен</li>
-          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i> Без домашнего склада</li>
+          <li><i data-lucide="check"></i> Жүкқұжаттарды топтамамен басып шығару (термоэтикеткалар және А4 қағазы)</li>
+          <li><i data-lucide="check"></i> Смартфоннан мобильді термопринтермен басып шығару</li>
+          <li><i data-lucide="check"></i> Kaspi Pay үзінді-көшірмелерін талдау және негізгі сату есебі</li>
+          <li><i data-lucide="check"></i> Telegram-бот және QR арқылы кіру</li>
+          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i> Баға репрайсерінсіз</li>
+          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i> Үй қоймасы мен предзаказсыз</li>
         </ul>
 
         <a href="https://t.me/KitSeller_bot?start=std" class="btn-plan secondary" target="_blank" rel="noopener">
-          Начать тест (7 дней бесплатно)
+          Сынақты бастау (7 күн тегін)
         </a>
       </div>
 
       <!-- Про+ (ХИТ) -->
       <div class="p-card featured">
-        <div class="p-ribbon">ХИТ • ВЫБОР 90% СЕЛЛЕРОВ</div>
+        <div class="p-ribbon">ХИТ • САТУШЫЛАРДЫҢ 90% ТАҢДАУЫ</div>
         <h3 class="p-name">Про+</h3>
-        <p class="p-desc">Полная операционная система Kaspi. Всё включено вместо 45 000 ₸ за разные сервисы.</p>
+        <p class="p-desc">Kaspi үшін толық операциялық жүйе. Бөлек сервистерге 50 000 ₸ төлеудің орнына барлығы бір жерде.</p>
         
         <div class="p-price-wrap">
           <span class="p-price" style="color:var(--accent);">9 990 ₸</span>
-          <span class="p-period">/ месяц</span>
+          <span class="p-period">/ айына</span>
         </div>
 
         <div class="p-trial-tag">
-          <i data-lucide="check" style="width:14px;height:14px;"></i> Бесплатный тест 3 дня
+          <i data-lucide="check" style="width:14px;height:14px;"></i> 3 күн тегін сынақ
         </div>
 
         <ul class="p-features">
-          <li><i data-lucide="check"></i> <b>Всё из тарифа Стандарт</b></li>
-          <li><i data-lucide="check"></i> <b>Детальный P&L и Unit-экономика по каждому SKU</b></li>
-          <li><i data-lucide="check"></i> <b>Аудит списаний Kaspi (контроль переплат за доставку)</b></li>
-          <li><i data-lucide="check"></i> <b>Авто-репрайсер (Обычный + Турбо-режим)</b></li>
-          <li><i data-lucide="check"></i> <b>Склад дома/в гараже с автосверкой остатков Kaspi</b></li>
-          <li><i data-lucide="check"></i> <b>Витрина товаров и сбор предзаказов</b></li>
-          <li><i data-lucide="check"></i> Быстрый импорт карточек с WB, Uzum, Flip, Technodom</li>
-          <li><i data-lucide="check"></i> 33 фоновых автопилота 24/7</li>
+          <li><i data-lucide="check"></i> <b>Стандарт тарифінің барлық мүмкіндіктері</b> (жүкқұжаттар, Telegram-бот, мобильді басып шығару)</li>
+          <li><i data-lucide="check"></i> <b>Бағаның Турбо-репрайсері</b> (демпингпен күрес және 1-орынды жылдам алу)</li>
+          <li><i data-lucide="check"></i> <b>Үйдегі/гараждағы ақылды қойма</b> (ұяшықты сақтау, Kaspi-мен қалдықтарды автоматты салыстыру)</li>
+          <li><i data-lucide="check"></i> <b>Kaspi Предзаказ</b> (алдын ала тапсырыстарды, мерзімдерді бақылау және ескертулер)</li>
+          <li><i data-lucide="check"></i> <b>Бөлек Excel Pro: терең аналитика</b> (ақша қозғалысы, төлемдер және таза пайда есептері)</li>
+          <li><i data-lucide="check"></i> <b>Нақты P&L және Unit-экономика</b> (әрбір теңгені және 3% салықты есептеу)</li>
+          <li><i data-lucide="check"></i> <b>Kaspi ұсталымдарының аудиті</b> (жеткізу үшін артық төлемдер мен габариттерді тексеру)</li>
+          <li><i data-lucide="check"></i> <b>Тауар карточкаларын жылдам импорттау</b> (WB, Uzum, Flip, Technodom)</li>
         </ul>
 
         <a href="https://t.me/KitSeller_bot?start=pro" class="btn-plan primary" target="_blank" rel="noopener">
@@ -2462,8 +2466,8 @@ a {
           <i data-lucide="chevron-down" class="faq-chevron"></i>
         </summary>
         <div class="faq-a">
-          <b>Тариф «Стандарт» (990 ₸/мес, 7 дней теста)</b> — решение для быстрой пакетной печати накладных (на термоэтикетках и обычной бумаге формата А4), разбора выписок и базовых заказов через Telegram-бота.<br><br>
-          <b>Тариф «Про+» (9 990 ₸/мес, 3 дня теста)</b> — полноценная операционная система селлера: реальный P&L и Unit-экономика по выписке Kaspi Pay, аудит переплат за доставку Kaspi, турбо-репрайсер цен, домашний ячеистый склад с автосверкой остатков Kaspi, витрина с предзаказами, импорт карточек в 1 клик и 33 фоновых автопилота 24/7.
+          <b>«Стандарт» тарифі (айына 990 ₸, 7 күн тегін)</b> — жүкқұжаттарды топтамамен жылдам басып шығару (термоэтикеткаларға және кәдімгі А4 қағазына), түсімдерді талдау және Telegram-бот арқылы негізгі тапсырыстарды басқару шешімі.<br><br>
+          <b>«Про+» тарифі (айына 9 990 ₸, 3 күн тегін)</b> — Kaspi сатушысының толыққанды операциялық жүйесі: Kaspi Pay үзінді-көшірмесі бойынша нақты P&L және Unit-экономика, жеткізу үшін артық төлемдер аудиті, бағаның турбо-репрайсері, үйдегі ұяшықты қойма, предзаказдарды басқару, карточкаларды 1 басумен импорттау және бөлек Excel Pro-аналитикасы.
         </div>
       </details>
 
