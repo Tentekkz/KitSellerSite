@@ -1,48 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Главная / Басты бет -->
   <url>
     <loc>https://kitseller.kz/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://kitseller.kz/offer.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://kitseller.kz/kz/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://kitseller.kz/privacy.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://kitseller.kz/nakladnye-kaspi.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kitseller.kz/repraiser-kaspi.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kitseller.kz/pribyl-kaspi-pay.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kitseller.kz/nkt-ntin-kaspi.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kitseller.kz/vozmozhnosti.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+
+  <!-- Калькулятор -->
   <url>
     <loc>https://kitseller.kz/kalkulyator-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/kalkulyator-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/kalkulyator-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/kalkulyator-kaspi.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/kalkulyator-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/kalkulyator-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/kalkulyator-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/kalkulyator-kaspi.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Возможности / Мүмкіндіктер -->
+  <url>
+    <loc>https://kitseller.kz/vozmozhnosti.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/vozmozhnosti.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/vozmozhnosti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/vozmozhnosti.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/vozmozhnosti.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/vozmozhnosti.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/vozmozhnosti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/vozmozhnosti.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Накладные / Жүкқұжаттар -->
+  <url>
+    <loc>https://kitseller.kz/nakladnye-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/nakladnye-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/nakladnye-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/nakladnye-kaspi.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/nakladnye-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/nakladnye-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/nakladnye-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/nakladnye-kaspi.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Репрайсер -->
+  <url>
+    <loc>https://kitseller.kz/repraiser-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/repraiser-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/repraiser-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/repraiser-kaspi.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/repraiser-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/repraiser-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/repraiser-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/repraiser-kaspi.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Прибыль Kaspi Pay / Kaspi Pay пайдасы -->
+  <url>
+    <loc>https://kitseller.kz/pribyl-kaspi-pay.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/pribyl-kaspi-pay.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/pribyl-kaspi-pay.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/pribyl-kaspi-pay.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/pribyl-kaspi-pay.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/pribyl-kaspi-pay.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/pribyl-kaspi-pay.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/pribyl-kaspi-pay.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- НКТ / NTIN -->
+  <url>
+    <loc>https://kitseller.kz/nkt-ntin-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/nkt-ntin-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/nkt-ntin-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/nkt-ntin-kaspi.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/nkt-ntin-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/nkt-ntin-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/nkt-ntin-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/nkt-ntin-kaspi.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Оферта -->
+  <url>
+    <loc>https://kitseller.kz/offer.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/offer.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/offer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/offer.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/offer.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/offer.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/offer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/offer.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Конфиденциальность -->
+  <url>
+    <loc>https://kitseller.kz/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/privacy.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/privacy.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
