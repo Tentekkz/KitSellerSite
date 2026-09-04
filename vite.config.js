@@ -22,7 +22,8 @@ export default defineConfig({
         kz_pribyl: resolve(__dirname, 'kz/pribyl-kaspi-pay.html'),
         kz_nkt: resolve(__dirname, 'kz/nkt-ntin-kaspi.html'),
         kz_vozmozhnosti: resolve(__dirname, 'kz/vozmozhnosti.html'),
-        kz_kalkulyator: resolve(__dirname, 'kz/kalkulyator-kaspi.html')
+        kz_kalkulyator: resolve(__dirname, 'kz/kalkulyator-kaspi.html'),
+        notfound: resolve(__dirname, '404.html')
       }
     }
   }
