@@ -1054,14 +1054,23 @@ a {
 
 .p-features li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   color: var(--text-body);
+  line-height: 1.45;
 }
 
-.p-features li i {
+.p-features li i,
+.p-features li svg {
   color: var(--profit);
   flex-shrink: 0;
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.p-features li span {
+  flex: 1;
 }
 
 .btn-plan {
@@ -2301,20 +2310,20 @@ a {
 <section class="pricing-sec" id="pricing">
   <div class="container">
     <div class="sec-head">
-      <div class="sec-tag">Честные тарифы</div>
-      <h2 class="sec-h2">Прозрачные цены без скрытых платежей</h2>
-      <p class="sec-desc">Выбирайте то, что нужно вашему бизнесу сегодня. Никаких доплат за каждый отдельный модуль.</p>
+      <div class="sec-tag">Әділ тарифтер</div>
+      <h2 class="sec-h2">Жасырын төлемсіз ашық бағалар</h2>
+      <p class="sec-desc">Бүгінгі таңда бизнесіңізге не қажет екенін таңдаңыз. Әрбір жеке модуль үшін артық төлем жоқ.</p>
     </div>
 
     <div class="pricing-grid">
       <!-- Стандарт -->
       <div class="p-card">
         <h3 class="p-name">Стандарт</h3>
-        <p class="p-desc">Идеально для тех, кому нужна быстрая печать накладных и базовый порядок в заказах.</p>
+        <p class="p-desc">Жүкқұжаттарды жылдам басып шығару және тапсырыстарда негізгі тәртіп қажет ететіндер үшін тамаша шешім.</p>
         
         <div class="p-price-wrap">
           <span class="p-price">990 ₸</span>
-          <span class="p-period">/ месяц</span>
+          <span class="p-period">/ айына</span>
         </div>
 
         <div class="p-trial-tag">
@@ -2322,12 +2331,12 @@ a {
         </div>
 
         <ul class="p-features">
-          <li><i data-lucide="check"></i> Жүкқұжаттарды топтамамен басып шығару (термоэтикеткалар және А4 қағазы)</li>
-          <li><i data-lucide="check"></i> Смартфоннан мобильді термопринтермен басып шығару</li>
-          <li><i data-lucide="check"></i> Kaspi Pay үзінді-көшірмелерін талдау және негізгі сату есебі</li>
-          <li><i data-lucide="check"></i> Telegram-бот және QR арқылы кіру</li>
-          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i> Баға репрайсерінсіз</li>
-          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i> Үй қоймасы мен предзаказсыз</li>
+          <li><i data-lucide="check"></i><span>Жүкқұжаттарды топтамамен басып шығару (термо және А4)</span></li>
+          <li><i data-lucide="check"></i><span>Смартфоннан мобильді термопринтермен басып шығару</span></li>
+          <li><i data-lucide="check"></i><span>Kaspi Pay үзінділерін талдау және негізгі сату есебі</span></li>
+          <li><i data-lucide="check"></i><span>Telegram-бот жедел хабарламалары мен QR-мен кіру</span></li>
+          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i><span>Баға репрайсері мен демпингпен күрессіз</span></li>
+          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i><span>Үй қоймасы мен предзаказсыз</span></li>
         </ul>
 
         <a href="https://t.me/KitSeller_bot?start=std" class="btn-plan secondary" target="_blank" rel="noopener">
@@ -2351,14 +2360,14 @@ a {
         </div>
 
         <ul class="p-features">
-          <li><i data-lucide="check"></i> <b>Стандарт тарифінің барлық мүмкіндіктері</b> (жүкқұжаттар, Telegram-бот, мобильді басып шығару)</li>
-          <li><i data-lucide="check"></i> <b>Бағаның Турбо-репрайсері</b> (демпингпен күрес және 1-орынды жылдам алу)</li>
-          <li><i data-lucide="check"></i> <b>Үйдегі/гараждағы ақылды қойма</b> (ұяшықты сақтау, Kaspi-мен қалдықтарды автоматты салыстыру)</li>
-          <li><i data-lucide="check"></i> <b>Kaspi Предзаказ</b> (алдын ала тапсырыстарды, мерзімдерді бақылау және ескертулер)</li>
-          <li><i data-lucide="check"></i> <b>Бөлек Excel Pro: терең аналитика</b> (ақша қозғалысы, төлемдер және таза пайда есептері)</li>
-          <li><i data-lucide="check"></i> <b>Нақты P&L және Unit-экономика</b> (әрбір теңгені және 3% салықты есептеу)</li>
-          <li><i data-lucide="check"></i> <b>Kaspi ұсталымдарының аудиті</b> (жеткізу үшін артық төлемдер мен габариттерді тексеру)</li>
-          <li><i data-lucide="check"></i> <b>Тауар карточкаларын жылдам импорттау</b> (WB, Uzum, Flip, Technodom)</li>
+          <li><i data-lucide="check"></i><span><b>Стандарт тарифінің барлығы</b> (жүкқұжаттар, бот)</span></li>
+          <li><i data-lucide="check"></i><span><b>Бағаның Турбо-репрайсері:</b> ТОП-1 орынды жылдам алу</span></li>
+          <li><i data-lucide="check"></i><span><b>Ақылды қойма:</b> ұяшықтар және Kaspi-мен қалдықтарды салыстыру</span></li>
+          <li><i data-lucide="check"></i><span><b>Kaspi Предзаказ:</b> мерзімдерді бақылау және ескертулер</span></li>
+          <li><i data-lucide="check"></i><span><b>Бөлек Excel Pro-аналитика:</b> ақша қозғалысы мен пайда есебі</span></li>
+          <li><i data-lucide="check"></i><span><b>Нақты P&L және Unit-экономика</b> әрбір тауар мен 3% салық бойынша</span></li>
+          <li><i data-lucide="check"></i><span><b>Kaspi ұсталымдарының аудиті:</b> логистика артық төлемдерін тексеру</span></li>
+          <li><i data-lucide="check"></i><span><b>Карточкаларды жылдам импорттау</b> (WB, Uzum, Flip)</span></li>
         </ul>
 
         <a href="https://t.me/KitSeller_bot?start=pro" class="btn-plan primary" target="_blank" rel="noopener">

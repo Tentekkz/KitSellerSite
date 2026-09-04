@@ -1054,14 +1054,23 @@ a {
 
 .p-features li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   color: var(--text-body);
+  line-height: 1.45;
 }
 
-.p-features li i {
+.p-features li i,
+.p-features li svg {
   color: var(--profit);
   flex-shrink: 0;
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.p-features li span {
+  flex: 1;
 }
 
 .btn-plan {
@@ -2322,12 +2331,12 @@ a {
         </div>
 
         <ul class="p-features">
-          <li><i data-lucide="check"></i> Пакетная печать накладных (термоэтикетки и бумага А4)</li>
-          <li><i data-lucide="check"></i> Базовая аналитика заказов</li>
-          <li><i data-lucide="check"></i> Разбор Excel-выписок Kaspi</li>
-          <li><i data-lucide="check"></i> Telegram-бот и вход по QR</li>
-          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i> Без репрайсера цен</li>
-          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i> Без домашнего склада</li>
+          <li><i data-lucide="check"></i><span>Пакетная печать накладных (термо 58×40 и А4)</span></li>
+          <li><i data-lucide="check"></i><span>Мобильная печать со смартфона из Telegram</span></li>
+          <li><i data-lucide="check"></i><span>Разбор выписок Kaspi Pay и базовая статистика</span></li>
+          <li><i data-lucide="check"></i><span>Telegram-бот с уведомлениями и вход по QR</span></li>
+          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i><span>Без репрайсера цен и демпинга</span></li>
+          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i><span>Без домашнего склада и предзаказов</span></li>
         </ul>
 
         <a href="https://t.me/KitSeller_bot?start=std" class="btn-plan secondary" target="_blank" rel="noopener">
@@ -2339,7 +2348,7 @@ a {
       <div class="p-card featured">
         <div class="p-ribbon">ХИТ • ВЫБОР 90% СЕЛЛЕРОВ</div>
         <h3 class="p-name">Про+</h3>
-        <p class="p-desc">Полная операционная система Kaspi. Всё включено вместо 45 000 ₸ за разные сервисы.</p>
+        <p class="p-desc">Полная операционная система Kaspi. Всё включено вместо 50 000 ₸ за разные сервисы.</p>
         
         <div class="p-price-wrap">
           <span class="p-price" style="color:var(--accent);">9 990 ₸</span>
@@ -2351,14 +2360,14 @@ a {
         </div>
 
         <ul class="p-features">
-          <li><i data-lucide="check"></i> <b>Всё из тарифа Стандарт</b> (печать накладных термо/А4, Telegram-бот)</li>
-          <li><i data-lucide="check"></i> <b>Турбо-репрайсер цен</b> (мгновенный перехват 1-го места и борьба с демпингом)</li>
-          <li><i data-lucide="check"></i> <b>Умный склад дома/в гараже</b> (адресное хранение, ячейки, автосверка остатков)</li>
-          <li><i data-lucide="check"></i> <b>Управление предзаказами (Kaspi Предзаказ)</b></li>
-          <li><i data-lucide="check"></i> <b>Отдельный Excel Pro: глубокая аналитика</b> (отчеты по деньгам, выпискам и чистой прибыли)</li>
-          <li><i data-lucide="check"></i> <b>Реальный P&L и Unit-экономика</b> (разбор каждого тенге прибыли и налога 3%)</li>
-          <li><i data-lucide="check"></i> <b>Аудит списаний Kaspi</b> (контроль переплат за доставку и габариты)</li>
-          <li><i data-lucide="check"></i> <b>Быстрый импорт карточек</b> с WB, Uzum, Flip, Technodom</li>
+          <li><i data-lucide="check"></i><span><b>Всё из тарифа Стандарт</b> (печать накладных, бот)</span></li>
+          <li><i data-lucide="check"></i><span><b>Турбо-репрайсер цен:</b> мгновенный перехват ТОП-1</span></li>
+          <li><i data-lucide="check"></i><span><b>Умный склад:</b> ячейки и автосверка остатков Kaspi</span></li>
+          <li><i data-lucide="check"></i><span><b>Kaspi Предзаказ:</b> контроль сроков и напоминания</span></li>
+          <li><i data-lucide="check"></i><span><b>Excel Pro-аналитика:</b> движение денег и чистая прибыль</span></li>
+          <li><i data-lucide="check"></i><span><b>Реальный P&L и Unit-экономика</b> по каждому SKU</span></li>
+          <li><i data-lucide="check"></i><span><b>Аудит списаний Kaspi:</b> контроль переплат логистики</span></li>
+          <li><i data-lucide="check"></i><span><b>Быстрый импорт карточек</b> с WB, Uzum, Flip</span></li>
         </ul>
 
         <a href="https://t.me/KitSeller_bot?start=pro" class="btn-plan primary" target="_blank" rel="noopener">
