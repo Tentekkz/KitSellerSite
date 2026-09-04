@@ -80,6 +80,49 @@
     border-radius:9px;padding:11px 13px;line-height:1.45;
   }
 
+  .calc-cta{
+    margin-top:auto;
+    padding:16px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .calc-cta-head{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13.5px;
+    font-weight:700;
+    color:var(--text);
+  }
+  .calc-cta-text{
+    font-size:12.5px;
+    line-height:1.45;
+    color:var(--muted);
+    margin:0;
+  }
+  .calc-cta-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    height:38px;
+    padding:0 14px;
+    background:var(--accent);
+    color:#fff;
+    font:600 13px/1 'Onest','Inter',sans-serif;
+    border-radius:8px;
+    text-decoration:none;
+    transition:all 0.2s ease;
+  }
+  .calc-cta-btn:hover{
+    opacity:0.92;
+    transform:translateY(-1px);
+  }
+
   @media (max-width:760px){
     .calc{grid-template-columns:1fr}
     .calc-in{border-right:0;border-bottom:1px solid var(--border)}
@@ -252,6 +295,18 @@
         </dl>
 
         <p class="warn" id="out-warn" hidden></p>
+
+        <div class="calc-cta">
+          <div class="calc-cta-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>Считать автоматически по Kaspi Pay</span>
+          </div>
+          <p class="calc-cta-text">KitSeller сам разбирает банковские выписки, вычитает комиссии, находит переплаты за доставку и считает чистую прибыль каждого заказа.</p>
+          <a href="https://t.me/KitSeller_bot" class="calc-cta-btn" target="_blank" rel="noopener">
+            <span>Подключить бота (7 дней бесплатно)</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
       </div>
     </div>
   </div>
