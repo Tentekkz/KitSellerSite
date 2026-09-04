@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>KitSeller — Kaspi сатушысының операциялық жүйесі және пайда аудиті</title>
+<title>KitSeller — Kaspi дүкеніне арналған операциялық жүйе және пайда аудиті</title>
 <meta name="yandex-verification" content="350d76afe8706e55" />
 <link rel="canonical" href="https://kitseller.kz/">
 <link rel="alternate" hreflang="ru" href="https://kitseller.kz/">
@@ -280,31 +280,43 @@ a {
 }
 
 .lang-switch {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  background: var(--surface-inner);
+  position: relative;
+  background: #f1f5f9;
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: 9999px;
   padding: 3px;
   font-size: 12px;
   font-weight: 700;
   height: 36px;
   box-sizing: border-box;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .lang-link {
-  padding: 4px 8px;
-  border-radius: 5px;
+  position: relative;
+  z-index: 2;
+  padding: 6px 14px;
+  border-radius: 9999px;
   color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 700;
   line-height: 1;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lang-link:hover {
+  color: var(--text-main);
 }
 
 .lang-link.active {
-  background: var(--surface);
-  color: var(--text-main);
-  box-shadow: var(--shadow-sm);
+  background: #ffffff;
+  color: var(--accent);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .btn-qr-login {
@@ -1620,8 +1632,8 @@ a {
 <section class="hero">
   <div class="container">
     <h1 class="hero-h1">
-      Kaspi сатушысының пайдасының<br>
-      <span class="highlight">әрбір теңгесі анық көрінетін жүйе</span>
+      Kaspi дүкеніне арналған операциялық жүйе,<br>
+      <span class="highlight">онда пайданың әрбір теңгесі анық көрінеді</span>
     </h1>
 
     <p class="hero-sub">
@@ -1722,24 +1734,19 @@ a {
               <div class="chart-title-line">
                 <div class="chart-title">
                   <i data-lucide="activity" style="width:15px;height:15px;color:var(--accent);"></i>
-                  Түсім мен таза пайда динамикасы
+                  Күндік айналым динамикасы
                 </div>
                 <div style="font-size:11px;color:var(--text-muted);display:flex;gap:12px;">
-                  <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#2563eb;margin-right:4px;"></span>Түсім</span>
-                  <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;margin-right:4px;"></span>Таза пайда</span>
+                  <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#2563eb;margin-right:4px;"></span>Күндік айналым</span>
                 </div>
               </div>
 
-              <!-- SVG Line Chart -->
+              <!-- SVG Line Chart: Single Line Daily Turnover -->
               <svg viewBox="0 0 600 150" style="width:100%;height:130px;overflow:visible;">
                 <defs>
                   <linearGradient id="bGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stop-color="#2563eb" stop-opacity="0.25"/>
                     <stop offset="100%" stop-color="#2563eb" stop-opacity="0.0"/>
-                  </linearGradient>
-                  <linearGradient id="gGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#10b981" stop-opacity="0.0"/>
                   </linearGradient>
                 </defs>
                 <line x1="0" y1="30" x2="600" y2="30" stroke="var(--border)" stroke-dasharray="3 3"/>
@@ -1748,9 +1755,6 @@ a {
                 
                 <path d="M0,120 Q50,60 100,75 T200,45 T300,85 T400,25 T500,55 T600,20 L600,140 L0,140 Z" fill="url(#bGrad)"/>
                 <path d="M0,120 Q50,60 100,75 T200,45 T300,85 T400,25 T500,55 T600,20" fill="none" stroke="#2563eb" stroke-width="2.5"/>
-                
-                <path d="M0,135 Q50,105 100,110 T200,90 T300,115 T400,80 T500,92 T600,70 L600,140 L0,140 Z" fill="url(#gGrad)"/>
-                <path d="M0,135 Q50,105 100,110 T200,90 T300,115 T400,80 T500,92 T600,70" fill="none" stroke="#10b981" stroke-width="2"/>
               </svg>
             </div>
 
@@ -2100,7 +2104,7 @@ a {
               </div>
               <div class="tg-msg-title">Тапсырыс №394812 • 44 990 ₸</div>
               <div class="tg-msg-text">
-                👤 <b>Сатып алушы:</b> Арман Қ. (+7 707 ••• •• 45)<br>
+                👤 <b>Сатып алушы:</b> Арман Қ.<br>
                 📦 <b>Тауар:</b> Автосканер ELM327 OBD2 (2 дана)<br>
                 📍 <b>Қойма ұяшығы:</b> А сөресі, 2-полка, 4-жәшік<br>
                 🚚 <b>Қайда:</b> Kaspi Постомат #318, Алматы қ.<br>
@@ -2200,8 +2204,8 @@ a {
       <div class="auto-item">
         <span class="auto-pulse"></span>
         <div>
-          <div class="auto-name">0 дана қалғанда авто-нөлдеу</div>
-          <div class="auto-cadence">Лезде на Kaspi • Защита от отмен и штрафов, если полка пуста</div>
+          <div class="auto-name">Таусылып бара жатқан тауарлар дабылы (Low Stock)</div>
+          <div class="auto-cadence">Әрбір 1 сағат сайын • Тауар бітіп қалмауы үшін жеткізушіден дер кезінде тапсырыс беру туралы ескерту</div>
         </div>
       </div>
 
@@ -2210,7 +2214,7 @@ a {
         <span class="auto-pulse"></span>
         <div>
           <div class="auto-name">Telegram-ға синхрондау</div>
-          <div class="auto-cadence">Әрбір 3 минут сайын • Мгновенные пуши со статусом, таймером и адресом</div>
+          <div class="auto-cadence">Әрбір 3 минут сайын • Мәртебесі, таймері мен қойма мекенжайы бар жедел хабарламалар</div>
         </div>
       </div>
 
@@ -2219,7 +2223,7 @@ a {
         <span class="auto-pulse"></span>
         <div>
           <div class="auto-name">Kaspi Postomat бақылауы</div>
-          <div class="auto-cadence">Әрбір 1 сағат сайын • Поиск застрявших и невостребованных посылок</div>
+          <div class="auto-cadence">Әрбір 1 сағат сайын • Алынбаған және кідірген сәлемдемелерді дер кезінде анықтау</div>
         </div>
       </div>
 
@@ -2228,7 +2232,7 @@ a {
         <span class="auto-pulse"></span>
         <div>
           <div class="auto-name">Таңертеңгі қойма салыстыруы</div>
-          <div class="auto-cadence">Күн сайын 08:30-да • Сверка ячеек на складе с остатками на Kaspi</div>
+          <div class="auto-cadence">Күн сайын 08:30-да • Қойма ұяшықтарын Kaspi витринасындағы қалдықтармен сәйкестендіру</div>
         </div>
       </div>
 
@@ -2237,7 +2241,7 @@ a {
         <span class="auto-pulse"></span>
         <div>
           <div class="auto-name">Кешкі таза пайда жиынтығы</div>
-          <div class="auto-cadence">Күн сайын 22:00-де • Точный итог чистыми, маржа и вычеты за день</div>
+          <div class="auto-cadence">Күн сайын 22:00-де • Нақты таза пайда, маржа және күн ішіндегі барлық ұсталымдар есебі</div>
         </div>
       </div>
 
@@ -2246,7 +2250,7 @@ a {
         <span class="auto-pulse"></span>
         <div>
           <div class="auto-name">Бәсекелестер демпингін бақылау</div>
-          <div class="auto-cadence">Нақты уақытта • Алерт в бот, если демпинг угрожает вашей марже</div>
+          <div class="auto-cadence">Нақты уақытта • Демпинг маржаңызға қауіп төндірсе, ботқа бірден дабыл жіберу</div>
         </div>
       </div>
 
@@ -2254,8 +2258,8 @@ a {
       <div class="auto-item">
         <span class="auto-pulse"></span>
         <div>
-          <div class="auto-name">Печать накладных: термоэтикетки и А4</div>
-          <div class="auto-cadence">1 басумен • Пакетная печать термоэтикеток и накладных на обычной бумаге А4</div>
+          <div class="auto-name">Тікелей Telegram-боттан басып шығару (термо және А4)</div>
+          <div class="auto-cadence">1 басумен • Смартфоннан басып шығаруға жіберу: портативті термопринтерді қосып, накладнойларды жолда немесе көлікте басып шығарыңыз</div>
         </div>
       </div>
 
@@ -2263,8 +2267,8 @@ a {
       <div class="auto-item">
         <span class="auto-pulse"></span>
         <div>
-          <div class="auto-name">Контроль таймеров отгрузки Kaspi</div>
-          <div class="auto-cadence">Непрерывно • Защита от срыва сроков передачи курьеру и падения рейтинга</div>
+          <div class="auto-name">Тауар карточкасының іздеудегі орнын бақылау</div>
+          <div class="auto-cadence">Әрбір 30 минут сайын • Kaspi санаттарындағы тауардың көрінуін бақылау және орын төмендегенде ескерту</div>
         </div>
       </div>
 
@@ -2272,8 +2276,8 @@ a {
       <div class="auto-item">
         <span class="auto-pulse"></span>
         <div>
-          <div class="auto-name">Автовозврат отмен в ячейки склада</div>
-          <div class="auto-cadence">Лезде при отмене • Возвращение невыкупленного товара на баланс полки</div>
+          <div class="auto-name">Kaspi Pay үзінді-көшірмелері мен төлемдерін салыстыру</div>
+          <div class="auto-cadence">Күн сайын • Шотқа түскен төлемдерді нақты жөнелтілген тапсырыстармен автоматты сәйкестендіру</div>
         </div>
       </div>
     </div>
@@ -2281,7 +2285,7 @@ a {
     <div style="margin-top:24px;text-align:center;">
       <span style="display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-full);font-size:13px;font-weight:600;color:var(--text-muted);box-shadow:var(--shadow-sm);">
         <i data-lucide="cpu" style="width:15px;height:15px;color:var(--accent);"></i>
-        <span>+ тағы 21 фондық алгоритм: Kaspi Доставка таймерлерін бақылау, аймақтарды сұрыптау, қайталанудан қорғау</span>
+        <span>+ тағы 21 фондық алгоритм: Kaspi Доставка салмақ-көлем өлшемдерін тексеру, аймақтарды сұрыптау, жасырын ұсталымдар аудиті</span>
       </span>
     </div>
   </div>
