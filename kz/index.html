@@ -62,6 +62,16 @@
         },
         {
           "@type": "Offer",
+          "name": "Старт",
+          "price": "2990",
+          "priceCurrency": "KZT",
+          "priceValidUntil": "2026-12-31",
+          "description": "31.12.2026 дейінгі акциялық тариф: 10 тауарға репрайсер, 3 тауарға турбо, компьютердегі кабинет, хабарламалар, қойма, предзаказ және витрина шектеусіз.",
+          "url": "https://kitseller.kz/kz/#pricing",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
           "name": "Про+",
           "price": "9990",
           "priceCurrency": "KZT",
@@ -960,9 +970,9 @@ a {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  max-width: 900px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
@@ -970,15 +980,34 @@ a {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  padding: 36px;
+  padding: 30px;
   box-shadow: var(--shadow-sm);
   position: relative;
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 
 .p-card.featured {
   border-color: var(--accent);
   box-shadow: 0 10px 30px -5px rgba(37, 99, 235, 0.15);
+}
+
+/* Акционный тариф «Старт»: зелёная рамка и лента, чтобы отличался от «Про+» */
+.p-card.promo {
+  border-color: var(--profit);
+  box-shadow: 0 10px 30px -5px rgba(5, 150, 105, 0.14);
+}
+
+.p-ribbon.promo {
+  background: var(--profit);
+}
+
+.p-note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: -14px 0 22px;
 }
 
 .p-ribbon {
@@ -1050,6 +1079,7 @@ a {
   gap: 12px;
   margin-bottom: 30px;
   font-size: 14px;
+  flex: 1;
 }
 
 .p-features li {
@@ -1095,6 +1125,13 @@ a {
   background: var(--surface);
   border: 1px solid var(--border-strong);
   color: var(--text-main);
+}
+
+/* Три карточки в ряд на средних экранах: чуть теснее, чтобы не ломались цены */
+@media (min-width: 961px) and (max-width: 1180px) {
+  .p-card { padding: 24px; }
+  .p-price { font-size: 34px; }
+  .p-name { font-size: 20px; }
 }
 
 /* ==========================================================================
@@ -1665,7 +1702,7 @@ a {
     <div class="hero-trust-bar">
       <span><i data-lucide="shield-check" style="width:15px;height:15px;color:var(--profit);"></i> Қауіпсіз: деректер сенімді шифрланады</span>
       <span><i data-lucide="clock" style="width:15px;height:15px;color:var(--profit);"></i> Тест: Стандарт 7 күн / Про+ 3 күн</span>
-      <span><i data-lucide="check" style="width:15px;height:15px;color:var(--profit);"></i> Жасырын төлемсіз барлығы 9 990 ₸ ішінде</span>
+      <span><i data-lucide="check" style="width:15px;height:15px;color:var(--profit);"></i> Репрайсерді 2 990 ₸-ден сынауға болады, Про+ — барлығы 9 990 ₸ ішінде</span>
     </div>
 
     <!-- ==========================================================================
@@ -2343,6 +2380,39 @@ a {
         </a>
       </div>
 
+      <!-- Старт (акция 31.12.2026 дейін) -->
+      <div class="p-card promo">
+        <div class="p-ribbon promo">АКЦИЯ 31.12.2026 ДЕЙІН</div>
+        <h3 class="p-name">Старт</h3>
+        <p class="p-desc">Автоматтандыруды өз тауарларыңызда сынап көріңіз: 10 тауарға репрайсер, қалғанының бәрі шектеусіз.</p>
+
+        <div class="p-price-wrap">
+          <span class="p-price">2 990 ₸</span>
+          <span class="p-period">/ айына</span>
+        </div>
+
+        <div class="p-trial-tag">
+          <i data-lucide="check" style="width:14px;height:14px;"></i> Акциялық тариф
+        </div>
+
+        <ul class="p-features">
+          <li><i data-lucide="check"></i><span><b>Стандарт тарифінің барлығы</b> (жүкқұжаттар, бот)</span></li>
+          <li><i data-lucide="check"></i><span><b>Компьютердегі кабинет:</b> тапсырыстар, хабарламалар, сатып алушылармен чаттар</span></li>
+          <li><i data-lucide="check"></i><span><b>Қойма, предзаказ және витрина</b> — шектеусіз</span></li>
+          <li><i data-lucide="check"></i><span><b>Танысу үшін репрайсер:</b> 10 тауар, әр 17 минут сайын тексеру</span></li>
+          <li><i data-lucide="check"></i><span>3 тауарға <b>Турбо-режим</b></span></li>
+          <li><i data-lucide="check"></i><span><b>Бәсекелес барлауы:</b> 3 күнде бір жаңа дүкен</span></li>
+          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i><span>Карточкалардағы орындар мен жаңа сатушылар — тек репрайсер тауарлары бойынша</span></li>
+          <li style="color:var(--text-light);"><i data-lucide="minus" style="color:var(--text-light);"></i><span>Бәсекелес каталогын көшіру жоқ</span></li>
+        </ul>
+
+        <p class="p-note">Репрайсер, турбо және нарық мониторингі Kaspi-ге шығатын жеке арналар арқылы жұмыс істейді, олардың қуаты шектеулі — сондықтан мұнда олар бірнеше тауарға қосылған. 31.12.2026 дейін қосылғандар жазылымды үзіліссіз жалғастырса, тарифте қалады. Бұл тарифте сынақ мерзімі жоқ.</p>
+
+        <a href="https://t.me/KitSeller_bot?start=pay" class="btn-plan secondary" target="_blank" rel="noopener">
+          Старт таңдау
+        </a>
+      </div>
+
       <!-- Про+ (ХИТ) -->
       <div class="p-card featured">
         <div class="p-ribbon">ТОЛЫҚ ТАРИФ • БАРЛЫҒЫ ҚОСЫЛҒАН</div>
@@ -2361,6 +2431,8 @@ a {
         <ul class="p-features">
           <li><i data-lucide="check"></i><span><b>Стандарт тарифінің барлығы</b> (жүкқұжаттар, бот)</span></li>
           <li><i data-lucide="check"></i><span><b>Бағаның Турбо-репрайсері:</b> ең төменгі бағаны қорғай отырып жылдам жауап беру</span></li>
+          <li><i data-lucide="check"></i><span><b>100 тауарға дейін репрайсер,</b> әр 17 минут сайын. Аз ба? <b>+100 тауар пакеті</b> — айына 3 990 ₸, үш пакетке дейін</span></li>
+          <li><i data-lucide="check"></i><span><b>Карточкалардағы орындар мен жаңа сатушылар</b> — тек репрайсер тауарлары бойынша емес, бүкіл каталог бойынша</span></li>
           <li><i data-lucide="check"></i><span><b>Ақылды қойма:</b> ұяшықтар және Kaspi-мен қалдықтарды салыстыру</span></li>
           <li><i data-lucide="check"></i><span><b>Kaspi Предзаказ:</b> мерзімдерді бақылау және ескертулер</span></li>
           <li><i data-lucide="check"></i><span><b>Бөлек Excel Pro-аналитика:</b> ақша қозғалысы мен пайда есебі</span></li>
@@ -2470,12 +2542,36 @@ a {
       <!-- Q4: Разница в тарифах -->
       <details class="faq-item">
         <summary class="faq-q">
-          <span>Стандарт (990 ₸) пен Про+ (9 990 ₸) тарифтерінің айырмашылығы неде?</span>
+          <span>Стандарт (990 ₸), Старт (2 990 ₸) және Про+ (9 990 ₸) тарифтерінің айырмашылығы неде?</span>
           <i data-lucide="chevron-down" class="faq-chevron"></i>
         </summary>
         <div class="faq-a">
           <b>«Стандарт» тарифі (айына 990 ₸, 7 күн тегін)</b> — жүкқұжаттарды топтамамен жылдам басып шығару (термоэтикеткаларға және кәдімгі А4 қағазына), түсімдерді талдау және Telegram-бот арқылы негізгі тапсырыстарды басқару шешімі.<br><br>
+          <b>«Старт» тарифі (айына 2 990 ₸, акция 31.12.2026 дейін)</b> — автоматтандыруды өз тауарларыңызда сынап көру үшін: жүкқұжаттар, компьютердегі кабинет, хабарламалар, қойма, предзаказ және витрина шектеусіз, 10 тауарға репрайсер және 3 тауарға турбо. Толығырақ — төмендегі сұрақта.<br><br>
           <b>«Про+» тарифі (айына 9 990 ₸, 3 күн тегін)</b> — Kaspi сатушысының толыққанды операциялық жүйесі: Kaspi Pay үзінді-көшірмесі бойынша нақты P&L және Unit-экономика, жеткізу үшін артық төлемдер аудиті, бағаның турбо-репрайсері, үйдегі ұяшықты қойма, предзаказдарды басқару, карточкаларды 1 басумен импорттау және бөлек Excel Pro-аналитикасы.
+        </div>
+      </details>
+
+      <!-- Q4a: Тариф Старт -->
+      <details class="faq-item">
+        <summary class="faq-q">
+          <span>«Старт» тарифі деген не және 31 желтоқсаннан кейін не болады?</span>
+          <i data-lucide="chevron-down" class="faq-chevron"></i>
+        </summary>
+        <div class="faq-a">
+          «Старт» — автоматтандыруды өз тауарларыңызда сынап көру үшін айына 2 990 ₸ тұратын акциялық тариф. Жүкқұжаттар, компьютердегі кабинет, хабарламалар, сатып алушылармен чаттар, қойма, предзаказ және витрина шектеусіз жұмыс істейді. Репрайсер 10 тауарға қосылған (әр 17 минут сайын тексеру), турбо — 3 тауарға, бәсекелес барлауы — 3 күнде бір жаңа дүкен. Бұл бөліктер Kaspi витринасына қуаты шектеулі жеке арналар арқылы шығады — сондықтан лимиттер осындай.<br><br>
+          Тариф 31.12.2026 дейін сатылады. Осы күнге дейін қосылғандар жазылымды үзіліссіз жалғастырса, онда қалады; күннен кейін жаңа сатушыларға ол сатылмайды. «Старттың» тегін сынақ мерзімі жоқ: Стандартты (7 күн) немесе Про+ (3 күн) тегін сынауға болады.
+        </div>
+      </details>
+
+      <!-- Q4b: Докупить товары -->
+      <details class="faq-item">
+        <summary class="faq-q">
+          <span>Репрайсерде 100 тауар аз болса, не істеу керек?</span>
+          <i data-lucide="chevron-down" class="faq-chevron"></i>
+        </summary>
+        <div class="faq-a">
+          Про+ тарифінде айына 3 990 ₸-ға «+100 тауар» пакетін қосып алуға болады — үш пакетке дейін, яғни репрайсерде 400 тауарға дейін. Пакет кабинеттегі «Тарифтер» бетінде сатып алынады және 31 күн әрекет етеді. Ол біткен кезде біз алдын ала ескертеміз, ал лимиттен асқан тауарлар өшіріледі — ең кейін қосылғандары. Басқа тарифтерде пакеттер сатылмайды.
         </div>
       </details>
 
