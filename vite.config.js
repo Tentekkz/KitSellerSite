@@ -23,6 +23,13 @@ export default defineConfig({
         kz_nkt: resolve(__dirname, 'kz/nkt-ntin-kaspi.html'),
         kz_vozmozhnosti: resolve(__dirname, 'kz/vozmozhnosti.html'),
         kz_kalkulyator: resolve(__dirname, 'kz/kalkulyator-kaspi.html'),
+        komissiya_kaspi_magazin: resolve(__dirname, 'komissiya-kaspi-magazin.html'),
+        porog_5000_kaspi_dostavka: resolve(__dirname, 'porog-5000-kaspi-dostavka.html'),
+        kak_dobavit_tovar_kaspi: resolve(__dirname, 'kak-dobavit-tovar-kaspi.html'),
+        pochemu_tovar_ne_prodaetsya_kaspi: resolve(__dirname, 'pochemu-tovar-ne-prodaetsya-kaspi.html'),
+        kachestvo_magazina_kaspi: resolve(__dirname, 'kachestvo-magazina-kaspi.html'),
+        kogda_kaspi_platit_prodavcu: resolve(__dirname, 'kogda-kaspi-platit-prodavcu.html'),
+        stati: resolve(__dirname, 'stati.html'),
         notfound: resolve(__dirname, '404.html')
       }
     }
