@@ -47,6 +47,8 @@ export default defineConfig({
         sroki_kaspi_dostavki: resolve(__dirname, 'sroki-kaspi-dostavki.html'),
         kz_sroki_kaspi_dostavki: resolve(__dirname, 'kz/sroki-kaspi-dostavki.html'),
         kz_stati: resolve(__dirname, 'kz/stati.html'),
+        o_kitseller: resolve(__dirname, 'o-kitseller.html'),
+        kz_o_kitseller: resolve(__dirname, 'kz/o-kitseller.html'),
         notfound: resolve(__dirname, '404.html')
       }
     }

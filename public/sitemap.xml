@@ -361,6 +361,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://kitseller.kz/o-kitseller.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/o-kitseller.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/o-kitseller.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/o-kitseller.html"/>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/o-kitseller.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/o-kitseller.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/o-kitseller.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/o-kitseller.html"/>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://kitseller.kz/stati.html</loc>
     <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/stati.html"/>
     <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/stati.html"/>
