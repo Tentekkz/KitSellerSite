@@ -49,6 +49,8 @@ export default defineConfig({
         kz_stati: resolve(__dirname, 'kz/stati.html'),
         o_kitseller: resolve(__dirname, 'o-kitseller.html'),
         kz_o_kitseller: resolve(__dirname, 'kz/o-kitseller.html'),
+        komissiya_kaspi_po_kategoriyam: resolve(__dirname, 'komissiya-kaspi-po-kategoriyam.html'),
+        kz_komissiya_kaspi_po_kategoriyam: resolve(__dirname, 'kz/komissiya-kaspi-po-kategoriyam.html'),
         notfound: resolve(__dirname, '404.html')
       }
     }

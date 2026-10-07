@@ -197,3 +197,12 @@ article li strong{font-weight:600}
   article{gap:28px}
   .article-head{padding:28px 0 24px}
 }
+
+.tbl{overflow-x:auto;margin:16px 0 8px;border:1px solid var(--border);border-radius:12px}
+.tbl table{width:100%;border-collapse:collapse;font-size:15px}
+.tbl th,.tbl td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}
+.tbl th{font-size:13px;color:var(--muted);font-weight:600;background:var(--card)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl details summary{cursor:pointer;color:var(--muted)}
+.tbl div{margin:2px 0}
+.small{font-size:13.5px;color:var(--muted)}
