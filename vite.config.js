@@ -30,6 +30,23 @@ export default defineConfig({
         kachestvo_magazina_kaspi: resolve(__dirname, 'kachestvo-magazina-kaspi.html'),
         kogda_kaspi_platit_prodavcu: resolve(__dirname, 'kogda-kaspi-platit-prodavcu.html'),
         stati: resolve(__dirname, 'stati.html'),
+        kz_komissiya_kaspi_magazin: resolve(__dirname, 'kz/komissiya-kaspi-magazin.html'),
+        kz_porog_5000_kaspi_dostavka: resolve(__dirname, 'kz/porog-5000-kaspi-dostavka.html'),
+        kz_kak_dobavit_tovar_kaspi: resolve(__dirname, 'kz/kak-dobavit-tovar-kaspi.html'),
+        kz_pochemu_tovar_ne_prodaetsya_kaspi: resolve(__dirname, 'kz/pochemu-tovar-ne-prodaetsya-kaspi.html'),
+        raspolozhenie_prodavcov_kaspi: resolve(__dirname, 'raspolozhenie-prodavcov-kaspi.html'),
+        kz_raspolozhenie_prodavcov_kaspi: resolve(__dirname, 'kz/raspolozhenie-prodavcov-kaspi.html'),
+        kz_kachestvo_magazina_kaspi: resolve(__dirname, 'kz/kachestvo-magazina-kaspi.html'),
+        otlichnyj_prodavec_kaspi: resolve(__dirname, 'otlichnyj-prodavec-kaspi.html'),
+        kz_otlichnyj_prodavec_kaspi: resolve(__dirname, 'kz/otlichnyj-prodavec-kaspi.html'),
+        kz_kogda_kaspi_platit_prodavcu: resolve(__dirname, 'kz/kogda-kaspi-platit-prodavcu.html'),
+        predzakaz_kaspi: resolve(__dirname, 'predzakaz-kaspi.html'),
+        kz_predzakaz_kaspi: resolve(__dirname, 'kz/predzakaz-kaspi.html'),
+        fiskalnyj_chek_kaspi: resolve(__dirname, 'fiskalnyj-chek-kaspi.html'),
+        kz_fiskalnyj_chek_kaspi: resolve(__dirname, 'kz/fiskalnyj-chek-kaspi.html'),
+        sroki_kaspi_dostavki: resolve(__dirname, 'sroki-kaspi-dostavki.html'),
+        kz_sroki_kaspi_dostavki: resolve(__dirname, 'kz/sroki-kaspi-dostavki.html'),
+        kz_stati: resolve(__dirname, 'kz/stati.html'),
         notfound: resolve(__dirname, '404.html')
       }
     }
