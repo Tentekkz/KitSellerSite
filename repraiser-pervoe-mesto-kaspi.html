@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Репрайсер для Kaspi: как держать первое место и не уйти в минус — KitSeller</title>
+<link rel="canonical" href="https://kitseller.kz/repraiser-pervoe-mesto-kaspi.html">
+<link rel="alternate" hreflang="ru" href="https://kitseller.kz/repraiser-pervoe-mesto-kaspi.html">
+<link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/repraiser-pervoe-mesto-kaspi.html">
+<link rel="alternate" hreflang="x-default" href="https://kitseller.kz/repraiser-pervoe-mesto-kaspi.html">
+<meta name="description" content="Как автоматическая переоценка держит цену рядом с лидером карточки Kaspi и где ставить нижнюю границу, чтобы не торговать в убыток. Пошаговая логика и пример на условных числах.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="KitSeller">
+<meta property="og:locale" content="ru_KZ">
+<meta property="og:url" content="https://kitseller.kz/repraiser-pervoe-mesto-kaspi.html">
+<meta property="og:title" content="Репрайсер для Kaspi: как держать первое место и не уйти в минус">
+<meta property="og:description" content="Как автоматическая переоценка держит цену рядом с лидером карточки Kaspi и где ставить нижнюю границу, чтобы не торговать в убыток. Пошаговая логика и пример на условных числах.">
+<meta property="og:image" content="https://kitseller.kz/og-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Репрайсер для Kaspi: как держать первое место и не уйти в минус">
+<meta name="twitter:description" content="Как автоматическая переоценка держит цену рядом с лидером карточки Kaspi и где ставить нижнюю границу, чтобы не торговать в убыток. Пошаговая логика и пример на условных числах.">
+<meta name="twitter:image" content="https://kitseller.kz/og-preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/article.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "KitSeller",
+          "item": "https://kitseller.kz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Статьи",
+          "item": "https://kitseller.kz/stati.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Первое место и репрайсер",
+          "item": "https://kitseller.kz/repraiser-pervoe-mesto-kaspi.html"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Репрайсер для Kaspi: как держать первое место и не уйти в минус",
+      "description": "Как автоматическая переоценка держит цену рядом с лидером карточки Kaspi и где ставить нижнюю границу, чтобы не торговать в убыток. Пошаговая логика и пример на условных числах.",
+      "inLanguage": "ru",
+      "datePublished": "2026-10-16",
+      "dateModified": "2026-10-16",
+      "mainEntityOfPage": "https://kitseller.kz/repraiser-pervoe-mesto-kaspi.html",
+      "author": {
+        "@type": "Organization",
+        "name": "KitSeller",
+        "url": "https://kitseller.kz/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "KitSeller",
+        "url": "https://kitseller.kz/",
+        "logo": "https://kitseller.kz/logo.png"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Гарантирует ли репрайсер первое место в карточке?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Место зависит от бонусов, цены, рейтинга, отзывов и скорости доставки. Репрайсер управляет только ценой и держит её в границах, которые вы задали."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как не уйти в минус при автоматической переоценке?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Задать нижний порог по каждому товару: считать его от закупки, комиссии, доставки, налога и прибыли, которую вы согласны получить с заказа. Ниже этой границы цена не опускается."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать с продавцом, который торгует себе в убыток?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Исключить его из расчёта: поимённо (чёрный список) или отсечкой по доверию, когда не учитываются продавцы без отзывов и с плохим рейтингом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Вернётся ли цена, когда конкуренты уйдут?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, если включён подъём цены. Без него товар остаётся по нижней цене."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px;flex-wrap:wrap">
+  <a href="/"><img src="/logo-light.png" alt="KitSeller" style="height:32px;width:auto;display:block"></a>
+  <nav style="display:flex;align-items:center;gap:28px;font-size:14px;color:var(--muted)">
+    <a href="/#features" style="color:var(--muted)">Что делает</a>
+    <a href="/stati.html" style="color:var(--muted)">Статьи</a>
+    <a href="/#pricing" style="color:var(--muted)">Тарифы</a>
+    <a href="/#start" style="color:var(--muted)">Как начать</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:10px;flex:none">
+    <div class="lang-switcher" aria-label="Тілді таңдау / Выбор языка"><a href="/repraiser-pervoe-mesto-kaspi.html" class="lang-btn active">RU</a><a href="/kz/repraiser-pervoe-mesto-kaspi.html" class="lang-btn">KZ</a></div>
+    <a href="https://app.kitseller.kz/web" class="btn btn-ghost" style="height:40px">Войти в кабинет</a>
+    <a href="https://t.me/KitSeller_bot" class="btn btn-primary" style="height:40px">Telegram</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="article-head reading">
+    <p class="crumbs"><a href="/">KitSeller</a> <span>/</span> <a href="/stati.html">Статьи</a> <span>/</span> <span>Первое место и репрайсер</span></p>
+    <h1>Репрайсер для Kaspi: как держать первое место и не уйти в минус</h1>
+    <p class="lede">Первое место в карточке легко купить скидкой — и так же легко потерять на этом деньги. Разбираем логику репрайсера: что он должен делать с ценой и где ему нужна граница.</p>
+    <p class="stamp">Обновлено 16 октября 2026</p>
+  </div>
+
+  <article class="reading">
+
+<section><h2>Зачем вообще двигать цену</h2>
+<p>По справке Kaspi, порядок продавцов в карточке определяют бонусы, цена, рейтинг, отзывы и скорость доставки; про цену Kaspi отдельно уточняет, что продавец с более низкой ценой будет первым. Подробности — в статье <a href="/raspolozhenie-prodavcov-kaspi.html">про расположение продавцов</a>. Из всех пяти признаков цену вы меняете быстрее всего, поэтому на неё и приходится основная работа.</p>
+<p>Конкуренты меняют цену в течение дня. Ручная проверка раз в день означает, что часть времени вы стоите ниже по списку, а часть — торгуете дешевле, чем нужно. Репрайсер закрывает именно эту дыру: сам следит и сам корректирует.</p></section>
+
+<section><h2>Три шага одного цикла</h2>
+<ol>
+<li><strong>Смотрит на конкурентов.</strong> Берёт актуальные предложения в карточке и находит, кто сейчас впереди по цене.</li>
+<li><strong>Считает безопасную цену.</strong> Чуть ниже лидера — но не ниже вашей нижней границы.</li>
+<li><strong>Отправляет цену в Kaspi.</strong> Прямая загрузка в кабинет занимает минуты; через прайс-лист дольше, потому что файл нужно собрать и дождаться обработки.</li>
+</ol>
+<p>У Kaspi есть ограничения на частоту правок цен, поэтому разумный репрайсер не дёргает цену каждую секунду, а проверяет карточки с понятным шагом. Точных чисел Kaspi в справке не называет, и мы их не выдумываем.</p></section>
+
+<section><h2>Где ставится граница: пример на условных числах</h2>
+<div class="note"><strong>Пример, а не результат клиента</strong><p style="margin:0">Продавец аксессуаров, карточка за 4 990 ₸. Все числа ниже выдуманы для иллюстрации; свои возьмите из отчёта продаж.</p></div>
+<div class="tbl"><table><thead><tr><th>Статья</th><th>Условно, ₸</th></tr></thead><tbody>
+<tr><td>Закупка и упаковка</td><td>3 000</td></tr>
+<tr><td>Комиссия (условно 12,5% от цены)</td><td>≈ 620</td></tr>
+<tr><td>Доставка (условная, у вас она своя)</td><td>500</td></tr>
+<tr><td>Налог (условно 3% от цены)</td><td>≈ 150</td></tr>
+<tr><td>Желаемая прибыль с заказа</td><td>300</td></tr>
+</tbody></table></div>
+<p>Формула нижней цены: <strong>(закупка + доставка + желаемая прибыль) ÷ (1 − комиссия − налог)</strong>. Здесь это (3 000 + 500 + 300) ÷ (1 − 0,125 − 0,03) ≈ <strong>4 500 ₸</strong>. Это и есть нижний порог: если сосед опустился до 4 200, вы туда не идёте. Первое место за 4 200 принесло бы заказ с убытком.</p>
+<p>Как считать каждую статью — в статье <a href="/kak-poschitat-pribyl-s-zakaza-kaspi.html">про прибыль с заказа</a>.</p></section>
+
+<section><h2>Четыре настройки, без которых автоцена вредит</h2>
+<ul>
+<li><strong>Нижний порог по каждому товару.</strong> Граница, ниже которой цена не опускается никогда.</li>
+<li><strong>Подъём цены обратно.</strong> Когда конкурент ушёл, цена должна вернуться к потолку. Без этого товар остаётся продаваться дёшево.</li>
+<li><strong>Отсечка по доверию.</strong> Продавец без отзывов или с плохим рейтингом — не повод обрушивать свою цену.</li>
+<li><strong>Чёрный список.</strong> Поимённое исключение тех, кто торгует в убыток осознанно.</li>
+</ul>
+<p>Репрайсер не гарантирует первое место: на порядок влияют также бонусы, рейтинг, отзывы и скорость доставки. Он гарантирует только то, что цена не будет хуже, чем могла бы, и не опустится ниже вашей границы.</p></section>
+
+<section><h2>Что входит в тарифы</h2>
+<p>На тарифе «Стандарт» (990 ₸ в месяц) репрайсера нет: это накладные и аналитика. Попробовать автопереоценку можно на акционном тарифе «Старт» за 2 990 ₸ в месяц (действует до 31.12.2026): 30 товаров, проверка раз в 17 минут, Турбо-режим на 3 товара. Полная версия — «Про+» за 9 990 ₸ в месяц: до 150 товаров на автопереоценке, Турбо на 10. Актуальные условия — на странице <a href="/#pricing">тарифов</a>.</p></section>
+
+    <section>
+      <h2>Частые вопросы</h2>
+      <div class="faq">
+        <details>
+          <summary>Гарантирует ли репрайсер первое место в карточке?</summary>
+          <p>Нет. Место зависит от бонусов, цены, рейтинга, отзывов и скорости доставки. Репрайсер управляет только ценой и держит её в границах, которые вы задали.</p>
+        </details>
+        <details>
+          <summary>Как не уйти в минус при автоматической переоценке?</summary>
+          <p>Задать нижний порог по каждому товару: считать его от закупки, комиссии, доставки, налога и прибыли, которую вы согласны получить с заказа. Ниже этой границы цена не опускается.</p>
+        </details>
+        <details>
+          <summary>Что делать с продавцом, который торгует себе в убыток?</summary>
+          <p>Исключить его из расчёта: поимённо (чёрный список) или отсечкой по доверию, когда не учитываются продавцы без отзывов и с плохим рейтингом.</p>
+        </details>
+        <details>
+          <summary>Вернётся ли цена, когда конкуренты уйдут?</summary>
+          <p>Да, если включён подъём цены. Без него товар остаётся по нижней цене.</p>
+        </details>
+      </div>
+    </section>
+
+    <div class="note"><strong>О сервисе: Репрайсер KitSeller</strong>
+      <p style="margin:0">Автопереоценка с нижним порогом по товару, подъёмом цены, отсечкой по доверию и чёрным списком. <a href="/repraiser-kaspi.html">Режимы и скорость проверки →</a></p></div>
+
+    <section class="cta">
+      <h2>Попробовать на своём магазине</h2>
+      <p>Бот открывается в Telegram, кабинет — на компьютере по QR-коду из бота. Семь дней бесплатно, карта не нужна.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://t.me/KitSeller_bot?start=stati">Открыть в Telegram</a>
+        <a class="btn btn-ghost" href="/#pricing">Посмотреть тарифы</a>
+      </div>
+    </section>
+
+    <div class="note"><strong>Проверено</strong>
+      <p style="margin:0">Правила Kaspi здесь даны по справке для партнёров (guide.kaspi.kz) в том виде, как они разобраны в связанных статьях сайта; страница обновлена 16 октября 2026. Условия Kaspi меняются: актуальные цифры смотрите в своём кабинете. Все числа в примерах выдуманы для иллюстрации и не относятся ни к одному магазину — мы не публикуем данные конкретных магазинов.</p></div>
+
+    <div class="next">
+      <h2>Читать дальше</h2>
+      <ul>
+        <li><a href="/repraiser-kaspi.html">Репрайсер для Kaspi: как часто проверять цену</a></li>
+        <li><a href="/raspolozhenie-prodavcov-kaspi.html">Как располагаются продавцы в карточке товара Kaspi</a></li>
+        <li><a href="/kak-poschitat-pribyl-s-zakaza-kaspi.html">Как посчитать комиссию Kaspi и прибыль с заказа</a></li>
+        <li><a href="/stati.html">Все статьи для продавцов Kaspi</a></li>
+      </ul>
+    </div>
+  </article>
+</div>
+
+<footer class="wrap" style="border-top:1px solid var(--border);padding-top:48px;padding-bottom:44px;margin-top:48px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:28px">
+    <div>
+      <a href="/"><img src="/logo-light.png" alt="KitSeller" style="height:30px;width:auto;display:block;margin-bottom:12px"></a>
+      <p style="font-size:13.5px;color:var(--muted);max-width:280px;margin:0">Рабочее место продавца Kaspi: накладные, настоящая прибыль и авто-репрайсер.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end">
+      <div class="lang-switcher" aria-label="Тілді таңдау / Выбор языка"><a href="/repraiser-pervoe-mesto-kaspi.html" class="lang-btn active">RU</a><a href="/kz/repraiser-pervoe-mesto-kaspi.html" class="lang-btn">KZ</a></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:13.5px">
+        <a href="/o-kitseller.html">О KitSeller</a>·
+        <a href="/stati.html">Статьи</a>·
+        <a href="https://t.me/KitSeller_bot?start=help">Поддержка</a>·
+        <a href="/offer.html">Оферта</a>·
+        <a href="/privacy.html">Конфиденциальность</a>·
+        <a href="https://app.kitseller.kz/web">Войти</a>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:20px;font-size:12.5px;color:var(--text-light)">KitSeller — для продавцов Kaspi.kz · ИП Path of Peaks</div>
+</footer>
+
+</body>
+</html>

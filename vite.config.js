@@ -51,6 +51,14 @@ export default defineConfig({
         kz_o_kitseller: resolve(__dirname, 'kz/o-kitseller.html'),
         komissiya_kaspi_po_kategoriyam: resolve(__dirname, 'komissiya-kaspi-po-kategoriyam.html'),
         kz_komissiya_kaspi_po_kategoriyam: resolve(__dirname, 'kz/komissiya-kaspi-po-kategoriyam.html'),
+        repraiser_pervoe_mesto_kaspi: resolve(__dirname, 'repraiser-pervoe-mesto-kaspi.html'),
+        kz_repraiser_pervoe_mesto_kaspi: resolve(__dirname, 'kz/repraiser-pervoe-mesto-kaspi.html'),
+        podem_ceny_porog_5000_kaspi: resolve(__dirname, 'podem-ceny-porog-5000-kaspi.html'),
+        kz_podem_ceny_porog_5000_kaspi: resolve(__dirname, 'kz/podem-ceny-porog-5000-kaspi.html'),
+        kak_poschitat_pribyl_s_zakaza_kaspi: resolve(__dirname, 'kak-poschitat-pribyl-s-zakaza-kaspi.html'),
+        kz_kak_poschitat_pribyl_s_zakaza_kaspi: resolve(__dirname, 'kz/kak-poschitat-pribyl-s-zakaza-kaspi.html'),
+        proverka_pokazatelej_magazina_kaspi: resolve(__dirname, 'proverka-pokazatelej-magazina-kaspi.html'),
+        kz_proverka_pokazatelej_magazina_kaspi: resolve(__dirname, 'kz/proverka-pokazatelej-magazina-kaspi.html'),
         notfound: resolve(__dirname, '404.html')
       }
     }

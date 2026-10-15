@@ -396,6 +396,79 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Рекламные статьи: репрайсер, порог 5 000 ₸, прибыль с заказа, показатели магазина -->
+  <url>
+    <loc>https://kitseller.kz/repraiser-pervoe-mesto-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/repraiser-pervoe-mesto-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/repraiser-pervoe-mesto-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/repraiser-pervoe-mesto-kaspi.html"/>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/repraiser-pervoe-mesto-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/repraiser-pervoe-mesto-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/repraiser-pervoe-mesto-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/repraiser-pervoe-mesto-kaspi.html"/>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/podem-ceny-porog-5000-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/podem-ceny-porog-5000-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/podem-ceny-porog-5000-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/podem-ceny-porog-5000-kaspi.html"/>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/podem-ceny-porog-5000-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/podem-ceny-porog-5000-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/podem-ceny-porog-5000-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/podem-ceny-porog-5000-kaspi.html"/>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kak-poschitat-pribyl-s-zakaza-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/kak-poschitat-pribyl-s-zakaza-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/kak-poschitat-pribyl-s-zakaza-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/kak-poschitat-pribyl-s-zakaza-kaspi.html"/>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/kak-poschitat-pribyl-s-zakaza-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/kak-poschitat-pribyl-s-zakaza-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/kak-poschitat-pribyl-s-zakaza-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/kak-poschitat-pribyl-s-zakaza-kaspi.html"/>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/proverka-pokazatelej-magazina-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/proverka-pokazatelej-magazina-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/proverka-pokazatelej-magazina-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/proverka-pokazatelej-magazina-kaspi.html"/>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kitseller.kz/kz/proverka-pokazatelej-magazina-kaspi.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/proverka-pokazatelej-magazina-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://kitseller.kz/kz/proverka-pokazatelej-magazina-kaspi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kitseller.kz/proverka-pokazatelej-magazina-kaspi.html"/>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://kitseller.kz/stati.html</loc>
     <xhtml:link rel="alternate" hreflang="ru" href="https://kitseller.kz/stati.html"/>
